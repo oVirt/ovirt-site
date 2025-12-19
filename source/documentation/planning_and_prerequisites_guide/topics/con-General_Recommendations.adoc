@@ -2,7 +2,7 @@
 [id="general-recommendations"]
 = General Recommendations
 
-* Take a full backup as soon as the deployment is complete, and store it in a separate location. Take regular backups thereafter. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Backups_and_Migration[Backups and Migration] in the _Administration Guide_.
+* Take a full backup as soon as the deployment is complete, and store it in a separate location. Take regular backups thereafter. See link:/documentation/administration_guide/index.html#chap-Backups_and_Migration[Backups and Migration] in the _Administration Guide_.
 
 * Avoid running any service that {virt-product-fullname} depends on as a virtual machine in the same environment. If this is done, it must be planned carefully to minimize downtime, if the virtual machine containing that service incurs downtime.
 
@@ -10,11 +10,11 @@
 
 * You can automate the deployment of hosts and virtual machines using PXE, Kickstart, Satellite, CloudForms, Ansible, or a combination thereof. However, installing a self-hosted engine using PXE is not supported. See:
 
-** link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Automating_RHVH_Deployment_SM_localDB_deploy[Automating {hypervisor-fullname} Deployment] for the additional requirements for automated {hypervisor-shortname} deployment using PXE and Kickstart.
+** link:/documentation/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Automating_RHVH_Deployment_SM_localDB_deploy[Automating {hypervisor-fullname} Deployment] for the additional requirements for automated {hypervisor-shortname} deployment using PXE and Kickstart.
 ** Performing a Standard Installation.
 ** Performing an Advanced Installation.
 
-** link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Automating_RHV_Configuration_using_Ansible[Automating Configuration Tasks using Ansible] in the _Administration Guide_.
+** link:/documentation/administration_guide/index#chap-Automating_RHV_Configuration_using_Ansible[Automating Configuration Tasks using Ansible] in the _Administration Guide_.
 
 * Set the system time zone for all machines in your deployment to UTC. This ensures that data collection and connectivity are not interrupted by variations in your local time zone, such as daylight savings time.
 

@@ -36,10 +36,6 @@ end
 # for syntax highlighting
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 
-# for events
-gem 'icalendar', '~> 1.5'
-gem 'chronic'
-
 # for dot access to Hash members in HAML pages
 gem 'hash_dot', '~> 2.4.2'
 

@@ -31,7 +31,7 @@ contributing UX and design expertise, and engaging with the community.
 
 Before getting started, we recommend that you:
 
-- Sign up for the [users@ovirt.org mailing list](/community/users-list.html) and send us an email saying how you would like to contribute.
+- Sign up for the [users@ovirt.org mailing list](/community/users-list.html) and send us an email saying how you want to contribute.
   Visit our [mailing lists](/community/about/mailing-lists.html) page for other oVirt mailing lists to sign up for.
 - For fluent, real time communication, [join us on IRC](/community/about/contact.html#irc) or [join us on Matrix](/community/about/contact.html#matrix)
 - Please read our [community etiquette guidelines](/community/about/community-guidelines.html). (Quick summary: Be nice!)
@@ -42,7 +42,6 @@ oVirt is a community project, and we welcome contributions from everyone! If you
 
 There are a few ways to engage with the oVirt Community:
 
-- [Events](/events/)
 - [Archived Conferences Presentations](archived_conferences_presentations.html)
 - [Forums / Mailing lists](https://lists.ovirt.org)
 - [oVirt Facebook group](https://www.facebook.com/groups/ovirt.openvirtualization/)

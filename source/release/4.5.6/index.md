@@ -41,9 +41,9 @@ To learn about features introduced before 4.5.6, see the
 This oVirt 4.5.6 release is meant to provide a small but crucial update due to an urgent [CVE](https://github.com/advisories/GHSA-4vwj-x32h-m4vj).
 If you are already using oVirt master snapshot you should already have received this release content.
 
-# What's new in 4.5.6?
+## What's new in 4.5.6?
 
-* [oVirt Engine 4.5.6] (https://github.com/oVirt/ovirt-engine/releases/tag/ovirt-engine-4.5.6)
+* [oVirt Engine 4.5.6](https://github.com/oVirt/ovirt-engine/releases/tag/ovirt-engine-4.5.6)
 
 ### Contributors
 
@@ -52,4 +52,3 @@ If you are already using oVirt master snapshot you should already have received 
 * [Miguel Martin](https://github.com/mmartinv) (contributed to: ovirt-engine)
 * [Martin Perina](https://github.com/mwperina) (contributed to: ovirt-engine)
 * [Sandro Bonazzola](https://github.com/sandrobonazzola) (contributed to: ovirt-engine)
-

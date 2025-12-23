@@ -123,15 +123,36 @@
                     </section>
                   </div>
                 
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/134267a37e4981c3c0a94dcaddc88357?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/134267a37e4981c3c0a94dcaddc88357?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Jasper Berton">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Jasper Berton</span></p>
+                      
+                    </section>
+                  </div>
+                
                 </div>
             </header>
           
         
         <section id="content" class="content container">
           
-<h1 id="installing-on-rhel-9x-or-derivatives">Installing on RHEL 9.x or derivatives</h1>
+<h1 id="installing-on-rhel">Installing on RHEL</h1>
 
-<h2 id="for-rhel-9x">For RHEL 9.x</h2>
+<h2 id="for-rhel-9x-or-10x">For RHEL 9.x or 10.x</h2>
 
 <p>The following repositories need to be enabled for RHEL 9.x only.</p>
 
@@ -141,12 +162,27 @@ subscription-manager repos <span class="nt">--enable</span> codeready-builder-fo
 subscription-manager repos <span class="nt">--enable</span> rhel-9-for-x86_64-resilientstorage-rpms
 </code></pre></div></div>
 
-<h2 id="for-rhel-9x-and-rhel-9x-derivatives">For RHEL 9.x and RHEL 9.x derivatives</h2>
+<p>The same steps need to be followed for RHEL 10.x :</p>
 
-<p>Once a minimal RHEL 9.x (or derivative) system has been built, you can install the pre-production master snapshots (oVirt Release 4.5.6 + Engine 4.5.7)</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>subscription-manager repos <span class="nt">--enable</span> rhel-10-for-x86_64-baseos-rpms
+subscription-manager repos <span class="nt">--enable</span> rhel-10-for-x86_64-appstream-rpms
+subscription-manager repos <span class="nt">--enable</span> codeready-builder-for-rhel-10-x86_64-rpms
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf copr <span class="nb">enable</span> <span class="nt">-y</span> ovirt/ovirt-master-snapshot centos-stream-9
+<h2 id="next-steps-for-rhel-and-rhel-derivatives">Next steps for RHEL and RHEL derivatives</h2>
+
+<p><strong>Note:</strong> Previous steps with subscription managers are not needed for AlmaLinux distro’s.</p>
+
+<p>Once a minimal RHEL 9.x (or derivative like AlmaLinux) system has been built, you can install the pre-production master snapshots (oVirt Release 4.5.6 + Engine 4.5.7)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf copr <span class="nb">enable</span> <span class="nt">-y</span> ovirt/ovirt-master-snapshot rhel-9-x86_64
 dnf <span class="nb">install</span> <span class="nt">-y</span> ovirt-release-master
+</code></pre></div></div>
+
+<p>Or for RHEL 10.x and derivatives:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf copr <span class="nb">enable</span> <span class="nt">-y</span> ovirt/ovirt-master-snapshot rhel-10-x86_64
+dnf <span class="nb">install</span> <span class="nt">-y</span> ovirt-release-master epel-release
 </code></pre></div></div>
 
 <p>At this point you can choose to install the :</p>

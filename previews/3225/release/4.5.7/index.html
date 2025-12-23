@@ -154,7 +154,7 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
 <ol id="markdown-toc">
   <li><a href="#ovirt-457-release-notes" id="markdown-toc-ovirt-457-release-notes">oVirt 4.5.7 Release Notes</a>    <ol>
       <li><a href="#whats-new-in-457" id="markdown-toc-whats-new-in-457">What’s New in 4.5.7?</a></li>
-      <li><a href="#new-releases-in-457" id="markdown-toc-new-releases-in-457">New releases in 4.5.7?</a></li>
+      <li><a href="#new-releases-in-457" id="markdown-toc-new-releases-in-457">New releases in 4.5.7</a></li>
       <li><a href="#contributors" id="markdown-toc-contributors">Contributors</a></li>
       <li><a href="#new-cpus" id="markdown-toc-new-cpus">New cpu’s</a></li>
     </ol>
@@ -173,24 +173,24 @@ If you are going to install on RHEL or derivatives please follow <a href="/ovirt
   <li>Reconnect faster to host after reboot, instead of static 10 minutes adapted to connect when host is back online.</li>
   <li>On boot of VM have a spare of <code class="language-plaintext highlighter-rouge">NumOfPciExpressPorts</code> PCIe ports available instead of a fixed number.</li>
   <li>Add the optional <code class="language-plaintext highlighter-rouge">attach_wgt</code> flag to the vm start endpoint. This will auto attach the virtio-win iso to the vm.</li>
-  <li>Ability to add tags to templates.</li>
+  <li>Ability to add tags to templates via UI in the administration panel.</li>
   <li>Add operating system description to host api object.</li>
   <li>Added option for user to decide preference of vnc console invocation.</li>
   <li>Added Windows 2025 and RHEL 10 to OS list.</li>
   <li>Improve isLiveDelete check on VM.</li>
   <li>Dropped deprecated packages.</li>
   <li>Dropped Ceph, Cinderlib and collectd in Centos 10 due to not available.</li>
-  <li>Added new DC/Cluster level.</li>
+  <li>Added new DC/Cluster level (4.8).</li>
+  <li>Cluster level 4.8 now uses <code class="language-plaintext highlighter-rouge">pc-q35-rhel9.6.0</code> machine type and enables discard-no-unref by default.</li>
   <li>Added ability to alter video device through API.</li>
   <li>Set audio value to ich9 starting from rhel7 on Q35.</li>
   <li>When a VDS network error occurs during VM start, set the VM status to “Unknown” instead of letting it fall through to “Down”. This to prevent duplicate VM deployments.</li>
-  <li>Ability to update VM Network QoS when QoS modified on a vNIC profile.</li>
-  <li>None as default keymap for VNC keyboard layout due to keymap detection being built into noVNC since 1.0.</li>
+  <li>Ability to update QoS on running VM’s when a QoS profile has been modified or when QoS was changed on a vNIC profile</li>
 </ul>
 
 <p>Many more changes were implemented in the newest releases of the oVirt packages and can be read about in detail down below.</p>
 
-<h2 id="new-releases-in-457">New releases in 4.5.7?</h2>
+<h2 id="new-releases-in-457">New releases in 4.5.7</h2>
 
 <ul>
   <li><a href="https://github.com/oVirt//ovirt-engine/releases/tag/ovirt-engine-4.5.7">ovirt-engine-4.5.7</a></li>

@@ -5,6 +5,7 @@
 <title>Install nightly snapshot | oVirt</title>
 <meta name="generator" content="Jekyll v3.9.2" />
 <meta property="og:title" content="Install nightly snapshot" />
+<meta name="author" content="Sandro Bonazzola" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -15,8 +16,9 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Install nightly snapshot" />
 <meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@sandrobonazzola" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Install nightly snapshot","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3225/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3225/develop/dev-process/install-nightly-snapshot.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Sandro Bonazzola"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Install nightly snapshot","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3225/images/logo.svg"},"name":"Sandro Bonazzola"},"url":"https://ovirt.github.io/ovirt-site/previews/3225/develop/dev-process/install-nightly-snapshot.html"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -109,6 +111,27 @@
                     </section>
                   </div>
                 
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/134267a37e4981c3c0a94dcaddc88357?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/134267a37e4981c3c0a94dcaddc88357?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Jasper Berton">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Jasper Berton</span></p>
+                      
+                    </section>
+                  </div>
+                
                 </div>
             </header>
           
@@ -121,9 +144,20 @@
 
 <p>For CentOS Stream 9 you need to run:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf copr enable -y ovirt/ovirt-master-snapshot centos-stream-9
-dnf install -y ovirt-release-master
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf copr <span class="nb">enable</span> <span class="nt">-y</span> ovirt/ovirt-master-snapshot centos-stream-9
+dnf <span class="nb">install</span> <span class="nt">-y</span> ovirt-release-master
 </code></pre></div></div>
+
+<h2 id="centos-stream-10">Centos Stream 10:</h2>
+
+<p>For CentOS Stream 10 you need to run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf copr <span class="nb">enable</span> <span class="nt">-y</span> ovirt/ovirt-master-snapshot centos-stream-10
+dnf <span class="nb">install</span> <span class="nt">-y</span> ovirt-release-master epel-release
+</code></pre></div></div>
+
+<p>RHEL and derivates are explained <a href="/ovirt-site/previews/3225/download/install_on_rhel.html">here</a>.</p>
+
 
 
 

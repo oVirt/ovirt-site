@@ -11,20 +11,22 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png" alt="oVirt Engine Administration panel screenshot">
 
-oVirt 4.5.6 is intended for production use and is available for the following platforms:
+oVirt 4.5.7 is intended for production use and is available for the following platforms:
 
 Engine:
-- Red Hat Enterprise Linux 8 (or similar)
 - Red Hat Enterprise Linux 9 (or similar)
+- Red Hat Enterprise Linux 10 (or similar)
 - CentOS Stream 9
+- Centos Stream 10
 
 Hosts:
-- Red Hat Enterprise Linux 8 (or similar)
 - Red Hat Enterprise Linux 9 (or similar)
+- Red Hat Enterprise Linux 10 (or similar)
 - oVirt Node based on CentOS Stream 9
 - CentOS Stream 9
+- CentOS Stream 10
 
-See the [Release Notes for oVirt 4.5.6](/release/4.5.6/).
+See the [Release Notes for oVirt 4.5.7](/release/4.5.7/).
 
 <div class="row"></div>
 
@@ -154,6 +156,7 @@ The following virtual machine guest operating systems are supported:
 |Red Hat Atomic 7.x                  |64-bit|No|
 |Red Hat Enterprise Linux 7 - 8      |64-bit|Yes|
 |Red Hat Enterprise Linux 9          |64-bit|No|
+|Red Hat Enterprise Linux 10         |64-bit|No|
 |Red Hat Enterprise Linux CoreOS     |64-bit|No|
 |SUSE Linux Enterprise Server 10+ [2]|32-bit, 64-bit|No|
 |Ubuntu 12.04 (Precise Pangolin LTS)+ [3]|32-bit, 64-bit|Yes|
@@ -169,6 +172,7 @@ The following virtual machine guest operating systems are supported:
 |Windows Server 2016|64-bit|No|
 |Windows Server 2019|64-bit|No|
 |Windows Server 2022|64-bit|No|
+|Windows Server 2025|64-bit|No|
 |FreeBSD 9.2|32-bit, 64-bit|No|
 {: .bordered}
 

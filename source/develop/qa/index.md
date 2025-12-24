@@ -41,9 +41,8 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 
 ## Next releases
 
-* 4.5.6:
-  * GitHub Tracker: [oVirt 4.5.6 issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse+milestone%3Aovirt-4.5.6)
-  * GitHub Tracker: [oVirt 4.6.0 issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse+milestone%3Aovirt-4.6.0)
+* 4.6.0:
+  * GitHub Tracker: [oVirt 4.6.0 issues](https://github.com/oVirt/ovirt-engine/milestone/8)
 ## Notes
 
 This page has been created following <https://fedoraproject.org/wiki/QA> as a model

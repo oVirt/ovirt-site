@@ -49,10 +49,8 @@ To learn about features introduced before 4.5.7, see the
 > IMPORTANT
 > If you are going to install on RHEL or derivatives please follow [Installing on RHEL](/download/install_on_rhel.html) first.
 
-[NOTE]
-====
-It is important that for installs on RHEL 10 and derivates that version 10.0-4 (or newer) of centos-release-ovirt45 is used.
-====
+> NOTE
+> It is important that for installs on RHEL 10 and derivates that version 10.0-4 (or newer) of centos-release-ovirt45 is used.
 
 ## What's New in 4.5.7?
 

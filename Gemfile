@@ -13,11 +13,11 @@ ruby RUBY_VERSION
 gem "jekyll", '~> 3'
 
 group :jekyll_plugins do
+  gem "activesupport"
   gem "jekyll-sass-converter"
   gem "kramdown"
   gem "kramdown-parser-gfm"
   gem "liquid"
-  gem "jemoji"
   gem "jekyll-redirect-from"
   gem "jekyll-sitemap"
   gem "jekyll-paginate"
@@ -28,9 +28,9 @@ group :jekyll_plugins do
   gem "listen"
   gem "bootstrap-sass"
   gem "jekyll-font-awesome-sass"
-  gem "jekyll-favicon"
   gem 'jekyll-analytics'
   gem 'jekyll-asciidoc'
+  gem 'nokogiri', '~> 1.14.3'
 end
 
 # for syntax highlighting

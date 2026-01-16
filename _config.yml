@@ -180,10 +180,6 @@ sass:
 font-awesome:
   assets: true
 
-favicon:
-  source: images/favicon_base.png
-  path: /images
-
 breadcrumbs:
   root:
     hide: true

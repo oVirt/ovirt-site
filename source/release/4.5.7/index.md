@@ -50,32 +50,32 @@ To learn about features introduced before 4.5.7, see the
 > If you are going to install on RHEL or derivatives please follow [Installing on RHEL](/download/install_on_rhel.html) first.
 
 > NOTE
-> It is important that for installs on RHEL 10 and derivates that version 10.0-4 (or newer) of centos-release-ovirt45 is used.
+> It is important that for installs on RHEL 10 and derivatives that version 10.0-4 (or newer) of centos-release-ovirt45 is used.
 
 ## What's New in 4.5.7?
 
 - CentOS 10 and AlmaLinux 10 support.
 - Fixed [CVE-2024-7259](https://github.com/advisories/GHSA-9gxg-3rjh-xv63)
-- Introduced [new CPU's](#New-cpu's)
+- Introduced [new CPUs](#New-cpu's)
 - Bumped external dependencies.
-- Implemented new way of deploying to maven central.
+- Implemented a new way of deploying to maven central.
 - All Java code is now built on Java 21 and compatible with Java 11.
-- Reconnect faster to host after reboot, instead of static 10 minutes adapted to connect when host is back online.
+- Reconnect faster to hosts after reboot, instead of a static 10 minutes adapted to connect when the host is back online.
 - On boot of VM have a spare of `NumOfPciExpressPorts` PCIe ports available instead of a fixed number.
 - Add the optional `attach_wgt` flag to the vm start endpoint. This will auto attach the virtio-win iso to the vm.
 - Ability to add tags to templates via UI in the administration panel.
-- Add operating system description to host api object.
+- Add operating system description to host API object.
 - Added option for user to decide preference of vnc console invocation.
 - Added Windows 2025 and RHEL 10 to OS list.
 - Improve isLiveDelete check on VM.
 - Dropped deprecated packages.
-- Dropped Ceph, Cinderlib and collectd in Centos 10 due to not available.
+- Dropped Ceph, Cinderlib and collectd in CentOS 10 due to not available.
 - Added new DC/Cluster level (4.8).
 - Cluster level 4.8 now uses `pc-q35-rhel9.6.0` machine type and enables discard-no-unref by default.
 - Added ability to alter video device through API.
-- Set audio value to ich9 starting from rhel7 on Q35.
+- Set audio value to ich9 starting from RHEL7 on Q35.
 - When a VDS network error occurs during VM start, set the VM status to "Unknown" instead of letting it fall through to "Down". This to prevent duplicate VM deployments.
-- Ability to update QoS on running VM's when a QoS profile has been modified or when QoS was changed on a vNIC profile
+- Ability to update QoS on running VMs when a QoS profile has been modified or when QoS was changed on a vNIC profile.
 
 Many more changes were implemented in the newest releases of the oVirt packages and can be read about in detail down below.
 

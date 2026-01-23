@@ -49,11 +49,10 @@ jobs:
       run: rm -rf ${{steps.details.outputs.PREVIEW_PATH}}
     - name: Commit changes
       run: |
-        set -euo pipefail
         git add .
-        git diff --cached --quiet; then
+        if ! git diff --cached --quiet; then
           git commit -m "Removing preview build for PR ${{steps.details.outputs.PR_ID}}"
-          git push --set-upstream origin gh-pages
+          git push origin gh-pages
         else
           echo -e "No changes found."
         fi

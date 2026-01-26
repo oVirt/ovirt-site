@@ -45,6 +45,8 @@ include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+1]
 == Upgrading a self-hosted engine environment
 :SHE_upgrade:
 ifdef::ovirt-doc[]
+include::assembly-SHE_Upgrading_from_4-5-6.adoc[leveloffset=+1]
+
 include::assembly-SHE_Upgrading_from_4-4.adoc[leveloffset=+1]
 endif::ovirt-doc[]
 

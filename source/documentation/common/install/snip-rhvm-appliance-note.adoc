@@ -3,4 +3,6 @@
 [NOTE]
 ====
 The {engine-appliance-name} is only used during installation. It is not used to upgrade the {engine-name}.
+
+Starting with version 4.5.1, the appliance uses the Kiwi image build system and is distributed as a qcow2 image with UEFI boot support. The deployment process automatically detects the appliance format and configures the appropriate boot mode.
 ====

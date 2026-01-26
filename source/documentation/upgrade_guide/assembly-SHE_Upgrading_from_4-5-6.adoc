@@ -1,0 +1,67 @@
+:_content-type: ASSEMBLY
+[id='SHE_Upgrading_from_4-5-6']
+= Upgrading a self-hosted engine from {virt-product-fullname} 4.5.6 to 4.5.7
+
+:context: 4-5-6_SHE
+:4-5-6_SHE:
+
+Upgrading a self-hosted engine environment from version 4.5.6 to 4.5.7 involves updating the {engine-name} and hosts to the latest packages. This upgrade includes important changes to the {engine-appliance-name} format and boot configuration.
+
+[IMPORTANT]
+====
+Version 4.5.7 introduces the Kiwi-built {engine-appliance-name}, which uses a new qcow2 format and UEFI boot. While these changes are handled automatically during new deployments, existing self-hosted engine environments only need to update packages - the {engine-appliance-name} is not used for upgrades. For more information about the new appliance format, see link:{URL_virt_product_docs}{URL_format}installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Kiwi_Appliance_Support_and_UEFI_Boot_SHE_cli_deploy[Kiwi Appliance Support and UEFI Boot Automation] in the _Installing {virt-product-fullname} as a self-hosted engine using the command line_ guide.
+====
+
+Upgrading involves the following steps:
+
+. xref:Upgrade_Prerequisites_4-5-6_SHE[Make sure you meet the prerequisites, including enabling the correct repositories]
+
+. xref:Migrating_VMs_from_SHE_host_4-5-6_SHE[Migrate any virtual machines that are running on the same host as the {engine-name} virtual machine to another host in the same cluster]
+
+. xref:Enabling_Global_Maintenance_Mode_4-5-6_SHE[Place the environment in global maintenance mode]
+
+. xref:Updating_the_Red_Hat_Virtualization_Manager_4-5-6_SHE[Update the {engine-name} to 4.5.7]
+
+. xref:Disabling_Global_Maintenance_Mode_4-5-6_SHE[Disable global maintenance mode]
+
+. xref:Updating_all_hosts_in_a_cluster_4-5-6_SHE[Update the self-hosted engine nodes, and any standard hosts]
+
+. xref:Changing_the_Cluster_Compatibility_Version_4-5-6_SHE[Update the compatibility version of the clusters] (if applicable)
+
+. xref:Changing_Virtual_Machine_Cluster_Compatibility_4-5-6_SHE[Reboot any running or suspended virtual machines to update their configuration] (if applicable)
+
+. xref:Changing_the_Data_Center_Compatibility_Version_4-5-6_SHE[Update the compatibility version of the data centers] (if applicable)
+
+// Prerequisites
+include::common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
+
+[id='Migrating_VMs_from_SHE_host_4-5-6_SHE']
+== Migrating virtual machines from the self-hosted engine host
+
+Only the {engine-name} virtual machine should remain on the host until after you have finished upgrading the host. Migrate any virtual machines other than the {engine-name} virtual machine to another host in the same cluster.
+
+You can use Live Migration to minimize virtual machine down-time. For more information, see
+link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts[Migrating Virtual Machines Between Hosts] in the _Virtual Machine Management Guide_ for more information.
+
+include::common/she/snip-Enabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
+
+You can now update the {engine-name} to 4.5.7.
+
+include::common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+
+include::common/she/snip-Disabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
+
+You can now update the self-hosted engine nodes, and then any standard hosts. The procedure is the same for both host types.
+
+include::common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
+
+You can now update the cluster compatibility version if required.
+
+include::common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
+
+include::common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
+
+include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
+
+:context!: 4-5-6_SHE
+:4-5-6_SHE!:

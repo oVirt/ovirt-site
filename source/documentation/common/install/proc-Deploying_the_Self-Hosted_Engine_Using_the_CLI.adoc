@@ -137,8 +137,7 @@ Please enter the name of the cluster where you want to deploy this hosted-engine
 Cluster [Default]:
 ----
 
-. If you want to use a custom appliance for the virtual machine installation, enter the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
-. To deploy with a custom {engine-appliance-name} appliance image, specify the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
+. If you want to use a custom appliance for the virtual machine installation, enter the path to the appliance image. The deployment supports both qcow2 (Kiwi-built appliances, version 4.5.1 and later) and OVA (traditional) formats. Otherwise, leave this field empty to use the {engine-appliance-name}.
 +
 [source,terminal,subs="normal"]
 ----
@@ -146,6 +145,8 @@ If you want to deploy with a custom engine appliance image, please specify the p
  Entering no value will use the image from the rhvm-appliance rpm, installing it if needed.
  Appliance image path []:
 ----
++
+NOTE: For appliances version 4.5.1 and later, the Engine virtual machine automatically boots with UEFI. Older appliances continue to use legacy BIOS boot. For advanced configuration options including custom boot flags, see xref:Kiwi_Appliance_Support_and_UEFI_Boot_SHE_cli_deploy[Kiwi Appliance Support and UEFI Boot Automation].
 
 . Enter the CPU and memory configuration for the {engine-name} virtual machine:
 +

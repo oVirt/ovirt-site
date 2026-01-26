@@ -1,0 +1,385 @@
+:_content-type: ASSEMBLY
+[id='SHE_Upgrading_from_4-5-6']
+= Upgrading a self-hosted engine from {virt-product-fullname} 4.5.6 to 4.5.7
+
+:context: 4-5-6_SHE
+:4-5-6_SHE:
+
+[IMPORTANT]
+====
+This upgrade requires replacing the {engine-name} virtual machine. Unlike previous minor upgrades, you cannot simply update packages on the existing {engine-name}.
+
+*Why is this necessary?*
+
+* {virt-product-fullname} 4.5.6 runs the {engine-name} on CentOS Stream 8, which reached end-of-life in May 2024.
+* {virt-product-fullname} 4.5.7 requires CentOS Stream 9, CentOS Stream 10, or a compatible distribution (AlmaLinux 9/10, etc.).
+* In-place operating system upgrades from CentOS Stream 8 to CentOS Stream 9 are not supported.
+* The {virt-product-fullname} 4.5.7 packages are not built for EL8.
+
+You must back up your existing {engine-name}, deploy a new {engine-name} virtual machine using the 4.5.7 Kiwi appliance, and restore the backup to the new {engine-name}.
+====
+
+Version 4.5.7 introduces the Kiwi-built {engine-appliance-name}, which uses a qcow2 format and supports UEFI boot. For more information about the new appliance format, see link:{URL_virt_product_docs}{URL_format}installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Kiwi_Appliance_Support_and_UEFI_Boot_SHE_cli_deploy[Kiwi Appliance Support and UEFI Boot Automation] in the _Installing {virt-product-fullname} as a self-hosted engine using the command line_ guide.
+
+== Overview of the upgrade process
+
+This upgrade deploys a new {engine-name} virtual machine using the 4.5.7 Kiwi appliance (based on CentOS Stream 9 or later). Your existing {engine-name} configuration, including all virtual machines, storage domains, networks, and user data, is preserved through the backup and restore process.
+
+The upgrade involves the following key actions:
+
+. xref:Migrating_VMs_from_SHE_host_4-5-6_SHE[Migrate virtual machines from the self-hosted engine host.]
+. xref:Enabling_Global_Maintenance_Mode_4-5-6_SHE[Place the environment in global maintenance mode.]
+. xref:Backing_up_the_Original_Manager_4-5-6_SHE[Back up the original {engine-name}.]
+. xref:Shutting_Down_the_Original_Engine_VM_4-5-6_SHE[Shut down the original {engine-name} virtual machine.]
+. xref:Deploying_New_Engine_with_Restore_4-5-6_SHE[Deploy a new {engine-name} and restore the backup.]
+. xref:Enabling_Manager_Repositories_4-5-6_SHE[Enable the {engine-name} repositories on the new {engine-name} virtual machine.]
+. xref:Reinstalling_SHE_Nodes_4-5-6_SHE[Reinstall the self-hosted engine nodes to update their configuration.]
+. xref:Verifying_the_Upgraded_Environment_4-5-6_SHE[Verify the upgraded environment.]
+. xref:Changing_the_Cluster_Compatibility_Version_4-5-6_SHE[Update the compatibility version of the clusters] (if applicable).
+. xref:Changing_Virtual_Machine_Cluster_Compatibility_4-5-6_SHE[Reboot any running or suspended virtual machines to update their configuration] (if applicable).
+. xref:Changing_the_Data_Center_Compatibility_Version_4-5-6_SHE[Update the compatibility version of the data centers] (if applicable).
+. xref:Removing_Old_SHE_Storage_Domain_4-5-6_SHE[Remove the old self-hosted engine storage domain.]
+
+[id='Upgrade_Prerequisites_4-5-6_SHE']
+== Prerequisites
+
+Before beginning the upgrade, ensure the following requirements are met:
+
+* *Host operating system:* All hosts must be running {enterprise-linux} 9 or later (CentOS Stream 9, AlmaLinux 9, or similar). {virt-product-fullname} 4.5.7 does not support EL8 hosts.
++
+[IMPORTANT]
+====
+If any of your hosts are still running CentOS Stream 8 or another EL8 distribution, you must replace those hosts with EL9 hosts *before* proceeding with this upgrade. Host operating system upgrades are out of scope for this procedure. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_standard_hosts_to_the_Manager_host_tasks[Adding standard hosts to the {engine-name}] in the _Administration Guide_ for information on adding new hosts.
+====
+
+* *Fully qualified domain name:* The new {engine-name} must use the same fully qualified domain name (FQDN) as the original {engine-name}. Ensure forward and reverse DNS lookup records are correctly configured.
+
+* *Backup storage:* You need a location accessible from both the original {engine-name} and the host that will deploy the new {engine-name} to store the backup file.
+
+* *Regular host available:* There must be at least one regular host (not a self-hosted engine node) in the environment to hold the Storage Pool Manager (SPM) role during the migration. If a regular host is not already the SPM, move the SPM role before creating the backup by selecting a regular host and clicking menu:Management[Select as SPM].
++
+If no regular hosts are available:
+** Remove the self-hosted engine configuration from one node (but do not remove the node from the environment). See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Removing_a_Host_from_a_Self-Hosted_Engine_Environment[Removing a Host from a Self-Hosted Engine Environment] in the _Administration Guide_.
+** Or add a new regular host. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_standard_hosts_to_the_Manager_host_tasks[Adding standard hosts to the {engine-name}] in the _Administration Guide_.
+
+* *Data center compatibility:* The data center compatibility level should be set to the latest supported version to ensure compatibility with the updated storage version.
+
+* *New storage for self-hosted engine:* You will need storage for a new self-hosted engine storage domain. Do not plan to reuse the existing self-hosted engine storage domain's mount point, as this risks data loss.
+
+[id='Migrating_VMs_from_SHE_host_4-5-6_SHE']
+== Migrating virtual machines from the self-hosted engine host
+
+Before placing the environment in global maintenance mode, migrate all virtual machines (except the {engine-name} virtual machine) from the self-hosted engine host to other hosts in the cluster.
+
+You can use Live Migration to minimize virtual machine downtime. For more information, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts[Migrating Virtual Machines Between Hosts] in the _Virtual Machine Management Guide_.
+
+include::common/she/snip-Enabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
+
+[id='Backing_up_the_Original_Manager_4-5-6_SHE']
+== Backing up the original {engine-name}
+
+Create a backup of the original {engine-name} using the `engine-backup` command. This backup contains all configuration data, including the engine database and data warehouse database.
+
+.Procedure
+
+. Log in to the {engine-name} virtual machine via SSH.
+
+. Stop the `ovirt-engine` service to ensure a consistent backup:
++
+[source,terminal,subs="normal"]
+----
+# systemctl stop ovirt-engine
+# systemctl disable ovirt-engine
+----
++
+[NOTE]
+====
+Disabling the service prevents it from accidentally starting if the virtual machine is rebooted before being shut down.
+====
+
+. Run the `engine-backup` command to create the backup:
++
+[source,terminal,subs="normal"]
+----
+# engine-backup --mode=backup --scope=all --file=__engine-backup.tar.bz2__ --log=__engine-backup.log__
+----
++
+Replace `__engine-backup.tar.bz2__` and `__engine-backup.log__` with your preferred file names.
+
+. Copy the backup file to an external location accessible from the host that will deploy the new {engine-name}. For example:
++
+[source,terminal,subs="normal"]
+----
+# scp -p __engine-backup.tar.bz2__ __storage.example.com:/backup/__
+----
+
+[id='Shutting_Down_the_Original_Engine_VM_4-5-6_SHE']
+== Shutting down the original {engine-name} virtual machine
+
+After creating the backup, shut down the original {engine-name} virtual machine.
+
+.Procedure
+
+. Log in to one of the self-hosted engine nodes via SSH.
+
+. Shut down the {engine-name} virtual machine:
++
+[source,terminal,subs="normal"]
+----
+# hosted-engine --vm-shutdown
+----
++
+Wait for the virtual machine to shut down completely. You can verify the status with:
++
+[source,terminal,subs="normal"]
+----
+# hosted-engine --vm-status
+----
+
+[id='Deploying_New_Engine_with_Restore_4-5-6_SHE']
+== Deploying a new {engine-name} and restoring the backup
+
+Deploy a new self-hosted engine using the `hosted-engine --deploy` command with the `--restore-from-file` option. This deploys a new {engine-name} virtual machine using the 4.5.7 Kiwi appliance and restores your configuration from the backup.
+
+[IMPORTANT]
+====
+* The host where you run the deployment must be running {enterprise-linux} 9 or later (CentOS Stream 9, AlmaLinux 9, or similar).
+* Deploy on a fresh host if possible. If you deploy on a host that existed in the backed-up environment, that host will be removed from the restored database to avoid conflicts.
+* If you deploy on a new host, assign a unique name to the host. Reusing the name of an existing host can cause conflicts.
+====
+
+.Procedure
+
+. Log in to the host where you will deploy the new {engine-name}.
+
+. Copy the backup file to the host:
++
+[source,terminal,subs="normal"]
+----
+# scp -p __storage.example.com:/backup/engine-backup.tar.bz2__ __/tmp/__
+----
+
+. If deploying on {enterprise-linux} (not oVirt Node), install the `ovirt-hosted-engine-setup` package:
++
+[source,terminal,subs="normal"]
+----
+# dnf install ovirt-hosted-engine-setup
+----
+
+. Use `tmux` to run the deployment script, which protects against network or terminal disconnection:
++
+[source,terminal,subs="normal"]
+----
+# dnf -y install tmux
+# tmux
+----
+
+. Run the hosted-engine deployment with the restore option:
++
+[source,terminal,subs="normal"]
+----
+# hosted-engine --deploy --restore-from-file=__/tmp/engine-backup.tar.bz2__
+----
++
+To abort the deployment at any time, press kbd:[Ctrl+D].
+
+. Follow the interactive prompts to configure the new {engine-name}:
+
+.. Select *Yes* to begin the deployment.
+
+.. Configure the network. The script detects available NICs for the management bridge.
+
+.. When prompted for a custom appliance:
++
+[source,terminal,subs="normal"]
+----
+If you want to deploy with a custom engine appliance image, please specify the path to the OVA archive you would like to use.
+Entering no value will use the image from the ovirt-engine-appliance rpm, installing it if needed.
+Appliance image path []:
+----
++
+Leave this field empty to use the default {engine-appliance-name}. The deployment automatically installs the appropriate appliance package for your host's distribution (for example, `ovirt-engine-appliance-centos9` or `ovirt-engine-appliance-almalinux9`).
++
+Alternatively, you can specify:
++
+* A path to a qcow2 image (Kiwi-built appliances, version 4.5.1 and later)
+* A path to an OVA file (traditional format)
+* A path to an RPM file containing the appliance
++
+The appliance format is automatically detected based on the file extension.
+
+.. Enter the root password for the new {engine-name} virtual machine.
+
+.. Enter an SSH public key for root access (optional).
+
+.. Configure the virtual machine's CPU and memory.
++
+[NOTE]
+====
+Allocate at least as much RAM to the new {engine-name} as the original had.
+====
+
+.. Enter or accept a MAC address for the {engine-name} virtual machine.
+
+.. Configure the virtual machine's networking (static IP or DHCP). Use the same IP address as the original {engine-name}.
+
+.. Configure `/etc/hosts` entries if needed.
+
+.. Configure SMTP settings for notifications.
+
+.. Enter a password for the `admin@internal` user.
+
+.. When prompted for storage, configure a *new* self-hosted engine storage domain:
++
+[WARNING]
+====
+Do not use the same mount point as the old self-hosted engine storage domain. Using the same mount point risks data loss. The old storage domain will be renamed and preserved until you manually remove it after verifying the upgrade was successful.
+====
++
+Select the storage type (NFS, iSCSI, Gluster, or Fibre Channel) and provide the connection details for the new storage domain.
+
+.. Enter the {engine-name} disk size.
+
+. Wait for the deployment to complete. The script will:
+** Deploy the new {engine-name} virtual machine using the Kiwi appliance
+** Restore the backup to the new {engine-name}
+** Start the new {engine-name}
+
++
+[NOTE]
+====
+If the deployment pauses due to a host issue (such as missing required networks), you can connect to the temporary Administration Portal at the URL shown, fix the issue, and then remove the lock file to continue.
+====
+
+. After deployment completes, remove the original {engine-name}'s entry from `~/.ssh/known_hosts` on any client machines, as the SSH host keys have changed:
++
+[source,terminal,subs="normal"]
+----
+# ssh-keygen -R __engine.example.com__
+----
+
+[id='Enabling_Manager_Repositories_4-5-6_SHE']
+== Enabling the {engine-name} repositories
+
+After the new {engine-name} is deployed, log in to the new {engine-name} virtual machine and enable the required {virt-product-fullname} repositories. This ensures the {engine-name} can receive future updates.
+
+[NOTE]
+====
+The {engine-appliance-name} is a pre-built image that was installed during deployment. The repositories configured in this step are for ongoing {engine-name} updates, not for the initial deployment.
+====
+
+.Procedure
+
+. Log in to the new {engine-name} virtual machine via SSH.
+
+. Enable the {virt-product-fullname} 4.5 repositories. The specific commands depend on your distribution. For CentOS Stream 9:
++
+[source,terminal,subs="normal"]
+----
+# dnf install -y centos-release-ovirt45
+----
++
+For other distributions, see link:{URL_virt_product_docs}{URL_format}installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories].
+
+. Update the system to ensure all packages are current:
++
+[source,terminal,subs="normal"]
+----
+# dnf update -y
+----
+
+[id='Reinstalling_SHE_Nodes_4-5-6_SHE']
+== Reinstalling the self-hosted engine nodes
+
+After restoring the {engine-name}, you must reinstall the self-hosted engine nodes to update their hosted-engine configuration. This updates each node to point to the new {engine-name} virtual machine and storage domain.
+
+[NOTE]
+====
+This "reinstallation" updates the self-hosted engine configuration on existing EL9 hosts. It does not change the host's operating system. If you replaced EL8 hosts with new EL9 hosts earlier in this procedure, those new hosts were already configured when you added them to the cluster.
+====
+
+.Procedure
+
+. Log in to the Administration Portal.
+
+. Click menu:Compute[Hosts].
+
+. For each self-hosted engine node (hosts marked with a crown icon):
+
+.. Select the host and click menu:Management[Maintenance]. Wait for the host to enter maintenance mode.
+
+.. With the host selected, click menu:Installation[Reinstall].
+
+.. In the *Reinstall* dialog, select the *Hosted Engine* tab and select *DEPLOY* from the drop-down list.
+
+.. Click *OK* to begin reinstallation.
+
+.. Wait for the reinstallation to complete and the host to return to *Up* status.
+
+.. Repeat for each self-hosted engine node.
+
+[id='Verifying_the_Upgraded_Environment_4-5-6_SHE']
+== Verifying the upgraded environment
+
+After reinstalling the self-hosted engine nodes, verify that the environment is functioning correctly.
+
+.Procedure
+
+. Log in to one of the self-hosted engine nodes via SSH.
+
+. Check the self-hosted engine status:
++
+[source,terminal,subs="normal"]
+----
+# hosted-engine --vm-status
+----
++
+Verify that:
+** The {engine-name} virtual machine is running
+** The self-hosted engine nodes show a healthy status
+** High availability is functioning (the score should be non-zero for nodes that can host the {engine-name})
+
+. Log in to the Administration Portal and verify:
+** All hosts are in *Up* status
+** Virtual machines can be started and migrated
+** Storage domains are accessible
+
+include::common/she/snip-Disabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
+
+include::common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
+
+include::common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
+
+include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
+
+[id='Removing_Old_SHE_Storage_Domain_4-5-6_SHE']
+== Removing the old self-hosted engine storage domain
+
+During the restoration, the old self-hosted engine storage domain was renamed but not removed. After confirming that the new environment is functioning correctly, you can remove the old storage domain to free up storage resources.
+
+[IMPORTANT]
+====
+Only remove the old storage domain after you have verified that the new environment is fully functional and all data is accessible.
+====
+
+.Procedure
+
+. Log in to the Administration Portal.
+
+. Click menu:Storage[Domains].
+
+. Locate the old self-hosted engine storage domain. It will have been renamed with a suffix indicating it is from the previous deployment.
+
+. Select the old storage domain and click menu:More Actions[Destroy].
++
+[NOTE]
+====
+If the storage domain is attached to a data center, you must first move it to maintenance mode and then detach it before destroying it.
+====
+
+. Confirm the destruction when prompted.
+
+. Optionally, clean up the storage on your storage server to reclaim the space used by the old self-hosted engine storage domain.
+
+:context!: 4-5-6_SHE
+:4-5-6_SHE!:

@@ -1,0 +1,168 @@
+:_content-type: REFERENCE
+[id='Kiwi_Appliance_Support_and_UEFI_Boot_{context}']
+= Kiwi Appliance Support and UEFI Boot Automation
+
+// Included in:
+// Installing {virt-product-fullname} as a self-hosted engine using the command line
+
+The `hosted_engine_setup` role has been significantly updated to support the new Kiwi-built {engine-appliance-name} format while adding intelligent boot mode selection and improved configuration flexibility.
+
+== Background
+
+The {engine-appliance-name} has been reworked to use the https://osinside.github.io/kiwi/[KIWI] image build system. This change introduces a new qcow2-based appliance format alongside the traditional OVA format, and requires UEFI boot support for newer appliance versions. The Ansible role has been updated to handle these changes automatically while maintaining backward compatibility.
+
+== What's New
+
+=== Automatic UEFI Boot Detection
+
+The role now automatically selects the appropriate boot mode based on the appliance version:
+
+* *Appliances version 4.5.1 and above*: Automatically boot with UEFI
+* *Older appliances*: Continue using legacy BIOS boot
+
+This eliminates manual configuration for most users while ensuring compatibility with both new and existing appliances.
+
+=== Support for Multiple Appliance Formats
+
+The role now supports both appliance formats:
+
+* *qcow2* (new Kiwi-built appliances)
+* *OVA* (traditional format)
+
+The format is automatically detected based on the file extension, requiring no additional configuration from users.
+
+=== Distribution-Aware Appliance Selection
+
+The default appliance package name now follows the pattern `ovirt-engine-appliance-<distro><major_version>` (for example, `ovirt-engine-appliance-centos9` or `ovirt-engine-appliance-almalinux9`), automatically matching your host operating system. If the distribution-specific package is not available, it falls back to the CentOS-based package.
+
+== New Configuration Options
+
+The following table lists the new configuration options available for the hosted engine setup role:
+
+[cols="1,1,3",options="header"]
+|===
+|Variable |Default |Description
+
+|`he_use_uefi`
+|`false`
+|Force UEFI boot for the {engine-name} VM, regardless of appliance version
+
+|`he_appliance`
+|`null`
+|Path to a custom appliance file (qcow2 or ova format)
+
+|`he_appliance_package`
+|auto-detected
+|Name of the appliance package to install, or path to an RPM file
+
+|`he_vm_boot_flags`
+|auto
+|Custom virt-install boot flags. Setting this disables automatic UEFI detection
+|===
+
+[NOTE]
+====
+The `he_appliance_ova` variable is now deprecated. Use `he_appliance` instead.
+====
+
+== Usage Examples
+
+=== Standard Deployment (Recommended)
+
+For most users, no changes are needed. The role automatically:
+
+. Installs the appropriate appliance package for your distribution
+. Detects the appliance version
+. Selects UEFI or BIOS boot accordingly
+
+[source,yaml,subs="+quotes"]
+----
+---
+- hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - ovirt.ovirt.hosted_engine_setup
+  vars:
+    he_bridge_if: eth0
+    he_fqdn: engine.example.com
+    he_vm_mac_addr: "52:54:00:11:22:33"
+    he_domain_type: nfs
+    he_storage_domain_addr: "192.168.1.100"
+    he_storage_domain_path: "/exports/hosted-engine"
+    he_appliance_password: "{{ vault_appliance_password }}"
+    he_admin_password: "{{ vault_admin_password }}"
+----
+
+=== Force UEFI Boot
+
+If you need UEFI boot with an older appliance or want to explicitly enable it:
+
+[source,yaml]
+----
+vars:
+  he_use_uefi: true
+----
+
+=== Use a Custom Appliance
+
+To use a locally built or custom appliance:
+
+[source,yaml]
+----
+# Using a qcow2 image
+vars:
+  he_appliance: "/path/to/custom-appliance.qcow2"
+
+# Or using an OVA file
+vars:
+  he_appliance: "/path/to/custom-appliance.ova"
+----
+
+=== Use an Alternative Appliance Package
+
+[source,yaml]
+----
+# Install a specific package by name
+vars:
+  he_appliance_package: "custom-engine-appliance"
+
+# Or install from a local RPM file
+vars:
+  he_appliance_package: "/path/to/appliance.rpm"
+----
+
+=== Custom Boot Flags
+
+For advanced users who need full control over the VM boot configuration:
+
+[source,yaml]
+----
+vars:
+  he_vm_boot_flags: "--boot uefi,loader.secure=yes"
+----
+
+[WARNING]
+====
+Setting `he_vm_boot_flags` disables automatic UEFI detection and the `he_use_uefi` override. Only use this if you need specific boot configuration.
+====
+
+== Priority and Precedence
+
+The boot mode is determined in the following order (highest priority first):
+
+. *`he_vm_boot_flags`* - If set, uses exactly what you specify
+. *`he_use_uefi: true`* - Forces UEFI boot
+. *Automatic detection* - UEFI for appliances >= 4.5.1, BIOS otherwise
+
+== Migration from Previous Versions
+
+If you are upgrading from an earlier version of the role:
+
+. Replace `he_appliance_ova` with `he_appliance` in your configuration
+. Remove any manual UEFI boot flag configurations unless specifically needed
+. Test your deployment - automatic detection should handle most cases
+
+== For Developers
+
+A new developer documentation file (`DEV_HOSTED_ENGINE.md`) has been added with instructions for testing the role locally from a git checkout. This is useful for contributors who want to test changes before submitting patches.

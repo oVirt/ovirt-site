@@ -165,15 +165,21 @@
 <li><a href="#upgrading-self-hosted-engine-environment">10. Upgrading a self-hosted engine environment</a></li>
 <li><a href="#SHE_Upgrading_from_4-5-6">11. Upgrading a self-hosted engine from oVirt 4.5.6 to 4.5.7</a>
 <ul class="sectlevel2">
-<li><a href="#Upgrade_Prerequisites_4-5-6_SHE">11.1. Prerequisites</a></li>
-<li><a href="#Migrating_VMs_from_SHE_host_4-5-6_SHE">11.2. Migrating virtual machines from the self-hosted engine host</a></li>
-<li><a href="#Enabling_Global_Maintenance_Mode_4-5-6_SHE">11.3. Enabling global maintenance mode</a></li>
-<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-5-6_SHE">11.4. Updating the oVirt Engine</a></li>
-<li><a href="#Disabling_Global_Maintenance_Mode_4-5-6_SHE">11.5. Disabling global maintenance mode</a></li>
-<li><a href="#Updating_all_hosts_in_a_cluster_4-5-6_SHE">11.6. Updating All Hosts in a Cluster</a></li>
-<li><a href="#Changing_the_Cluster_Compatibility_Version_4-5-6_SHE">11.7. Changing the Cluster Compatibility Version</a></li>
-<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-5-6_SHE">11.8. Changing Virtual Machine Cluster Compatibility</a></li>
-<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-5-6_SHE">11.9. Changing the Data Center Compatibility Version</a></li>
+<li><a href="#overview-of-the-upgrade-process">11.1. Overview of the upgrade process</a></li>
+<li><a href="#Upgrade_Prerequisites_4-5-6_SHE">11.2. Prerequisites</a></li>
+<li><a href="#Migrating_VMs_from_SHE_host_4-5-6_SHE">11.3. Migrating virtual machines from the self-hosted engine host</a></li>
+<li><a href="#Enabling_Global_Maintenance_Mode_4-5-6_SHE">11.4. Enabling global maintenance mode</a></li>
+<li><a href="#Backing_up_the_Original_Manager_4-5-6_SHE">11.5. Backing up the original Engine</a></li>
+<li><a href="#Shutting_Down_the_Original_Engine_VM_4-5-6_SHE">11.6. Shutting down the original Engine virtual machine</a></li>
+<li><a href="#Deploying_New_Engine_with_Restore_4-5-6_SHE">11.7. Deploying a new Engine and restoring the backup</a></li>
+<li><a href="#Enabling_Manager_Repositories_4-5-6_SHE">11.8. Enabling the Engine repositories</a></li>
+<li><a href="#Reinstalling_SHE_Nodes_4-5-6_SHE">11.9. Reinstalling the self-hosted engine nodes</a></li>
+<li><a href="#Verifying_the_Upgraded_Environment_4-5-6_SHE">11.10. Verifying the upgraded environment</a></li>
+<li><a href="#Disabling_Global_Maintenance_Mode_4-5-6_SHE">11.11. Disabling global maintenance mode</a></li>
+<li><a href="#Changing_the_Cluster_Compatibility_Version_4-5-6_SHE">11.12. Changing the Cluster Compatibility Version</a></li>
+<li><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-5-6_SHE">11.13. Changing Virtual Machine Cluster Compatibility</a></li>
+<li><a href="#Changing_the_Data_Center_Compatibility_Version_4-5-6_SHE">11.14. Changing the Data Center Compatibility Version</a></li>
+<li><a href="#Removing_Old_SHE_Storage_Domain_4-5-6_SHE">11.15. Removing the old self-hosted engine storage domain</a></li>
 </ul>
 </li>
 <li><a href="#SHE_Upgrading_from_4-4">12. Upgrading a self-Hosted engine from oVirt 4.4 to 4.5</a>
@@ -5364,9 +5370,6 @@ done</code></pre>
 <div class="sect1">
 <h2 id="SHE_Upgrading_from_4-5-6">11. Upgrading a self-hosted engine from oVirt 4.5.6 to 4.5.7</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Upgrading a self-hosted engine environment from version 4.5.6 to 4.5.7 involves updating the Engine and hosts to the latest packages. This upgrade includes important changes to the Engine Appliance format and boot configuration.</p>
-</div>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -5375,78 +5378,144 @@ done</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Version 4.5.7 introduces the Kiwi-built Engine Appliance, which uses a new qcow2 format and UEFI boot. While these changes are handled automatically during new deployments, existing self-hosted engine environments only need to update packages - the Engine Appliance is not used for upgrades. For more information about the new appliance format, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Kiwi_Appliance_Support_and_UEFI_Boot_SHE_cli_deploy">Kiwi Appliance Support and UEFI Boot Automation</a> in the <em>Installing oVirt as a self-hosted engine using the command line</em> guide.</p>
+<p>This upgrade requires replacing the Engine virtual machine. Unlike previous minor upgrades, you cannot simply update packages on the existing Engine.</p>
+</div>
+<div class="paragraph">
+<p><strong>Why is this necessary?</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>oVirt 4.5.6 runs the Engine on CentOS Stream 8, which reached end-of-life in May 2024.</p>
+</li>
+<li>
+<p>oVirt 4.5.7 requires CentOS Stream 9, CentOS Stream 10, or a compatible distribution (AlmaLinux 9/10, etc.).</p>
+</li>
+<li>
+<p>In-place operating system upgrades from CentOS Stream 8 to CentOS Stream 9 are not supported.</p>
+</li>
+<li>
+<p>The oVirt 4.5.7 packages are not built for EL8.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You must back up your existing Engine, deploy a new Engine virtual machine using the 4.5.7 Kiwi appliance, and restore the backup to the new Engine.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Upgrading involves the following steps:</p>
+<p>Version 4.5.7 introduces the Kiwi-built Engine Appliance, which uses a qcow2 format and supports UEFI boot. For more information about the new appliance format, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Kiwi_Appliance_Support_and_UEFI_Boot_SHE_cli_deploy">Kiwi Appliance Support and UEFI Boot Automation</a> in the <em>Installing oVirt as a self-hosted engine using the command line</em> guide.</p>
+</div>
+<div class="sect2">
+<h3 id="overview-of-the-upgrade-process">11.1. Overview of the upgrade process</h3>
+<div class="paragraph">
+<p>This upgrade deploys a new Engine virtual machine using the 4.5.7 Kiwi appliance (based on CentOS Stream 9 or later). Your existing Engine configuration, including all virtual machines, storage domains, networks, and user data, is preserved through the backup and restore process.</p>
+</div>
+<div class="paragraph">
+<p>The upgrade involves the following key actions:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="#Upgrade_Prerequisites_4-5-6_SHE">Make sure you meet the prerequisites, including enabling the correct repositories</a></p>
+<p><a href="#Migrating_VMs_from_SHE_host_4-5-6_SHE">Migrate virtual machines from the self-hosted engine host.</a></p>
 </li>
 <li>
-<p><a href="#Migrating_VMs_from_SHE_host_4-5-6_SHE">Migrate any virtual machines that are running on the same host as the Engine virtual machine to another host in the same cluster</a></p>
+<p><a href="#Enabling_Global_Maintenance_Mode_4-5-6_SHE">Place the environment in global maintenance mode.</a></p>
 </li>
 <li>
-<p><a href="#Enabling_Global_Maintenance_Mode_4-5-6_SHE">Place the environment in global maintenance mode</a></p>
+<p><a href="#Backing_up_the_Original_Manager_4-5-6_SHE">Back up the original Engine.</a></p>
 </li>
 <li>
-<p><a href="#Updating_the_Red_Hat_Virtualization_Manager_4-5-6_SHE">Update the Engine to 4.5.7</a></p>
+<p><a href="#Shutting_Down_the_Original_Engine_VM_4-5-6_SHE">Shut down the original Engine virtual machine.</a></p>
 </li>
 <li>
-<p><a href="#Disabling_Global_Maintenance_Mode_4-5-6_SHE">Disable global maintenance mode</a></p>
+<p><a href="#Deploying_New_Engine_with_Restore_4-5-6_SHE">Deploy a new Engine and restore the backup.</a></p>
 </li>
 <li>
-<p><a href="#Updating_all_hosts_in_a_cluster_4-5-6_SHE">Update the self-hosted engine nodes, and any standard hosts</a></p>
+<p><a href="#Enabling_Manager_Repositories_4-5-6_SHE">Enable the Engine repositories on the new Engine virtual machine.</a></p>
 </li>
 <li>
-<p><a href="#Changing_the_Cluster_Compatibility_Version_4-5-6_SHE">Update the compatibility version of the clusters</a> (if applicable)</p>
+<p><a href="#Reinstalling_SHE_Nodes_4-5-6_SHE">Reinstall the self-hosted engine nodes to update their configuration.</a></p>
 </li>
 <li>
-<p><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-5-6_SHE">Reboot any running or suspended virtual machines to update their configuration</a> (if applicable)</p>
+<p><a href="#Verifying_the_Upgraded_Environment_4-5-6_SHE">Verify the upgraded environment.</a></p>
 </li>
 <li>
-<p><a href="#Changing_the_Data_Center_Compatibility_Version_4-5-6_SHE">Update the compatibility version of the data centers</a> (if applicable)</p>
+<p><a href="#Changing_the_Cluster_Compatibility_Version_4-5-6_SHE">Update the compatibility version of the clusters</a> (if applicable).</p>
+</li>
+<li>
+<p><a href="#Changing_Virtual_Machine_Cluster_Compatibility_4-5-6_SHE">Reboot any running or suspended virtual machines to update their configuration</a> (if applicable).</p>
+</li>
+<li>
+<p><a href="#Changing_the_Data_Center_Compatibility_Version_4-5-6_SHE">Update the compatibility version of the data centers</a> (if applicable).</p>
+</li>
+<li>
+<p><a href="#Removing_Old_SHE_Storage_Domain_4-5-6_SHE">Remove the old self-hosted engine storage domain.</a></p>
 </li>
 </ol>
 </div>
+</div>
 <div class="sect2">
-<h3 id="Upgrade_Prerequisites_4-5-6_SHE">11.1. Prerequisites</h3>
+<h3 id="Upgrade_Prerequisites_4-5-6_SHE">11.2. Prerequisites</h3>
+<div class="paragraph">
+<p>Before beginning the upgrade, ensure the following requirements are met:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Plan for any necessary virtual machine downtime. After you update the clusters' compatibility versions during the upgrade, a new hardware configuration is automatically applied to each virtual machine once it reboots. You must reboot any running or suspended virtual machines as soon as possible to apply the configuration changes.</p>
-</li>
-</ul>
+<p><strong>Host operating system:</strong> All hosts must be running Enterprise Linux 9 or later (CentOS Stream 9, AlmaLinux 9, or similar). oVirt 4.5.7 does not support EL8 hosts.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If any of your hosts are still running CentOS Stream 8 or another EL8 distribution, you must replace those hosts with EL9 hosts <strong>before</strong> proceeding with this upgrade. Host operating system upgrades are out of scope for this procedure. See <a href="https://ovirt.org/documentation/administration_guide/index#Adding_standard_hosts_to_the_Manager_host_tasks">Adding standard hosts to the Engine</a> in the <em>Administration Guide</em> for information on adding new hosts.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Ensure your environment meets the requirements for oVirt 4.5.</p>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>When upgrading oVirt Engine, it is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.</p>
+<p><strong>Fully qualified domain name:</strong> The new Engine must use the same fully qualified domain name (FQDN) as the original Engine. Ensure forward and reverse DNS lookup records are correctly configured.</p>
+</li>
+<li>
+<p><strong>Backup storage:</strong> You need a location accessible from both the original Engine and the host that will deploy the new Engine to store the backup file.</p>
+</li>
+<li>
+<p><strong>Regular host available:</strong> There must be at least one regular host (not a self-hosted engine node) in the environment to hold the Storage Pool Manager (SPM) role during the migration. If a regular host is not already the SPM, move the SPM role before creating the backup by selecting a regular host and clicking <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Select as SPM</b></span>.</p>
+<div class="paragraph">
+<p>If no regular hosts are available:
+<strong> Remove the self-hosted engine configuration from one node (but do not remove the node from the environment). See <a href="https://ovirt.org/documentation/administration_guide/index#Removing_a_Host_from_a_Self-Hosted_Engine_Environment">Removing a Host from a Self-Hosted Engine Environment</a> in the <em>Administration Guide</em>.
+</strong> Or add a new regular host. See <a href="https://ovirt.org/documentation/administration_guide/index#Adding_standard_hosts_to_the_Manager_host_tasks">Adding standard hosts to the Engine</a> in the <em>Administration Guide</em>.</p>
+</div>
+</li>
+<li>
+<p><strong>Data center compatibility:</strong> The data center compatibility level should be set to the latest supported version to ensure compatibility with the updated storage version.</p>
+</li>
+<li>
+<p><strong>New storage for self-hosted engine:</strong> You will need storage for a new self-hosted engine storage domain. Do not plan to reuse the existing self-hosted engine storage domain&#8217;s mount point, as this risks data loss.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Migrating_VMs_from_SHE_host_4-5-6_SHE">11.2. Migrating virtual machines from the self-hosted engine host</h3>
+<h3 id="Migrating_VMs_from_SHE_host_4-5-6_SHE">11.3. Migrating virtual machines from the self-hosted engine host</h3>
 <div class="paragraph">
-<p>Only the Engine virtual machine should remain on the host until after you have finished upgrading the host. Migrate any virtual machines other than the Engine virtual machine to another host in the same cluster.</p>
+<p>Before placing the environment in global maintenance mode, migrate all virtual machines (except the Engine virtual machine) from the self-hosted engine host to other hosts in the cluster.</p>
 </div>
 <div class="paragraph">
-<p>You can use Live Migration to minimize virtual machine down-time. For more information, see
-<a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts">Migrating Virtual Machines Between Hosts</a> in the <em>Virtual Machine Management Guide</em> for more information.</p>
+<p>You can use Live Migration to minimize virtual machine downtime. For more information, see <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts">Migrating Virtual Machines Between Hosts</a> in the <em>Virtual Machine Management Guide</em>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Enabling_Global_Maintenance_Mode_4-5-6_SHE">11.3. Enabling global maintenance mode</h3>
+<h3 id="Enabling_Global_Maintenance_Mode_4-5-6_SHE">11.4. Enabling global maintenance mode</h3>
 <div class="paragraph">
 <p>You must place the self-hosted engine environment in global maintenance mode before performing any setup or upgrade tasks on the Engine virtual machine.</p>
 </div>
@@ -5474,44 +5543,24 @@ done</code></pre>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>You can now update the Engine to 4.5.7.</p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Updating_the_Red_Hat_Virtualization_Manager_4-5-6_SHE">11.4. Updating the oVirt Engine</h3>
+<h3 id="Backing_up_the_Original_Manager_4-5-6_SHE">11.5. Backing up the original Engine</h3>
+<div class="paragraph">
+<p>Create a backup of the original Engine using the <code>engine-backup</code> command. This backup contains all configuration data, including the engine database and data warehouse database.</p>
+</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>On the Engine machine, check if updated packages are available:</p>
-<div class="listingblock">
-<div class="content">
-<pre># engine-upgrade-check</pre>
-</div>
-</div>
+<p>Log in to the Engine virtual machine via SSH.</p>
 </li>
 <li>
-<p>Update the setup packages:</p>
+<p>Stop the <code>ovirt-engine</code> service to ensure a consistent backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update ovirt\*setup\*</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Update the oVirt Engine with the <code>engine-setup</code> script. The <code>engine-setup</code> script prompts you with some configuration questions, then stops the <code>ovirt-engine</code> service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the <code>ovirt-engine</code> service.</p>
-<div class="listingblock">
-<div class="content">
-<pre># engine-setup</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>When the script completes successfully, the following message appears:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Execution of setup completed successfully</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl stop ovirt-engine
+# systemctl disable ovirt-engine</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5522,21 +5571,7 @@ done</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>engine-setup</code> script is also used during the oVirt Engine installation process, and it stores the configuration values supplied. During an update, the stored values are displayed when previewing the configuration, and might not be up to date if <code>engine-config</code> was used to update configuration after installation. For example, if <code>engine-config</code> was used to update <code>SANWipeAfterDelete</code> to <code>true</code> after installation, <code>engine-setup</code> will output "Default SAN wipe after delete: False" in the configuration preview. However, the updated values will not be overwritten by <code>engine-setup</code>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The update process might take some time. Do not stop the process before it completes.</p>
+<p>Disabling the service prevents it from accidentally starting if the virtual machine is rebooted before being shut down.</p>
 </div>
 </td>
 </tr>
@@ -5544,46 +5579,424 @@ done</code></pre>
 </div>
 </li>
 <li>
-<p>Update the base operating system and any optional packages installed on the Engine:</p>
+<p>Run the <code>engine-backup</code> command to create the backup:</p>
 <div class="listingblock">
 <div class="content">
-<pre># yum update --nobest</pre>
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-backup --mode=backup --scope=all --file=<em>engine-backup.tar.bz2</em> --log=<em>engine-backup.log</em></code></pre>
 </div>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>If you encounter a required Ansible package conflict during the update, see <a href="https://access.redhat.com/solutions/5480561">Cannot perform yum update on my RHV manager (ansible conflict)</a>.</p>
+<p>Replace <code><em>engine-backup.tar.bz2</em></code> and <code><em>engine-backup.log</em></code> with your preferred file names.</p>
 </div>
-</td>
-</tr>
-</table>
+</li>
+<li>
+<p>Copy the backup file to an external location accessible from the host that will deploy the new Engine. For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p <em>engine-backup.tar.bz2</em> <em>storage.example.com:/backup/</em></code></pre>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If any kernel packages were updated, reboot the machine to complete the update.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Disabling_Global_Maintenance_Mode_4-5-6_SHE">11.5. Disabling global maintenance mode</h3>
+<h3 id="Shutting_Down_the_Original_Engine_VM_4-5-6_SHE">11.6. Shutting down the original Engine virtual machine</h3>
+<div class="paragraph">
+<p>After creating the backup, shut down the original Engine virtual machine.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to one of the self-hosted engine nodes via SSH.</p>
+</li>
+<li>
+<p>Shut down the Engine virtual machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-shutdown</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wait for the virtual machine to shut down completely. You can verify the status with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Deploying_New_Engine_with_Restore_4-5-6_SHE">11.7. Deploying a new Engine and restoring the backup</h3>
+<div class="paragraph">
+<p>Deploy a new self-hosted engine using the <code>hosted-engine --deploy</code> command with the <code>--restore-from-file</code> option. This deploys a new Engine virtual machine using the 4.5.7 Kiwi appliance and restores your configuration from the backup.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The host where you run the deployment must be running Enterprise Linux 9 or later (CentOS Stream 9, AlmaLinux 9, or similar).</p>
+</li>
+<li>
+<p>Deploy on a fresh host if possible. If you deploy on a host that existed in the backed-up environment, that host will be removed from the restored database to avoid conflicts.</p>
+</li>
+<li>
+<p>If you deploy on a new host, assign a unique name to the host. Reusing the name of an existing host can cause conflicts.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the host where you will deploy the new Engine.</p>
+</li>
+<li>
+<p>Copy the backup file to the host:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp -p <em>storage.example.com:/backup/engine-backup.tar.bz2</em> <em>/tmp/</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If deploying on Enterprise Linux (not oVirt Node), install the <code>ovirt-hosted-engine-setup</code> package:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install ovirt-hosted-engine-setup</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use <code>tmux</code> to run the deployment script, which protects against network or terminal disconnection:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf -y install tmux
+# tmux</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the hosted-engine deployment with the restore option:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --deploy --restore-from-file=<em>/tmp/engine-backup.tar.bz2</em></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To abort the deployment at any time, press <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>D</kbd></span>.</p>
+</div>
+</li>
+<li>
+<p>Follow the interactive prompts to configure the new Engine:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select <strong>Yes</strong> to begin the deployment.</p>
+</li>
+<li>
+<p>Configure the network. The script detects available NICs for the management bridge.</p>
+</li>
+<li>
+<p>When prompted for a custom appliance:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">If you want to deploy with a custom engine appliance image, please specify the path to the OVA archive you would like to use.
+Entering no value will use the image from the ovirt-engine-appliance rpm, installing it if needed.
+Appliance image path []:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Leave this field empty to use the default Engine Appliance. The deployment automatically installs the appropriate appliance package for your host&#8217;s distribution (for example, <code>ovirt-engine-appliance-centos9</code> or <code>ovirt-engine-appliance-almalinux9</code>).</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can specify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A path to a qcow2 image (Kiwi-built appliances, version 4.5.1 and later)</p>
+</li>
+<li>
+<p>A path to an OVA file (traditional format)</p>
+</li>
+<li>
+<p>A path to an RPM file containing the appliance</p>
+<div class="paragraph">
+<p>The appliance format is automatically detected based on the file extension.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the root password for the new Engine virtual machine.</p>
+</li>
+<li>
+<p>Enter an SSH public key for root access (optional).</p>
+</li>
+<li>
+<p>Configure the virtual machine&#8217;s CPU and memory.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Allocate at least as much RAM to the new Engine as the original had.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Enter or accept a MAC address for the Engine virtual machine.</p>
+</li>
+<li>
+<p>Configure the virtual machine&#8217;s networking (static IP or DHCP). Use the same IP address as the original Engine.</p>
+</li>
+<li>
+<p>Configure <code>/etc/hosts</code> entries if needed.</p>
+</li>
+<li>
+<p>Configure SMTP settings for notifications.</p>
+</li>
+<li>
+<p>Enter a password for the <code>admin@internal</code> user.</p>
+</li>
+<li>
+<p>When prompted for storage, configure a <strong>new</strong> self-hosted engine storage domain:</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not use the same mount point as the old self-hosted engine storage domain. Using the same mount point risks data loss. The old storage domain will be renamed and preserved until you manually remove it after verifying the upgrade was successful.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Select the storage type (NFS, iSCSI, Gluster, or Fibre Channel) and provide the connection details for the new storage domain.</p>
+</div>
+</li>
+<li>
+<p>Enter the Engine disk size.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Wait for the deployment to complete. The script will:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deploy the new Engine virtual machine using the Kiwi appliance</p>
+</li>
+<li>
+<p>Restore the backup to the new Engine</p>
+</li>
+<li>
+<p>Start the new Engine</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the deployment pauses due to a host issue (such as missing required networks), you can connect to the temporary Administration Portal at the URL shown, fix the issue, and then remove the lock file to continue.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>After deployment completes, remove the original Engine&#8217;s entry from <code>~/.ssh/known_hosts</code> on any client machines, as the SSH host keys have changed:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># ssh-keygen -R <em>engine.example.com</em></code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Enabling_Manager_Repositories_4-5-6_SHE">11.8. Enabling the Engine repositories</h3>
+<div class="paragraph">
+<p>After the new Engine is deployed, log in to the new Engine virtual machine and enable the required oVirt repositories. This ensures the Engine can receive future updates.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Engine Appliance is a pre-built image that was installed during deployment. The repositories configured in this step are for ongoing Engine updates, not for the initial deployment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the new Engine virtual machine via SSH.</p>
+</li>
+<li>
+<p>Enable the oVirt 4.5 repositories. The specific commands depend on your distribution. For CentOS Stream 9:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install -y centos-release-ovirt45</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For other distributions, see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM">Enabling the oVirt Engine Repositories</a>.</p>
+</div>
+</li>
+<li>
+<p>Update the system to ensure all packages are current:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf update -y</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Reinstalling_SHE_Nodes_4-5-6_SHE">11.9. Reinstalling the self-hosted engine nodes</h3>
+<div class="paragraph">
+<p>After restoring the Engine, you must reinstall the self-hosted engine nodes to update their hosted-engine configuration. This updates each node to point to the new Engine virtual machine and storage domain.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This "reinstallation" updates the self-hosted engine configuration on existing EL9 hosts. It does not change the host&#8217;s operating system. If you replaced EL8 hosts with new EL9 hosts earlier in this procedure, those new hosts were already configured when you added them to the cluster.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Administration Portal.</p>
+</li>
+<li>
+<p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span>.</p>
+</li>
+<li>
+<p>For each self-hosted engine node (hosts marked with a crown icon):</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select the host and click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Maintenance</b></span>. Wait for the host to enter maintenance mode.</p>
+</li>
+<li>
+<p>With the host selected, click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Reinstall</b></span>.</p>
+</li>
+<li>
+<p>In the <strong>Reinstall</strong> dialog, select the <strong>Hosted Engine</strong> tab and select <strong>DEPLOY</strong> from the drop-down list.</p>
+</li>
+<li>
+<p>Click <strong>OK</strong> to begin reinstallation.</p>
+</li>
+<li>
+<p>Wait for the reinstallation to complete and the host to return to <strong>Up</strong> status.</p>
+</li>
+<li>
+<p>Repeat for each self-hosted engine node.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Verifying_the_Upgraded_Environment_4-5-6_SHE">11.10. Verifying the upgraded environment</h3>
+<div class="paragraph">
+<p>After reinstalling the self-hosted engine nodes, verify that the environment is functioning correctly.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to one of the self-hosted engine nodes via SSH.</p>
+</li>
+<li>
+<p>Check the self-hosted engine status:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># hosted-engine --vm-status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify that:
+<strong> The Engine virtual machine is running
+</strong> The self-hosted engine nodes show a healthy status
+** High availability is functioning (the score should be non-zero for nodes that can host the Engine)</p>
+</div>
+</li>
+<li>
+<p>Log in to the Administration Portal and verify:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All hosts are in <strong>Up</strong> status</p>
+</li>
+<li>
+<p>Virtual machines can be started and migrated</p>
+</li>
+<li>
+<p>Storage domains are accessible</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Disabling_Global_Maintenance_Mode_4-5-6_SHE">11.11. Disabling global maintenance mode</h3>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -5642,112 +6055,9 @@ and disable global maintenance mode:</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>You can now update the self-hosted engine nodes, and then any standard hosts. The procedure is the same for both host types.</p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Updating_all_hosts_in_a_cluster_4-5-6_SHE">11.6. Updating All Hosts in a Cluster</h3>
-<div class="paragraph">
-<p>You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of oVirt. See <a href="https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/cluster_upgrade/README.md">oVirt Cluster Upgrade</a> for more information about the Ansible role used to automate the updates.</p>
-</div>
-<div class="paragraph">
-<p>Update one cluster at a time.</p>
-</div>
-<div class="ulist">
-<div class="title">Limitations</div>
-<ul>
-<li>
-<p>On oVirt Node, the update only preserves modified content in the <code>/etc</code> and <code>/var</code> directories. Modified data in other paths is overwritten during an update.</p>
-</li>
-<li>
-<p>If the cluster has migration enabled, virtual machines are automatically migrated to another host in the cluster.</p>
-</li>
-<li>
-<p>In a self-hosted engine environment, the Engine virtual machine can only migrate between self-hosted engine nodes in the same cluster. It cannot migrate to standard hosts.</p>
-</li>
-<li>
-<p>The cluster must have sufficient memory reserved for its hosts to perform maintenance. Otherwise, virtual machine migrations will hang and fail. You can reduce the memory usage of host updates by shutting down some or all virtual machines before updating hosts.</p>
-</li>
-<li>
-<p>You cannot migrate a pinned virtual machine (such as a virtual machine using a vGPU) to another host.
-Pinned virtual machines are shut down during the update, unless you choose to skip that host instead.</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
-<div class="title">Procedure</div>
-<ol class="arabic">
-<li>
-<p>In the Administration Portal, click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Clusters</b></span> and select the cluster. The <strong>Upgrade status</strong> column shows if an upgrade is available for any hosts in the cluster.</p>
-</li>
-<li>
-<p>Click <strong>Upgrade</strong>.</p>
-</li>
-<li>
-<p>Select the hosts to update, then click <strong>Next</strong>.</p>
-</li>
-<li>
-<p>Configure the options:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Stop Pinned VMs</strong> shuts down any virtual machines that are pinned to hosts in the cluster, and is selected by default. You can clear this check box to skip updating those hosts so that the pinned virtual machines stay running, such as when a pinned virtual machine is running important services or processes and you do not want it to shut down at an unknown time during the update.</p>
-</li>
-<li>
-<p><strong>Upgrade Timeout (Minutes)</strong> sets the time to wait for an individual host to be updated before the cluster upgrade fails with a timeout. The default is <code>60</code>. You can increase it for large clusters where 60 minutes might not be enough, or reduce it for small clusters where the hosts update quickly.</p>
-</li>
-<li>
-<p><strong>Check Upgrade</strong> checks each host for available updates before running the upgrade process. It is not selected by default, but you can select it if you need to ensure that recent updates are included, such as when you have configured the Engine to check for host updates less frequently than the default.</p>
-</li>
-<li>
-<p><strong>Reboot After Upgrade</strong> reboots each host after it is updated, and is selected by default. You can clear this check box to speed up the process if you are sure that there are no pending updates that require a host reboot.</p>
-</li>
-<li>
-<p><strong>Use Maintenance Policy</strong> sets the cluster&#8217;s scheduling policy to <a href="https://ovirt.org/documentation/administration_guide/index#Cluster_Scheduling_Policy_Settings"><code>cluster_maintenance</code></a> during the update. It is selected by default, so activity is limited and virtual machines cannot start unless they are highly available. You can clear this check box if you have a custom scheduling policy that you want to keep using during the update, but this could have unknown consequences. Ensure your custom policy is compatible with cluster upgrade activity before disabling this option.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Click <strong>Next</strong>.</p>
-</li>
-<li>
-<p>Review the summary of the hosts and virtual machines that are affected.</p>
-</li>
-<li>
-<p>Click <strong>Upgrade</strong>.</p>
-</li>
-<li>
-<p>A cluster upgrade status screen displays with a progress bar showing the precentage of completion, and a list of steps in the upgrade process that have completed. You can click <strong>Go to Event Log</strong> to open the log entries for the upgrade. Closing this screen does not interrupt the upgrade process.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>You can track the progress of host updates:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>in the <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Clusters</b></span> view, the <strong>Upgrade Status</strong> column displays a progress bar that displays the percentage of completion.</p>
-</li>
-<li>
-<p>in the <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> view</p>
-</li>
-<li>
-<p>in the <strong>Events</strong> section of the <strong>Notification Drawer</strong> (<span class="image"><img src="common/images/EventsIcon.png" alt="EventsIcon" title="Events icon"></span>).</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>You can track the progress of individual virtual machine migrations in the <strong>Status</strong> column of the <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> view. In large environments, you may need to filter the results to show a particular group of virtual machines.</p>
-</div>
-<div class="paragraph">
-<p>You can now update the cluster compatibility version if required.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Changing_the_Cluster_Compatibility_Version_4-5-6_SHE">11.7. Changing the Cluster Compatibility Version</h3>
+<h3 id="Changing_the_Cluster_Compatibility_Version_4-5-6_SHE">11.12. Changing the Cluster Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt clusters have a compatibility version. The cluster compatibility version indicates the features of oVirt supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.</p>
 </div>
@@ -5806,7 +6116,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-5-6_SHE">11.8. Changing Virtual Machine Cluster Compatibility</h3>
+<h3 id="Changing_Virtual_Machine_Cluster_Compatibility_4-5-6_SHE">11.13. Changing Virtual Machine Cluster Compatibility</h3>
 <div class="paragraph">
 <p>After updating a cluster&#8217;s compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, or from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (<span class="image"><img src="common/images/pendingchanges.png" alt="pendingchanges" title="Pending Changes icon"></span>).</p>
 </div>
@@ -5857,7 +6167,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </div>
 </div>
 <div class="sect2">
-<h3 id="Changing_the_Data_Center_Compatibility_Version_4-5-6_SHE">11.9. Changing the Data Center Compatibility Version</h3>
+<h3 id="Changing_the_Data_Center_Compatibility_Version_4-5-6_SHE">11.14. Changing the Data Center Compatibility Version</h3>
 <div class="paragraph">
 <p>oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.</p>
 </div>
@@ -5886,6 +6196,63 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 </li>
 <li>
 <p>Click <b class="button">OK</b> to confirm.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Removing_Old_SHE_Storage_Domain_4-5-6_SHE">11.15. Removing the old self-hosted engine storage domain</h3>
+<div class="paragraph">
+<p>During the restoration, the old self-hosted engine storage domain was renamed but not removed. After confirming that the new environment is functioning correctly, you can remove the old storage domain to free up storage resources.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only remove the old storage domain after you have verified that the new environment is fully functional and all data is accessible.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Administration Portal.</p>
+</li>
+<li>
+<p>Click <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Domains</b></span>.</p>
+</li>
+<li>
+<p>Locate the old self-hosted engine storage domain. It will have been renamed with a suffix indicating it is from the previous deployment.</p>
+</li>
+<li>
+<p>Select the old storage domain and click <span class="menuseq"><b class="menu">More Actions</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Destroy</b></span>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the storage domain is attached to a data center, you must first move it to maintenance mode and then detach it before destroying it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Confirm the destruction when prompted.</p>
+</li>
+<li>
+<p>Optionally, clean up the storage on your storage server to reclaim the space used by the old self-hosted engine storage domain.</p>
 </li>
 </ol>
 </div>

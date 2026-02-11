@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>oVirt 4.5.7 Release Notes | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="oVirt 4.5.7 Release Notes" />
+<meta name="author" content="Jasper Berton" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/3236/release/4.5.7/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/3236/release/4.5.7/" />
+<meta property="og:site_name" content="oVirt" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="oVirt 4.5.7 Release Notes" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Jasper Berton" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Jasper Berton"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt 4.5.7 Release Notes","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3236/images/logo.svg"},"name":"Jasper Berton"},"url":"https://ovirt.github.io/ovirt-site/previews/3236/release/4.5.7/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/3236/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/3236/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3236/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3236/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/3236/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/3236/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3236/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3236/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3236/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3236/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/3236/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <link rel="icon" type="image/x-icon" href=" /ovirt-site/previews/3236/images/favicon/favicon.ico "/>
+  <link rel="icon" type="image/png" href="/ovirt-site/previews/3236/images/favicon/favicon-32x32.png" sizes="32x32"/>
+  <link rel="icon" type="image/png" href="/ovirt-site/previews/3236/images/favicon/favicon-16x16.png" sizes="16x16"/>
+  <link rel="apple-touch-icon" href="/ovirt-site/previews/3236/images/favicon/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" href="/ovirt-site/previews/3236/images/favicon/android-chrome-192x192.png" sizes="192x192"/>
+  <link rel="icon" type="image/png" href="/ovirt-site/previews/3236/images/favicon/android-chrome-512x512.png" sizes="512x512"/>
+  <link rel="manifest" href="/ovirt-site/previews/3236/images/favicon/site.webmanifest"/>
+</head>
+<body class="releases"><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/3236/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/3236/images/logo.svg" />      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav" role="menubar">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/3236/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3236/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3236/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3236/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3236//lists.ovirt.org/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/3236//blogs.ovirt.org/'>Blog</a></li>        </ul>      </div>      <!-- /.navbar-collapse -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3236/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/3236/release/">
+              <span property="name">Release</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <div class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/134267a37e4981c3c0a94dcaddc88357?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/134267a37e4981c3c0a94dcaddc88357?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy"
+                      alt="avatar of Jasper Berton">
+                  </div>
+                  <div class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Jasper Berton</span></p>
+                      
+                    </section>
+                  </div>
+                
+                </div>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="ovirt-457-release-notes">oVirt 4.5.7 Release Notes</h1>
+
+<p>The oVirt Project is pleased to announce the availability of the 4.5.7 release as of January 13 2026.</p>
+
+<p>oVirt is a free open-source distributed virtualization solution,
+designed to manage your entire enterprise infrastructure.
+oVirt uses the trusted KVM hypervisor and is built upon several other community
+projects, including libvirt, Gluster, PatternFly, and Ansible.</p>
+
+<p>This release is now available on x86_64 architecture for:</p>
+
+<ul>
+  <li>oVirt Node NG (based on CentOS Stream 9)</li>
+  <li>CentOS Stream 9</li>
+  <li>CentOS Stream 10</li>
+  <li>RHEL 9 and derivatives</li>
+  <li>RHEL 10 and derivatives</li>
+</ul>
+
+<p>To everyone using the oVirt Node NG we urge you to switch over to another way of using the product for ensured stability and security due to the way of how that product is structured.</p>
+
+<p>To find out how to interact with oVirt developers and users and ask questions,
+visit our <a href="/ovirt-site/previews/3236/community/">community page</a>.
+All issues or bugs should be reported via
+<a href="https://github.com/oVirt">oVirt GitHub</a>.</p>
+
+<p>If you’d like to try oVirt as quickly as possible, follow the instructions on
+the <a href="/ovirt-site/previews/3236/download/">Download</a> page.</p>
+
+<p>For complete installation, administration, and usage instructions, see
+the <a href="/ovirt-site/previews/3236/documentation/">oVirt Documentation</a>.</p>
+
+<p>For a general overview of oVirt, read the <a href="/ovirt-site/previews/3236/community/about.html">About oVirt</a>
+page.</p>
+
+<p>To learn about features introduced before 4.5.7, see the
+<a href="/ovirt-site/previews/3236/documentation/#previous-release-notes">release notes for previous versions</a>.</p>
+
+<blockquote>
+  <p>IMPORTANT
+If you are going to install on RHEL or derivatives please follow <a href="/ovirt-site/previews/3236/download/install_on_rhel.html">Installing on RHEL</a> first.</p>
+</blockquote>
+
+<blockquote>
+  <p>NOTE
+It is important that for installs on RHEL 10 and derivatives that version 10.0-4 (or newer) of centos-release-ovirt45 is used.</p>
+</blockquote>
+
+<ol id="markdown-toc">
+  <li><a href="#ovirt-457-release-notes" id="markdown-toc-ovirt-457-release-notes">oVirt 4.5.7 Release Notes</a>    <ol>
+      <li><a href="#whats-new-in-457" id="markdown-toc-whats-new-in-457">What’s New in 4.5.7?</a></li>
+      <li><a href="#new-releases-in-457" id="markdown-toc-new-releases-in-457">New releases in 4.5.7</a></li>
+      <li><a href="#contributors" id="markdown-toc-contributors">Contributors</a></li>
+      <li><a href="#new-cpus" id="markdown-toc-new-cpus">New cpu’s</a></li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="whats-new-in-457">What’s New in 4.5.7?</h2>
+
+<ul>
+  <li>CentOS 10 and AlmaLinux 10 support.</li>
+  <li>Fixed <a href="https://github.com/advisories/GHSA-9gxg-3rjh-xv63">CVE-2024-7259</a></li>
+  <li>Introduced <a href="#New-cpu's">new CPUs</a></li>
+  <li>Bumped external dependencies.</li>
+  <li>Implemented a new way of deploying to maven central.</li>
+  <li>All Java code is now built on Java 21 and compatible with Java 11.</li>
+  <li>Reconnect faster to hosts after reboot, instead of a static 10 minutes adapted to connect when the host is back online.</li>
+  <li>On boot of VM have a spare of <code class="language-plaintext highlighter-rouge">NumOfPciExpressPorts</code> PCIe ports available instead of a fixed number.</li>
+  <li>Add the optional <code class="language-plaintext highlighter-rouge">attach_wgt</code> flag to the vm start endpoint. This will auto attach the virtio-win iso to the vm.</li>
+  <li>Ability to add tags to templates via UI in the administration panel.</li>
+  <li>Add operating system description to host API object.</li>
+  <li>Added option for user to decide preference of vnc console invocation.</li>
+  <li>Added Windows 2025 and RHEL 10 to OS list.</li>
+  <li>Improve isLiveDelete check on VM.</li>
+  <li>Dropped deprecated packages.</li>
+  <li>Dropped Ceph, Cinderlib and collectd in CentOS 10 due to not available.</li>
+  <li>Added new DC/Cluster level (4.8).</li>
+  <li>Cluster level 4.8 now uses <code class="language-plaintext highlighter-rouge">pc-q35-rhel9.6.0</code> machine type and enables discard-no-unref by default.</li>
+  <li>Added ability to alter video device through API.</li>
+  <li>Set audio value to ich9 starting from RHEL7 on Q35.</li>
+  <li>When a VDS network error occurs during VM start, set the VM status to “Unknown” instead of letting it fall through to “Down”. This to prevent duplicate VM deployments.</li>
+  <li>Ability to update QoS on running VMs when a QoS profile has been modified or when QoS was changed on a vNIC profile.</li>
+</ul>
+
+<p>Many more changes were implemented in the newest releases of the oVirt packages and can be read about in detail down below.</p>
+
+<h2 id="new-releases-in-457">New releases in 4.5.7</h2>
+
+<ul>
+  <li><a href="https://github.com/oVirt//ovirt-engine/releases/tag/ovirt-engine-4.5.7">ovirt-engine-4.5.7</a></li>
+  <li><a href="https://github.com/oVirt//cockpit-ovirt/releases/tag/cockpit-ovirt-0.16.3">cockpit-ovirt-0.16.3</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-hosted-engine-setup/releases/tag/ovirt-hosted-engine-setup-2.7.2">ovirt-hosted-engine-setup-2.7.2</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-node-ng/releases/tag/ovirt-node-ng-4.4.3">ovirt-node-ng-4.4.3</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-engine-extension-aaa-ldap/releases/tag/ovirt-engine-extension-aaa-ldap-1.5.0">ovirt-engine-extension-aaa-ldap-1.5.0</a></li>
+  <li><a href="https://github.com/oVirt//otopi/releases/tag/otopi-1.10.5">otopi-1.10.5</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-engine-ui-extensions/releases/tag/ovirt-engine-ui-extensions-1.3.8-1">ovirt-engine-ui-extensions-1.3.8-1</a></li>
+  <li><a href="https://github.com/oVirt//imgbased/releases/tag/imgbased-1.2.26">imgbased-1.2.26</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-engine-metrics/releases/tag/ovirt-engine-metrics-1.6.3">ovirt-engine-metrics-1.6.3</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-engine-extension-aaa-jdbc/releases/tag/ovirt-engine-extension-aaa-jdbc-1.3.1">ovirt-engine-extension-aaa-jdbc-1.3.1</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-engine-keycloak/releases/tag/ovirt-engine-keycloak-15.0.2-7">ovirt-engine-keycloak-15.0.2-7</a></li>
+  <li><a href="https://github.com/oVirt//engine-db-query/releases/tag/engine-db-query-1.6.5">engine-db-query-1.6.5</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-host/releases/tag/ovirt-host-4.5.1-1">ovirt-host-4.5.1-1</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-engine-extensions-api/releases/tag/ovirt-engine-extensions-api-1.0.2">ovirt-engine-extensions-api-1.0.2</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-log-collector/releases/tag/ovirt-log-collector-4.5.1">ovirt-log-collector-4.5.1</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-engine-extension-aaa-misc/releases/tag/ovirt-engine-extension-aaa-misc-1.1.2">ovirt-engine-extension-aaa-misc-1.1.2</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-dependencies/releases/tag/ovirt-dependencies-4.5.7">ovirt-dependencies-4.5.7</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-setup-lib/releases/tag/ovirt-setup-lib-1.3.4">ovirt-setup-lib-1.3.4</a></li>
+  <li><a href="https://github.com/oVirt//ovirt-engine-build-dependencies/releases/tag/ovirt-engine-build-dependencies-4.5.7">ovirt-engine-build-dependencies-4.5.7</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-web-ui/releases/tag/1.9.4">ovirt-web-ui 1.9.4</a></li>
+  <li><a href="https://github.com/oVirt/vdsm/releases/tag/v4.50.6.1">vdsm v4.50.6.1</a></li>
+  <li><a href="https://github.com/oVirt/vdsm-jsonrpc-java/releases/tag/v1.7.4">vdsm-jsonrpc-java v1.7.4</a></li>
+  <li><a href="https://github.com/oVirt/python-ovirt-engine-sdk4/releases/tag/4.6.3">python-ovirt-engine-sdk4 4.6.3</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-engine-api-metamodel/releases/tag/1.3.11">ovirt-engine-api-metamodel 1.3.11</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-engine-api-model/releases/tag/4.6.1">ovirt-engine-api-model 4.6.1</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-ansible-collection/releases/tag/3.2.1-1">ovirt-ansible-collection 3.2.1</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-dwh/releases/tag/ovirt-engine-dwh-4.5.10">ovirt-dwh 4.5.10</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-hosted-engine-ha/releases/tag/v2.5.2">ovirt-hosted-engine-ha v2.5.2</a></li>
+  <li><a href="https://github.com/oVirt/mom/releases/tag/v0.6.5">mom 0.6.5</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-engine-sdk-ruby/releases/tag/4.6.1">ovirt-engine-sdk-ruby 4.6.1</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-engine-sdk-java/releases/tag/4.6.0">ovirt-engine-sdk-java 4.6.0</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-provider-ovn/releases/tag/1.2.36">ovirt-provider-ovn 1.2.36</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-engine-nodejs-modules/releases/tag/2.3.21">ovirt-engine-nodejs-modules 2.3.21</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-vmconsole/releases/tag/v1.0.10">ovirt-vmconsole 10.0.10</a></li>
+  <li><a href="https://github.com/oVirt/terraform-provider-ovirt/releases/tag/v2.2.0">terraform-provider-ovirt v2.2.0</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-engine-sdk/releases/tag/4.5.1">ovirt-engine-sdk 4.5.1</a></li>
+  <li><a href="https://github.com/oVirt/ioprocess/releases/tag/v1.4.3">ioprocess v1.4.3</a></li>
+  <li><a href="https://github.com/oVirt/userstorage/releases/tag/v0.5.3">userstorage 0.5.3</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-tinycore-linux/releases/tag/v13.13">ovirt-tinycore-linux v13.13</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-engine-wildfly/releases/tag/24.0.1-3">ovirt-engine-wildfly 24.0.1-3</a></li>
+  <li><a href="https://github.com/oVirt/ovirt-jboss-modules-maven-plugin/releases/tag/2.0.4">ovirt-jboss-modules-maven-plugin 2.0.4</a></li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+
+<p>33 people contributed to this release:</p>
+
+<ul>
+  <li><a href="https://github.com/arthurvr">Arthur Verschaeve</a> (Contributed to: ovirt-site)</li>
+  <li><a href="https://github.com/arso">Artur Socha</a> (Contributed to: vdsm-jsonrpc-java)</li>
+  <li><a href="https://github.com/inflatador">Brian King</a> (Contributed to: mom)</li>
+  <li><a href="https://be.linkedin.com/in/brooklyndewolf">Brooklyn Dewolf</a> (Contributed to: vdsm)</li>
+  <li><a href="https://github.com/emarcusRH">Eli Marcus</a> (Contributed to: ovirt-site)</li>
+  <li><a href="https://github.com/fraenki">Frank Wall</a> (Contributed to: ovirt-site)</li>
+  <li><a href="https://github.com/gocallag">Geoff O’Callaghan</a> (Contributed to: ovirt-site, ovirt-node-ng-image, ovirt-appliance)</li>
+  <li><a href="https://github.com/JasperB-TeamBlue">Jasper Berton</a> (Contributed to: ovirt-engine, vdsm, ovirt-web-ui, ovirt-engine-sdk, ovirt-site, cockpit-ovirt, ovirt-engine-sdk-java, mom, ovirt-engine-sdk-ruby, ovirt-provider-ovn, ovirt-engine-api-model, ovirt-hosted-engine-setup, python-ovirt-engine-sdk4, ovirt-engine-sdk-go, java-client-kubevirt, ovirt-engine-extension-aaa-ldap, ovirt-engine-api-metamodel, ovirt-engine-ui-extensions, imgbased, ovirt-engine-metrics, releng-tools, ovirt-engine-extension-aaa-jdbc, ovirt-engine-keycloak, ovirt-hosted-engine-ha, engine-db-query, ovirt-cockpit-sso, ovirt-lldp-labeler, ovirt-engine-extensions-api, ovirt-log-collector, ovirt-engine-nodejs-modules, ovirt-engine-extension-aaa-misc, ovirt-jboss-modules-maven-plugin, ovirt-dependencies, ovirt-setup-lib, ovirt-engine-build-dependencies)</li>
+  <li><a href="https://github.com/dupondje">Jean-Louis Dupond</a> (Contributed to: ovirt-engine, vdsm, terraform-provider-ovirt, ovirt-web-ui, ovirt-engine-sdk, ovirt-ansible-collection, cockpit-ovirt, ovirt-engine-sdk-java, ovirt-node-ng-image, ovirt-appliance, ovirt-imageio, mom, ovirt-engine-sdk-ruby, ovirt-provider-ovn, ovirt-engine-api-model, ovirt-hosted-engine-setup, python-ovirt-engine-sdk4, ovirt-engine-sdk-go, ovirt-system-tests, java-client-kubevirt, ovirt-engine-extension-aaa-ldap, otopi, vdsm-jsonrpc-java, ovirt-engine-api-metamodel, ovirt-engine-ui-extensions, imgbased, ovirt-release, ovirt-openvswitch, ovirt-engine-metrics, ovirt-vmconsole, ovirt-engine-extension-aaa-jdbc, ovirt-dwh, ovirt-engine-keycloak, ost-images, ovirt-hosted-engine-ha, engine-db-query, ovirt-cockpit-sso, ioprocess, buildcontainer, ovirt-engine-extensions-api, ovirt-log-collector, ovirt-engine-nodejs-modules, ovirt-engine-extension-aaa-misc, ovirt-jboss-modules-maven-plugin, ovirt-dependencies, ovirt-engine-wildfly, ovirt-setup-lib, userstorage, ovirt-tinycore-linux, ovirt-resources-upload-action, ovirt-build-dependencies, ovirt-engine-build-dependencies)</li>
+  <li><a href="https://github.com/xakod">Anton</a> (Contributed to: ovirt-imageio)</li>
+  <li><a href="https://github.com/dron23">Jiri Slezka</a> (Contributed to: ovirt-engine)</li>
+  <li><a href="https://github.com/JoschoKVC">Joschokvc</a> (Contributed to: ovirt-engine-extension-aaa-jdbc)</li>
+  <li><a href="https://github.com/josgutie">José Enrique Gutiérrez Mazón</a> (Contributed to: vdsm)</li>
+  <li><a href="https://github.com/jhernand">Juan Hernandez</a> (Contributed to: ovirt-engine-sdk-ruby, ovirt-engine-api-metamodel)</li>
+  <li><a href="https://github.com/kbrock">Keenan Brock</a> (Contributed to: ovirt-engine-sdk-ruby)</li>
+  <li><a href="https://github.com/lveyde">Lev Veyde</a> (Contributed to: ovirt-site)</li>
+  <li><a href="https://github.com/duck-rh">Marc Dequènes (Duck)</a> (Contributed to: ovirt-site)</li>
+  <li><a href="https://github.com/tinez">Marcin Sobczyk</a> (Contributed to: vdsm, ovirt-system-tests, ovirt-vmconsole, ost-images)</li>
+  <li><a href="https://github.com/mnecas">Martin Necas</a> (Contributed to: ovirt-ansible-collection)</li>
+  <li><a href="https://github.com/mwperina">Martin Perina</a> (Contributed to: ovirt-engine-extension-aaa-ldap, ovirt-engine-extension-aaa-misc)</li>
+  <li><a href="https://github.com/maxbes">Maxime Besson</a> (Contributed to: terraform-provider-ovirt)</li>
+  <li><a href="https://github.com/TrappM">Michael Trapp</a> (Contributed to: vdsm)</li>
+  <li><a href="https://github.com/michalskrivanek">Michalskrivanek</a> (Contributed to: ovirt-node-ng-image, ovirt-appliance, ovirt-system-tests)</li>
+  <li><a href="https://github.com/peter-boden">Peter Boden</a> (Contributed to: ovirt-engine, vdsm, ovirt-ansible-collection, ovirt-provider-ovn, ovirt-engine-api-model, ovirt-system-tests, otopi, vdsm-jsonrpc-java, ovirt-vmconsole, releng-tools, ovirt-dwh, ost-images, ovirt-tinycore-linux, ovirt-engine-build-dependencies)</li>
+  <li><a href="https://github.com/puhamihai">Puhamihai</a> (Contributed to: terraform-provider-ovirt)</li>
+  <li><a href="https://github.com/Raaghavcodes">Raaghav Wadhawan</a> (Contributed to: ovirt-engine)</li>
+  <li><a href="https://github.com/sandrobonazzola">Sandro Bonazzola</a> (Contributed to: ovirt-site, 512-byte-vm, ovirt-node-ng-image, ovirt-engine-sdk-ruby, python-ovirt-engine-sdk4, ovirt-system-tests, ovirt-engine-api-metamodel, imgbased, ovirt-release, ovirt-dwh, ost-images, ovirt-host, ioprocess, safelease, upload-rpms-action, checkout-action, ovirt-engine-build-dependencies)</li>
+  <li><a href="https://github.com/gorsing">Sergii Kuzko</a> (Contributed to: vdsm)</li>
+  <li><a href="https://github.com/shubhaOracle">Shubhaoracle</a> (Contributed to: vdsm, ovirt-ansible-collection)</li>
+  <li><a href="https://github.com/0ffer">Stanislav Melnichuk</a> (Contributed to: ovirt-engine, ovirt-dwh, ovirt-engine-extension-aaa-misc, ovirt-engine-build-dependencies)</li>
+  <li><a href="https://github.com/nyoxi">Tomáš Golembiovský</a> (Contributed to: mom)</li>
+  <li><a href="https://github.com/sorcix">Vic Demuzere</a> (Contributed to: ovirt-engine-sdk-go)</li>
+  <li><a href="https://github.com/didib">Yedidyah Bar David</a> (Contributed to: ovirt-dwh)</li>
+</ul>
+
+<h2 id="new-cpus">New cpu’s</h2>
+
+<p>Intel:</p>
+<ul>
+  <li>Sapphire Rapids Server</li>
+  <li>Secure Sapphire Rapids Server (all security features mentioned in v2 on qemu)</li>
+</ul>
+
+<p>AMD:</p>
+<ul>
+  <li>EPYC Milan</li>
+  <li>Secure EPYC Milan (all security features mentioned in v2 on qemu)</li>
+  <li>EPYC Rome</li>
+  <li>EPYC Rome v2 (all features mentioned in v2 on qemu)</li>
+  <li>EPYC Genoa</li>
+</ul>
+
+<p>IBM:</p>
+<ul>
+  <li>POWER10</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/3236/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3236/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3236/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3236/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2026 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/release/4.5.7/&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/release/4.5.7/index.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,4 +1,6 @@
+:ovirt-doc:
 :_content-type: ASSEMBLY
+include::common/collateral_files/_attributes.adoc[]
 [id="considerations"]
 = Considerations
 

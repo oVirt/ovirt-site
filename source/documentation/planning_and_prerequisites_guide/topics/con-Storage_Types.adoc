@@ -1,5 +1,7 @@
+:ovirt-doc:
 :_content-type: CONCEPT
 [id="storage-types"]
+include::../common/collateral_files/_attributes.adoc[]
 = Storage Types
 
 Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.

@@ -47,7 +47,7 @@ There are a few ways to engage with the oVirt Community:
 - [oVirt Facebook group](https://www.facebook.com/groups/ovirt.openvirtualization/)
 - [Twitter](https://twitter.com/ovirt)
 - IRC -- `#ovirt` on `irc.oftc.net`
-- [Matrix](https://matrix.to/#/#ovirt:ovirt.tech)
+- [Matrix](https://matrix.to/#/%23ovirt:ovirt.tech)
 
 Before getting started, please read our [community etiquette guidelines](/community/about/community-guidelines.html).
 

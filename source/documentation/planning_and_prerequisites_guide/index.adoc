@@ -5,6 +5,8 @@ include::common/collateral_files/_attributes.adoc[]
 = Planning and Prerequisites Guide
 :context: RHV_planning
 :RHV_planning:
+:doc-path: planning_and_prerequisites_guide
+:doc-name: Planning and Prerequisites Guide
 
 {virt-product-fullname} is made up of connected components that each play different roles in the environment. Planning and preparing for their requirements in advance helps these components communicate and run efficiently.
 

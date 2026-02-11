@@ -1,5 +1,7 @@
+:ovirt-doc:
 :_content-type: CONCEPT
 [id="infrastructure-considerations"]
+include::../common/collateral_files/_attributes.adoc[]
 = Infrastructure Considerations
 
 == Local or Remote Hosting

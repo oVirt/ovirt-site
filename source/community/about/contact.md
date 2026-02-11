@@ -29,4 +29,4 @@ on the GitHub website.
 
 ## Matrix
 
-Join the conversation about oVirt on [Matrix](https://matrix.to/#/#ovirt:ovirt.tech).
+Join the conversation about oVirt on [Matrix](https://matrix.to/#/%23ovirt:ovirt.tech).

@@ -41,7 +41,7 @@ include::topics/proc-enabling-fips_she.adoc[leveloffset=+1]
 
 include::topics/proc-enabling-fips_rhel_hosts_and_rhvm.adoc[leveloffset=+1]
 
-== Additional resources
+.Additional resources
 
 * link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Installing_Red_Hat_Virtualization_Hosts_SHE_cli_deploy[Installing {virt-product-fullname} Hosts]
 * link:https://www.redhat.com/en/blog/configuring-and-applying-scap-policies-during-installation[Configuring and Applying SCAP Policies During Installation]

@@ -11,7 +11,7 @@ Update one cluster at a time.
 //Limitations
 include::snip-Host_update_limitations.adoc[]
 
-.Procedure
+. Procedure
 
 . In the Administration Portal, click menu:Compute[Clusters] and select the cluster. The *Upgrade status* column shows if an upgrade is available for any hosts in the cluster.
 . Click *Upgrade*.

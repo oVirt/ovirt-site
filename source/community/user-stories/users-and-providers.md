@@ -10,7 +10,7 @@ page_classes: partner-logos
 
 # oVirt Users and Providers
 
-Our community keeps growing as more individual users and organizations choose oVirt. Some are implementing it in their datacenters, while others are using oVirt as the basis for their own customer solutions. Red Hat, which opened the oVirt codebase, uses it as the upstream version of its commercial virtualization product, Red Hat Virtualization.
+Our community keeps growing as more individual users and organizations choose oVirt. Some are implementing it in their datacenters, while others are using oVirt as the basis for their own customer solutions.
 
 ## Professional Services & Integrators
 
@@ -49,7 +49,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 <div class="case-study">
 [![Red Hat, Inc.](/images/logos/Red_Hat.svg)](http://www.redhat.com/en)
-[Red Hat](//www.redhat.com/en) is the corporate member of the oVirt community, responsible for opening oVirt's codebase. Besides providing support for oVirt's community, Red Hat uses oVirt as the codebase for its [Red Hat Virtualization](//www.redhat.com/en/technologies/virtualization/enterprise-virtualization) product.
+[Red Hat](//www.redhat.com/en) was the corporate member of the oVirt community, responsible for opening oVirt's codebase. Red Hat used oVirt in the past as the codebase for its Red Hat Virtualization product which has been dismissed in favor of [Red Hat OpenShift Virtualization](https://www.redhat.com/en/technologies/cloud-computing/openshift/virtualization).
 </div>
 
 

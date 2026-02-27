@@ -32,8 +32,8 @@ Previously, when importing a virtual machine with manual CPU pinning (pinned to 
 In this release, the CPU pinning policy is set to NONE if the CPU pinning string is cleared, and importing succeeds.
 
 BZ#link:https://bugzilla.redhat.com/2105781[2105781]::
-The hosted-engine-ha binaries have been moved from /usr/share to /usr/libexec. As a result, the hosted-engine --clean-metadata command fails. With this release, 
-you must use the new path for the command to succeed: 
+The hosted-engine-ha binaries have been moved from /usr/share to /usr/libexec. As a result, the hosted-engine --clean-metadata command fails. With this release,
+you must use the new path for the command to succeed:
 /usr/libexec/ovirt-hosted-engine-ha/ovirt-ha-agent
 
 BZ#link:https://bugzilla.redhat.com/2109923[2109923]::

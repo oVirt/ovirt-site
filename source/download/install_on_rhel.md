@@ -32,7 +32,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
 
 **Note:** Previous steps with subscription managers are not needed for AlmaLinux distro's.
 
-Once a minimal RHEL 9.x (or derivative like AlmaLinux) system has been built, you can install the pre-production master snapshots (oVirt Release 4.5.6 + Engine 4.5.7) 
+Once a minimal RHEL 9.x (or derivative like AlmaLinux) system has been built, you can install the pre-production master snapshots (oVirt Release 4.5.6 + Engine 4.5.7)
 
 ```bash
 dnf copr enable -y ovirt/ovirt-master-snapshot rhel-9-x86_64

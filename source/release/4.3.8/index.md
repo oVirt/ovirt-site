@@ -45,7 +45,7 @@ To learn about features introduced before 4.3.8, see the
 
  - [BZ 1782412](https://bugzilla.redhat.com/show_bug.cgi?id=1782412) **[RFE] RHV+Metrics Store - Support a Flat DNS environment without subdomains**
 
-   Feature: 
+   Feature:
 
 RHV+Metrics Store - Support a Flat DNS environment without subdomains
 
@@ -57,7 +57,7 @@ For some users, security policy mandates that they maintain a "flat" DNS environ
 
 
 
-Result: 
+Result:
 
 This fix adds an option to add a suffix to master0 VM.
 
@@ -73,19 +73,19 @@ Then the metrics store vm will be called 'master-prod0.example.com'.
 
  - [BZ 1727546](https://bugzilla.redhat.com/show_bug.cgi?id=1727546) **[RFE] Add cleanup option to oVirt metrics playbook**
 
-   Feature: 
+   Feature:
 
 Add cleanup option to oVirt metrics playbook
 
 
 
-Reason: 
+Reason:
 
 User that desided to remove the metrics store requires disabling Collectd, Fluentd (if in 4.2) and setting Rsyslog to default settings or they will get errors for these services on all hosts and engine, once they delete the Metrics store VM.
 
 
 
-Result: 
+Result:
 
 It is now possible to run playbook for handling the services:
 
@@ -122,54 +122,54 @@ It is now possible to run playbook for handling the services:
 
  - [BZ 1748022](https://bugzilla.redhat.com/show_bug.cgi?id=1748022) **Enable gluster 4k support**
 
-   
+
 
 
 #### imgbased
 
  - [BZ 1780331](https://bugzilla.redhat.com/show_bug.cgi?id=1780331) **Firewalld service not enabled/running after RHV-H upgrade**
 
-   
+
 
  - [BZ 1765250](https://bugzilla.redhat.com/show_bug.cgi?id=1765250) **After upgrade RHVH did not boot into latest layer by default on UEFI machine.**
 
-   
+
 
  - [BZ 1779661](https://bugzilla.redhat.com/show_bug.cgi?id=1779661) **grubenv file is broken in the UEFI RHV-H hosts**
 
-   
+
 
 
 #### oVirt Provider OVN
 
  - [BZ 1764946](https://bugzilla.redhat.com/show_bug.cgi?id=1764946) **ovirt-provider-ovn accepts anonymous TLS cipher suites (security)**
 
-   
+
 
 
 #### oVirt Engine Metrics
 
  - [BZ 1711873](https://bugzilla.redhat.com/show_bug.cgi?id=1711873) **RFE for offline installation  of RHV Metrics Store**
 
-   
+
 
  - [BZ 1780234](https://bugzilla.redhat.com/show_bug.cgi?id=1780234) **Metric Store reports all hosts in Default cluster regardless of cluster assignment.**
 
-   
+
 
 
 #### oVirt Cockpit Plugin
 
  - [BZ 1723728](https://bugzilla.redhat.com/show_bug.cgi?id=1723728) **Remove the VDO option to emulate 512**
 
-   
+
 
 
 #### oVirt image transfer daemon and proxy
 
  - [BZ 1786950](https://bugzilla.redhat.com/show_bug.cgi?id=1786950) **Block size detection is unsafe with multiple connections**
 
-   
+
 
 
 ### No Doc Update
@@ -178,7 +178,7 @@ It is now possible to run playbook for handling the services:
 
  - [BZ 1781380](https://bugzilla.redhat.com/show_bug.cgi?id=1781380) **Rest API for creating affinity group with labels is resulted with the group created with missing labels [RHV clone - 4.3.8]**
 
-   
+
 
 
 #### Contributors

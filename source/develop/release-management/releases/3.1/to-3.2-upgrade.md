@@ -66,7 +66,7 @@ Once you have a running Fedora 18:
 
 *   Update /root/.pgpass file - to include \* as the DB name instead of 'engine':
 
-      localhost:5432:*:engine:dbpass                                                                                                          
+      localhost:5432:*:engine:dbpass
 
 *   Update SSL configuration of the apache; edit /etc/httpd/conf.d/ssl.conf:
 
@@ -74,16 +74,16 @@ Once you have a running Fedora 18:
       --- ssl.conf.ovirt 2013-01-30 21:21:06.906000000 +0100
       +++ ssl.conf   2013-01-30 21:22:02.757000000 +0100
       @@ -9,7 +9,7 @@
-      # consult the online docs. You have been warned.  
+      # consult the online docs. You have been warned.
       #
       -LoadModule ssl_module modules/mod_ssl.so
       +#LoadModule ssl_module modules/mod_ssl.so
       #
-      # When we also provide SSL we have to listen to the 
+      # When we also provide SSL we have to listen to the
       @@ -40,7 +40,7 @@
       #   Semaphore:
       #   Configure the path to the mutual exclusion semaphore the
-      #   SSL engine uses internally for inter-process synchronization. 
+      #   SSL engine uses internally for inter-process synchronization.
       -SSLMutex default
       +#SSLMutex default
       #   Pseudo Random Number Generator (PRNG):

@@ -77,7 +77,7 @@ The feature depends on the following projects:
 The feature depends on the following features:
 1. Stable device addresses - on introduction of VM devices, which will have to be a part of the clone. See also [StableDeviceAddresses](/develop/release-management/features/virt/stabledeviceaddresses.html)
 2. Multiple storage domains - on introduction of multiple storage domains. When performing the clone the user should be able to select the storage domains containing the disks of the cloned VM. See also [Multiple storage domains](/develop/release-management/features/storage/multiplestoragedomains.html)
-3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot). 
+3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot).
 4. Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).
 5. Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section. See also [Features/HotPlug](/develop/release-management/features/storage/hotplugdisk.html)
 6. Quota - this feature needs the Quota feature in order to check the destination storage domains have suitable quota for the user to perform the clone operation. See Also [Features/Quota](/develop/release-management/features/sla/quota.html) <BR<BR>

@@ -1,6 +1,6 @@
 ---
 title: Install nightly snapshot
-authors: 
+authors:
   - sandrobonazzola
   - jasperb
 ---

@@ -289,7 +289,7 @@ It will be possible to drag blocks on one another. The following connections are
        </parameters_set>
     </parameter>
     <parameter required="false" type="collection"><name>bonding.slaves.host_nic</name>
-     <parameters_set> 
+     <parameters_set>
       <parameter required="false" type="xs:string"><name>host_nic.name|id</name></parameter>
      </parameters_set>
     </parameter>

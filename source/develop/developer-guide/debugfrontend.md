@@ -123,7 +123,7 @@ Compiling GWT application in draft mode has following effects:
 
 *Q: My web browser doesn't prompt me to install GWT Developer Plugin.*
 
-A: Make sure your browser is officially supported by GWT Developer Plugin. 
+A: Make sure your browser is officially supported by GWT Developer Plugin.
 
 *Q: The web page is blank after navigating to debug URL.*
 

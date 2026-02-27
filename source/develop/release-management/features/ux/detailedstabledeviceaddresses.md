@@ -68,13 +68,13 @@ New table vm_device:
        address             -- The device address as a string
        boot_order          -- The device boot order
        spec_params         -- The device special parameters, for example ('display': 'vnc')
-       is_managed          -- Indicates if the device is managed 
+       is_managed          -- Indicates if the device is managed
        is_plugged          -- Indicates if device is plugable
        is_readonly         -- Indicates if device is read-only.
 
 Adding a column to vm_dynamic:
 
-       hash                -- holds the md5 like hash indicating a change 
+       hash                -- holds the md5 like hash indicating a change
 
 Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field.
 
@@ -126,9 +126,9 @@ refreshVdsRunTimeInfo:
 
        query cluster to get version comparability value
        3.0 and below => create VMOldInfoManager and calls methods in it to persist data from structural info from VDSM
-         run on all VMs and do old logic 
+         run on all VMs and do old logic
        3.1 and above => create VMInfoManager and calls methods in it to persist data from structural info from VDSM
-         run on all VMs 
+         run on all VMs
          compare hash value if different add VM to change list
          call List requesting long format for all VMs in the changed list
          persist changes in DB

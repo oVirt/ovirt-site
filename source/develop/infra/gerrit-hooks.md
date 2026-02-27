@@ -52,7 +52,7 @@ This output will generate a **CR** of **+1**, a **VR** of **+1**, and everything
 
 Then the CR punctuation will be flatted to 0, the VR value will be kept intact and the message for this hook will be appended to the global message. And if the last one would be this:
 
-      Third hook 
+      Third hook
       ouput message
 
 Then neither of the review values will be changed and only the output message will be appended.

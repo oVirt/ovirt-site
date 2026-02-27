@@ -333,7 +333,7 @@ Content-type: application/xml
     </storage>
 </storage_domain>
 ```
-	
+
 #### Import NFS Storage Domain
 
 Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.

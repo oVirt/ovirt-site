@@ -35,7 +35,7 @@ Omitting a command from the argument list will open an interactive session
 A Cli command to get the version of the app server and some info:
 
       $JBOSS_HOME/bin/jboss-cli.sh --controller=127.0.0.1:8706 --connect --user=admin@internal version
-      Password: 
+      Password:
       JBoss Admin Command-line Interface
       JBOSS_HOME: /home/rgolan/jboss/current
       JBoss AS release: 8.2.0.Final "Tweek"

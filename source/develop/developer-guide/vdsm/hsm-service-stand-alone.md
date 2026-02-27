@@ -17,14 +17,14 @@ To make the HSM service stand alone, VDSM service will be re-factored like these
       class APIBase(object)
            def __init__(self):
                cli = hsm.ServiceProxy(hsm_proxy_server)
-       
+
                if cli:  <---HSM standalone service exists
                   self._irs = cli
                else:  <---fall back to the legacy way
                   self._cif = clientIF.getInstance()
                   self._irs = self._cif.irs
-                  
-           
+
+
 
 II) superVDSM service will serve both VDSM service and HSM service
 

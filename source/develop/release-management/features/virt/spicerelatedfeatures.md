@@ -74,10 +74,10 @@ The following libvirt XML example shows adding 4 USB devices to a domain xml. Th
         <controller type='usb' index='0' model='ich9-uhci2'/>
         <controller type='usb' index='0' model='ich9-uhci3'/>
 
-        <redirdev bus='usb' type='spicevmc'/>  
-        <redirdev bus='usb' type='spicevmc'/>  
-        <redirdev bus='usb' type='spicevmc'/>  
-        <redirdev bus='usb' type='spicevmc'/>  
+        <redirdev bus='usb' type='spicevmc'/>
+        <redirdev bus='usb' type='spicevmc'/>
+        <redirdev bus='usb' type='spicevmc'/>
+        <redirdev bus='usb' type='spicevmc'/>
 
 *   Each of the `redirdev` devices should be added to the `devices` list passed by Engine to Vdsm. Vdsm should be taught to recognise them.
 
@@ -144,7 +144,7 @@ Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:
             <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
           </xs:sequence>
         </xs:complexType>
-       
+
 
 *   In order to support two kinds of USB support, we add a new string element named "type", which should contain either "Legacy" or "Native":
 
@@ -154,7 +154,7 @@ Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:
             <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
           </xs:sequence>
         </xs:complexType>
-       
+
 
 *   Some notes on the new element:
     -   It is a temporary one, as in the future only the native option will be supported.

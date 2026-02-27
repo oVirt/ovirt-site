@@ -59,17 +59,17 @@ oVirt's MOM sub-project integration<sup>[[1](/develop/release-management/feature
 ## Rest API
 
 *   A simple flag should be added in the relevant actions.
-    
-    For cluster: 
-            
+
+    For cluster:
+
         "ballooningEnabled" : "false"
-            
+
     [Click here for cluster struct](http://ovirt.github.io/ovirt-engine-api-model/4.1/#types/cluster)
-    
+
     For memory policy:
-        
+
         "ballooning" : "true"
-            
+
     [Click here for memory policy struct](http://ovirt.github.io/ovirt-engine-api-model/4.1/#types/memory_policy)
 
 ## UI

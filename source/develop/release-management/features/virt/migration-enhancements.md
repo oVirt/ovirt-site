@@ -172,9 +172,9 @@ The only way how a policy can be defined / edited is using the engine-config too
 
 It will return a list of JSON formatted policies, will look like this (it will return it unformatted):
 
-    [  
-     {  
-      "id":{  
+    [
+     {
+      "id":{
          "uuid":"80554327-0569-496b-bdeb-fcbbf52b827b"
       },
       "maxMigrations":2,
@@ -183,74 +183,74 @@ It will return a list of JSON formatted policies, will look like this (it will r
       "enableGuestEvents":true,
       "name":"Minimal downtime",
       "description":"A safe policy which in typical situations lets the VM converge. The VM  user should not notice any significant slowdown of the VM. If the VM is not converging for a long time, the migration will be aborted. The guest agent hook mechanism is enabled.",
-      "config":{  
-         "convergenceItems":[  
-            {  
+      "config":{
+         "convergenceItems":[
+            {
                "stallingLimit":1,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "150"
                   ]
                }
             },
-            {  
+            {
                "stallingLimit":2,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "200"
                   ]
                }
             },
-            {  
+            {
                "stallingLimit":3,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "300"
                   ]
                }
             },
-            {  
+            {
                "stallingLimit":4,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "400"
                   ]
                }
             },
-            {  
+            {
                "stallingLimit":6,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "500"
                   ]
                }
             }
          ],
-         "initialItems":[  
-            {  
+         "initialItems":[
+            {
                "action":"setDowntime",
-               "params":[  
+               "params":[
                   "100"
                ]
             }
          ],
-         "lastItems":[  
-            {  
+         "lastItems":[
+            {
                "action":"abort",
-               "params":[  
+               "params":[
 
                ]
             }
          ]
       }
     },
-    {  
-      "id":{  
+    {
+      "id":{
          "uuid":"80554327-0569-496b-bdeb-fcbbf52b827c"
       },
       "maxMigrations":1,
@@ -259,72 +259,72 @@ It will return a list of JSON formatted policies, will look like this (it will r
       "enableGuestEvents":true,
       "name":"Suspend workload if needed",
       "description":"A safe policy which makes also a highly loaded VM converge in most situations. On the other hand, the user may notice a slowdown. If the VM is still not converging, the migration is aborted. The guest agent hook mechanism is enabled.",
-      "config":{  
-         "convergenceItems":[  
-            {  
+      "config":{
+         "convergenceItems":[
+            {
                "stallingLimit":1,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "150"
                   ]
                }
             },
-            {  
+            {
                "stallingLimit":2,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "200"
                   ]
                }
             },
-            {  
+            {
                "stallingLimit":3,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "300"
                   ]
                }
             },
-            {  
+            {
                "stallingLimit":4,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "400"
                   ]
                }
             },
-            {  
+            {
                "stallingLimit":6,
-               "convergenceItem":{  
+               "convergenceItem":{
                   "action":"setDowntime",
-                  "params":[  
+                  "params":[
                      "500"
                   ]
                }
             }
          ],
-         "initialItems":[  
-            {  
+         "initialItems":[
+            {
                "action":"setDowntime",
-               "params":[  
+               "params":[
                   "100"
                ]
             }
          ],
-         "lastItems":[  
-            {  
+         "lastItems":[
+            {
                "action":"setDowntime",
-               "params":[  
+               "params":[
                   "5000"
                ]
             },
-            {  
+            {
                "action":"abort",
-               "params":[  
+               "params":[
 
                ]
             }
@@ -376,7 +376,7 @@ The Legacy migration policy is referenced as:
 
 Other policies are referenced as
 
-    <policy id="the policy id"/> 
+    <policy id="the policy id"/>
 
 The bandwidth is referenced as:
 

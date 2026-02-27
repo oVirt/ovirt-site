@@ -19,7 +19,7 @@ authors:
 
 **2) How can I change "vdsm" logging format or level?**
 
-Edit  #/etc/vdsm/logger.conf 
+Edit  #/etc/vdsm/logger.conf
 
 **3) Which files are persisted by default with ovirt-node?**
 
@@ -125,7 +125,7 @@ Statistics: statistics info for History DB
 
 Running `service vdsmd restart` without placing the host on 'maintenance' mode on ovirt GUI, can cause following scenario:<br>
 vdsmd restart on a host takes time, especially when the host is an SPM (Storage Pool Manager) - it should disconnect the storage, restart, and reconnect.<br>
-ovirt-engine checks for a host aliveness each `"X" * "Y"` seconds 
+ovirt-engine checks for a host aliveness each `"X" * "Y"` seconds
 
 Where `X= "ConfigurationTool.Hosts.Timeout_before_reset_Host" seconds` and `"Y" =  <ConfigurationTool.Hosts.Attempts_before_reset_Host>` times.
 

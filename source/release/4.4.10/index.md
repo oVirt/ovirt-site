@@ -99,7 +99,7 @@ In this release, soft fencing has been fixed so that if the soft fencing does no
 
  - [BZ 2044277](https://bugzilla.redhat.com/show_bug.cgi?id=2044277) **Replace ovirt-engine-extension-logger-log4j with internal ovirt-engine implementation**
 
-   With this release, the ovirt-engine-extension-logger-log4j package has been removed. It is replaced by an internal ovirt-engine implementation. 
+   With this release, the ovirt-engine-extension-logger-log4j package has been removed. It is replaced by an internal ovirt-engine implementation.
 
 
 
@@ -175,14 +175,14 @@ After a successful upgrade to oVirt 4.4.10, you can uninstall log4j12 without br
 
  - [BZ 2013932](https://bugzilla.redhat.com/show_bug.cgi?id=2013932) **[CBT] VM backup scratch disks remains if the VM destroyed during the backup**
 
-   
+
 
 
 #### oVirt Release Package
 
  - [BZ 2006682](https://bugzilla.redhat.com/show_bug.cgi?id=2006682) **subscription-manager is missing from ovirt-node image**
 
-   
+
 
 
 ### No Doc Update
@@ -199,16 +199,16 @@ After a successful upgrade to oVirt 4.4.10, you can uninstall log4j12 without br
 
 
  - [BZ 2047640](https://bugzilla.redhat.com/show_bug.cgi?id=2047640) **CVE-2021-0920 kernel: Use After Free in unix_gc() which could result in a local privilege escalation [ovirt-4.4]**
-   
+
 
  - [BZ 2047630](https://bugzilla.redhat.com/show_bug.cgi?id=2047630) **CVE-2021-4154 kernel: local privilege escalation by exploiting the fsconfig syscall parameter leads to container breakout  [ovirt-4.4]**
-   
+
 
  - [BZ 2046005](https://bugzilla.redhat.com/show_bug.cgi?id=2046005) **CVE-2022-0330 kernel: possible privileges escalation due to missing TLB flush  [ovirt-4.4]**
 
 
  - [BZ 2043471](https://bugzilla.redhat.com/show_bug.cgi?id=2043471) **CVE-2021-45417 aide: heap-based buffer overflow on outputs larger than B64_BUF [ovirt-4.4]**
-   
+
 
  - [BZ 2046038](https://bugzilla.redhat.com/show_bug.cgi?id=2046038) **CVE-2021-4034 polkit: Local privilege escalation in pkexec due to incorrect handling of argument vector [ovirt-4.4]**
 

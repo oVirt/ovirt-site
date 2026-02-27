@@ -46,9 +46,9 @@ The labels represent a varied list of networks, depending on the network assignm
 **For example:**
 
        networks 'red' and 'blue' labelled 'lbl1'
-       network 'red' is assigned to a cluster 'A' and 'B'. 
+       network 'red' is assigned to a cluster 'A' and 'B'.
        network 'blue' is assigned to a cluster 'B'.
-       
+
 
 Therefore in the context of cluster 'A' label 'lbl1' represents only network 'red' and in the context of cluster 'B' it represents 'red' and 'blue'.
 Once network 'blue' is assigned to cluster 'A', label 'lbl1' will stand for it as well as for network 'red'. Assigning 'blue' to cluster 'A' triggers adding the network 'red' to all of the hosts interfaces in the cluster which are labelled 'lbl1'.
@@ -57,10 +57,10 @@ If network 'blue' will be unassigned from cluster 'B', label 'lbl1' will represe
 
        Network 'red' - lbl1
        Network 'blue' - lbl1
-       
+
        Host X - eth0 - lbl1
        Host Y - bond0 - lbl1
-       
+
        * Removing 'lbl1' from network 'red' will trigger the removal of network 'red' from eth0 (Host X) and from bond0 (Host Y)
        * Adding network 'green' with label 'lbl1' will trigger the addition of network 'green' to eth0 (Host X) and to bond0 (Host Y)
 
@@ -186,8 +186,8 @@ The user will be able to provide the list of labels per nic via as part of the s
   <host_nics>
     <host_nic>
       <labels>
-              <label id="label_name_1" /> 
-              <label id="label_name_2" /> 
+              <label id="label_name_1" />
+              <label id="label_name_2" />
       </labels>
             ...
     </host_nic>

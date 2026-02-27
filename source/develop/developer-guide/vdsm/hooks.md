@@ -183,7 +183,7 @@ Currently, the hooking module only exists in python. Here is an example of a sim
 ```python
 #!/usr/bin/python
 import os
-import sys 
+import sys
 if os.environ.has_key('cantmigrate'):
    sys.stderr.write('cantmigrate: before_vm_migrate_source: cannot migrate this VM\n')
    sys.exit(2)
@@ -194,19 +194,19 @@ This script does not use the hooking module, because it does not need to actuall
 And this is an example that uses the Hooking module to read a custom property that defines CPU pinning for a VM, and alters the VM's XML accordingly:
 
 ```python
-#!/usr/bin/python 
+#!/usr/bin/python
 import os
 import sys
 import hooking
 import traceback
-    
+
 #pincpu usages
 #=============
 #pincpu="0" (use the first cpu)
 #pincpu="1-4" (use cpus 1-4)
 #pincpu="^3" (don't use cpu 3)
 #pincpu="1-4,^3,6" (or all together)
-  
+
 if os.environ.has_key('pincpu'):
     try:
        domxml = hooking.read_domxml()   #here we read the VM XML into the domxml variable

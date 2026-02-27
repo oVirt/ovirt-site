@@ -21,7 +21,7 @@ This feature extends events notifier capabilities and enables it to generate SNM
 
 *   Target Release: 4.1
 *   Status: Post
-*   Last updated: 
+*   Last updated:
 
 ### Configuration
 
@@ -75,14 +75,14 @@ Configuration for sending SNMPv3 AuthPriv traps as user 'ovirtengine'  with snmp
 
       # version 3 traps: allow user ovirtengine to log,execute,net
       authUser log,execute,net ovirtengine
-      
-      # version 3 add a user NoAuthnoPriv who can send noAuthNoPriv 
+
+      # version 3 add a user NoAuthnoPriv who can send noAuthNoPriv
       authUser log,execute,net NoAuthNoPriv noauth
       # Log incoming traps to /var/log/snmptrapd.log
       logOption f /var/log/snmptrapd.log
 
 With latest net-snmp-5.7.3-38.fc28.x86_64 logOption is moved to a library specific directive from an application-level one.
-Edit /etc/snmp/snmptrapd.conf to add the library specific directive in front of logOption. 
+Edit /etc/snmp/snmptrapd.conf to add the library specific directive in front of logOption.
 
       # Log incoming traps to /var/log/snmptrapd.log
       [snmp] logOption f /var/log/snmptrapd.log
@@ -95,12 +95,12 @@ chcon -t snmpd_log_t /var/log/snmptrapd.log
 #### Create the users
 
 edit /var/lib/net-snmp/snmpd.conf add createUser to support version 3 traps
-and 
+and
 edit /var/lib/net-snmp/snmptrapd.conf add creatUser to support version 3 traps
 
       createUser -e 0x8000000001020505 ovirtengine MD5 authpass AES privpass
       createUser -e 0x8000000001020606 NoAuthNoPriv
-  
+
 #### Edit /etc/snmp/snmpd.conf
 
       rwuser ovirtengine

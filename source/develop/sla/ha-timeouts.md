@@ -30,7 +30,7 @@ highly available VMs (vdsConnectionTimeout and vdsRetries have been added in 3.2
 have to fail to consider a host a candidate for fencing. Default value is **2**.
 
 **TimeoutToResetVdsInSeconds** controls how long a host has to be failing
-(VDSM operations failing continuously) to consider it a candidate for fencing. 
+(VDSM operations failing continuously) to consider it a candidate for fencing.
 Default values is **60s**.
 
 Both above parameters have to be evaluated as true to actually initiate fencing of a host,
@@ -55,7 +55,7 @@ takes approx 63s (**vdsTimeout**, the kernel cuts to 63s any value larger than t
 and we need 2 consecutive failures to start fencing: 63sec \* 3 \* 2 ~ 6min.
 
 For a more predictable fencing the following parameters need to be changed:
- # engine-config -s vdsConnectionTimeout=2 
+ # engine-config -s vdsConnectionTimeout=2
  # engine-config -s vdsRetries=0
 
 With these settings the host should be fenced approx **1 minute** after it stops responding,

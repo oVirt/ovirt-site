@@ -103,85 +103,85 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 | Test                                                                   | Steps                                                                        | Expected Result                                                                                                        | Status | Version | Note                                                      |
 |------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|--------|---------|-----------------------------------------------------------|
 
-| Dedicated migration network                                            | 1) Assign migration role to the network                                      
-                                                                          2) Attach the network to the host (do not forget to setup IP)                 
-                                                                          3) Migrate VMs between nodes                                                  | 1) Role assigned                                                                                                       
-                                                                                                                                                         2) Network attached                                                                                                     
+| Dedicated migration network                                            | 1) Assign migration role to the network
+                                                                          2) Attach the network to the host (do not forget to setup IP)
+                                                                          3) Migrate VMs between nodes                                                  | 1) Role assigned
+                                                                                                                                                         2) Network attached
                                                                                                                                                          3) Successful migration which happens over dedicated migration network                                                  |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Migrate VM which has attached migration network                        | 1) Run the VM                                                                
-                                                                          2) Migrate the VM with migration network attached over the migration network  | 1) -                                                                                                                   
+| Migrate VM which has attached migration network                        | 1) Run the VM
+                                                                          2) Migrate the VM with migration network attached over the migration network  | 1) -
                                                                                                                                                          2) Migration successful                                                                                                 |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Automatic migration                                                    | 1) Assign migration role to the network                                      
-                                                                          2) Attach the network to hosts (do not forget to setup IP)                    
-                                                                          3) Attach another required network (NET2) to hosts                            
-                                                                          4) Run VM/s on one of the hosts                                               
-                                                                          5) Take down NET2 interface on host with running VM/s                         | 1) Role assigned                                                                                                       
-                                                                                                                                                         2) Migration network attached                                                                                           
-                                                                                                                                                         3) network NET2 attached to host                                                                                        
-                                                                                                                                                         4) VM/s running                                                                                                         
+| Automatic migration                                                    | 1) Assign migration role to the network
+                                                                          2) Attach the network to hosts (do not forget to setup IP)
+                                                                          3) Attach another required network (NET2) to hosts
+                                                                          4) Run VM/s on one of the hosts
+                                                                          5) Take down NET2 interface on host with running VM/s                         | 1) Role assigned
+                                                                                                                                                         2) Migration network attached
+                                                                                                                                                         3) network NET2 attached to host
+                                                                                                                                                         4) VM/s running
                                                                                                                                                          5) VM/s auto migrated over migration network                                                                            |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Higher MTU                                                             | 1) Create network with MTU=9000                                              
-                                                                          2) Assign migration role to the network                                       
-                                                                          3) Attach the network to the host (do not forget to setup IP)                 
-                                                                          4) Migrate VMs between nodes                                                  | 1) -                                                                                                                   
-                                                                                                                                                         2) -                                                                                                                    
-                                                                                                                                                         3) -                                                                                                                    
+| Higher MTU                                                             | 1) Create network with MTU=9000
+                                                                          2) Assign migration role to the network
+                                                                          3) Attach the network to the host (do not forget to setup IP)
+                                                                          4) Migrate VMs between nodes                                                  | 1) -
+                                                                                                                                                         2) -
+                                                                                                                                                         3) -
                                                                                                                                                          4) Migration successful, MTU 9000 is used (verify by tcpdump or some other network tool)                                |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Remove dedicated migration network                                     | 1) Remove dedicated migration network/s                                      
-                                                                          2) Migrate VMs                                                                | 1) Networks removed                                                                                                    
+| Remove dedicated migration network                                     | 1) Remove dedicated migration network/s
+                                                                          2) Migrate VMs                                                                | 1) Networks removed
                                                                                                                                                          2) VMs successfully migrate over management network                                                                     |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Migrate to host without migration network (this test requires 2 hosts) | 1) Assign migration role to the network                                      
-                                                                          2) Attach the network to **one** host (do not forget IP)                      
-                                                                          3) Migrate VMs between nodes                                                  | 1) Role assigned                                                                                                       
-                                                                                                                                                         2) Network attached                                                                                                     
+| Migrate to host without migration network (this test requires 2 hosts) | 1) Assign migration role to the network
+                                                                          2) Attach the network to **one** host (do not forget IP)
+                                                                          3) Migrate VMs between nodes                                                  | 1) Role assigned
+                                                                                                                                                         2) Network attached
                                                                                                                                                          3) Manual migration should be possible, even if node does not have migration network (management network will be used)  |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Remove dedicated migration network                                     | 1) Remove dedicated migration network/s                                      
-                                                                          2) Migrate VMs                                                                | 1) Networks removed                                                                                                    
+| Remove dedicated migration network                                     | 1) Remove dedicated migration network/s
+                                                                          2) Migrate VMs                                                                | 1) Networks removed
                                                                                                                                                          2) VMs successfully migrate over management network                                                                     |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Migration network interface failure                                    | 1) Assign migration role to the network                                      
-                                                                          2) Attach the network to cluster as required                                  
-                                                                          3) Attach the network to hosts (do not forget to setup IPs)                   
-                                                                          4) Take down migration interface on one host                                  
-                                                                          5) Change the migration network to non-rquired                                
-                                                                          6) Reactivate the host                                                        
-                                                                          7) Migrate VMs between nodes</br>                                             | 1) Migration role assigned                                                                                             
-                                                                                                                                                         2) Network attached to cluster                                                                                          
-                                                                                                                                                         3) Network attached to host                                                                                             
-                                                                                                                                                         4) Host goes non-opertational                                                                                           
-                                                                                                                                                         5) -                                                                                                                    
-                                                                                                                                                         6) Host UP (migration interface still down)                                                                             
+| Migration network interface failure                                    | 1) Assign migration role to the network
+                                                                          2) Attach the network to cluster as required
+                                                                          3) Attach the network to hosts (do not forget to setup IPs)
+                                                                          4) Take down migration interface on one host
+                                                                          5) Change the migration network to non-rquired
+                                                                          6) Reactivate the host
+                                                                          7) Migrate VMs between nodes</br>                                             | 1) Migration role assigned
+                                                                                                                                                         2) Network attached to cluster
+                                                                                                                                                         3) Network attached to host
+                                                                                                                                                         4) Host goes non-opertational
+                                                                                                                                                         5) -
+                                                                                                                                                         6) Host UP (migration interface still down)
                                                                                                                                                          7) Migration fails                                                                                                      |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Wrong / missing IPs                                                    | 1) Assign migration role to the network                                      
-                                                                          2) Attach the network to the host                                             
-                                                                          3) Set IP just for one host                                                   
-                                                                          4) Migrate VMs between nodes                                                  
-                                                                          5) Set wrong IP/netmask on one of the hosts                                   
-                                                                          6) Migrate VMs between nodes                                                  | 1) -                                                                                                                   
-                                                                                                                                                         2) -                                                                                                                    
-                                                                                                                                                         3) IP set                                                                                                               
+| Wrong / missing IPs                                                    | 1) Assign migration role to the network
+                                                                          2) Attach the network to the host
+                                                                          3) Set IP just for one host
+                                                                          4) Migrate VMs between nodes
+                                                                          5) Set wrong IP/netmask on one of the hosts
+                                                                          6) Migrate VMs between nodes                                                  | 1) -
+                                                                                                                                                         2) -
+                                                                                                                                                         3) IP set
 
-                                                                                                                                                         3a) IF the destination host is the one with the ip- should succeed                                                      
+                                                                                                                                                         3a) IF the destination host is the one with the ip- should succeed
 
-                                                                                                                                                         3b) IF the destination has DHCP set as boot protocol- it also should succeed                                            
+                                                                                                                                                         3b) IF the destination has DHCP set as boot protocol- it also should succeed
 
-                                                                                                                                                         4) -                                                                                                                    
-                                                                                                                                                         5) Wrong IP set                                                                                                         
-                                                                                                                                                         6) -                                                                                                                    
+                                                                                                                                                         4) -
+                                                                                                                                                         5) Wrong IP set
+                                                                                                                                                         6) -
 
-                                                                                                                                                         6a) IF the destination host has wrong ip on the migration network- should fail.                                         
+                                                                                                                                                         6a) IF the destination host has wrong ip on the migration network- should fail.
 
                                                                                                                                                          6b) IF the origin host- should succeed.                                                                                 |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| Migration and display network                                          | 1) Assign migration network also display network role                        
-                                                                          2) Live migrate multiple VMs with open spice consoles                         | 1) -                                                                                                                   
+| Migration and display network                                          | 1) Assign migration network also display network role
+                                                                          2) Live migrate multiple VMs with open spice consoles                         | 1) -
                                                                                                                                                          2) Migration successful, spice consoles displaying correctly                                                            |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
 | Negative: Migration network is N/A for lower cluster/dc version        | 1) Assign migration network role on DC/CL lower than 3.3                     | 1) Migration network role cannot be assigned on DC/CL lower than 3.3                                                   |        |         | Test for: regular network, bridgeless network, VLAN, bond |

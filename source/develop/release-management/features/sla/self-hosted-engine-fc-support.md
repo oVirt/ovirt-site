@@ -27,7 +27,7 @@ As usual launch hosted-engine --deploy:
 
 Than you can find and additional valid answer to
 
-               Please specify the storage you would like to use (iscsi, fc, nfs3, nfs4)[nfs3]: 
+               Please specify the storage you would like to use (iscsi, fc, nfs3, nfs4)[nfs3]:
 
 question. Choose fc
 
@@ -38,20 +38,20 @@ It will scan the storage subsystem to find FC HBA letting you select a FC LUN to
                The following luns have been found on the requested target:
                  [1] 330000000e5380848   56GiB   XtremIO XtremApp
                      status: used, paths: 4 active
-              
+
                  [2] 33000000022a29f57   100GiB  XtremIO XtremApp
                      status: free, paths: 4 active
-              
+
                  [3] 330000000c399efa0   100GiB  XtremIO XtremApp
                      status: free, paths: 4 active
-              
+
                  [4] 330000000d0c91c54   100GiB  XtremIO XtremApp
                      status: free, paths: 4 active
-              
+
                  [5] 33000000031f26ca3   40GiB   XtremIO XtremApp
                      status: used, paths: 4 active
-              
-               Please select the destination LUN (1, 2, 3, 4, 5) [1]: 
+
+               Please select the destination LUN (1, 2, 3, 4, 5) [1]:
 
 You can select one and proceed with engine VM setup. That LUN will be used only for the engine VM and would not be available for other usages.
 

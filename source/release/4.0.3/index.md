@@ -18,7 +18,7 @@ This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
 
-An updated documentation has been provided by our downstream 
+An updated documentation has been provided by our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/)
 
 

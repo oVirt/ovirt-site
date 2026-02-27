@@ -40,7 +40,7 @@ A function to add new object columns to the white list fn_db_add_column_to_objec
 4) Assume you have a SP that selects from T by id (c1 column), it should now look like :
 
 ```sql
-      Create or replace FUNCTION GetAllFromT(v_id UUID, v_user_id UUID, v_is_filtered BOOLEAN)   
+      Create or replace FUNCTION GetAllFromT(v_id UUID, v_user_id UUID, v_is_filtered BOOLEAN)
       RETURNS SETOF T
         AS $procedure$
       DECLARE

@@ -290,7 +290,7 @@ To learn about features introduced before 4.5.0, see the
    With this version, engine-setup does not set this option, and removes it if it's already set, letting it be managed by crypto-policies.
  - [BZ 977778](https://bugzilla.redhat.com/show_bug.cgi?id=977778) **[RFE] - Mechanism for converting disks for non-running VMS**
 
-   Feature: 
+   Feature:
    Support the conversion of a disk's format and allocation policy
 
    Reason: Users may want to change allocation policy or format to make reduce space usage or improve performance. As well as enable incremental backup on existing raw disks.
@@ -321,11 +321,11 @@ To learn about features introduced before 4.5.0, see the
    Be aware that 7 is the maximum number of officially supported active hosts with hosted engine configuration, so administrators should decrease number of such hosts below 7 to eliminate issues around hosted engine .
  - [BZ 1624015](https://bugzilla.redhat.com/show_bug.cgi?id=1624015) **[RFE] Expose Console Options and Console invocation via API**
 
-   Feature: 
+   Feature:
    Setting the default console type (for both new and existing VMs) can be done engine widely by using CLI for setting the following engine-config parameters:
    `engine-config -s ClientModeVncDefault=NoVnc` to prefer NoVnc instead of remote-viewer
-   and 
-   `engine-config -s ClientModeConsoleDefault=vnc` to prefer VNC over SPICE in case the VM has both available. 
+   and
+   `engine-config -s ClientModeConsoleDefault=vnc` to prefer VNC over SPICE in case the VM has both available.
 
 
    If the actual console type for existed VMs was chosen manually via 'console options' dialog, cleaning the browser local storage is needed.
@@ -333,10 +333,10 @@ To learn about features introduced before 4.5.0, see the
    all existing VMs, please clear the browser local storage after running the engine.
 
 
-   Reason: 
+   Reason:
    An option for setting default console type for all provisioned VMs globally at once was not supported up till now. Needed to go one VM by one and set the console type via the 'console options' dialog.
 
-   Result: 
+   Result:
    Support setting console type globally for all VMs, existed and new ones, by using the engine-config parameters.
  - [BZ 2023786](https://bugzilla.redhat.com/show_bug.cgi?id=2023786) **oVirt VM with SAP monitoring configuration does not fail to start if the Host is missing vdsm-hook-vhostmd**
 
@@ -348,15 +348,15 @@ To learn about features introduced before 4.5.0, see the
    See [Parallel migration connections](https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html) for all the important information about the feature.
  - [BZ 2011768](https://bugzilla.redhat.com/show_bug.cgi?id=2011768) **Add an option to show only direct permissions (filter inherited permissions)**
 
-   Feature: 
+   Feature:
 
-   Enable to filter indirect permissions on an object 
+   Enable to filter indirect permissions on an object
 
-   Reason: 
+   Reason:
 
-   List of inherited permissions may be large and it is not easy to get only direct permissions 
+   List of inherited permissions may be large and it is not easy to get only direct permissions
 
-   Result: 
+   Result:
 
    Adding "ALL" and "Direct" buttons that controls the permission list
  - [BZ 2021217](https://bugzilla.redhat.com/show_bug.cgi?id=2021217) **[RFE] Windows 2022 support**
@@ -393,20 +393,20 @@ To learn about features introduced before 4.5.0, see the
    It is now possible to set the number of PCI Express ports virtual machines are configured with by setting the NumOfPciExpressPorts configuration using engine-config
  - [BZ 1849169](https://bugzilla.redhat.com/show_bug.cgi?id=1849169) **[RFE] add virtualCPUs/physicalCPUs ratio property to evenly_distributed policy**
 
-   Feature: 
+   Feature:
    A new parameter was added to the evenly_distributed scheduling policy that takes into account the ratio between virtual and physical CPUs on the host.
-   Reason: 
+   Reason:
    To prevent the host from over utilization of all physical CPUs.
-   Result: 
+   Result:
    When the ratio is set to 0, the evenly distributed policy works as before. If the value is greater than 0, the vCPU to physical CPU is considered as follows:
-   a. when scheduling a VM, hosts with lower CPU utilization are preferred. However, if adding of the VM would cause the vCPU to physical ratio to be exceeded, the hosts vCPU to physical ratio AND cpu utilization are considered. 
+   a. when scheduling a VM, hosts with lower CPU utilization are preferred. However, if adding of the VM would cause the vCPU to physical ratio to be exceeded, the hosts vCPU to physical ratio AND cpu utilization are considered.
    b. in a running environment, if the host's vCPU to physical ratio is above the limit, some of the VMs might be load balanced to the hosts with lower vCPU to physical CPU ratio.
  - [BZ 2003862](https://bugzilla.redhat.com/show_bug.cgi?id=2003862) **Missing default hv_stimer_direct, hv_ipi, hv_evmcs flags**
 
    hv_stimer_direct and hv_ipi Hyper-V flags are newly added to VMs when the cluster level is higher than 4.6.
  - [BZ 1944834](https://bugzilla.redhat.com/show_bug.cgi?id=1944834) **[RFE] Timer for Console Disconnect Action - Shutdown VM after N minutes of being disconnected (Webadmin-only)**
 
-   The feature adds a user-specified delay to the 'Shutdown' Console Disconnect Action of a VM. The shutdown won't be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled. 
+   The feature adds a user-specified delay to the 'Shutdown' Console Disconnect Action of a VM. The shutdown won't be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled.
    This prevents a user's session loss after an accidental disconnect.
  - [BZ 1973251](https://bugzilla.redhat.com/show_bug.cgi?id=1973251) **[RFE] Making the number of virtio-scsi multi-queue configurable**
 
@@ -417,14 +417,14 @@ To learn about features introduced before 4.5.0, see the
    This RFE enables the user to specify the desired number of multi-queues
  - [BZ 1616436](https://bugzilla.redhat.com/show_bug.cgi?id=1616436) **[RFE] Sparsify uploads**
 
-   Feature: 
-   Detect zero areas in uploaded images and use optimized zero write method to write the zeroes to the underlying storage. 
+   Feature:
+   Detect zero areas in uploaded images and use optimized zero write method to write the zeroes to the underlying storage.
 
-   Reason: 
+   Reason:
    Not all clients support sparse files when uploading images, resulting in fully allocated images even when the disk is using thin allocation policy.
 
    Result:
-   Images uploaded to disks with thin allocation policy remain sparse, minimizing the storage allocation. Uploading 
+   Images uploaded to disks with thin allocation policy remain sparse, minimizing the storage allocation. Uploading
    images containing large zeroed areas is usually faster now.
  - [BZ 1979797](https://bugzilla.redhat.com/show_bug.cgi?id=1979797) **Ask user for confirmation when the deleted storage domain has leases of VMs that has disk in other SDs**
 
@@ -447,11 +447,11 @@ To learn about features introduced before 4.5.0, see the
    With this release, a link has been added to all Grafana dashboards that allows you to quickly access the Red Hat Virtualization Administration Portal.
  - [BZ 1931939](https://bugzilla.redhat.com/show_bug.cgi?id=1931939) **[RFE] Add the engine FQDN to dwh**
 
-   Feature: 
+   Feature:
    add engine fqdn column to dwh
 
-   Reason: 
-   to be able to link to the admin portal when dwh is on separate machine 
+   Reason:
+   to be able to link to the admin portal when dwh is on separate machine
 
    Result:
    the engine fqdn is available in dwh, in the history_configuration table.
@@ -535,20 +535,20 @@ To learn about features introduced before 4.5.0, see the
    vGPU properties are no longer specified using mdev_type VM custom property. They are specified as VM devices now. This change is transparent when using the vGPU editing dialog. In the REST API, the vGPU properties can be manipulated using a newly introduced `.../vms/.../mediateddevices` endpoint. The new API permits setting "nodisplay" and driver parameters for each of the vGPUs individually, but note that this is not supported in the vGPU editing dialog where they can be set only to a single value common for all the vGPUs of a given VM.
  - [BZ 2051997](https://bugzilla.redhat.com/show_bug.cgi?id=2051997) **[RFE] Default thin provisioning extension thresholds should match modern hardware**
 
-   Feature: 
+   Feature:
    Adapt thin provisioning defaults to match modern hardware with faster write and larger capacity. The minimum allocation size was increased from 1 GiB to 2.5G, and the minimum free space threshold was increased from 512 MiB to 2 GiB.
 
-   Reason: 
+   Reason:
    With modern hardware virtual machines sometimes paused temporarily when writing to thin disks on block based storage.
 
    Result:
    The system allocates more data earlier, minimizing virtual machines pauses.
  - [BZ 2012830](https://bugzilla.redhat.com/show_bug.cgi?id=2012830) **[RFE] Use lvm devices instead of lvm filter on RHEL 8.6 / CentOS Stream 9**
 
-   Feature: 
+   Feature:
    Use LVM devices instead lvm filter to manage storage devices.
 
-   Reason: 
+   Reason:
    LVM filter is hard to manage and also in some case hard to set up in a correct way. LVM devices provides more easy way how to manage devices. Morover, starting CentOS Stream 9/RHEL 9, this will be the default used by LVM.
 
    Result:
@@ -563,7 +563,7 @@ To learn about features introduced before 4.5.0, see the
    See [Parallel migration connections](https://www.ovirt.org/develop/release-management/features/virt/parallel-migration-connections.html) for all the important information about the feature.
  - [BZ 977778](https://bugzilla.redhat.com/show_bug.cgi?id=977778) **[RFE] - Mechanism for converting disks for non-running VMS**
 
-   Feature: 
+   Feature:
    Support the conversion of a disk's format and allocation policy
 
    Reason: Users may want to change allocation policy or format to make reduce space usage or improve performance. As well as enable incremental backup on existing raw disks.
@@ -571,7 +571,7 @@ To learn about features introduced before 4.5.0, see the
    Result:
  - [BZ 1944834](https://bugzilla.redhat.com/show_bug.cgi?id=1944834) **[RFE] Timer for Console Disconnect Action - Shutdown VM after N minutes of being disconnected (Webadmin-only)**
 
-   The feature adds a user-specified delay to the 'Shutdown' Console Disconnect Action of a VM. The shutdown won't be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled. 
+   The feature adds a user-specified delay to the 'Shutdown' Console Disconnect Action of a VM. The shutdown won't be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled.
    This prevents a user's session loss after an accidental disconnect.
  - [BZ 1964208](https://bugzilla.redhat.com/show_bug.cgi?id=1964208) **[RFE] add new feature for VM's screenshot on RestAPI**
 
@@ -582,14 +582,14 @@ To learn about features introduced before 4.5.0, see the
    the user can then download the screenshot and view it content
  - [BZ 1616436](https://bugzilla.redhat.com/show_bug.cgi?id=1616436) **[RFE] Sparsify uploads**
 
-   Feature: 
-   Detect zero areas in uploaded images and use optimized zero write method to write the zeroes to the underlying storage. 
+   Feature:
+   Detect zero areas in uploaded images and use optimized zero write method to write the zeroes to the underlying storage.
 
-   Reason: 
+   Reason:
    Not all clients support sparse files when uploading images, resulting in fully allocated images even when the disk is using thin allocation policy.
 
    Result:
-   Images uploaded to disks with thin allocation policy remain sparse, minimizing the storage allocation. Uploading 
+   Images uploaded to disks with thin allocation policy remain sparse, minimizing the storage allocation. Uploading
    images containing large zeroed areas is usually faster now.
 
 #### oVirt Engine Appliance
@@ -936,7 +936,7 @@ To learn about features introduced before 4.5.0, see the
    oVirt 4.5 will use following machine types for cluster level 4.7:
 
    * x86_64
-     - pc-q35-rhel8.6.0 
+     - pc-q35-rhel8.6.0
      - pc-q35-4.1
      - pc-i440fx-rhel7.6.0
      - pc-i440fx-2.12
@@ -948,7 +948,7 @@ To learn about features introduced before 4.5.0, see the
    oVirt 4.5 will use following machine types for cluster level 4.7:
 
    * x86_64
-     - pc-q35-rhel8.6.0 
+     - pc-q35-rhel8.6.0
      - pc-i440fx-rhel7.6.0
 
    * ppc64le
@@ -1016,11 +1016,11 @@ To learn about features introduced before 4.5.0, see the
  - [BZ 2049782](https://bugzilla.redhat.com/show_bug.cgi?id=2049782) **[RFE] Admin portal user preferences/settings with server-side storage**
  - [BZ 2053669](https://bugzilla.redhat.com/show_bug.cgi?id=2053669) **[RFE] Allow changing vm powerstate during backup operation without interrupting the backup**
 
-   Feature: 
+   Feature:
    Use a temporary snapshot during a backup to decouple the backup
    operation from the VM.
 
-   Reason: 
+   Reason:
    Backup can take lot of time. Preventing changes in VM power
    state or migration during a backup is a problem for users.
 
@@ -1031,43 +1031,43 @@ To learn about features introduced before 4.5.0, see the
 
  - [BZ 1667517](https://bugzilla.redhat.com/show_bug.cgi?id=1667517) **[RFE] add VM Portal setting for set screen mode**
 
-   Feature: 
+   Feature:
    console options including set screen mode is added to VM Portal
 
-   Reason: 
+   Reason:
    There was no option to set screen mode in VM Portal
 
-   Result: 
+   Result:
    The following console options can now be set in VM Portal:
-   default console type to use (Spice, VNC, noVNC, RDP for Windows), 
-   full screen mode (on/off) per console type, 
+   default console type to use (Spice, VNC, noVNC, RDP for Windows),
+   full screen mode (on/off) per console type,
    smartcard enabled/disabled
-   Ctrl+Alt+Del mapping 
+   Ctrl+Alt+Del mapping
    SSH key
 
-   A new dialog was added: VM portal -&gt; Account Settings -&gt; Console options dialog. 
+   A new dialog was added: VM portal -&gt; Account Settings -&gt; Console options dialog.
 
    Those console options settings are now persisted on engine server, so deleting cookies and website data won't reset those settings.
 
    Few limitations with current implementation:
-   1. The console settings via VM Portal are global for all VMs and can't be set per VM (as opposed to Admin Portal where console options are set per VM). 
+   1. The console settings via VM Portal are global for all VMs and can't be set per VM (as opposed to Admin Portal where console options are set per VM).
 
-   2. There is no sync between Admin Portal console options and VM portal console options. I.e. the console options configuration done by Create/Edit VM/Pool dialog (supported console types and smartcard enabled) are synced, but the 'console options' run time settings done for running VMs via Console -&gt; Console options are not synced with Admin Portal. 
+   2. There is no sync between Admin Portal console options and VM portal console options. I.e. the console options configuration done by Create/Edit VM/Pool dialog (supported console types and smartcard enabled) are synced, but the 'console options' run time settings done for running VMs via Console -&gt; Console options are not synced with Admin Portal.
 
    3. The console settings are part of Account settings and therefore are set per user. Each user logged in to the VM Portal can have it's own console settings, defaults are taken from the vdc_options config parameters.
  - [BZ 1781241](https://bugzilla.redhat.com/show_bug.cgi?id=1781241) **missing “connect automatically” option in vm portal**
 
-   Feature: 
-   Adding back the support for automatically connecting to a Virtual Machine option. This is now enabled as part of the Account Setting console options dialog. 
+   Feature:
+   Adding back the support for automatically connecting to a Virtual Machine option. This is now enabled as part of the Account Setting console options dialog.
 
-   Reason: 
-   This feature enables to connect automatically to a running Virtual Machine every time the user logs into the VM Portal. 
-   This functionality was supported by old VM Portal and also by the User Portal and was requested to be supported by current VM Portal as well. 
+   Reason:
+   This feature enables to connect automatically to a running Virtual Machine every time the user logs into the VM Portal.
+   This functionality was supported by old VM Portal and also by the User Portal and was requested to be supported by current VM Portal as well.
 
-   Result: 
+   Result:
    The current feature is now supported while usage is a bit different than how it was on previous User and VM portals:
-   - Each user can choose a VM to auto connect to from a list on a global level, as part of Account Setting's console dialog. 
-   - Only if the chosen VM exists and on a running state then the auto connect will be enforced next time the user logs in. 
+   - Each user can choose a VM to auto connect to from a list on a global level, as part of Account Setting's console dialog.
+   - Only if the chosen VM exists and on a running state then the auto connect will be enforced next time the user logs in.
    - The Console type for connecting will be chosen based on Account Setting's console options.
    - This auto connect VM setting is persisted per user on the engine.
 

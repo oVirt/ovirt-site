@@ -13,7 +13,7 @@ authors:
 ## Summary
 
 Until now almost all data path operations on the hosts were performed only on the elected SPM, causing a potential bottleneck.
-This feature enables data path operations on any host. 
+This feature enables data path operations on any host.
 
 ### Owner
 
@@ -31,7 +31,7 @@ By adding the new framework on VDSM, the engine is capable to convert the data p
 
 ### Benefit to oVirt
 
-With this feature the load of the data operations is spread between all the hosts, preventing the throttling of the SPM host. 
+With this feature the load of the data operations is spread between all the hosts, preventing the throttling of the SPM host.
 
 ### User Experience
 

@@ -26,13 +26,13 @@ For GlusterFS storage types, specify the full address, using either the FQDN or 
 --== STORAGE CONFIGURATION ==--
 
 During customization use CTRL-D to abort.
-Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs 
+Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs
 Please note that Replica 3 support is required for the shared storage.
 Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/glusterfs
 ```
 
-#### Config files changes 
-Hosted engine storage domain can use backup-volfile-servers option to mount the gluster volume. 
+#### Config files changes
+Hosted engine storage domain can use backup-volfile-servers option to mount the gluster volume.
 This can be provided to the hosted-engine deployment via an answer file (using --config-append option), as the UX currently does not prompt for it
 
 ```
@@ -64,7 +64,7 @@ Like any other gluster storage domain, the hosted engine storage domain on glust
 
 *   The GlusterFS Volume must be configured for Replica 3
     -   Replica 3 may be verified using gluster command line or using VDSM client / API applying <http://gerrit.ovirt.org/36783>:
-        ``` 
+        ```
         gluster volume info <volname> --remote-host='<server-name>'
 
         vdsClient -s 0 glusterVolumesList volumeName='<volname>' remoteServer='<server-name>'
@@ -72,7 +72,7 @@ Like any other gluster storage domain, the hosted engine storage domain on glust
 
 *   The volume must be configured as per [Gluster Volume Options for Virtual Machine Image Store](/documentation/administration_guide/index.html#Adding_Red_Hat_Gluster_Storage)
 
-*  Gluster volume has been started 
+*  Gluster volume has been started
 *  Gluster ports opened on all the gluster hosts
 
 
@@ -82,7 +82,7 @@ Like any other gluster storage domain, the hosted engine storage domain on glust
 
 ## Testing
 
-*   
+*
 
 ## Release Notes
 ```

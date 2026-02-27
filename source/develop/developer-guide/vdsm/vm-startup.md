@@ -77,7 +77,7 @@ pseudo-code-summary of the *_startUnderlyingVm* workhorse
                  self.saveState()
              except Exception as e:
                   handleExceptions()
-         
+
 
 Please note this snippet is **just pseudo-code stripped from important parts to unclutter the example and highlight the point below**'. Important parts omitted are: status handling, exception handling, pause code handling).
 

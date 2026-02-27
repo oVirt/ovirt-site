@@ -30,7 +30,7 @@ this extension.
 See also: [BZ 1449084](https://bugzilla.redhat.com/show_bug.cgi?id=1449084)
 
 Since 4.1.4, engine-setup checks subjectAltName existence on upgrades, and if missing,
-prompts, suggesting to renew the PKI. 
+prompts, suggesting to renew the PKI.
 
 See also: [BZ 1450293](https://bugzilla.redhat.com/show_bug.cgi?id=1450293)
 

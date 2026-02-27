@@ -26,7 +26,7 @@ OVS is to be fully integrated (natively) into oVirt through VDSM, becoming the d
 ## Overview
 The introduction of OVS as an additional network switching solution raises the need to generalize and abstract the requirements from the system networking services and define a spec which considers both options (OVS & native Linux networking).
 The OVS model of arranging networking entities is different from the native Linux networking, but is closer to industry networking modeling.
-A VM can not be simply connected to an OvS bridge. In order to connect a VM to an OvS bridge, a user must first define an OvS VM network. 
+A VM can not be simply connected to an OvS bridge. In order to connect a VM to an OvS bridge, a user must first define an OvS VM network.
 This automatically creates an OVN network, which is built on top of an OvS integration bridge. The VM is then attached to the OVN network via the OvS integration bridge (see [Autodefine External Network](/develop/release-management/features/network/autodefine-external-network.html)).
 
 ### Network Entities
@@ -46,7 +46,7 @@ In the following table, networking entities are listed with their implementation
 ### Linux legacy networking model
 ![Linux legacy networking model](/develop/release-management/features/network/openvswitch/linux_legacy_networking_model.svg)
 
-### OVS networking model 
+### OVS networking model
 ![OVS networking model](/develop/release-management/features/network/openvswitch/ovs_networking_model.svg)
 
 ## Limitations
@@ -77,7 +77,7 @@ The proposed abstraction level is aimed to leave existing logic isolated from OV
 - Different switches or domains should be decoupled, each having their own underling implementation options allowing full flexability on how they are implemented.
 - The modeling of each switch is different, having it seperated reduces complex logic.
 
-Switch implementations are registered per availability, with an identification and a callback. 
+Switch implementations are registered per availability, with an identification and a callback.
 setupNetworks requests are expected to arrive from Engine with a switch type ID, based on which the request is forwarded to the switch implementation.
 
 Each switch should have its own validation check in addition to a common one, handling switch specific rules.
@@ -95,7 +95,7 @@ Current Linux-native networking implementation mixes between the two. For OVS, w
 ### Persistence
 OVS persistency is embedded in the switch.
 IP settings are not included and may be implemented using the current persistence scheme.
-- Note: An alternative may be to use a minimal persistent management settings and zero persistency for all the rest. Nevertheless these changes are out of scope and are to be handled under a zero persistency feature. 
+- Note: An alternative may be to use a minimal persistent management settings and zero persistency for all the rest. Nevertheless these changes are out of scope and are to be handled under a zero persistency feature.
 
 ### Rollback
 VDSM networking uses rollback to recover from a setup request which failed to complete.
@@ -120,7 +120,7 @@ Minimal changes in current API verbs are required:
 
 ### Upgrade from native to OVS networking
 
-Upgrade from native to OvS is currently not supported and vice versa. An upgrade will cause networks to be out-of-sync due to differences between native and OvS (see [Limitations](#limitations)). Only newly added hosts can be configured with OvS networking. Mixing native and OvS networks in a cluster is not supported. Plase note that the change is blocked only in UI but is still possible via REST api. 
+Upgrade from native to OvS is currently not supported and vice versa. An upgrade will cause networks to be out-of-sync due to differences between native and OvS (see [Limitations](#limitations)). Only newly added hosts can be configured with OvS networking. Mixing native and OvS networks in a cluster is not supported. Plase note that the change is blocked only in UI but is still possible via REST api.
 
 ~~Transition between switch types must be supported for the host as a whole. Nevertheless, if the user has defined his own networking configuration which is not controlled by VDSM, it should coexist with VDSM controlled networks.~~
 
@@ -151,9 +151,9 @@ Upgrade from native to OvS is currently not supported and vice versa. An upgrade
 ### VM Migration
 VM migrations may occur between two hosts that have different types of networking. (See upgrade options above)
 
-In order to support such a migration, libvirt migration hooks will be set at the hosts, allowing the target host to update the network source per the existing network type. 
+In order to support such a migration, libvirt migration hooks will be set at the hosts, allowing the target host to update the network source per the existing network type.
 
-- This libvirt hook is not available on 3.6 hosts, hence we block migration from OVS active host to 3.6 hosts. 
+- This libvirt hook is not available on 3.6 hosts, hence we block migration from OVS active host to 3.6 hosts.
 - Note: fallback to a 3.6 host (from 4.0) is not supported.
 
 ### Multi Bridge

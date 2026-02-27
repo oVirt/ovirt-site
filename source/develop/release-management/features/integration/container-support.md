@@ -100,7 +100,7 @@ integration
 
 discarded because its very man page has an early warning:
 
-       Note that even though these security precautions are taken systemd-nspawn is not suitable for secure container setups. Many of the security features may be circumvented and are hence 
+       Note that even though these security precautions are taken systemd-nspawn is not suitable for secure container setups. Many of the security features may be circumvented and are hence
        primarily useful to avoid accidental changes to the host system from the container.
        The intended use of this program is debugging and testing as well as building of packages, distributions and software involved with boot and systems management.
 

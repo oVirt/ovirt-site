@@ -95,7 +95,7 @@ Values for next run configuration are not rounded.
 
 #### Example
 
-Let's suppose there is a running VM started with 1GiB memory that was given three 
+Let's suppose there is a running VM started with 1GiB memory that was given three
 256MiB hot-plugs. This resulted in additional memory devices of following sizes:
 256MiB, 256MiB, 128MiB, 128MiB and the VM having 1792MiB memory available in total.
 
@@ -111,7 +111,7 @@ PUT api/vms/{vmId}
 
 <vm>
     <memory>1468006400</memory> <!-- 1400 * 1024^2 -->
-    
+
     <!-- and optionally -->
     <memory_policy>
         <guaranteed>943718400</guaranteed> <!-- 900 * 1024^2 -->

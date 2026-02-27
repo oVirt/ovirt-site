@@ -204,7 +204,7 @@ The above interfaces are defined with database design diagram ![](/images/wiki/D
         table `numa_node`, `numa_node_cpu_map`, `vm_vds_numa_node_map` and `numa_node_distance`. Add `NumaNodeDAOTest` for `NumaNodeDAO` meanwhile.
     2.  Add `VdsCpuStatisticsDao` and related implementation to provide data save, update, delete and kinds of queries
         in table `vds_cpu_statistics`. Add `VdsCpuStatisticsDAOTest` for `VdsCpuStatisticsDAO` meanwhile.
-    3.  Modify `VdsDynamicDAODbFacadeImpl` and `VdsDAODbFacadeImpl` to add the map of new 
+    3.  Modify `VdsDynamicDAODbFacadeImpl` and `VdsDAODbFacadeImpl` to add the map of new
         columns `auto_numa_banlancing` and `vds_numa_node_count`. Run `VdsDynamicDAOTest` to verify the modification.
     4.  Modify `VmStaticDAODbFacadeImpl` and `VmDAODbFacadeImpl` to add the map of new columns `numatune_mode` and `numa_node_count`. Run `VmStaticDAOTest` to verify the modification.
 

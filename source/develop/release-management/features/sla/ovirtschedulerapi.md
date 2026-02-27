@@ -110,7 +110,7 @@ Flow:
              # go over all cost functions
              for (cost_function in cost_functions)
                  result = cost_function(hosts, properties)
-                 # aggregate factored scores for all hosts               
+                 # aggregate factored scores for all hosts
                  for (host in hosts)
                map += <host, map[host] + result[host] * factors[cost_function]>
          }

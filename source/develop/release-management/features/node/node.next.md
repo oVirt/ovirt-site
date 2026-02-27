@@ -46,7 +46,7 @@ We'll need to ship the old Node.
 ## Release Notes
 
       == Node.next ==
-      oVirt Node is now build differently to provide an easier to use and future proof Node. 
+      oVirt Node is now build differently to provide an easier to use and future proof Node.
 
 
 

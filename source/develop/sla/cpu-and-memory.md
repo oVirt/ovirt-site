@@ -67,7 +67,7 @@ Controlls vdsm needs to perform:
 
 Policies:
 
-       1.QOS: 
+       1.QOS:
          (1)high prior guests demand should be satisefied
          (2)VM's feature demand should be satisefied(compute node's cpu demand has higher priority)
          e.g.:Golden Vm are assigned to a larger quota as original value,
@@ -94,8 +94,8 @@ Should MOM control numad parameters? OR use default parameter for numad?
 
 int virDomainSetMemoryParameters (virDomainPtr domain,
 
-                          virTypedParameterPtr params, 
-                          int nparams, 
+                          virTypedParameterPtr params,
+                          int nparams,
                           unsigned int flags)
 
 *   Guarenteed

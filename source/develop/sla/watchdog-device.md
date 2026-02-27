@@ -29,7 +29,7 @@ The required model attribute specifies what real watchdog device is emulated. Va
 
 The optional action attribute describes what action to take when the watchdog expires. Valid values are specific to the underlying hypervisor.
 
-      'reset'          forcefully reset the guest 
+      'reset'          forcefully reset the guest
       'shutdown'       gracefully shutdown the guest (not recommended)
       'poweroff'       forcefully power off the guest
       'pause'          pause the guest
@@ -64,11 +64,11 @@ The problem is that when and how to clean this flag shoule be clean? if clean th
 
       import vdscli
       s = vdscli.connect()
-      # poll vm's stats to check a wathdog event 
+      # poll vm's stats to check a wathdog event
       while True:
           stat = getVmStats(vmId)
           # stats = getAllVmStats()
-          # watchdogEvent is opptional.  It depends on watchdog device was added.  
+          # watchdogEvent is opptional.  It depends on watchdog device was added.
           if hasattr(stat, 'watchdogEvent'):
               print stat['watchdogEvent']
 

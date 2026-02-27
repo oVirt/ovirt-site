@@ -27,7 +27,7 @@ In the old code we provide information where we want to connect in hostPort and 
 
 Here is jsonrpcvdscli code:
       from vdsm import jsonrpcvdscli
-      from vdsm.config import config 
+      from vdsm.config import config
       requestQueues = config.get('addresses', 'request_queues')
       requestQueue = requestQueues.split(",")[0]
       destServer = jsonrpcvdscli.connect(requestQueue, host=host, port=port)
@@ -43,7 +43,7 @@ Above code use config.py to get missing information we can customize the client 
       client = clientIF.createStompClient(client_socket)
       requestQueues = config.get('addresses', 'request_queues')
       requestQueue = requestQueues.split(",")[0]
-      destServer = jsonrpcvdscli.connect(requestQueue, client) 
+      destServer = jsonrpcvdscli.connect(requestQueue, client)
 
 Please note that above code do not connect during the process of creation. It is required to call a procedure to physically establish connection.
 

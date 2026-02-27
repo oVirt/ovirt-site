@@ -65,7 +65,7 @@ It is in oVirt’s legitimate business interests to provide you with the informa
 Unless you consent, oVirt will never process or share the personal data you provide to us except as described below.
 oVirt may disclose your personal data to third parties under any of the following circumstances:
 - Your publicly available personal data in the Gerrit  account system, as described above, is accessible by anyone unless you, as the account holder, opt out as already described in this Privacy Statement.
-- As required to provide service, and for e-mail housing (as a consequence of uses already described in this Privacy Statement). It is in oVirt’s legitimate business interest to provide all users an accurate record of data and content provided by oVirt’s services, and to maintain the integrity of that data and content for historical, scientific, and research purposes. This data and content may include but is not limited to email, code changes, comments, and artifacts. 
+- As required to provide service, and for e-mail housing (as a consequence of uses already described in this Privacy Statement). It is in oVirt’s legitimate business interest to provide all users an accurate record of data and content provided by oVirt’s services, and to maintain the integrity of that data and content for historical, scientific, and research purposes. This data and content may include but is not limited to email, code changes, comments, and artifacts.
 - As required by law (such as responding to a valid subpoena, warrant, audit, or agency action, or to prevent fraud).
 - For research activities, including the production of statistical reports (such aggregated information is used to describe our services and is not used to contact the subjects of the report).
 
@@ -105,17 +105,17 @@ This site contains links to other sites. oVirt does not control the information 
 ## Your Rights and Choices in the EEA
 
 Where the EU General Data Protection Regulation 2016/679 (“GDPR”) applies to the processing of your personal data, especially when you access the website from a country in the European Economic Area (“EEA”), you have the following rights, subject to some limitations, against oVirt:
-- The right to access your personal data; 
+- The right to access your personal data;
 - The right to rectify the personal data we hold about you;
 - The right to erase your personal data;
 - The right to restrict our use of your personal data;
 - The right to object to our use of your personal data;
 - The right to receive your personal data in a usable electronic format and transmit it to a third party (also known as the right of data portability); and
-- The right to lodge a complaint with your local data protection authority. 
+- The right to lodge a complaint with your local data protection authority.
 
 If you would like to exercise any of these rights, you may do so via our Personal Data Request Form. Please understand, however, the rights enumerated above are not absolute in all cases.
 Where the GDPR applies, you also have the right to withdraw any consent you have given to uses of your personal data. If you wish to withdraw consent that you have previously provided to oVirt, you may do so via our privacy mail: privacy@ovirt.org. However, the withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
- 
+
 ## How to Contact Us
 
 If you have any questions about any of these practices or oVirt's use of your personal information, please feel free to contact us by email at privacy@ovirt.org.

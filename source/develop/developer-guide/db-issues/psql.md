@@ -12,11 +12,11 @@ Help
 
 Editor
 
-       \e 
+       \e
 
 Format
 
-       \x 
+       \x
 
 History
 

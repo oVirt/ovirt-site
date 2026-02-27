@@ -35,7 +35,7 @@ oVirt keeps a list of supported CPU Types in the vdc_options table in the databa
 - Intel Skylake Server IBRS SSBD Family'
 - Intel Skylake Server IBRS SSBD MDS Family
 
-In order to keep the CPU list manageable, only 2 CPU Types are now supported for any CPU microarchitecture that has security updates. 
+In order to keep the CPU list manageable, only 2 CPU Types are now supported for any CPU microarchitecture that has security updates.
 
 - Intel Broadwell Client Family
 - Secure Intel Broadwell Client Family'
@@ -44,14 +44,14 @@ In order to keep the CPU list manageable, only 2 CPU Types are now supported for
 - Intel Skylake Server Family
 - Secure Intel Skylake Server Family'
 
-The _default_ CPU Type will not change over the time while the _secure_ CPU type will contain the latest updates. 
+The _default_ CPU Type will not change over the time while the _secure_ CPU type will contain the latest updates.
 
 ## Prerequisites
 Previously, it was not possible to simply update the CPU Type configuration because all hosts that would not comply to the new configuration would become non operational.
 
-To ensure that the hosts are operational even after the CPU configuration is changed, we store the currently used configuration in the cluster table. That ensures that even after configuration in vdc_options table is changed, the hosts stay operational. 
+To ensure that the hosts are operational even after the CPU configuration is changed, we store the currently used configuration in the cluster table. That ensures that even after configuration in vdc_options table is changed, the hosts stay operational.
 
-When all cluster hosts are compatible with the changed CPU, the cluster table is automatically updated to contain the same configuration as vdc_options table. 
+When all cluster hosts are compatible with the changed CPU, the cluster table is automatically updated to contain the same configuration as vdc_options table.
 
 ## Benefit to oVirt
 
@@ -69,7 +69,7 @@ On a Clusters list page, the status column shows a warning icon in case the clus
 ![](/images/wiki/secure-cpus-cluster-list-warning.png)
 
 #### Host
-On a Hosts list page, the status column shows a warning icon in case the host is not fully compatible with the current CPU Type configuration. The warning also lists all flags that are required by the configuration, but are not available on the host. 
+On a Hosts list page, the status column shows a warning icon in case the host is not fully compatible with the current CPU Type configuration. The warning also lists all flags that are required by the configuration, but are not available on the host.
 
 ![](/images/wiki/secure-cpus-host-list-warning.png)
 
@@ -82,11 +82,11 @@ On a Virtual Machine detail page, the Guest CPU field shows a warning icon in ca
 
 ![](/images/wiki/secure-cpus-vm-detail-warning.png)
 ### REST API
-These changes do to affect the REST API (except for the CPU Type rename). 
+These changes do to affect the REST API (except for the CPU Type rename).
 
 ## Installation/Upgrade
 
-During engine setup, the existing CPU Types are renamed and changed either to _default_ or _secure_ CPU Type. 
+During engine setup, the existing CPU Types are renamed and changed either to _default_ or _secure_ CPU Type.
 
 ## User work-flows
 

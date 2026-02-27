@@ -23,7 +23,7 @@ This procedure starts a virtual machine with a set of Cloud-Init settings. If th
 +
 [IMPORTANT]
 ====
-You must specify the correct network interface name and number (for example, `eth0`, `eno3`, `enp0s`). Otherwise, the virtual machine's interface connection will be up, but the *cloud-init* network configuration will not be defined in it. 
+You must specify the correct network interface name and number (for example, `eth0`, `eno3`, `enp0s`). Otherwise, the virtual machine's interface connection will be up, but the *cloud-init* network configuration will not be defined in it.
 ====
 
 . Enter a custom script in the *Custom Script* text area. Make sure the values specified in the script are appropriate. Otherwise, the action will fail.

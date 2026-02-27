@@ -180,7 +180,7 @@ Creating the Admin User
 -----------------------
 
 During the metrics store installation an admin user is created.
-The admin user has permissions to access Kibana and view the oVirt metrics and log data and dashboards. 
+The admin user has permissions to access Kibana and view the oVirt metrics and log data and dashboards.
 
 By default, the password for the user "admin" is "admin".
 This can be uodate in the config.yml file, buy updating the "ovirt_metrics_admin_password".

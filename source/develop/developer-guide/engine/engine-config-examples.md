@@ -39,22 +39,22 @@ authors:
 
 ## Changing admin user password
 
-      # ovirt-aaa-jdbc-tool user password-reset admin 
+      # ovirt-aaa-jdbc-tool user password-reset admin
 
 For oVirt 3.5, oVirt 3.4 and oVirt 3.3
 
       # engine-config -s AdminPassword=superNewPassword
-      # service jboss-as restart 
+      # service jboss-as restart
 
 For oVirt 3.2 or later
 
       # engine-config -s AdminPassword=interactive
-      # service ovirt-engine restart 
+      # service ovirt-engine restart
 
 ## Adding VM custom properties (macspoof)
 
       # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
-      # service ovirt-engine restart 
+      # service ovirt-engine restart
 
 In order to deactivate mac spoof filtering on a VM:
 

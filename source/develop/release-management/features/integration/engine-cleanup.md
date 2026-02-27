@@ -60,7 +60,7 @@ and the later tries it a second time without a formal clean-up being performed
       # engine-cleanup
       # yum remove ovirt-engine
       # yum install ovirt-engine
-      # engine-setup 
+      # engine-setup
 
 * Or the sequence II (second example):
 
@@ -101,7 +101,7 @@ The clean-up script should be idempotent. If not, it needs a bug filed noting th
 
       # engine-cleanup
       # engine-cleanup
-      # engine-cleanup # ... 
+      # engine-cleanup # ...
 
 with no additional changes occurring on the second and following runs, beyond what occurred on the first, and supplementation of the log files
 

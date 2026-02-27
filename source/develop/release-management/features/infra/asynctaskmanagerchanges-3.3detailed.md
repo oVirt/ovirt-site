@@ -90,7 +90,7 @@ A parent command that is modified to use the feature should over write method bu
                          ExecutionHandler.createDefaultContexForTasks(getExecutionContext())));
              }
              return commandsMap;
-         } 
+         }
 
 and in the place where AddVmTemplateCommand was calling Back.runInternalAction the new code calls CommandBase.runCommand.
 

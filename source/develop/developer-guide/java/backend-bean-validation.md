@@ -12,7 +12,7 @@ Using the [jsr 303](http://beanvalidation.org/1.0/spec/) and its Jboss reference
 
 To validate the command inputs parameters classes i.e. all the descendants of **VdcActionParametersBase** and the beans they are composed from. The validation is fits into the execution before CanDoAction phase:
 
-      Authorization check 
+      Authorization check
              |
               -> Backward Compatibility check
                            |
@@ -72,7 +72,7 @@ The marker interface:
 
       import javax.validation.groups.Default;
       public interface CreateEntity extends Default { }
-       
+
 
 now state what validation groups your command needs by invoking addValidationGroups or overriding addValidationGroup method
 

@@ -319,18 +319,18 @@ Connect to the VM and observe the CD indeed attached and other changes filled be
 
 
 
-[1] 
+[1]
 
-[2] 
+[2]
 
-[3] 
+[3]
 
-[4] 
+[4]
 
 [5] Cloud-init documentation: <https://launchpad.net/cloud-init/>
 
-[6] 
+[6]
 
-[7] 
+[7]
 
 [8] User-data example: <https://github.com/canonical/cloud-init/blob/master/doc/examples/cloud-config.txt>

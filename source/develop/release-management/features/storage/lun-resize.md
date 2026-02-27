@@ -74,7 +74,7 @@ action : send to all hosts in Data Center a "getDeviceList" command with the epe
 
 The user will able to perform LUN resize using the REST API of Storage Domain.
 A new action named "refresh_luns" will be added.
-    
+
     POST /api/storagedomains/zzz/refreshluns
     <action>
       <logical_units>

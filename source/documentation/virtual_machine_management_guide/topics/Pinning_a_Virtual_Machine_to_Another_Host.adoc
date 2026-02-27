@@ -6,7 +6,7 @@
 
 You can use the *Host Devices* tab in the details view of a virtual machine to pin it to a specific host.
 
-If the virtual machine has any host devices attached to it, pinning it to another host automatically removes the host devices from the virtual machine. 
+If the virtual machine has any host devices attached to it, pinning it to another host automatically removes the host devices from the virtual machine.
 
 
 *Pinning a Virtual Machine to a Host*

@@ -67,10 +67,10 @@ No change to entities, the VmInit internal object is reused.
 
 ## CRUD
 
-To start working with ignition first import the Fedora CoreOS image as a template from the ovirt 
+To start working with ignition first import the Fedora CoreOS image as a template from the ovirt
 glance provider, call the template 'fcos'.
 
-Now create a VM from that template using this python snippet. 
+Now create a VM from that template using this python snippet.
 It will ignite the VM and change the password of user `core` to `changeme`:
 
 ```python
@@ -100,7 +100,7 @@ if len(templates_service.list(search='name=fcos')) == 0:
         (i for i in images if i.name == 'Fedora CoreOS 30.337 for x86_64'),
         None
     )
-    
+
     # Import the fcos image as template named 'fcos' to domain 'mydata;
     image_service = images_service.image_service(image.id)
 
@@ -237,4 +237,4 @@ For a negative test, make sure that cloud-init keep working for Centos or any ot
   them, without letting the admin specifying an ignition config.
 - Network configuration which are currently cloud-init specific protocol will not work with ignition. Ignition simply
   manipulate the disk therefore the desired network state will be achieved through laying configuration files.
-- Better user experience with the Web-Admin UI. Currently we made some changes to make it more friendly but, we would like     to add JSON validator to the custom script section. 
+- Better user experience with the Web-Admin UI. Currently we made some changes to make it more friendly but, we would like     to add JSON validator to the custom script section.

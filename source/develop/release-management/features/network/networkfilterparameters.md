@@ -39,7 +39,7 @@ To use network filter parameters, the following workflow is expected:
 1. The user may create a new logical network or decide to use an already existing one.
 2. The user may create a new vNIC Profile or use an existing one.
 3. The user ensures that the logical network is assigned to the hosts of the cluster.
-4. The user instantiates a (virtual) network interface (vNIC) of a virtual machine by picking the vNIC profile. 
+4. The user instantiates a (virtual) network interface (vNIC) of a virtual machine by picking the vNIC profile.
 5. The user configures applied vNIC Profile to use a network filter, which depends on parameters.
 6. The user creates network filter parameters for this network interface of the virtual machine.
 

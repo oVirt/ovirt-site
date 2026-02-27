@@ -5,7 +5,7 @@
 <abstract><para>This document describes the concepts, components, and technologies used in a Red Hat Virtualization environment.</para>
 <!--<para>{beta-disclaimer}</para>--></abstract>
 <authorgroup id="Author_Group">
-	<author> 
+	<author>
 		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
 		<affiliation>
 			<orgname>

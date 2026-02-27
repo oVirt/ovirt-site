@@ -22,7 +22,7 @@ because all paths became faulty.
 Currently, the user has no indication in oVirt of faulty paths.
 As a result only when all paths are faulty and the access to the storage
 domain is not working, the user will get an indication:
-- If the all the hosts in the Data Center are reporting a problem in the 
+- If the all the hosts in the Data Center are reporting a problem in the
 storage domain. the storage domain status that will become 'Inactive'.
 - If only one host reports a problem in the storage domain, the status
 of the host will become 'Non Operational'.
@@ -40,7 +40,7 @@ of the host will become 'Non Operational'.
 ### How it works
 
 Vdsm will register to udev multipath events during storage initialization.
-Vdsm will also build a map of all the faulty paths. 
+Vdsm will also build a map of all the faulty paths.
 For each event, Vdsm will update the map, according to the event.
 The details of the faulty paths will be part of the statistics provided by
 'Host.getStats' verb.
@@ -185,7 +185,7 @@ NA
 
 ## Event Reporting
 
-- Faulty multipath paths on host "HOST_NAME" on devices: "GUID", "GUID" ... 
+- Faulty multipath paths on host "HOST_NAME" on devices: "GUID", "GUID" ...
 - No faulty multipath paths on host "HOST_NAME"
 - Devices without valid paths on host "HOST_NAME" : "GUID", "GUID" ...
 

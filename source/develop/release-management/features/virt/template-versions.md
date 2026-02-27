@@ -119,7 +119,7 @@ Example for editing a template's version name: (add the version part inside the 
 
 ```xml
 <version>
-  <version_name>"new name of this version"</version_name> 
+  <version_name>"new name of this version"</version_name>
 </version>
 ```
 

@@ -29,7 +29,7 @@ In order to connect to ovirt-engine using the ovirt-shell, (CLI api which uses R
 
 ```
        AVAILABLE COMMANDS
-       
+
          * action           execute an action on an object
          * cd               change directory
          * clear            clear the screen

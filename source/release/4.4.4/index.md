@@ -80,13 +80,13 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
  - [BZ 1866363](https://bugzilla.redhat.com/show_bug.cgi?id=1866363) **[RFE] Add variables to choose specific entity**
 
-   Feature: 
+   Feature:
 
 Add '$host_id' and '$vm_id' variables to choose specific entity.
 
 
 
-Reason: 
+Reason:
 
 In order to allow selection and search of virtual machines or hosts.
 
@@ -98,7 +98,7 @@ It will be possible to view the relevant reports according to a selected virtual
 
  - [BZ 1851725](https://bugzilla.redhat.com/show_bug.cgi?id=1851725) **[RFE] Add tags to grafana dashboards**
 
-   Feature: 
+   Feature:
 
 Add tags to grafana dashboards.
 
@@ -120,19 +120,19 @@ The tags are:
 
 8. Disk
 
-9. Interface 
+9. Interface
 
 10. Downtime
 
 11. Uptime
 
-12. OS (Operating System) 
+12. OS (Operating System)
 
 13. HA (High Availability)
 
 
 
-Reason: 
+Reason:
 
 Adding tags will make it easier to sort and know the contents of dashboards.
 
@@ -159,7 +159,7 @@ Each dashboard will have a number of tags that describe the content displayed wi
 
    Feature:
 
-Add the ability to move the master role to another domain without putting the domain to maintenance, using the REST API. 
+Add the ability to move the master role to another domain without putting the domain to maintenance, using the REST API.
 
 
 
@@ -169,11 +169,11 @@ Currently, you can't migrate the master role to a newer domain, without migratin
 
 
 
-Another scenario was the inability to put on maintenance a hosted_storage domain. 
+Another scenario was the inability to put on maintenance a hosted_storage domain.
 
 
 
-Result: 
+Result:
 
 There's now an option to move the master role using the REST API to a different storage domain, without putting them into maintenance.
 
@@ -309,139 +309,139 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
  - [BZ 1893656](https://bugzilla.redhat.com/show_bug.cgi?id=1893656) **[CBT] VM state switches from 'up' to 'powering up' right after full backup - causing a second immediate backup attempt to fail**
 
-   
+
 
  - [BZ 1893773](https://bugzilla.redhat.com/show_bug.cgi?id=1893773) **NVDIMM: memory usage in WebAdmin is always ~100% regardless to actual usage inside the VM.**
 
-   
+
 
 
 #### oVirt Engine Data Warehouse
 
  - [BZ 1894298](https://bugzilla.redhat.com/show_bug.cgi?id=1894298) **ModuleNotFoundError: No module named 'ovirt_engine' raised when starting ovirt-engine-dwhd.py in dev env**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1627997](https://bugzilla.redhat.com/show_bug.cgi?id=1627997) **[RFE] Allow SPM switching if all tasks have finished via REST-API**
 
-   
+
 
  - [BZ 1904202](https://bugzilla.redhat.com/show_bug.cgi?id=1904202) **Create backup failed on vm after hot plugging a disk**
 
-   
+
 
  - [BZ 1881115](https://bugzilla.redhat.com/show_bug.cgi?id=1881115) **RHEL VM icons squashed, please adhere to brand rules**
 
-   
+
 
  - [BZ 1792905](https://bugzilla.redhat.com/show_bug.cgi?id=1792905) **Sparsification is not reflected on image size of qcow volumes**
 
-   
+
 
  - [BZ 1881505](https://bugzilla.redhat.com/show_bug.cgi?id=1881505) **German translation of ME should be checked by a native and technical German speaker please**
 
-   
+
 
  - [BZ 1796231](https://bugzilla.redhat.com/show_bug.cgi?id=1796231) **VM disk remains in locked state if image transfer (image download) timesout due to inactivity.**
 
-   
+
 
  - [BZ 1895695](https://bugzilla.redhat.com/show_bug.cgi?id=1895695) **Modifying (add/remove/replace) NICs in the clone modal doesn't reflect on the cloned VM**
 
-   
+
 
  - [BZ 1895667](https://bugzilla.redhat.com/show_bug.cgi?id=1895667) **Missing UI proper error message for cloning a VM which in a process of cloning**
 
-   
+
 
  - [BZ 1900540](https://bugzilla.redhat.com/show_bug.cgi?id=1900540) **Engine try to stop NBD server during online backup**
 
-   
+
 
  - [BZ 1899768](https://bugzilla.redhat.com/show_bug.cgi?id=1899768) **Live merge fails on invoking callback end method 'onSucceeded' for a VM with Cluster Chipset/Firmware Type "Cluster default" or "Legacy".**
 
-   
+
 
  - [BZ 1895697](https://bugzilla.redhat.com/show_bug.cgi?id=1895697) **Modifying disk allocation target domain in the clone modal doesn't reflect on the cloned VM**
 
-   
+
 
  - [BZ 1892291](https://bugzilla.redhat.com/show_bug.cgi?id=1892291) **Change the representation of empty disk.usage statistics**
 
-   
+
 
  - [BZ 1885997](https://bugzilla.redhat.com/show_bug.cgi?id=1885997) **[OVS] Trigger sync while switching host from legacy type cluster to OVS type and vise versa**
 
-   
+
 
  - [BZ 1893540](https://bugzilla.redhat.com/show_bug.cgi?id=1893540) **Cannot clone a suspended VM**
 
-   
+
 
  - [BZ 1710446](https://bugzilla.redhat.com/show_bug.cgi?id=1710446) **[RFE] Europe/Helsinki timezone not available in RHV.**
 
-   
+
 
  - [BZ 1897422](https://bugzilla.redhat.com/show_bug.cgi?id=1897422) **Virtual Machine imported from OVA has no small/large_icon_id set in vm_static**
 
-   
+
 
  - [BZ 1893101](https://bugzilla.redhat.com/show_bug.cgi?id=1893101) **nl-be keymap should be removed**
 
-   
+
 
  - [BZ 1894758](https://bugzilla.redhat.com/show_bug.cgi?id=1894758) **[DR] Remote data sync to the secondary site never completes**
 
-   
+
 
  - [BZ 1885132](https://bugzilla.redhat.com/show_bug.cgi?id=1885132) **[OVN] Run OVN tasks on host re-install flow**
 
-   
+
 
  - [BZ 1888278](https://bugzilla.redhat.com/show_bug.cgi?id=1888278) **Refresh LUNs pop UI massage if the vm is powered off**
 
-   
+
 
  - [BZ 1847090](https://bugzilla.redhat.com/show_bug.cgi?id=1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
 
-   
+
 
  - [BZ 1890430](https://bugzilla.redhat.com/show_bug.cgi?id=1890430) **Kubevirt / OpenShift Virtualization provider - the cluster/host cpu mismatch message**
 
-   
+
 
  - [BZ 1881026](https://bugzilla.redhat.com/show_bug.cgi?id=1881026) **UI Prints 'Actual timezone in the guest differs from the configuration' due to daylight saving time**
 
-   
+
 
  - [BZ 1891303](https://bugzilla.redhat.com/show_bug.cgi?id=1891303) **Cloning modal doesn't close automatically when cloning is finished/failed**
 
-   
+
 
  - [BZ 1889394](https://bugzilla.redhat.com/show_bug.cgi?id=1889394) **VM hosted by non-operational host fails in migration with NullPointerException**
 
-   
+
 
  - [BZ 1890071](https://bugzilla.redhat.com/show_bug.cgi?id=1890071) **Bond mode 4 is detected as custom bond options**
 
-   
+
 
 
 #### VDSM JSON-RPC Java
 
  - [BZ 1890430](https://bugzilla.redhat.com/show_bug.cgi?id=1890430) **Kubevirt / OpenShift Virtualization provider - the cluster/host cpu mismatch message**
 
-   
+
 
 
 #### cockpit-ovirt
 
  - [BZ 1899917](https://bugzilla.redhat.com/show_bug.cgi?id=1899917) **[day2] create volume flow from cockpit allows to select more than 3 hosts**
 
-   
+
 
 
 ### No Doc Update
@@ -450,97 +450,97 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
  - [BZ 1895015](https://bugzilla.redhat.com/show_bug.cgi?id=1895015) **Bad permissions in /etc/sudoers.d drop-in files**
 
-   
+
 
  - [BZ 1839444](https://bugzilla.redhat.com/show_bug.cgi?id=1839444) **[RFE] Use more efficient dumpStorageDomain() in dump-volume-chains**
 
-   
+
 
  - [BZ 1833780](https://bugzilla.redhat.com/show_bug.cgi?id=1833780) **Live storage migration failed -  Failed to change disk image**
 
-   
+
 
 
 #### oVirt Engine Data Warehouse
 
  - [BZ 1894420](https://bugzilla.redhat.com/show_bug.cgi?id=1894420) **Stopping a remote dwh is broken**
 
-   
+
 
  - [BZ 1892247](https://bugzilla.redhat.com/show_bug.cgi?id=1892247) **Fix duplicates in time-based queries (that use the hourly + daily tables)**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1900594](https://bugzilla.redhat.com/show_bug.cgi?id=1900594) **[CBT][incremental backup] Engine fail to stop backup if VM was destroyed during backup**
 
-   
+
 
  - [BZ 1900546](https://bugzilla.redhat.com/show_bug.cgi?id=1900546) **[CBT][incremental backup] Engine reports that backup was finalized when stopping backup failed**
 
-   
+
 
  - [BZ 1868114](https://bugzilla.redhat.com/show_bug.cgi?id=1868114) **RHV-M UI/Webadmin:  The "Disk Snapshots" tab reflects incorrect "Creation Date" information.**
 
-   
+
 
  - [BZ 1903595](https://bugzilla.redhat.com/show_bug.cgi?id=1903595) **[PPC] Can't add PPC host to Engine**
 
-   
+
 
  - [BZ 1811593](https://bugzilla.redhat.com/show_bug.cgi?id=1811593) **Some PKI files are not removed by engine-cleanup**
 
-   
+
 
  - [BZ 1898066](https://bugzilla.redhat.com/show_bug.cgi?id=1898066) **host deploy fails when tune profile is null**
 
-   
+
 
  - [BZ 1833780](https://bugzilla.redhat.com/show_bug.cgi?id=1833780) **Live storage migration failed -  Failed to change disk image**
 
-   
+
 
  - [BZ 1856375](https://bugzilla.redhat.com/show_bug.cgi?id=1856375) **Can't add additional host as hosted-engine ha-host from "Guide me" from UI.**
 
-   
+
 
  - [BZ 1846338](https://bugzilla.redhat.com/show_bug.cgi?id=1846338) **Host monitoring does not report bond mode 1 active slave after engine is alive some time**
 
-   
+
 
  - [BZ 1689362](https://bugzilla.redhat.com/show_bug.cgi?id=1689362) **ovirt does not respect domcapabilities**
 
-   
+
 
 
 #### VDSM JSON-RPC Java
 
  - [BZ 1846338](https://bugzilla.redhat.com/show_bug.cgi?id=1846338) **Host monitoring does not report bond mode 1 active slave after engine is alive some time**
 
-   
+
 
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1897888](https://bugzilla.redhat.com/show_bug.cgi?id=1897888) **[RFE] Refine "hosted-engine --check-deployed" results.**
 
-   
+
 
 
 #### oVirt Provider OVN
 
  - [BZ 1895015](https://bugzilla.redhat.com/show_bug.cgi?id=1895015) **Bad permissions in /etc/sudoers.d drop-in files**
 
-   
+
 
 
 #### oVirt Node NG Image
 
  - [BZ 1907803](https://bugzilla.redhat.com/show_bug.cgi?id=1907803) **ovirt-node anaconda installclass needs rebase on CentOS 8.3 anaconda-33.16.3.***
 
-   
+
 
 
 #### Contributors

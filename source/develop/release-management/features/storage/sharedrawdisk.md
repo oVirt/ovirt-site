@@ -114,7 +114,7 @@ Stateless VM
 #### Installation/Upgrade
 
 *   Disk name should be generated automatically based on the vm name and disk number in the VM, as follow:
-`<VM-name>_<Disk-name>` ("<Disk-name" = "Disk" + internal_drive_mapping) . Description will be empty. 
+`<VM-name>_<Disk-name>` ("<Disk-name" = "Disk" + internal_drive_mapping) . Description will be empty.
 
 * New disk will present a calculated default disk name which the user can change.
 

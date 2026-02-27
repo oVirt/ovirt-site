@@ -8,7 +8,7 @@ The `engine-cleanup` command removes all components of the {virt-product-fullnam
 * the {engine-name} database in `/var/lib/ovirt-engine/backups/`
 * a compressed archive of the PKI keys and configuration in `/var/lib/ovirt-engine/backups/`
 
-Backup file names include the date and time. 
+Backup file names include the date and time.
 
 [WARNING]
 ====
@@ -28,7 +28,7 @@ You should use this procedure only on a standalone installation of the {virt-pro
 +
 [source,terminal,subs="normal"]
 ----
-During execution engine service will be stopped (OK, Cancel) [OK]: 
+During execution engine service will be stopped (OK, Cancel) [OK]:
 ----
 . You are prompted to confirm that you want to remove all {engine-name} components. Enter `OK` to remove all components, or `Cancel` to exit `engine-cleanup`:
 +

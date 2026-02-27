@@ -9,7 +9,7 @@ authors: dchaplyg
 ## Summary
 
 Initially, when hosted engine tools were designed, they were intentionally split between the agent and the broker. It was planned for the agent to be a lightweight application responsible for cluster management decisions while the broker was intended to handle all of the hard work of storage operations, monitoring, locking, etc.
-However, during hosted engine development, the agent was burdened with additional load, like OVF extraction, storage preparation, and other activities. 
+However, during hosted engine development, the agent was burdened with additional load, like OVF extraction, storage preparation, and other activities.
 
 The goal of this feature is to make the agent lightweight again by moving all non-management code to the broker.. This will result in a more maintanable code and more reliable hosted engine behavior..
 ## Owner
@@ -28,7 +28,7 @@ The specific goals associated with this feature are as follows:
 
 *   Move storage mounting/unmounting from the agent to the broker.
 *   The broker should start/stop the domain monitor on the agent's command. The domain monitor could be implemented as a submonitor.
-    
+
     Domain monitoring needs to be changed drastically. When the storage validation approach was changed (See [Documentation/External references](#documentation--external-references)), active domain monitoring became vital for domain validation. If domain monitoring has not been started, the domain will be reported as invalid, regardless of its actual state.
     Therefore, the old approach where domain monitoring was only active outside of local maintenance mode is no longer applicable. I propose the following change: domain monitoring should still be disabled in local maintenance mode. While domain monitoring is disabled, actual domain validation will be skipped and the domain will be reported as valid. The broker will still try to update the status and read statuses of the other cluster participants, even in maintenance mode, so it will have a chance to block on broken storage. Thus, all I/O should be moved to a separate thread, to prevent the broker from blocking on I/O issues.
 *   Move sanlock acquire/release activities from the agent to the broker.

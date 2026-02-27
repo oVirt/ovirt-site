@@ -68,7 +68,7 @@ The setupnetworks API exposed by VDSM remains the same:
            bonding : name | nic : name
            vlan : id
            [
-            bootproto : dhcp 
+            bootproto : dhcp
             or
             ipaddr : ip
             netmask : netmask
@@ -84,7 +84,7 @@ The setupnetworks API exposed by VDSM remains the same:
            -- OR --
            remove : True
         add { network name : attributes } to map
-         
+
        for each bond:
          create attributes map:
             nics=[nic1 , nic2, ...]

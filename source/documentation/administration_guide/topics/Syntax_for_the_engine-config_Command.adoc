@@ -2,7 +2,7 @@
 [id="Syntax_for_the_engine-config_Command"]
 = Syntax for the engine-config Command
 
-You can run the engine configuration tool from the machine on which the {virt-product-fullname} {engine-name} is installed. For detailed information on usage, print the help output for the command: 
+You can run the engine configuration tool from the machine on which the {virt-product-fullname} {engine-name} is installed. For detailed information on usage, print the help output for the command:
 
 [source,terminal,subs="normal"]
 ----
@@ -11,7 +11,7 @@ You can run the engine configuration tool from the machine on which the {virt-pr
 
 *Common tasks:*
 
-* List available configuration keys 
+* List available configuration keys
 +
 [source,terminal,subs="normal"]
 ----
@@ -45,7 +45,7 @@ Replace _KEY_NAME_ with the name of the specific key to set, and replace _KEY_VA
 
 * Restart the ovirt-engine service to load changes
 +
-The *ovirt-engine* service needs to be restarted for your changes to take effect. 
+The *ovirt-engine* service needs to be restarted for your changes to take effect.
 +
 [source,terminal,subs="normal"]
 ----

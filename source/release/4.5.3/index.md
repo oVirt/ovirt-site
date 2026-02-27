@@ -108,14 +108,14 @@ To learn about features introduced before 4.5.3, see the
 
  - [BZ 1886211](https://bugzilla.redhat.com/show_bug.cgi?id=1886211) **[RFE] Show last events for user VMs**
 
-   Feature: 
+   Feature:
    Lock the snapshot during a restore operation and display a  notification after a successful snapshot restore.
 
-   Reason: 
+   Reason:
    The restore operation status was not reflected in the vm portal ui -no snapshot locking was supported during the operation and no event for a successful restoring was displayed.
 
 
-   Result: 
+   Result:
    Now the user can see when the restore snapshot operation is ended and if it was succeeded or failed.
 
 ### Bug Fixes

@@ -205,11 +205,11 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
 | 2. Minimum memory is enforced                            | add new vm, provision memory lower than 256mb and hit OK                                                                            | you get a canDo action with the range of allowed values                                                                |
 | 3. Override os.Other.resources.minimum.ram.value to 1024 | place a 20-overrload.properties with os.Other.resources.minimum.ram.value=1024 under /etc/ovirt-engine/osinfo.conf.d. Restart Jboss | repeat test case #2. values lower than 1024 should fail.                                                              |
 | 4. Version value are effective                           | append to 20-overrload.properties with os.other.resources.minimum.ram.value.3.3=2042 . Restart Jboss                                | repeat test case #3 . values lower than 2042 should fail for VMs on cluster level 3.3.                                |
-| 5. Add new os                                            | append to 20-overload.properties                                                                                                    
+| 5. Add new os                                            | append to 20-overload.properties
 
-                                                            ` os.osx_10_6.id.value = 3000`                                                                                                       
-                                                            ` os.osx_10_6.name.value = Snow Leopard`                                                                                             
-                                                            ` os.osx_10_6.derivedFrom.value = linux`                                                                                             
+                                                            ` os.osx_10_6.id.value = 3000`
+                                                            ` os.osx_10_6.name.value = Snow Leopard`
+                                                            ` os.osx_10_6.derivedFrom.value = linux`
 
                                                             Restart jboss                                                                                                                        | Edit a current VM and change its os to "Snow Leopard". Test case #2 should pass.                                      |
 

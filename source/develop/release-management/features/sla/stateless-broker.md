@@ -32,7 +32,7 @@ Replacing custom made agent-broker RPC implementation with python's standard xml
 ## Detailed Description
 
 With Hosted Engine operation expirience we realized, that some planned features was neither ever used nor even implemented. One of those features is ability of
-the engine to handle several storage domains for several agents. 
+the engine to handle several storage domains for several agents.
 
 Special stateful agent-broker RPC protocol was developed to enable those abilities. Unfortunately, it is useless now and hard to maintain. Problems with
 maintaining and extension result to moving part ob broker's job to the agent.

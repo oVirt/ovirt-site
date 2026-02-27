@@ -63,7 +63,7 @@ The XML that VDSM prepares for libvirt to run a VM on a [Storage Domain Version 
   <devices>
           ...
     <disk device="disk" snapshot="no" type="block">
-            
+
 
             ...
     </disk>

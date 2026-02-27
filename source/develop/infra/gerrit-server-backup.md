@@ -23,7 +23,7 @@ authors: quaid
 
     touch /home/gerrit-backup/.ssh/authorized_keys
     vi /home/gerrit-backup/.ssh/authorized_keys # add id_rsa.pub contents
-    chmod 644 /home/gerrit-backup/.ssh/authorized_keys 
+    chmod 644 /home/gerrit-backup/.ssh/authorized_keys
     chmod 700 /home/gerrit-backup/.ssh/
 
 *   Create backup directory and sub-dir tree:
@@ -130,7 +130,7 @@ authors: quaid
     # Gerrit backup script - database backup
     #
     # 0.1 Alpha - 20111207 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
-    # 
+    #
     #
     # Copyright 2011 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
     #
@@ -190,7 +190,7 @@ authors: quaid
     # Gerrit backup script - gerrit2 user home backup
     #
     # 0.1 Alpha - 20111208 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
-    # 
+    #
     #
     # Copyright 2011 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
     #

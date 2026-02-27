@@ -76,7 +76,7 @@ This infrastructure is in the package: org.ovirt.engine.core.bll.adbroker, and i
 
         // Running the query
         List<AdUser> resultByUpn = searcher.FindAll(queryData);
-       
+
 
 *   Querying group properties by group name:
 
@@ -90,4 +90,4 @@ This infrastructure is in the package: org.ovirt.engine.core.bll.adbroker, and i
         DirectorySearcher searcher = new DirectorySearcher(credentials);
 
         List<AdUser> resultByname = searcher.FindAll(queryData);
-       
+

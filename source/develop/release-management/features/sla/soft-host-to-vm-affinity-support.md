@@ -19,9 +19,9 @@ The other piece that is needed is to add affinity based balancing operation to a
 
 *   Name: Yanir Quinn (yquinn)
 *   Email: <yquinn@redhat.com>
-    
+
 ## Detailed Description
- 
+
 Add additional affinity lists and relationships to the existing affinity object so it would contain:
 
 *   Vms_affinity_enabled flag (true/false)
@@ -62,22 +62,22 @@ The table structure of affinity_groups will altered by adding a new none column:
 *   Migration policy unit was altered to accept target hosts with the same id as the source host of the candidate VM for  migration (this was done for balancing purposes)
 *   Vm affinity filter and weight policy units were modified to exclude affinity groups with vms_affinity_enabled = false;
 *   Added new filter policy unit **VmToHostAffinityFilterPolicyUnit** which:
-Enables Affinity Groups hard enforcement for VMs to hosts; VMs in group are required to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative).                              
+Enables Affinity Groups hard enforcement for VMs to hosts; VMs in group are required to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative).
 *   Added new weight policy unit **VmToHostAffinityWeightPolicyUnit** which:
 Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most likely to run either on one of the hosts in group (positive) or on independent hosts which are excluded from the hosts in group (negative)
 
     The score of a host is calculated by the number of affinity group violations, when 1 is the default score
-    and for each violation add + 1. 
-   
+    and for each violation add + 1.
+
    > **NOTE** : When load balancing is enabled and there are soft host affinity constraints then there might be a need to increase the factor of the VmToHostsAffinityGroups weight policy unit to ensure that affinity is stronger than other policies.The default factor is 10.
 
 
 ### Affinity Rules Enforcement Manager
-The existing procedure for vm affinity procedure as shown in [Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager.html) 
+The existing procedure for vm affinity procedure as shown in [Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager.html)
 will be enhanced:
 
 *   **chooseNextVmToMigrate** will follow this order of selection:
-       1. select a VM to migrate if a VM to host affinity is violated 
+       1. select a VM to migrate if a VM to host affinity is violated
        2. select a VM to migrate if a VM to VM affinity is violated
 *   VM to VM affinity groups will be selected as candidates only if VM affinity enabled flag is true.
 *   Selection of a VM from VM to host affinity procedure:
@@ -87,26 +87,26 @@ will be enhanced:
     3. Sort the candidate VMs according to the number of violations (descending).
     4. Loop over the sorted hard affinity VMs list:
           1. If the VM can migrate with its associated hosts:
-          2. Return the VM for migration  
+          2. Return the VM for migration
     5. Create a list of candidate VMs violating positive/negative non enforcing affinity to hosts.
     6. Loop over the sorted soft affinity VMs list:
           1. If the VM can migrate with its associated hosts:
-          2. Return the VM for migration      
-    7. If no vm was found for migration - check candidates from VM to VM affinity. 
+          2. Return the VM for migration
+    7. If no vm was found for migration - check candidates from VM to VM affinity.
        * The candidates for VM to VM affinity will be select from affinity groups where
          VM affinity is not disabled. (VM affinity enabled = true)
-      
-*   When choosing a VM from VM to VM affinity - check if the VM exists as a candidate in the VM to host lists 
+
+*   When choosing a VM from VM to VM affinity - check if the VM exists as a candidate in the VM to host lists
     and issue a warning (subjected for change)
-    
+
 
 ### UI
-First stage - in order not to break the current vm to vm affinity functionality, an additional 
-check box will be added to the Affinity group panel : **Vm Affinity Enabled** 
+First stage - in order not to break the current vm to vm affinity functionality, an additional
+check box will be added to the Affinity group panel : **Vm Affinity Enabled**
 
 When checked - the original behavior of vm to vm affinity will be preserved.
 
-When unchecked - vm to vm affinity rules will not apply. 
+When unchecked - vm to vm affinity rules will not apply.
 
 Host to vm affinity settings will be provided currently only via the rest api.
 
@@ -144,7 +144,7 @@ GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups
     <name>Test_aff_group</name>
     <link href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/vms" rel="vms"/>
     <link href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/vms" rel="hosts"/>
-    <cluster href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222" id="00000002-0002-0002-0002-000000000222"/>     
+    <cluster href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222" id="00000002-0002-0002-0002-000000000222"/>
     <positive>true</positive>
     <enforcing>true</enforcing>
     <vms_rule>

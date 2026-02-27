@@ -75,17 +75,17 @@ To learn about features introduced before 4.5.2, see the
 
  - [BZ 1793207](https://bugzilla.redhat.com/show_bug.cgi?id=1793207) **[RFE] Notify if multipath User Friendly Names are used**
 
-   Feature: 
+   Feature:
    Protect users from using wrong multipath configuration
    by parsing the configuration in vdsm-tool, look for
    user_friendly_names setting occurrences, and print
    a warning if enabled.
-   Reason: 
-   It is not supported to use multipath User Friendly 
+   Reason:
+   It is not supported to use multipath User Friendly
    Names(UFN) on oVirt hosts, but it is not enforced either.
-   It may cause corruption in block SDs if a host is 
+   It may cause corruption in block SDs if a host is
    running with UFN enabled.
-   Result: 
+   Result:
    $ vdsm-tool is-configured --module multipath
    WARNING: Invalid configuration: 'user_friendly_names' is
    enabled in multipath configuration:
@@ -216,7 +216,7 @@ To learn about features introduced before 4.5.2, see the
    We have added new parameters for Satellite support in the ansible repositories role. Main parameters which were added:
    ovirt_repositories_org - The org ID which should be used from Satellite
    ovirt_repositories_activationkey - Activation key which will be used with the org.
-   ovirt_repositories_ca_rpm_url - The URL to install Satellite CA.   
+   ovirt_repositories_ca_rpm_url - The URL to install Satellite CA.
    ovirt_repositories_rhsm_environment - To set up the host with Satellite using username/password and choose which environment to use.
  - [BZ 2101481](https://bugzilla.redhat.com/show_bug.cgi?id=2101481) **abrt was removed in RHEL 8.6 and causes HE deployments to fail it upgraded from RHEL 8.5 and earlier.**
 

@@ -60,7 +60,7 @@ An example using CURL client:
            <link
              href="/ovirt-engine/api/vnicprofiles/3ffd219b-cf02-44a5-817b-743d8c60709a/permissions"
              rel="permissions"/>
-           <network 
+           <network
              href="/ovirt-engine/api/networks/2cd31372-3700-4f80-a71d-62ab6086193f"
              id="2cd31372-3700-4f80-a71d-62ab6086193f"/>
            <port_mirroring>false</port_mirroring>
@@ -69,7 +69,7 @@ An example using CURL client:
          href="/ovirt-engine/api/vnicprofiles/8938f00f-6108-4196-aa86-f8f6721f4367"
          id="8938f00f-6108-4196-aa86-f8f6721f4367">
            <name>ovirtmgmt</name>
-           <link 
+           <link
             href="/ovirt-engine/api/vnicprofiles/8938f00f-6108-4196-aa86-f8f6721f4367/permissions"
             rel="permissions"/>
            <network

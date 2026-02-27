@@ -10,7 +10,7 @@ Fencing allows a cluster to react to unexpected host failures and enforce power 
 ====
 To automatically check the fencing parameters, you can configure the `PMHealthCheckEnabled` (false by default) and `PMHealthCheckIntervalInSec` (3600 sec by default) engine-config options.
 
-When set to true, `PMHealthCheckEnabled` will check all host agents at the interval specified by `PMHealthCheckIntervalInSec`, and raise warnings if it detects issues. See xref:Syntax_for_the_engine-config_Command[Syntax for the engine-config Command] for more information about configuring engine-config options. 
+When set to true, `PMHealthCheckEnabled` will check all host agents at the interval specified by `PMHealthCheckIntervalInSec`, and raise warnings if it detects issues. See xref:Syntax_for_the_engine-config_Command[Syntax for the engine-config Command] for more information about configuring engine-config options.
 ====
 Power management operations can be performed by {virt-product-fullname} {engine-name} after it reboots, by a proxy host, or manually in the Administration Portal. All the virtual machines running on the non-responsive host are stopped, and highly available virtual machines are started on a different host. At least two hosts are required for power management operations.
 

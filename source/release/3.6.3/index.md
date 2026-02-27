@@ -61,7 +61,7 @@ Here are the steps to reload the configuration on-the-fly:
 Please note that support for reloading VDC options on-the-fly will be most probably dropped in oVirt 4.0.
 
 <b>OVIRT-CLI now use remote-viewer instead of spicec for spice based console</b>
- 
+
 <b>unassigned host status now reflects more the real status</b>
 
 The new status value of the host when it is being activated will be changed from 'Maintenance' to 'Activating' (used to be 'Unassigned')

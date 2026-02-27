@@ -12,7 +12,7 @@ A typical plug-in bootstrap sequence consists of following steps:
 . Notify UI plug-in infrastructure to proceed with plug-in initialization
 
 The following code snippet illustrates the above mentioned steps in practice:
-	
+
 [source,terminal,subs="normal"]
 ----
 

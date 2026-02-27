@@ -47,7 +47,7 @@ List the feature's limitations.
 
 ## Benefit to oVirt
 
-Explain the benefit to oVirt. If this is a major capability update, specify the changes made. If this is a new feature, list the capabilities it adds and explain. Focus on the overall benefit to the project.  
+Explain the benefit to oVirt. If this is a major capability update, specify the changes made. If this is a new feature, list the capabilities it adds and explain. Focus on the overall benefit to the project.
 
 ## Entity Description
 

@@ -18,18 +18,18 @@ While the following procedure outlines how to use Cloud-Init when preparing a te
 . Click the *Initial Run* tab and select the *Use Cloud-Init/Sysprep* check box.
 . Enter a host name in the *VM Hostname* text field.
 . Select the *Configure Time Zone* check box and select a time zone from the *Time Zone* drop-down list.
-. Expand the *Authentication* section. 
-* Select the *Use already configured password* check box to use the existing credentials, or clear that check box and enter a root password in the *Password* and *Verify Password* text fields to specify a new root password. 
+. Expand the *Authentication* section.
+* Select the *Use already configured password* check box to use the existing credentials, or clear that check box and enter a root password in the *Password* and *Verify Password* text fields to specify a new root password.
 * Enter any SSH keys to be added to the authorized hosts file on the virtual machine in the *SSH Authorized Keys* text area.
 * Select the *Regenerate SSH Keys* check box to regenerate SSH keys for the virtual machine.
-. Expand the *Networks* section. 
+. Expand the *Networks* section.
 * Enter any DNS servers in the *DNS Servers* text field.
 * Enter any DNS search domains in the *DNS Search Domains* text field.
 * Select the *In-guest Network Interface* check box and use the *+ Add new* and *- Renove selected* buttons to add or remove network interfaces to or from the virtual machine.
 +
 [IMPORTANT]
 ====
-You must specify the correct network interface name and number (for example, `eth0`, `eno3`, `enp0s`). Otherwise, the virtual machine's interface connection will be up, but it will not have the *cloud-init* network configuration. 
+You must specify the correct network interface name and number (for example, `eth0`, `eno3`, `enp0s`). Otherwise, the virtual machine's interface connection will be up, but it will not have the *cloud-init* network configuration.
 ====
 
 . Expand the *Custom Script* section and enter any custom scripts in the *Custom Script* text area.

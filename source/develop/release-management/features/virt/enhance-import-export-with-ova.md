@@ -75,10 +75,10 @@ improved portability. By being aligned with the common OVA specification
 (rather than our unique structure of a storage domain), we achieve
 better compatibility with other platforms.
 
-The OVA file would be stored on a variety of locations: path on host 
+The OVA file would be stored on a variety of locations: path on host
 in the data-center, NFS share, etc (we don't handle mounting the path).
 TBD: build the OVA on the fly and stream its content using ovirt-imageio.
-in addition, it will include neither snapshots nor the template that the 
+in addition, it will include neither snapshots nor the template that the
 VM may be based on.
 
 Moreover, this feature enables a running VM to be exported without the
@@ -139,9 +139,9 @@ Notes:
    compressed (step 6), so the ovirt-imageio-daemon can decompress the
    data on-the-fly while streaming it to the destination volume (step 7).
 2. The upload process supports handling both raw and qcow images in the OVA.
-3. Currently, we support resuming a single image upload. 
-   TBD: whether to support resuming for upload OVA. 
-4. The upload OVA flow can be implemented using ovirt SDK, so it will be 
+3. Currently, we support resuming a single image upload.
+   TBD: whether to support resuming for upload OVA.
+4. The upload OVA flow can be implemented using ovirt SDK, so it will be
    possible to integrate it with Ansible.
 5. This process streams data directly from OVA file from the machine without
    creating any temp files.
@@ -182,12 +182,12 @@ disk as an OVA file:
 1. The front end sends the back end a VM and an export destination.
 2. The back end creates new disk (for the ova) if the destination requires,
    and prepares the VM source disks.
-3. The back end asks VDSM to create an OVA file with the complete OVF 
+3. The back end asks VDSM to create an OVA file with the complete OVF
    specification and export destination.
 4. VDSM runs ovirt-ova tool - creates the OVA in the destination
    (using qemu-img convert which may include file format conversion).
 5. The back end teardowns the VM source disks.
-   
+
 Notes:
 
 1. Step 4 is equivalent to `qemu-img convert` with the collapse option
@@ -218,7 +218,7 @@ will be similar to the upload-ova process:
 7. The back end sends the import parameters, including the destination
    disks to vdsm.
 8. vdsm runs the ova-ovirt tool that reads the disks from the OVA and
-   according to the import parameters streams the data into the 
+   according to the import parameters streams the data into the
    corresponding target disks.
 
 ## Downloading an OVA
@@ -228,7 +228,7 @@ theory, it should look like this:
 ![](../../../../images/wiki/download-ova.png)
 
 1. The front end passes the back end a VM (or template) to download.
-2. The back end starts exporting to OVA flow (as described in 
+2. The back end starts exporting to OVA flow (as described in
    'Exporting a VM or Template as an OVA')
 3. The front end displays a link for downloading the OVA.
    TODO: discuss UX regarding progress indication.
@@ -243,7 +243,7 @@ Notes:
 2. The flow would be created as a reusable component (e.g. for future
    automation using Ansible).
 3. This solution should allow resuming a download at any point.
- 
+
 
 ## TBD: Streaming
 We want to avoid unneeded data copy, to minimize upload/download time.

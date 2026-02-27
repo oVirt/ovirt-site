@@ -6,7 +6,7 @@
 
 * Avoid running any service that {virt-product-fullname} depends on as a virtual machine in the same environment. If this is done, it must be planned carefully to minimize downtime, if the virtual machine containing that service incurs downtime.
 
-* Ensure the bare-metal host or virtual machine that the {virt-product-fullname} {engine-name} will be installed on has enough entropy. Values below 200 can cause the {engine-name} setup to fail. To check the entropy value, run `cat /proc/sys/kernel/random/entropy_avail`. 
+* Ensure the bare-metal host or virtual machine that the {virt-product-fullname} {engine-name} will be installed on has enough entropy. Values below 200 can cause the {engine-name} setup to fail. To check the entropy value, run `cat /proc/sys/kernel/random/entropy_avail`.
 
 * You can automate the deployment of hosts and virtual machines using PXE, Kickstart, Satellite, CloudForms, Ansible, or a combination thereof. However, installing a self-hosted engine using PXE is not supported. See:
 
@@ -18,6 +18,6 @@
 
 * Set the system time zone for all machines in your deployment to UTC. This ensures that data collection and connectivity are not interrupted by variations in your local time zone, such as daylight savings time.
 
-* Use Network Time Protocol (NTP) on all hosts and virtual machines in the environment in order to synchronize time. Authentication and certificates are particularly sensitive to time skew. 
+* Use Network Time Protocol (NTP) on all hosts and virtual machines in the environment in order to synchronize time. Authentication and certificates are particularly sensitive to time skew.
 
 * Document everything, so that anyone who works with the environment is aware of its current state and required procedures.

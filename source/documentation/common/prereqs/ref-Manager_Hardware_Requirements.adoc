@@ -9,7 +9,7 @@
 The minimum and recommended hardware requirements outlined here are based on a typical small to medium-sized installation. The exact requirements vary between deployments based on sizing and load.
 
 ifdef::ovirt-doc[]
-The {virt-product-fullname} {engine-name} runs on {enterprise-linux} operating systems like link:https://www.centos.org/[CentOS Linux Stream 9] or link:https://www.almalinux.org/[AlmaLinux 9] 
+The {virt-product-fullname} {engine-name} runs on {enterprise-linux} operating systems like link:https://www.centos.org/[CentOS Linux Stream 9] or link:https://www.almalinux.org/[AlmaLinux 9]
 endif::[]
 
 .{virt-product-fullname} {engine-name} Hardware Requirements

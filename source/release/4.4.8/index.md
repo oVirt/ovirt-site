@@ -75,7 +75,7 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
  - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
 
-   Feature: 
+   Feature:
 
 Automatically install dependencies required for using cinderlib with ceph
 
@@ -87,7 +87,7 @@ Currently users are required to manually install cinderlib and ceph dependencies
 
 
 
-Result: 
+Result:
 
 Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine host and vdsm hosts. ceph-common and python3-cinderlib will be installed on the ovirt-engine host, ceph-common and python3-os-brick will be installed on the vdsm hosts.
 
@@ -100,7 +100,7 @@ Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine hos
 
  - [BZ 1971317](https://bugzilla.redhat.com/show_bug.cgi?id=1971317) **[RFE][API] Import OVA template as a clone**
 
-   
+
 
  - [BZ 1691696](https://bugzilla.redhat.com/show_bug.cgi?id=1691696) **[RFE] multipath events notifications**
 
@@ -112,7 +112,7 @@ Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine hos
 
 
 
-So you will be able to send the following request - 
+So you will be able to send the following request -
 
 
 
@@ -136,7 +136,7 @@ POST /ovirt-engine/api/vms/123/backups
 
 
 
-And when you fetched the created backup from the API (or in the response for the request) you should see - 
+And when you fetched the created backup from the API (or in the response for the request) you should see -
 
 
 
@@ -162,7 +162,7 @@ And when you fetched the created backup from the API (or in the response for the
 
 
 
-Same for the checkpoint that was created for that backup - 
+Same for the checkpoint that was created for that backup -
 
 
 
@@ -186,7 +186,7 @@ Same for the checkpoint that was created for that backup -
 
  - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
 
-   Feature: 
+   Feature:
 
 Automatically install dependencies required for using cinderlib with ceph
 
@@ -198,7 +198,7 @@ Currently users are required to manually install cinderlib and ceph dependencies
 
 
 
-Result: 
+Result:
 
 Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine host and vdsm hosts. ceph-common and python3-cinderlib will be installed on the ovirt-engine host, ceph-common and python3-os-brick will be installed on the vdsm hosts.
 
@@ -211,7 +211,7 @@ Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine hos
 
  - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
 
-   Feature: 
+   Feature:
 
 Automatically install dependencies required for using cinderlib with ceph
 
@@ -223,7 +223,7 @@ Currently users are required to manually install cinderlib and ceph dependencies
 
 
 
-Result: 
+Result:
 
 Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine host and vdsm hosts. ceph-common and python3-cinderlib will be installed on the ovirt-engine host, ceph-common and python3-os-brick will be installed on the vdsm hosts.
 
@@ -232,17 +232,17 @@ Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine hos
 
  - [BZ 1991171](https://bugzilla.redhat.com/show_bug.cgi?id=1991171) **Backup was created by version '4.4.7.7' and can not be restored using the installed version 4.4.7.6**
 
-   Since Red Hat Virtualization 4.4.7, the engine-backup refuses to restore to a version older than the one used for backup. This causes 'hosted-engine --restore-from-file' to fail if the latest appliance is older than the latest Manager. 
+   Since Red Hat Virtualization 4.4.7, the engine-backup refuses to restore to a version older than the one used for backup. This causes 'hosted-engine --restore-from-file' to fail if the latest appliance is older than the latest Manager.
 
 In this release, such a scenario does not fail, but prompts the user to connect via SSH to the Manager virtual machine and fix the restore issue.
 
  - [BZ 1966873](https://bugzilla.redhat.com/show_bug.cgi?id=1966873) **[RFE] Create Ansible role for removing stale LUNs example remove_mpath_device.yml**
 
-   A new role, `remove_stale_lun` has been added to the oVirt Ansible collection. The `remove_stale_lun` role iterates through all the hosts in a data center and removes stale LUN device from the hosts. 
+   A new role, `remove_stale_lun` has been added to the oVirt Ansible collection. The `remove_stale_lun` role iterates through all the hosts in a data center and removes stale LUN device from the hosts.
 
 
 
-This role accepts two parameters: data center name and LUN WWID. 
+This role accepts two parameters: data center name and LUN WWID.
 
 
 
@@ -254,9 +254,9 @@ Before running this role, the LUN must be unzoned from the storage server by the
 
 
 
-Previously the ansible code enabled FIPS on the Self Hosted 
+Previously the ansible code enabled FIPS on the Self Hosted
 
-Engine VM only if the user asked to apply an OpenSCAP profile. 
+Engine VM only if the user asked to apply an OpenSCAP profile.
 
 
 
@@ -351,54 +351,54 @@ So you might want to mention this in the doc text, if you want - something like 
 
  - [BZ 1996602](https://bugzilla.redhat.com/show_bug.cgi?id=1996602) **VM remains in paused state when trying to write on a resized disk resides on iscsi**
 
-   
+
 
  - [BZ 1998865](https://bugzilla.redhat.com/show_bug.cgi?id=1998865) **Host installation fails due to missing bond file**
 
-   
+
 
  - [BZ 1967413](https://bugzilla.redhat.com/show_bug.cgi?id=1967413) **Logical name doesn't appear in diskattachments and UI immediately after a disk is hot plugged into vm**
 
-   
+
 
  - [BZ 1892681](https://bugzilla.redhat.com/show_bug.cgi?id=1892681) **[CBT] VM will be corrupted during full backup if the user performs reboot inside guest OS of the VM**
 
-   
+
 
  - [BZ 1757689](https://bugzilla.redhat.com/show_bug.cgi?id=1757689) **Remove memAvailable and memCommitted**
 
-   
+
 
  - [BZ 1981307](https://bugzilla.redhat.com/show_bug.cgi?id=1981307) **Skip setting disk thresholds on the destination host during migration**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1997663](https://bugzilla.redhat.com/show_bug.cgi?id=1997663) **Keep cinbderlib dependencies optional for 4.4.8**
 
-   
+
 
  - [BZ 1674742](https://bugzilla.redhat.com/show_bug.cgi?id=1674742) **Custom Properties silently removed when changing VM cluster**
 
-   
+
 
  - [BZ 1983636](https://bugzilla.redhat.com/show_bug.cgi?id=1983636) **Add "last_updated" column to the "vm_backups" DB table**
 
-   
+
 
  - [BZ 1989794](https://bugzilla.redhat.com/show_bug.cgi?id=1989794) **engine still generates duplicate address for hotplug disks**
 
-   
+
 
  - [BZ 1966535](https://bugzilla.redhat.com/show_bug.cgi?id=1966535) **NullPointerException when trying to delete uploaded disks with using transfer_url**
 
-   
+
 
  - [BZ 1990350](https://bugzilla.redhat.com/show_bug.cgi?id=1990350) **Can't set default time zone via engine-config**
 
-   
+
 
  - [BZ 1901572](https://bugzilla.redhat.com/show_bug.cgi?id=1901572) **RHV-M doesn't display guest information of HostedEngine VM**
 
@@ -406,58 +406,58 @@ So you might want to mention this in the doc text, if you want - something like 
 
  - [BZ 1964496](https://bugzilla.redhat.com/show_bug.cgi?id=1964496) **Host-specific fields of a VM are not updated when dedicated host(s) changes**
 
-   
+
 
  - [BZ 1983414](https://bugzilla.redhat.com/show_bug.cgi?id=1983414) **Disks are locked forever when copying VMs' disks after snapshot**
 
-   
+
 
  - [BZ 1931982](https://bugzilla.redhat.com/show_bug.cgi?id=1931982) **[RFE] Make timezones configurable**
 
-   
+
 
  - [BZ 1757689](https://bugzilla.redhat.com/show_bug.cgi?id=1757689) **Remove memAvailable and memCommitted**
 
-   
+
 
  - [BZ 1984424](https://bugzilla.redhat.com/show_bug.cgi?id=1984424) **Incorrect CPUs in the NUMA node for the second hosts's socket**
 
-   
+
 
  - [BZ 1983610](https://bugzilla.redhat.com/show_bug.cgi?id=1983610) **Chipset should be set to Q35 if converting from XEN to RHV by v2v rhv-upload**
 
-   
+
 
  - [BZ 1973270](https://bugzilla.redhat.com/show_bug.cgi?id=1973270) **[RFE] Make VM sealing configurable**
 
-   
+
 
  - [BZ 1983661](https://bugzilla.redhat.com/show_bug.cgi?id=1983661) **[CBT] committing a snapshot after backup tries to clear bitmaps on RAW volumes**
 
-   
+
 
  - [BZ 1981158](https://bugzilla.redhat.com/show_bug.cgi?id=1981158) **Trying to assign i915-GVTg_V5_4 vgpu appears to fail due to bad regex matching**
 
-   
+
 
  - [BZ 1963715](https://bugzilla.redhat.com/show_bug.cgi?id=1963715) **[RFE] Export/import VMs/templates with NVRAM**
 
-   
+
 
  - [BZ 1853501](https://bugzilla.redhat.com/show_bug.cgi?id=1853501) **[RFE] Add column with storage domain in the "Storage -&gt; Disks" page**
 
-   
+
 
  - [BZ 1978253](https://bugzilla.redhat.com/show_bug.cgi?id=1978253) **OGA memory report isn't shown in the VM general tab**
 
-   
+
 
 
 #### cockpit-ovirt
 
  - [BZ 1959904](https://bugzilla.redhat.com/show_bug.cgi?id=1959904) **Cockpit UI need to be proper  alignment  while deployment**
 
-   
+
 
 
 ### No Doc Update
@@ -466,44 +466,44 @@ So you might want to mention this in the doc text, if you want - something like 
 
  - [BZ 1999032](https://bugzilla.redhat.com/show_bug.cgi?id=1999032) **Failed to add rhel host to rhv engine server with error - VDSM host-38 command Get Host Capabilities failed: Internal JSON-RPC error: {'reason': "'libvirt'"}**
 
-   
+
 
  - [BZ 1962563](https://bugzilla.redhat.com/show_bug.cgi?id=1962563) **[RFE] Use nmstate for source routing**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1958398](https://bugzilla.redhat.com/show_bug.cgi?id=1958398) **"This VM has no graphic display device" error after upgrade from RHV 4.3 to RHV 4.4 for some VMs**
 
-   
+
 
  - [BZ 1979539](https://bugzilla.redhat.com/show_bug.cgi?id=1979539) **[RHHI] Upgrading RHVH hyperconverged host from Admin portal fails for first host**
 
-   
+
 
  - [BZ 1975225](https://bugzilla.redhat.com/show_bug.cgi?id=1975225) **Occasional failures to export VM to OVA**
 
-   
+
 
  - [BZ 1974656](https://bugzilla.redhat.com/show_bug.cgi?id=1974656) **[Rest API] Event search template filter throws SQL error**
 
-   
+
 
 
 #### oVirt Ansible collection
 
  - [BZ 1977486](https://bugzilla.redhat.com/show_bug.cgi?id=1977486) **Duplicate tasks execution when using hosted-engine --deploy**
 
-   
+
 
 
 #### oVirt Engine Appliance
 
  - [BZ 1985927](https://bugzilla.redhat.com/show_bug.cgi?id=1985927) **Configure Grafana in hosted-engine setup by default**
 
-   
+
 
 
 #### Contributors

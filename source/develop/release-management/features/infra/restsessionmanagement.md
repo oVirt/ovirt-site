@@ -78,7 +78,7 @@ Flow of using the Prefer header on each call:
         | [validate session. no Prefer header --> logout ]
         | <----------------------------------------------|
         |                                                |
-       
+
 
 Flow when relying on session timeout:
 
@@ -106,7 +106,7 @@ Flow when relying on session timeout:
         |                                                |
         |             [session timeout --> remove session]
         |                                                |
-       
+
 
 Flow when passing another header for ending sessions:
 
@@ -130,7 +130,7 @@ Flow when passing another header for ending sessions:
         |                      [validate session. logout ]
         | <----------------------------------------------|
         |                                                |
-       
+
 
 ## Scope
 

@@ -47,9 +47,9 @@ If nfs is True, then the top open output is per NFS server.
          {'statusCode' : CODE,
              'brickCount': BRICK-COUNT,
              'bricks': {BRICK-NAME: {'count':FILE-COUNT,
-                                                   'currentOpenFds': CURRENT-OPEN-FDS-COUNT, 
-                                                             'maxOpen': MAX-OPEN, 
-                                                             'maxOpenTime': MAX-OPEN-TIME, 
+                                                   'currentOpenFds': CURRENT-OPEN-FDS-COUNT,
+                                                             'maxOpen': MAX-OPEN,
+                                                             'maxOpenTime': MAX-OPEN-TIME,
                                                              'files': [{FILE-NAME: FILE-OPEN-COUNT}, ...]
                                                           }, ...} }
 ```
@@ -162,7 +162,7 @@ To view the profile info, "Details" sub-menu of the Profiling menu needs to be c
       <blockstatistics>../</blockstatistics>
       </blockinfo>
       <fopinfo>
-            <fopstatistics>...</fopstatistics>  
+            <fopstatistics>...</fopstatistics>
       <fopstatistics>...</fopstatistics>
       </fopinfo>
 </profileinfo>

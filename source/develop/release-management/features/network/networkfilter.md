@@ -259,7 +259,7 @@ Explain what will be done in case the feature won't be ready on time
 
 
 
-                   filter_id               |       filter_name       | version 
+                   filter_id               |       filter_name       | version
       -------------------------------------+-------------------------+---------
       00000019-0019-0019-0019-000000000308 | vdsm-no-mac-spoofing    | 3.2
       0000001a-001a-001a-001a-000000000281 | allow-arp               | 3.6

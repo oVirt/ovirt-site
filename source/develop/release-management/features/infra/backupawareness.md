@@ -37,8 +37,8 @@ In case that no full (db and files) backup exists or that only an old backup is 
 1)Adding a new table engine_backup_log with the following columns
 
        scope varchar
-       done_at datetime with time stamp 
-       is_passed boolean 
+       done_at datetime with time stamp
+       is_passed boolean
        output_message text
        fqdn varchar
        log_path text
@@ -47,7 +47,7 @@ In case that no full (db and files) backup exists or that only an old backup is 
 
 3)Adding two configuration variable (available from engine-config)
 
-       BackupCheckPeriodInHours the period on which we check for a fresh backup - default : 6, set to -1 to disable this feature 
+       BackupCheckPeriodInHours the period on which we check for a fresh backup - default : 6, set to -1 to disable this feature
        BackupAlertPeriodInDays the max number of days allowed without a fresh backup - default 1
 
 4)Adding a quartz job that will awake every BackupPeriodInHours and check for the last backup available, according to that it will set/clear the appropriate warning
@@ -61,15 +61,15 @@ engine-backup should call the following procedure upon start/complete/fail
        LogEngineBackupEvent(scope, done_at , status,  output_message, fqdn, log_path)
        scope is  {db,dwhdb,reportsdb,files}
        done_at is the current time
-       status is -1 for failure , 0 for started and 1 for completed 
+       status is -1 for failure , 0 for started and 1 for completed
        output_message includes the error message raised in case that the operation failed
        fqdn - fqdn the user configured when running engine-setup
        log_path - the full log file name
 
 ### Events Raised
 
-       ENGINE_BACKUP_FAILED - backup operation failed 
-       ENGINE_BACKUP_STARTED - backup operation had started 
+       ENGINE_BACKUP_FAILED - backup operation failed
+       ENGINE_BACKUP_STARTED - backup operation had started
        ENGINE_BACKUP_COMPLETED - backup operation completed
 
 ### Benefit to oVirt
@@ -88,7 +88,7 @@ engine-backup will send audit log message when starting, succeeding and failing 
 
 Bug ID:
 
-*   -   -   -   -   -   -   -   -   -   -   -   -   
+*   -   -   -   -   -   -   -   -   -   -   -   -
 
 ### Documentation / External references
 

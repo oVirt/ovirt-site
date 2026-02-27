@@ -17,7 +17,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 oVirt 3.3.5 release is available. In order to install it you've to enable oVirt 3.3 stable repository.
 
-      # yum 
+      # yum
 `# yum localinstall `[`http://resources.ovirt.org/releases/3.3.5/package-pool/ovirt-release-11.2.0-1.noarch.rpm`](http://resources.ovirt.org/releases/3.3.5/package-pool/ovirt-release-11.2.0-1.noarch.rpm)
       # yum-config-manager --enable ovirt-3.3-stable
 

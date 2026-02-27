@@ -68,10 +68,10 @@ If the cluster definition is null then the host will be matched against the conf
 That match will set the cluster definition for the rest of the hosts in that cluster
  consider this pseudo-code:
 
-      operational = false 
+      operational = false
       if cluster.emulationMode == NULL
        for configVal in Config.ClusterEmulationMode(3.3)
-          if configVal in host.emulationModes 
+          if configVal in host.emulationModes
               cluster.emulationMode = configVal
               operational = true
        else if clusterEmulationMode in host.emulationMode

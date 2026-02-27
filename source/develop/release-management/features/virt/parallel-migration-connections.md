@@ -37,7 +37,7 @@ Current implementation of parallel migration connections in QEMU has some restri
 
 - XBZRLE compression is not supported.  However this kind of compression is generally not recommended to use in migrations because it adds little benefit and a significant overhead.  gzip/zstd is supported instead and migrations should actually benefit from it (but libvirt apparently doesn't currently provide means to select this compression kind).
 
-- Due to their better implementation, parallel migration connections can be faster than the traditional migration implementation even when the network bandwidth can be saturated with a single connection.  However, when single connection is specified, the parallel migration connection implementation uses a different code path, which may not be sufficiently robust, and it's recommended to always use at least two connections.  In the worst case, one of the threads will be idle while causing only a little overhead. 
+- Due to their better implementation, parallel migration connections can be faster than the traditional migration implementation even when the network bandwidth can be saturated with a single connection.  However, when single connection is specified, the parallel migration connection implementation uses a different code path, which may not be sufficiently robust, and it's recommended to always use at least two connections.  In the worst case, one of the threads will be idle while causing only a little overhead.
 
 - Parallel migration connections haven't been tested extensively with connections faster than 100 Gbps.  Due to current multifd implementation, there is an increasing overhead when using many connections and it's not clear whether using more than 16 parallel connections adds a real benefit.
 
@@ -63,7 +63,7 @@ A new migration option to enable parallel migration connections is introduced in
 
 - **Custom**: Use parallel migration connections and use the number of connections specified by the user.  The minimum number of connections is 2.  There is no upper limit but it is recommended not to use more than 16 and the actual number of connections used for a particular migration is restricted to the number of threads on the source and destination hosts (whichever is lower).
 
-- **Cluster value** (only in the VM edit dialog; it's the default there): Use parallel connections as specified in the VM's cluster settings. 
+- **Cluster value** (only in the VM edit dialog; it's the default there): Use parallel connections as specified in the VM's cluster settings.
 
 We use **Disabled** as the cluster default because it's a newly introduced feature in oVirt and there is not enough experience with it.  We may consider changing it to **Auto** or **Parallel** in next releases, especially if QEMU decides using parallel migration connections by default; this would be limited to a future cluster level.
 
@@ -77,7 +77,7 @@ If parallel migration connections are enabled, the following adjustments are mad
 
 - The maximum number of outgoing migrations is set to 1 regardless of the selected migration policy.  This may not be optimal if there is a non-parallel migration running that cannot saturate the available bandwidth but even in such a case it's generally simpler and safer not to start competing for the bandwidth.
 
-- If **Auto** is set and post-copy migration policy is selected, parallel migration connections are disabled. 
+- If **Auto** is set and post-copy migration policy is selected, parallel migration connections are disabled.
 
 ## Testing
 

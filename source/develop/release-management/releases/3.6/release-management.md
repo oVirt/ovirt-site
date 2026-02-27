@@ -16,48 +16,48 @@ authors:
 | **2014-10-22**    | Release criteria discussion start                                                   |
 | <s>2014-11-12</s><br><s>2014-11-19</s><br>**2014-11-26** | Release criteria ready |
 | **2015-04-22**    | Feature Review - Feature Submission Closed                                          |
-| <s>2015-05-06</s> 
- <s>2015-05-12</s>  
+| <s>2015-05-06</s>
+ <s>2015-05-12</s>
  **2015-05-19**     | Alpha Release: [oVirt 3.6 Release Notes](/develop/release-management/releases/3.6/)        |
-| <s>2015-05-12</s> 
- <s>2015-05-19</s>  
- <s>2015-05-26</s>  
+| <s>2015-05-12</s>
+ <s>2015-05-19</s>
+ <s>2015-05-26</s>
  <s>2015-05-27</s>  | <s>Alpha Release Test Day</s>  |
 | **2015-06-15**    | Feature freeze                                                                      |
-| <s>2015-06-17</s> 
- <s>2015-06-24</s>  
- <s>2015-06-25</s>  
- <s>2015-06-26</s>  
+| <s>2015-06-17</s>
+ <s>2015-06-24</s>
+ <s>2015-06-25</s>
+ <s>2015-06-26</s>
  **2015-06-29**     | Second Alpha Release: [oVirt 3.6 Release Notes](/develop/release-management/releases/3.6/) |
 | **2015-07-28**    | Third Alpha Release: [oVirt 3.6 Release Notes](/develop/release-management/releases/3.6/)  |
-| <s>2015-07-15</s> 
+| <s>2015-07-15</s>
  **2015-08-03**     | Beta Release                                                                        |
-| <s>2015-07-20</s> 
+| <s>2015-07-20</s>
  **2015-08-10**     | Beta Release Test Day                                                               |
-| <s>2015-08-11</s> 
+| <s>2015-08-11</s>
  **2015-08-14**     | Second Beta Release                                                                 |
-| <s>2015-08-03</s> 
+| <s>2015-08-03</s>
  **2015-08-19**     | String Freeze                                                                       |
 | **2015-08-20**    | Third Beta Release                                                                  |
-| <s>2015-09-02</s> 
+| <s>2015-09-02</s>
  **2015-09-07**     | Fourth Beta Release                                                                 |
 | **2015-09-09**    | Fifth Beta Release                                                                  |
 | **2015-09-16**    | Sixth Beta Release                                                                  |
-| <s>2015-08-19</s> 
- <s>2015-09-02</s>  
- <s>2015-09-16</s>  
- <s>2015-09-22</s>  
+| <s>2015-08-19</s>
+ <s>2015-09-02</s>
+ <s>2015-09-16</s>
+ <s>2015-09-22</s>
  **2015-09-28**     | Release Candidate                                                                   |
-| <s>2015-08-24</s> 
- <s>2015-09-08</s>  
- <s>2015-09-17</s>  
+| <s>2015-08-24</s>
+ <s>2015-09-08</s>
+ <s>2015-09-17</s>
  <s>2015-09-24</s>  | <s>Release Candidate Test Day</s>                                                   |
 | **2015-10-14**    | Second Release Candidate                                                            |
 | **2015-10-21**    | Third Release Candidate                                                             |
-| <s>2015-09-08</s> 
- <s>2015-09-22</s>  
- <s>2015-09-29</s>  
- <s>2015-10-12</s>  
+| <s>2015-09-08</s>
+ <s>2015-09-22</s>
+ <s>2015-09-29</s>
+ <s>2015-10-12</s>
  **2015-11-04**     | Release                                                                             |
 
 **NOTE** this is a tentative planning according to [Release process](/develop/release-management/process/release-process.html)

@@ -79,17 +79,17 @@ To learn about features introduced before 4.5.1, see the
 
  - [BZ 2021497](https://bugzilla.redhat.com/show_bug.cgi?id=2021497) **[RFE] Install and configure Keycloak as a default SSO provider for ovirt-engine**
 
-   Feature: 
-   Replace oVirt default (internal) Single-Sign-On implementation (SSO)[1] with bundled Keycloak[2] (OpenID protocol).  
+   Feature:
+   Replace oVirt default (internal) Single-Sign-On implementation (SSO)[1] with bundled Keycloak[2] (OpenID protocol).
 
-   Reason: 
+   Reason:
    Our existing (internal) SSO supports only a limited number of authentication providers. It is an in-house implementation of OAuth protocol that required significant amount of effort on maintenance.
-   The Keycloak solution enables oVirt user to use additional authentication providers in addition to JDBC or LDAP. These includes integration with 3rd party SSO providers ie. GitHub, Google, Facebook as well as with custom ones. 
+   The Keycloak solution enables oVirt user to use additional authentication providers in addition to JDBC or LDAP. These includes integration with 3rd party SSO providers ie. GitHub, Google, Facebook as well as with custom ones.
    Another benefit is ability to easily configure multi step authentication to increase overall security level of the oVirt installation.
 
-   Result: 
-   oVirt administrators will be able to fully use Keycloak capabilities in terms of setting up authentication/SSO mechanism and multiple user bases. 
-   Please note that default ovirt administrator user name has been changed  from 'admin' to 'admin@ovirt'  (Administrator Panel, VM Portal) and from 'admin@internal' to 'admin@ovirt@internalsso' (REST API). 
+   Result:
+   oVirt administrators will be able to fully use Keycloak capabilities in terms of setting up authentication/SSO mechanism and multiple user bases.
+   Please note that default ovirt administrator user name has been changed  from 'admin' to 'admin@ovirt'  (Administrator Panel, VM Portal) and from 'admin@internal' to 'admin@ovirt@internalsso' (REST API).
    Covered deployment scenarios are documented here[3].
    With this RFE implementation it is now possible to login to Monitoring Portal(Grafana) using 'oVirt Single Sing On'. Grafana initial admin user ('admin') is matched by email to default oVirt Administrator ('admin@ovirt')
 
@@ -107,15 +107,15 @@ To learn about features introduced before 4.5.1, see the
 
  - [BZ 1881280](https://bugzilla.redhat.com/show_bug.cgi?id=1881280) **[RFE] Validate HE cluster if --restore-from-file**
 
-   Feature: 
+   Feature:
 
    Now, in 'hosted-engine --deploy --restore-from-file', the prompts asking for the data center and cluster, do not provide a default, and have better text.
 
-   Reason: 
+   Reason:
 
    On restore, it's important to provide correct input. Providing a default risked pressing 'Enter' without reading the question.
 
-   Result: 
+   Result:
 
    Restore/Migrate/Upgrade deployments are more likely to succeed.
 
@@ -289,7 +289,7 @@ To learn about features introduced before 4.5.1, see the
 
         host:
           - The host name from which the template will be imported.
- 
+
         clone:
           - Indicates if the identifiers of the imported template should be regenerated.
 
@@ -297,7 +297,7 @@ To learn about features introduced before 4.5.1, see the
 
  - [BZ 1999167](https://bugzilla.redhat.com/show_bug.cgi?id=1999167) **[SPICE] RFE: Cannot change CD with ISO in oVirt Data domain**
 
-   Feature: 
+   Feature:
    Change CD from a Data Storage Domain
 
    Reason:

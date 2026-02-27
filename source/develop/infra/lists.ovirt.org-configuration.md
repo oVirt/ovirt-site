@@ -26,7 +26,7 @@ Configured firewall to allow ports 22, 25, 80, and 443:
     iptables -A INPUT -p tcp --dport 25 -j ACCEPT
     iptables -A INPUT -p tcp --dport 80 -j ACCEPT
     iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-    iptables -A INPUT -m state --state new -j REJECT 
+    iptables -A INPUT -m state --state new -j REJECT
     service iptables save
 
 Set IP address to static in: '/etc/sysconfig/network-scripts/ifcfg-eth0'

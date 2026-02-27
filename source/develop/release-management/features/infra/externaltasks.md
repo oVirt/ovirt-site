@@ -47,7 +47,7 @@ Solution should support setting percentage for the Task Started state
         Waiting -> Started (x %) |
                                  -> Completed
                                  |
-                                 -> Failed 
+                                 -> Failed
 
 **Sub Task Flow**
 
@@ -100,8 +100,8 @@ See also [UI-Plugins](/develop/release-management/features/ux/uiplugins43.html)
 
       Create an external job which is marked as auto-cleared
        Add external steps and sub steps to the job
-       Update on completed tasks and sub tasks 
-       Check that job completes successfully and is cleared after the configured timeout 
+       Update on completed tasks and sub tasks
+       Check that job completes successfully and is cleared after the configured timeout
 
 ### Test 2
 
@@ -111,9 +111,9 @@ See also [UI-Plugins](/develop/release-management/features/ux/uiplugins43.html)
 
 ### Test 3
 
-       Repeat test 1 with a job that includes a mix of internal and external steps , 
+       Repeat test 1 with a job that includes a mix of internal and external steps ,
        Make sure that for internal steps the job/step parent id should be set in the URI parameters
-       
+
 
 ### Test 4
 

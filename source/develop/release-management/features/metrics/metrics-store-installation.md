@@ -24,7 +24,7 @@ It can be installed on a dedicated VM.
 
 ### Metrics Store Machine Prerequisites
 
-For an oVirt environment with 50 hosts: 
+For an oVirt environment with 50 hosts:
 - 4 CPU cores, 16GB RAM memory .
 - We recommends using SSD disks.
 - CentOS 7.5.
@@ -52,8 +52,8 @@ For an oVirt environment with 50 hosts:
 
   Environment name. It is used to identify data collected in a single central
   store, sent from more than one oVirt engine.
-  
-  Use the following convention: 
+
+  Use the following convention:
 
   - Include only alphanumeric characters and hyphens ( "-" ).
   - Name cannot begin with a hyphen or a number, or end with a hyphen.
@@ -114,7 +114,7 @@ to the metrics store machine.
         # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh \
         --playbook=ovirt-metrics-store-installation.yml
 
-### Metrics Store Installation 
+### Metrics Store Installation
 
 Please follow the metrics store installation instructions: [Metrics Store setup on top of OpenShift](/develop/release-management/features/metrics/setting-up-viaq-logging.html)
 
@@ -166,7 +166,7 @@ Currently there are 3 example dashboards:
   * System Dashboard - `https://kibana.{elasticsearch_host}/app/kibana#/dashboard/System-Dashboard`
 
   * Hosts Dashboard - `https://kibana.{elasticsearch_host}/app/kibana#/dashboard/Hosts-Dashboard`
-  
+
   * VMs Dashboard - `https://kibana.{elasticsearch_host}/app/kibana#/dashboard/VMs-Dashboard`
 
 ### Viewing Saved Dashboards

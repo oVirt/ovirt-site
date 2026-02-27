@@ -153,10 +153,10 @@ vm6.nics.add(nic)
 
 ```python
 sd = api.storagedomains.get('nfs_data')
-diskParam = params.Disk(storage_domains=params.StorageDomains(storage_domain=[sd]), 
-                        size=5368709120, 
-                        type_='data', 
-                        interface='virtio', 
+diskParam = params.Disk(storage_domains=params.StorageDomains(storage_domain=[sd]),
+                        size=5368709120,
+                        type_='data',
+                        interface='virtio',
                         format='cow')
 
 myVm = api.vms.get(name='nfs_desktop')
@@ -191,7 +191,7 @@ nic1 = vm6.nics.get(name='eth0')
 
 ```python
 nic1.name = 'eth01'
-      
+
 nic2 = nic1.update()
 
 nic3 = vm6.nics.get(name='eth01')

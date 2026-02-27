@@ -287,7 +287,7 @@ The address indicates how the device is visible inside the guest.
 
 SR-IOV capability can be found via /sys/bus/pci/devices/\`device_name\`/sriov_numvfs and sriov_totalvfs, that indicate the device SHOULD be capable of spawning multiple virtual functions. It is possible that the bus device is connected to doesn't have enough bandwidth for these virtual functions.
 
-    echo 7 > sriov_numvfs                                                                                                                                                                    
+    echo 7 > sriov_numvfs
     -bash: echo: write error: Cannot allocate memory
 
     dmesg | tail -n 1

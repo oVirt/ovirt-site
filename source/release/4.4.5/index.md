@@ -72,7 +72,7 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
  - [BZ 1906320](https://bugzilla.redhat.com/show_bug.cgi?id=1906320) **Recreate engine HTTPS certificate in engine-setup during upgrade when certificate validity period is longer than 398 days**
 
-   Up until 4.4.5 RHV Manager HTTPS certificates were valid for 5 years. 
+   Up until 4.4.5 RHV Manager HTTPS certificates were valid for 5 years.
 
 Due to recent efforts to reduce certificate lifetime [1] engine certificates validity was reduced to 398 days.
 
@@ -94,7 +94,7 @@ Redefine VM backup checkpoint without the domain XML of the VM.
 
 
 
-Reason: 
+Reason:
 
 Redefine the VM backup checkpoint complicates the backup flow:
 
@@ -116,7 +116,7 @@ Result:
 
 Checkpoint redefinition is done without the checkpoint XML that was kept in the Engine database when the backup was taken.
 
-There is no column for keeping the XML in the database anymore. 
+There is no column for keeping the XML in the database anymore.
 
 The checkpoint is now redefined by composing the checkpoint XML in the host and sending it to Libvirt.
 
@@ -149,7 +149,7 @@ Redefine VM backup checkpoint without the domain XML of the VM.
 
 
 
-Reason: 
+Reason:
 
 Redefine the VM backup checkpoint complicates the backup flow:
 
@@ -171,7 +171,7 @@ Result:
 
 Checkpoint redefinition is done without the checkpoint XML that was kept in the Engine database when the backup was taken.
 
-There is no column for keeping the XML in the database anymore. 
+There is no column for keeping the XML in the database anymore.
 
 The checkpoint is now redefined by composing the checkpoint XML in the host and sending it to Libvirt.
 
@@ -239,17 +239,17 @@ Result: Exposing in cockpit-ovirt, at first step "VM" under "Advanced" button, c
 
  - [BZ 1171924](https://bugzilla.redhat.com/show_bug.cgi?id=1171924) **[RFE] User Preferences / settings dialog with server-side storage**
 
-   
+
 
  - [BZ 1910022](https://bugzilla.redhat.com/show_bug.cgi?id=1910022) **[RFE] add button to switch the master storage domain role**
 
-   Feature: 
+   Feature:
 
 Add a button to switch the master storage domain role from UI.
 
 
 
-Reason: 
+Reason:
 
 The ability to switch the master domain role is currently available only from SDK.
 
@@ -265,11 +265,11 @@ The master storage domain role can be switched by pressing the 'Set as master st
 
  - [BZ 1926854](https://bugzilla.redhat.com/show_bug.cgi?id=1926854) **[RFE] Requesting an audit log entry be added in LSM flow to display the host on which the internal volumes are copied**
 
-   
+
 
  - [BZ 1787235](https://bugzilla.redhat.com/show_bug.cgi?id=1787235) **[RFE] Offline disk move should log which host the data is being copied on in the audit log**
 
-   
+
 
  - [BZ 1927851](https://bugzilla.redhat.com/show_bug.cgi?id=1927851) **[RFE] Add timezone AUS Eastern Standard Time**
 
@@ -277,19 +277,19 @@ The master storage domain role can be switched by pressing the 'Set as master st
 
  - [BZ 1155275](https://bugzilla.redhat.com/show_bug.cgi?id=1155275) **[RFE] - Online update LUN size to the Guest after LUN resize**
 
-   Feature: 
+   Feature:
 
 Online update LUNs on a guest while it's running.
 
 
 
-Reason: 
+Reason:
 
 In case of a LUN disk attached to a running VM, and its size has been updated, the host and VM should refresh the disk and get its updated information, without shutting down the VM.
 
 
 
-Result: 
+Result:
 
 A 'Refresh LUN' button is now accessible from the VM Disks sub-tab.
 
@@ -303,7 +303,7 @@ VMs are back up.
 
  - [BZ 1926888](https://bugzilla.redhat.com/show_bug.cgi?id=1926888) **[RFE][CBT] Allow mixed incremental backup of RAW and COW disks**
 
-   Feature: 
+   Feature:
 
 VM backup that contains both full backups for part of the disks and incremental backups for the others is now allowed.
 
@@ -311,7 +311,7 @@ VM backup that contains both full backups for part of the disks and incremental 
 
 Reason:
 
-A mixed backup will allow the creation of a backup for the VM under a single operation. 
+A mixed backup will allow the creation of a backup for the VM under a single operation.
 
 
 
@@ -319,7 +319,7 @@ Before that, the user had to do an incremental backup for the disks that already
 
 
 
-Result: 
+Result:
 
 Full and incremental backup can be taken in the same backup operation under the same checkpoint. the backup_mode of each disk in the backup will indicate the type of backup that was taken for each disk (full/incremental).
 
@@ -331,13 +331,13 @@ The creation of scratch disks for a backup operation will use the same shared st
 
 
 
-Reason: 
+Reason:
 
 For backup operation, scratch disks created in order to keep the 'old' disk state and persist the data until the backup is over. Those disks created on the host local storage which is limited and not scalable.
 
 
 
-Result: 
+Result:
 
 For each disk that participates in the backup a scratch disk created on the same storage domain that the disk is based on.
 
@@ -357,7 +357,7 @@ Allow using the incremental backup feature without any explicit database configu
 
 
 
-Result: 
+Result:
 
 For 4.5 clusters, incremental backup can be used without changing the "IsIncrementalBackupSupported" configuration value in the database.
 
@@ -469,17 +469,17 @@ This RFE adds a UI menu to cleanup 1 or more active Data Centers and is based on
 
  - [BZ 1753645](https://bugzilla.redhat.com/show_bug.cgi?id=1753645) **[RFE] Enable bochs-display for UEFI guests**
 
-   
+
 
  - [BZ 1891470](https://bugzilla.redhat.com/show_bug.cgi?id=1891470) **[CBT][RFE] Support cold VM incremental backup**
 
-   Feature: 
+   Feature:
 
 Support VM backup when the VM is not running
 
 
 
-Reason: 
+Reason:
 
 Backup vendors and users should have the option to backup their VMs even when they are not running.
 
@@ -546,19 +546,19 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
  - [BZ 1155275](https://bugzilla.redhat.com/show_bug.cgi?id=1155275) **[RFE] - Online update LUN size to the Guest after LUN resize**
 
-   Feature: 
+   Feature:
 
 Online update LUNs on a guest while it's running.
 
 
 
-Reason: 
+Reason:
 
 In case of a LUN disk attached to a running VM, and its size has been updated, the host and VM should refresh the disk and get its updated information, without shutting down the VM.
 
 
 
-Result: 
+Result:
 
 A 'Refresh LUN' button is now accessible from the VM Disks sub-tab.
 
@@ -578,13 +578,13 @@ The creation of scratch disks for a backup operation will use the same shared st
 
 
 
-Reason: 
+Reason:
 
 For backup operation, scratch disks created in order to keep the 'old' disk state and persist the data until the backup is over. Those disks created on the host local storage which is limited and not scalable.
 
 
 
-Result: 
+Result:
 
 For each disk that participates in the backup a scratch disk created on the same storage domain that the disk is based on.
 
@@ -596,13 +596,13 @@ This process is now done by the engine and not by the host, before the backup is
 
  - [BZ 1891470](https://bugzilla.redhat.com/show_bug.cgi?id=1891470) **[CBT][RFE] Support cold VM incremental backup**
 
-   Feature: 
+   Feature:
 
 Support VM backup when the VM is not running
 
 
 
-Reason: 
+Reason:
 
 Backup vendors and users should have the option to backup their VMs even when they are not running.
 
@@ -645,19 +645,19 @@ Result: When adding\deleting\editing filter parameters of a VM's vnic in engine,
 
  - [BZ 1887149](https://bugzilla.redhat.com/show_bug.cgi?id=1887149) **[RFE] VM Disk stats should contain IOPS stats**
 
-   Feature: 
+   Feature:
 
 Collect VM disks IOPS stats to DWH database
 
 
 
-Reason: 
+Reason:
 
 Allow users to view VM disks IOPS stats
 
 
 
-Result: 
+Result:
 
 VM disks IOPS stats are now saved to DWH database and aggregated to hourly and daily data.
 
@@ -748,111 +748,111 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
  - [BZ 1927703](https://bugzilla.redhat.com/show_bug.cgi?id=1927703) **oVirt Node, protecting key packages from being removed.**
 
-   
+
 
 
 #### cockpit-ovirt
 
  - [BZ 1908234](https://bugzilla.redhat.com/show_bug.cgi?id=1908234) **Order of hosts not preserved for day2 operations**
 
-   
+
 
  - [BZ 1884223](https://bugzilla.redhat.com/show_bug.cgi?id=1884223) **[GSS][RHHI 1.7][Error message '&lt;device-path&gt;  is not a valid name for this device' showing up every two hours]**
 
-   
+
 
 
 #### oVirt Engine SDK 4 Python
 
  - [BZ 1805030](https://bugzilla.redhat.com/show_bug.cgi?id=1805030) **Java SDK connection.timeout is in milliseconds**
 
-   
+
 
 
 #### OTOPI
 
  - [BZ 1908602](https://bugzilla.redhat.com/show_bug.cgi?id=1908602) **dnf packager is broken on CentOS Stream**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1938750](https://bugzilla.redhat.com/show_bug.cgi?id=1938750) **Cold migration from block sd to file sd fails - GenerationMismatch: The provided generation does not match the actual generation: 'requested=0, actual=3'**
 
-   
+
 
  - [BZ 1750426](https://bugzilla.redhat.com/show_bug.cgi?id=1750426) **[RFE] No clear/consistent indication that Upgrade Cluster is underway**
 
-   
+
 
  - [BZ 1892676](https://bugzilla.redhat.com/show_bug.cgi?id=1892676) **The ImageIO transfer doesn't finalize after timeout is reached**
 
-   
+
 
  - [BZ 1923095](https://bugzilla.redhat.com/show_bug.cgi?id=1923095) **iscsi search UI exception**
 
-   
+
 
  - [BZ 1928705](https://bugzilla.redhat.com/show_bug.cgi?id=1928705) **VM configured with the CPUs equal to the host fails to start on ppc arch**
 
-   
+
 
  - [BZ 1930733](https://bugzilla.redhat.com/show_bug.cgi?id=1930733) **Cluster upgrade fails when using Intel Skylake Client/Server IBRS SSBD MDS Family**
 
-   
+
 
  - [BZ 1905158](https://bugzilla.redhat.com/show_bug.cgi?id=1905158) **After upgrading RHVH 4.4.2 to 4.4.3 moves to non-operational due to missing CPU features : model_Cascadelake-Server**
 
-   
+
 
  - [BZ 1923717](https://bugzilla.redhat.com/show_bug.cgi?id=1923717) **When creating a VM via rest from a template with ballooning=false, the template's ballooning setting is ignored if memory_policy exists**
 
-   
+
 
  - [BZ 1715287](https://bugzilla.redhat.com/show_bug.cgi?id=1715287) **VM starts with UEFI+pc-q35-rhel7.6.0 XML when configuring UEFI bios type+pc-i440fx-rhel7.6.0 in WEB UI**
 
-   
+
 
  - [BZ 1729359](https://bugzilla.redhat.com/show_bug.cgi?id=1729359) **Failed image upload leaves disk in locked state, requiring manual intervention to cleanup.**
 
-   
+
 
  - [BZ 1905394](https://bugzilla.redhat.com/show_bug.cgi?id=1905394) **CPU validation fails with VM custom compatibility version**
 
-   
+
 
  - [BZ 1854041](https://bugzilla.redhat.com/show_bug.cgi?id=1854041) **[v2v] Warning message during every v2v import about incompatible parameter "memory"**
 
-   
+
 
  - [BZ 1795457](https://bugzilla.redhat.com/show_bug.cgi?id=1795457) **RHV-M causing high load on PostgreSQL  DB after upgrade to 4.2**
 
-   
+
 
  - [BZ 1649479](https://bugzilla.redhat.com/show_bug.cgi?id=1649479) **[RFE] OVF_STORE last update not exposed in the UI**
 
-   
+
 
  - [BZ 1912435](https://bugzilla.redhat.com/show_bug.cgi?id=1912435) **Add event log for starting/finishing SwitchMasterStorageDomain**
 
-   
+
 
  - [BZ 1901503](https://bugzilla.redhat.com/show_bug.cgi?id=1901503) **Misleading error message, displaying Data Center Storage Type instead of its name**
 
-   
+
 
  - [BZ 1805819](https://bugzilla.redhat.com/show_bug.cgi?id=1805819) **[de_DE] Compute - Templates - Template - Storage: table column headings truncated**
 
-   
+
 
  - [BZ 1875412](https://bugzilla.redhat.com/show_bug.cgi?id=1875412) **Request to create a nic on template gets wrong response content**
 
-   
+
 
  - [BZ 1897160](https://bugzilla.redhat.com/show_bug.cgi?id=1897160) **SCSI Pass-Through is enabled by default**
 
-   
+
 
 
 #### VDSM
@@ -874,60 +874,60 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
  - [BZ 1858956](https://bugzilla.redhat.com/show_bug.cgi?id=1858956) **Bad handling of imageio errors since imageio 1.5**
 
-   
+
 
 
 #### oVirt Engine Data Warehouse
 
  - [BZ 1899529](https://bugzilla.redhat.com/show_bug.cgi?id=1899529) **[RFE] Add Virtual Machines Dashboard**
 
-   
+
 
  - [BZ 1899573](https://bugzilla.redhat.com/show_bug.cgi?id=1899573) **[RFE] Add IOPS stats to vms dashboard**
 
-   
+
 
  - [BZ 1898863](https://bugzilla.redhat.com/show_bug.cgi?id=1898863) **[RFE] Add Hosts Dashboard**
 
-   
+
 
  - [BZ 1926125](https://bugzilla.redhat.com/show_bug.cgi?id=1926125) **[RFE] Add IOPS stats to VMs resource usage dashboard**
 
-   
+
 
  - [BZ 1926124](https://bugzilla.redhat.com/show_bug.cgi?id=1926124) **[RFE] Add IOPS stats to vms trend dashboard**
 
-   
+
 
  - [BZ 1914825](https://bugzilla.redhat.com/show_bug.cgi?id=1914825) **Update queries to use v4_4 views in all dashboards**
 
-   
+
 
  - [BZ 1910045](https://bugzilla.redhat.com/show_bug.cgi?id=1910045) **Update data source in all dashboards**
 
-   
+
 
  - [BZ 1912887](https://bugzilla.redhat.com/show_bug.cgi?id=1912887) **Update variables on dashboards that do not display deleted entities**
 
-   
+
 
  - [BZ 1904047](https://bugzilla.redhat.com/show_bug.cgi?id=1904047) **Add types of storage and storage domain to enum_translator table (enums.sql)**
 
-   
+
 
 
 #### oVirt Ansible collection
 
  - [BZ 1915286](https://bugzilla.redhat.com/show_bug.cgi?id=1915286) **RHHI-V deployment fails on task "Get server CPU list via REST API"**
 
-   
+
 
 
 #### imgbased
 
  - [BZ 1907746](https://bugzilla.redhat.com/show_bug.cgi?id=1907746) **RHVH cannot enter the new layer after upgrade testing with STIG profile selected.**
 
-   
+
 
 
 #### oVirt Engine UI Extensions
@@ -938,7 +938,7 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
  - [BZ 1679116](https://bugzilla.redhat.com/show_bug.cgi?id=1679116) **[ALL_LANG] Dashboard page pi-chart's utilization dialog box has untranslated entries**
 
-   
+
 
 
 ### No Doc Update
@@ -947,7 +947,7 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
  - [BZ 1908617](https://bugzilla.redhat.com/show_bug.cgi?id=1908617) **otopi is using a private dnf method _read_conf_file**
 
-   
+
 
 
 #### oVirt Engine
@@ -958,117 +958,117 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
  - [BZ 1925025](https://bugzilla.redhat.com/show_bug.cgi?id=1925025) **Add information tooltip icon to the new reboot host option**
 
-   
+
 
  - [BZ 1932188](https://bugzilla.redhat.com/show_bug.cgi?id=1932188) **The nic href in the response of getting template nics is wrong**
 
-   
+
 
  - [BZ 1930198](https://bugzilla.redhat.com/show_bug.cgi?id=1930198) **[Webadmin] Fetch ssh public key instead of fingerprint when adding new host.**
 
-   
+
 
  - [BZ 1914602](https://bugzilla.redhat.com/show_bug.cgi?id=1914602) **[RHV 4.4] /var/lib/ovirt-engine/external_truststore (Permission denied)**
 
-   
+
 
  - [BZ 1914636](https://bugzilla.redhat.com/show_bug.cgi?id=1914636) **[CBT] Engine fails to complete full backup due to Java exception "RedefineVmCheckpointCommand cannot be cast to class org.ovirt.engine.core.bll.SerialChildExecutingComman"**
 
-   
+
 
  - [BZ 1924962](https://bugzilla.redhat.com/show_bug.cgi?id=1924962) **AnsibleServlet used by cluster upgrade fails to properly start the ovirt-cluster-upgrade.yml playbook**
 
-   
+
 
  - [BZ 1926277](https://bugzilla.redhat.com/show_bug.cgi?id=1926277) **Exception: Failed to create host deploy variables mapper Unexpected IOException (of type org.codehaus.jackson.JsonParseException): Illegal character '_' (code 0x5f) in base64 content**
 
-   
+
 
  - [BZ 1917821](https://bugzilla.redhat.com/show_bug.cgi?id=1917821) **Adding new host with reboot causes the host to end up non operational**
 
-   
+
 
  - [BZ 1924823](https://bugzilla.redhat.com/show_bug.cgi?id=1924823) **Reboot host after host deploy is not exposed in RESTAPI**
 
-   
+
 
  - [BZ 1903052](https://bugzilla.redhat.com/show_bug.cgi?id=1903052) **ansible-runner-service.cil selinux module is often needlessly re-installed, takes a long time**
 
-   
+
 
  - [BZ 1917809](https://bugzilla.redhat.com/show_bug.cgi?id=1917809) **When running reboot after reinstall of a host reboot is reported as failed**
 
-   
+
 
  - [BZ 1922094](https://bugzilla.redhat.com/show_bug.cgi?id=1922094) **Upgrading host with reboot after upgrade option failes**
 
-   
+
 
  - [BZ 1923218](https://bugzilla.redhat.com/show_bug.cgi?id=1923218) **VM fails to start after preview operation - Exit message: XML error: Invalid PCI address 0000:05:00.0. slot must be &gt;= 1.**
 
-   
+
 
  - [BZ 1919555](https://bugzilla.redhat.com/show_bug.cgi?id=1919555) **Rebase apache-sshd to version 2.6.0 for RHV 4.4.5**
 
-   
+
 
  - [BZ 1919628](https://bugzilla.redhat.com/show_bug.cgi?id=1919628) **VM pool size update using the REST API fails**
 
-   
+
 
  - [BZ 1915329](https://bugzilla.redhat.com/show_bug.cgi?id=1915329) **[Stream] Add host fails with: Destination /etc/pki/ovirt-engine/requests not writable**
 
-   
+
 
  - [BZ 1918022](https://bugzilla.redhat.com/show_bug.cgi?id=1918022) **oVirt Manager is not loading after engine-setup**
 
-   
+
 
  - [BZ 1581677](https://bugzilla.redhat.com/show_bug.cgi?id=1581677) **[scale] search (VMs + storage domain) is taking too long**
 
-   
+
 
  - [BZ 1846294](https://bugzilla.redhat.com/show_bug.cgi?id=1846294) **Engine restart needed after ovirt-register-sso-client-tool**
 
-   
+
 
  - [BZ 1911303](https://bugzilla.redhat.com/show_bug.cgi?id=1911303) **host deploy fails when parameters are set with the value null**
 
-   
+
 
 
 #### VDSM
 
  - [BZ 1796124](https://bugzilla.redhat.com/show_bug.cgi?id=1796124) **Live Merge  and Remove Snapshot fails**
 
-   
+
 
  - [BZ 1896245](https://bugzilla.redhat.com/show_bug.cgi?id=1896245) **[CBT][RFE] Use the new VIR_ERR_CHECKPOINT_INCONSISTENT error from libvirt to identify invalid checkpoints**
 
-   
+
 
  - [BZ 1915025](https://bugzilla.redhat.com/show_bug.cgi?id=1915025) **Unable to backup VM with raw disk after snapshot deletion**
 
-   
+
 
  - [BZ 1916947](https://bugzilla.redhat.com/show_bug.cgi?id=1916947) **The syntax of the entry in '99-vdsm_protect_ifcfg.conf' is incorrect**
 
-   
+
 
 
 #### oVirt Engine Data Warehouse
 
  - [BZ 1926188](https://bugzilla.redhat.com/show_bug.cgi?id=1926188) **Fix vms disks usage panels to show the average**
 
-   
+
 
  - [BZ 1922645](https://bugzilla.redhat.com/show_bug.cgi?id=1922645) **typo "Saterday" on VM resource usage dashboard panels.**
 
-   
+
 
  - [BZ 1898858](https://bugzilla.redhat.com/show_bug.cgi?id=1898858) **[RFE] Add to the Variables the option to select one or more**
 
-   
+
 
 
 #### Contributors

@@ -66,17 +66,17 @@ Example of creating a host with display address overridden:
              <address>someDisplayAddress</address>
          </display>
       </host>
-       
+
 
 If the display address has been overridden, the example of how to switch it back to the default:
 
-       
+
       <host>
       <display>
       <address/>
       </display>
       </host>
-       
+
 
 ## Documentation / External references
 

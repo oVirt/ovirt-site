@@ -13,13 +13,13 @@ authors: jniederm
 ## `urandom` replaces `random`
 
 ### Summary
-`/dev/urandom` random number generator (RNG) source replace `/dev/random` for VMs with effective compatibility 
+`/dev/urandom` random number generator (RNG) source replace `/dev/random` for VMs with effective compatibility
 version >= 4.1. `urandom` presents a non-blocking ("unlimited") rng source as opposed to `random`.
 
 [Related bug](https://bugzilla.redhat.com/show_bug.cgi?id=1374227).
 
 ### Engine
-Each time VM effective compatibility level is changed (by change of cluster compatibility level or VM custom 
+Each time VM effective compatibility level is changed (by change of cluster compatibility level or VM custom
 compatibility level) source of rng generator device is checked and updated if necessary.
 
 ### Non-cluster Entities

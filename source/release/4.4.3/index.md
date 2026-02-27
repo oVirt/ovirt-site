@@ -42,7 +42,7 @@ To learn about features introduced before 4.4.3, see the
 
 ### How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1
 
-Due to **[[Bug 1837864]](https://bugzilla.redhat.com/show_bug.cgi?id=1837864) - Host enter emergency mode after upgrading to latest build**, 
+Due to **[[Bug 1837864]](https://bugzilla.redhat.com/show_bug.cgi?id=1837864) - Host enter emergency mode after upgrading to latest build**,
 
 If you have your root file system on a multipath device on your hosts you should be aware that after upgrading from 4.4.1 to 4.4.3 you may get your host entering emergency mode.
 
@@ -199,7 +199,7 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
    The backup_mode is used only if the disk is part of a backup operation, otherwise, the backup_mode will be 'NULL'.
 
-   If the disk is part of a running backup, the backup_mode can have one of the two options - 
+   If the disk is part of a running backup, the backup_mode can have one of the two options -
 
     - full - if the backup that was taken for the disk was a
       full backup.
@@ -243,12 +243,12 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
    The backup_mode is used only if the disk is part of a backup operation, otherwise, the backup_mode will be 'NULL'.
 
-   If the disk is part of a running backup, the backup_mode can have one of the two options - 
+   If the disk is part of a running backup, the backup_mode can have one of the two options -
 
-    - full - if the backup that was taken for the disk was a 
+    - full - if the backup that was taken for the disk was a
       full backup.
 
-    - incremental - if the backup that was taken for the disk 
+    - incremental - if the backup that was taken for the disk
       was an incremental backup.
 
    This will allow the engine to create a backup for a VM that contains both full for the disks that were not part of the previous backup and incremental backup for the disks that already backed up in the previous backup.

@@ -36,7 +36,7 @@ current situation a high-level
 
                             *
                             | [exclusive lock]
-                            * 
+                            *
                             | ----------[if status is Up or going to Maintenance...]
                                                |
                                                | VDSM::GetVdsStats
@@ -61,10 +61,10 @@ current situation a high-level
                                                                         | memory checks
                                                                         | watchdog events,network checks etc...
                               | free exclusive lock
-                                         
-                                               
-                                               
-                                               
+
+
+
+
 
 ### poll to push - Reactive Programming
 

@@ -122,13 +122,13 @@ From version 1.4.5 ovirt-engine-extension-aaa-ldap is going to fetch A and AAAA 
 
  - [BZ 1999563](https://bugzilla.redhat.com/show_bug.cgi?id=1999563) **[RFE] Add a unique number to each panel in Grafana**
 
-   Feature: 
+   Feature:
 
-There are panels that have the same panel number, and panels with no panel number at all. 
+There are panels that have the same panel number, and panels with no panel number at all.
 
 
 
-Reason: 
+Reason:
 
 The goal is to help the user and us identify and differentiate between panels and dashboards in a much easier way.
 
@@ -214,64 +214,64 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
  - [BZ 2008431](https://bugzilla.redhat.com/show_bug.cgi?id=2008431) **smbios hook is incompatible with python3**
 
-   
+
 
  - [BZ 1993085](https://bugzilla.redhat.com/show_bug.cgi?id=1993085) **OST: Timeout while starting NBD server**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1923178](https://bugzilla.redhat.com/show_bug.cgi?id=1923178) **Can not download VM disks due to 'Cannot transfer Virtual Disk: Disk is locked'**
 
-   
+
 
  - [BZ 1984308](https://bugzilla.redhat.com/show_bug.cgi?id=1984308) **[CBT] Full backup fails when trying to make another backup right after the previous one is reported as done**
 
-   
+
 
  - [BZ 1992686](https://bugzilla.redhat.com/show_bug.cgi?id=1992686) **[Scale] Slow performing vm api follow query impacting engine health**
 
-   
+
 
  - [BZ 1900518](https://bugzilla.redhat.com/show_bug.cgi?id=1900518) **[CBT][incremental backup] VM.stop_backup should succeed if VM does not exist**
 
-   
+
 
  - [BZ 1999651](https://bugzilla.redhat.com/show_bug.cgi?id=1999651) **Importing Windows VMs with timezone 'US Eastern Standard Time' from OVA that was exported from previous versions fails**
 
-   
+
 
  - [BZ 1994506](https://bugzilla.redhat.com/show_bug.cgi?id=1994506) **Enable KSM by default in new-cluster dialog**
 
-   
+
 
 
 #### ovirt-imageio
 
  - [BZ 1990656](https://bugzilla.redhat.com/show_bug.cgi?id=1990656) **Downloading images much slower than uploading**
 
-   
+
 
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 2001579](https://bugzilla.redhat.com/show_bug.cgi?id=2001579) **remove genisoimage leftovers as it's not used anymore and not available on CentOS Stream 9**
 
-   
+
 
  - [BZ 1986733](https://bugzilla.redhat.com/show_bug.cgi?id=1986733) **ovirt-hosted-engine-setup uses deprecated API platform.linux_distribution which has been removed in Python 3.7 and later.**
 
-   
+
 
  - [BZ 1647249](https://bugzilla.redhat.com/show_bug.cgi?id=1647249) **[RFE] hosted-engine command messages while starting are not user friendly.**
 
-   
+
 
  - [BZ 1989092](https://bugzilla.redhat.com/show_bug.cgi?id=1989092) **hosted engine Installer typo:"Engine VM FQDN:  []:" should be "Engine VM FQDN[]:"**
 
-   
+
 
 
 ### No Doc Update
@@ -280,18 +280,18 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
  - [BZ 1993957](https://bugzilla.redhat.com/show_bug.cgi?id=1993957) **Engine VM might be shut down after the score wrongly being penalized due to cpu load**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1928704](https://bugzilla.redhat.com/show_bug.cgi?id=1928704) **Host deploy events does not have proper correlation-id**
 
-   
+
 
  - [BZ 2001944](https://bugzilla.redhat.com/show_bug.cgi?id=2001944) **Always log exception message which is raised during inserting into audit_log**
 
-   
+
 
 
 #### Contributors

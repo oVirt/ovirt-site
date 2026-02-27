@@ -78,7 +78,7 @@ The packaging & install subproject deals with the creation of the packages for t
 
 ## Node
 
-The oVirt Node is distributed as a compact image for use on a variety of installation media. It provides a minimal Linux installation including all the packages necessary to register and communicate with the oVirt Engine while functioning as a virtualization host. 
+The oVirt Node is distributed as a compact image for use on a variety of installation media. It provides a minimal Linux installation including all the packages necessary to register and communicate with the oVirt Engine while functioning as a virtualization host.
 
 ### Features
 

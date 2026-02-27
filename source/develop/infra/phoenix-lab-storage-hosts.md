@@ -28,7 +28,7 @@ For the storage replication we are using [DRBD](http://www.drbd.org/users-guide/
 You can check specifically the current status using the command:
 
     [root@ovirt-storage01 ~]# drbd-overview
-    0:ovirt_storage/0  Connected Primary/Secondary UpToDate/UpToDate C r----- /srv/ovirt_storage ext4 11T 563G 9.7T 6% 
+    0:ovirt_storage/0  Connected Primary/Secondary UpToDate/UpToDate C r----- /srv/ovirt_storage ext4 11T 563G 9.7T 6%
 
 The DRBD cluster is started/stopped by the pacemaker cluster, so no need to handle it, but sometimes when the cluster degenerates is required to manually choose which node has to be master and start the replication between the nodes. You can check the cdocumentation on how to fix that type of issues [here](http://www.drbd.org/users-guide/ch-troubleshooting.html).
 
@@ -59,8 +59,8 @@ To see the current status of the cluster you can use:
         Masters: [ ovirt-storage01 ]
         Slaves: [ ovirt-storage02 ]
     Resource Group: g_ovirt_storage
-        p_fs_ovirt_storage  (ocf::heartbeat:Filesystem):    Started ovirt-storage01 
-        p_ip_ovirt_storage  (ocf::heartbeat:IPaddr2):   Started ovirt-storage01 
+        p_fs_ovirt_storage  (ocf::heartbeat:Filesystem):    Started ovirt-storage01
+        p_ip_ovirt_storage  (ocf::heartbeat:IPaddr2):   Started ovirt-storage01
         p_nfs_ovirt_storage (lsb:nfs):  Started ovirt-storage01
     Clone Set: cl_exportfs_ovirt_storage [p_exportfs_ovirt_storage]
         Started: [ ovirt-storage01 ovirt-storage02 ]

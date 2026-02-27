@@ -177,7 +177,7 @@ Users of oVirt 3.0 who wish to migrate to oVirt 3.1 should:
 *   Cleanup the engine installation:
 
          # engine-cleanup
-         # yum remove ovirt\* 
+         # yum remove ovirt\*
 
 *   Upgrade to Fedora 17: <https://fedoraproject.org/wiki/How_to_use_PreUpgrade>
 *   Install oVirt Engine 3.1.

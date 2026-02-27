@@ -9,7 +9,7 @@ The promisc vdsm hook provides the ability to mirror/redirect other VMs network 
 
 The hook is getting network (bridge) name and mode:
 
-      promisc=blue:mirror,red:redirect 
+      promisc=blue:mirror,red:redirect
 
 and sets the current running VM in promiscuous mode, ie: mirror all blue traffic to current VM
 

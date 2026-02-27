@@ -31,7 +31,7 @@ NOTE: If geo-replication is setup on the gluster volumes, the geo-replication ne
 
 ## Expanding a hyperconverged setup
 
-* You can add new hosts to your hyperconverged setup from the oVirt Engine UI. 
+* You can add new hosts to your hyperconverged setup from the oVirt Engine UI.
 * To use storage from the newly added hosts, you need to ensure that storage is added either in increments of 1 bricks (for non-HA usecase) or 3 bricks (either replica 3 or replica 2 + arbiter)
 * The bricks can be provisioned from the oVirt Engine UI using the `Storage Devices` sub-tab under `Hosts` or using the `Create Volume` from the Cockpit Gluster dashboard.
 

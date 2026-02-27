@@ -75,7 +75,7 @@ The idea behind this ID is to use information known by all the parties. Here is 
 When subscribing, it is possible to use wildcards in different sections of the subscription ID. For example:
 
 '`\*|virt|\*|8839ddac-d833-4b0d-b7e2-4517fd100c8f`' - for this subscription id we are receive events which match component '`virt`' and
-are generated for vm id '`8839ddac-d833-4b0d-b7e2-4517fd100c8f`'. 
+are generated for vm id '`8839ddac-d833-4b0d-b7e2-4517fd100c8f`'.
 Receiving all possible events by specifying '`\*|\*|\*|\*`' filter is not supported.
 
 ## Communication infrastructure

@@ -75,7 +75,7 @@ Endpoint: **POST** `/api/networks/`
 *   single network bridged mtu 1500
 
       eth0  mtu=1500
-      br0  
+      br0
        |
       eth0 mtu=1500
 
@@ -84,7 +84,7 @@ Endpoint: **POST** `/api/networks/`
       eth0 mtu=9000
       br0  mtu=1500
        |
-      eth0.300 mtu=1500  
+      eth0.300 mtu=1500
       eth0.500 mtu=9000
 
 ### Messages

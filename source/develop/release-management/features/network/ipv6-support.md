@@ -44,7 +44,7 @@ Records that have been changed:
     -   add optional fields:
        * 'ipv6addr',
        * 'ipv6gateway',
-       * 'ipv6autoconf' (it has to be specified whether use stateless auto-configuration, so it can be set together with DHCPv6 [4th paragraph](http://www.prolixium.com/ipv6_autocfg/node8.html)), 
+       * 'ipv6autoconf' (it has to be specified whether use stateless auto-configuration, so it can be set together with DHCPv6 [4th paragraph](http://www.prolixium.com/ipv6_autocfg/node8.html)),
        * 'dhcpv6' (a boolean that is independent of IPv4 "bootproto")
 
     ``` python

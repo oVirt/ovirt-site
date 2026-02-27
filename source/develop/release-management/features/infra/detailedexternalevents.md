@@ -72,9 +72,9 @@ Adding additional fields to fixtures.xml
 Adding additional fields to *AuditLog* BE
  Adding the following types to AuditLogType
 
-        EXTERNAL_EVENT_NORMAL  
-        EXTERNAL_EVENT_WARNING 
-        EXTERNAL_EVENT_ERROR   
+        EXTERNAL_EVENT_NORMAL
+        EXTERNAL_EVENT_WARNING
+        EXTERNAL_EVENT_ERROR
         EXTERNAL_ALERT
 
 Adding severities for the new types in AuditLogDirector

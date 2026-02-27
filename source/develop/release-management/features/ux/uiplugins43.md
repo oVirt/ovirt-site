@@ -404,7 +404,7 @@ Adds new primary menu place with content provided from given URL. All arguments 
     );
 
 #### addPrimaryMenuContainer
-    
+
 Argument(s)
 
     String label
@@ -453,7 +453,7 @@ Adds new secondary menu place with content provided from given URL. All argument
             priority: -1, // negative priority will be the top menu item.
         }
     );
-    
+
 
 #### addDetailPlace
 
@@ -666,7 +666,7 @@ Returns the locale that has been selected by the user when they logged in. The l
 
 ## API option reference
 
-### Supported plugin API options 
+### Supported plugin API options
 
 #### Cross-window messaging
 

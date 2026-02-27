@@ -66,7 +66,7 @@ all the non-optional networks attached.
 *   Add a logical network to the Data Center and make it a VM network
 
       `POST /api/networks`
-      
+
 ```xml
 <network id='...'>
     <name>testrest1</name>

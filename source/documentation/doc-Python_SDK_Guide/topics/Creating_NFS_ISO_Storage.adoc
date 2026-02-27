@@ -11,7 +11,7 @@ The code provided in this example assumes that the remote NFS share has been pre
 
 .Creating NFS ISO storage
 ====
-This example adds an NFS ISO domain to the `storagedomains` collection. 
+This example adds an NFS ISO domain to the `storagedomains` collection.
 
 *V4*
 

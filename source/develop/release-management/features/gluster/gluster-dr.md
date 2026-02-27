@@ -48,11 +48,11 @@ Some points to consider when setting up geo-replication
 * If sharding is enabled on the master volume, then the slave volume should also have sharding enabled. The shard block sizes at master and slave does not have to match, but it is recommended that they are the same.
 * Slave volume needs to have similar capacity as the master volume
 
-![Gluster-Geo-replication](/images/wiki/gluster-dr-georep.png) 
+![Gluster-Geo-replication](/images/wiki/gluster-dr-georep.png)
 
 Once the geo-replication session is configured, following steps can be scripted to ensure periodic sync
 
-1. Establish connection to running oVirt engine 
+1. Establish connection to running oVirt engine
 2. Query for list of running VMs
 3. Create snapshot of all running VMs to ensure that data is quiesced and in a consistent state at the secondary site
 4. Execute the georep_scheduler script that:
@@ -67,7 +67,7 @@ Such a script is already available at [ovirt-georep-backup](https://github.com/s
 
 ### Recovery on disaster
 
-In the event of a disaster, the storage domain can be attached to a running instance of oVirt. 
+In the event of a disaster, the storage domain can be attached to a running instance of oVirt.
 
 1. A new instance of oVirt is setup with a master storage domain. A master storage domain needs to be active in oVirt to initialize the Data Center and perform further operations
 2. Use the [Import Storage Domain](/develop/release-management/features/storage/importstoragedomain.html) feature to import the gluster volume from secondary site (the one setup as slave gluster volume in previous setup)

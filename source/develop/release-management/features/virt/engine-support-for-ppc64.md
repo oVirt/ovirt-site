@@ -82,10 +82,10 @@ And in the VmInfoBuilder object the method would make use of the appropriate arc
         public class ArchStrategyFactory {
             private static final EnumMap<ArchitectureType, ArchStrategy> architectureArchStrategyMap =  new EnumMap<ArchitectureType, ArchStrategy>(ArchitectureType.class);
 
-            public static ArchStrategy getStrategy(ArchitectureType architecture) { 
+            public static ArchStrategy getStrategy(ArchitectureType architecture) {
                 return architectureArchStrategyMap.get(architecture);
             }
-        } 
+        }
 
         public void addCdromAddress(Map<String, Object> cdromDevice) {
             Map<String, String> cdromAddress = new HashMap<String, String>();
@@ -150,7 +150,7 @@ With regard to family levels, there is no support at the moment for compatibilit
 Due to the fact that there is no notion of a more featured family containing a less one on POWER, it's necessary to adapt the code to encapsulate the x86 levels and report the (non) compatibility between POWER families accordingly. This can be addressed by using again the strategy class which will manage the cpu details and provide functions free of the level semantic:
 
         boolean sameCpuNames = StringUtils.equals(oldGroup.getcpu_name(), getVdsGroup().getcpu_name());
-        if (!sameCpuNames) {  
+        if (!sameCpuNames) {
             if (suspendedVms) {
                 addCanDoActionMessage(VdcBllMessages.VDS_GROUP_CANNOT_UPDATE_CPU_WITH_SUSPENDED_VMS);
                 result = false;
@@ -186,7 +186,7 @@ Due to the fact that there is no notion of a more featured family containing a l
             return result
         }
 
-        private ArchStrategy getArchStrategy() {   
+        private ArchStrategy getArchStrategy() {
             ArchStrategy strategy = strategyFactory.get(getArch(), getVersion());
             return strategy;
         }

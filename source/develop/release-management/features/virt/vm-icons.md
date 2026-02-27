@@ -156,7 +156,7 @@ User can only upload the large version of custom icon, the small one is computed
       Accept: application/xml
 ```
 
-```xml      
+```xml
 <vm>
     <small_icon id="123" />
     <large_icon id="456" />

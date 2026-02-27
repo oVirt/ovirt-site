@@ -61,7 +61,7 @@ oVirt is an open-source project composed by several sub projects. Most of them a
 but please check the license of the subproject you're going to contribute before submitting code.
 Contributions of all types are gladly accepted!
 
-There are many repositories (sub-projects) within oVirt, details about the public repositories can be found over at the [oVirt GitHub Project](https://github.com/orgs/oVirt/repositories?type=public). 
+There are many repositories (sub-projects) within oVirt, details about the public repositories can be found over at the [oVirt GitHub Project](https://github.com/orgs/oVirt/repositories?type=public).
 
 If you are looking for some task to pick up, you can ask for it on [devel@ovirt.org](https://lists.ovirt.org/hyperkitty/list/devel@ovirt.org/) mailing list.
 As an alternative you can look at open tickets on [oVirt GitHub issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+user%3Aovirt+archived%3Afalse) and once you choose what to work on

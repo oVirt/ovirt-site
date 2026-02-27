@@ -84,7 +84,7 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
                 -   Detach - detaches the selected Disk from the selected VM.
     -   Each row is composed of the following columns:
 
-      VM, Name, Storage Domain, Description, Size, Actual Size, Allocation,Creation Date, Floating(Yes/No), Shared(Yes/No), Managed(Yes/No). 
+      VM, Name, Storage Domain, Description, Size, Actual Size, Allocation,Creation Date, Floating(Yes/No), Shared(Yes/No), Managed(Yes/No).
 
 *   VMs -> Disks sub-tab
     -   Attach/Detach all shared and/or floating disks.

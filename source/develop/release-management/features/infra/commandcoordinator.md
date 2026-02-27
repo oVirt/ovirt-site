@@ -199,7 +199,7 @@ The command callback for the child command is much simpler, it just needs to mon
     import org.ovirt.engine.core.utils.log.Log;
     import org.ovirt.engine.core.utils.log.LogFactory;
     public class ChildCommandCallback extends CommandCallBack {
-        private static final Log log = LogFactory.getLog(MergeCommandCallback.class); 
+        private static final Log log = LogFactory.getLog(MergeCommandCallback.class);
         @Override
         public void doPolling(Guid cmdId, List<Guid> childCmdIds) {
             // If the VM Job exists, the command is still active

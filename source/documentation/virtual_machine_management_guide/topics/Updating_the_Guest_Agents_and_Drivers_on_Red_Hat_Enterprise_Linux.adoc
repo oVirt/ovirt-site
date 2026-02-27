@@ -8,7 +8,7 @@ Update the guest agents and drivers on your {enterprise-linux} virtual machines 
 *Updating the Guest Agents and Drivers on {enterprise-linux}*
 
 . Log in to the {enterprise-linux} virtual machine.
-. Update the `ovirt-guest-agent-common` package: 
+. Update the `ovirt-guest-agent-common` package:
 +
 [source,terminal,subs="normal"]
 ----

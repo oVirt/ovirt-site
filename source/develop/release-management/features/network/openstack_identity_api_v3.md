@@ -148,7 +148,7 @@ this URL manually.
 
 ## Benefit to oVirt
 
-Support for OpenStack Identity API v3 in oVirt Engine is required to enable 
+Support for OpenStack Identity API v3 in oVirt Engine is required to enable
 access to services from [OpenStack instances which does not support Identity
 API v2.0, especially the OpenStack releases since Qeens.][12]
 
@@ -180,7 +180,7 @@ the domain name of the project like the following:
 ~~~~xml
 <openstack_network_provider href="/ovirt-engine/api/openstacknetworkproviders/123" id="123">
   <actions>
-    <link 
+    <link
       href="/ovirt-engine/api/openstacknetworkproviders/123/testconnectivity"
       rel="testconnectivity" />
     <link

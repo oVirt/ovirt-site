@@ -171,7 +171,7 @@ Start oat client service, make sure TrouSers service is running
 
 *   all-in-one approach
 
-      # chmod 755 /etc/init.d/OATClient 
+      # chmod 755 /etc/init.d/OATClient
       # service OATClient start
 
 *   yum install approach
@@ -203,7 +203,7 @@ Follow below exmaple to make a oVirt node recognized as "trusted" by the attesta
 
 *   Generate certification:
 
-      # bash oat_cert  -h oatserver.*.com 
+      # bash oat_cert  -h oatserver.*.com
 
 Notes: oatserver.\*.com should be the host name of oat server.
 

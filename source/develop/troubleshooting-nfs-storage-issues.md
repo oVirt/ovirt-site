@@ -41,7 +41,7 @@ In principle, the user **vdsm**, with uid **36** and gid **36**, must have read 
    # chmod 0755 directory_name
    ```
 
-### NFS Server - Services 
+### NFS Server - Services
 
 1. The NFS server must actually be running.
    ```console
@@ -84,7 +84,7 @@ The easiest way to definitively test that an NFS export is ready for use by oVir
 *   Cleanup the file `rm -f /tmpmnt/tempfile`
 *   Exit from the vdsm user and cleanup the temporary mountpoint:
     ```console
-    # exit  
+    # exit
     # umount /tmpmnt
     # rf -rf /tmpmnt
     ```

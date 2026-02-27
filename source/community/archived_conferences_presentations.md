@@ -26,7 +26,7 @@ Templates and resources for creating new presentations can be found in [oVirt Sl
 ## 2022-02 - FOSDEM
 * Milan Zamazal - The story of adding TPM support to oVirt
   [[Slides]](https://fosdem.org/2022/schedule/event/vai_story_tpm/attachments/slides/5065/export/events/attachments/vai_story_tpm/slides/5065/tpm_fosdem.pdf)
-  
+
 * Liran Rotenberg - Automatic CPU and NUMA pinning
   [[Slides]](https://fosdem.org/2022/schedule/event/vai_automatic_cpu/attachments/slides/4877/export/events/attachments/vai_automatic_cpu/slides/4877/Automatic_CPU_and_NUMA_pinning)
   [[Video recording(WebM/VP9)]](https://video.fosdem.org/2022/D.virtualization/vai_automatic_cpu.webm)
@@ -169,7 +169,7 @@ See conference report on [oVirt Blog](https://blogs.ovirt.org/2019/10/ovirt-conf
 * Marcin Kubacki - Disaster Recovery strategies for oVirt [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20Disaster%20recovery%20strategies%20for%20oVirt.pdf)
 * Simone Tiraboschi - oVirt Ansible Automation - Part 1 [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20Ansible%20-%20automation%20for%20everyone.pdf)
 * Gianluca Cecchi - oVirt Ansible Automation - Part 2 [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20oVirt%20Ansible%20Automation%20-%20Patching%20Oracle%20RDBMS.pdf)
-  
+
 
 ## 2019-01 - oVirt 4.3 Deep Dives
 
@@ -197,7 +197,7 @@ See conference report on [oVirt Blog](https://blogs.ovirt.org/2019/10/ovirt-conf
 * Cândido Raphael - Case study VDI TR Odonto
   [[Slides - PDF]](https://resources.ovirt.org/old-site-files/wiki/OVirt_CaseStudy_FISL16_VDI.pdf)
   [[Session recording]](https://youtu.be/RDFT2c7O5II?t=1437)
-* Amador Pahim - Virtualization CPU SLA 
+* Amador Pahim - Virtualization CPU SLA
   [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/FISL2015_CPU_SLA.odp)
   [[Session recording]](https://www.youtube.com/watch?v=P4tvwAp730c)
 
@@ -252,7 +252,7 @@ oVirt has been represented at [FISL 15](https://fedoraproject.org/wiki/FISL15). 
 * Amador Pahim - Virtualization Management The oVirt Way [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt-Overview.odp)
 * Marcelo Barbosa - oVirt Installation Process [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt-Installation.odp)
 * Amador Pahim - oVirt 3.4 Hot Features [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt34-NewFeatures.odp)
-* Douglas Schilling Landgraf - V2V - Migrating virtual machines to oVirt [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Virt-v2v.odp) 
+* Douglas Schilling Landgraf - V2V - Migrating virtual machines to oVirt [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Virt-v2v.odp)
 
 
 ## 2014-04 - LinuxFest Northwest 2014
@@ -433,7 +433,7 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe.
 * Andy Cathrow - oVirt Overview and Demo
 * Mike Burns - [oVirt Node – Architecture, Design and Roadmap](https://resources.ovirt.org/old-site-files/wiki/Ovirt-node-2012-11-07.pdf)
 * Itamar Heim - [oVirt High Level Architecture](https://resources.ovirt.org/old-site-files/wiki/Heim-ovirt-arch-barcelona.pdf)
-* Itamar Heim - [oVirt Roadmap](https://resources.ovirt.org/old-site-files/wiki/Heim-ovirt-roadmap-barcelona.pdf) 
+* Itamar Heim - [oVirt Roadmap](https://resources.ovirt.org/old-site-files/wiki/Heim-ovirt-roadmap-barcelona.pdf)
 * Simon Grinberg - Deep Dive Features: Network
 * Andy Cathrow - Deep Dive Features: Storage
 * Moran Goldboim - Hands-on Lab – Use and Install
@@ -501,7 +501,7 @@ We introduced the project, the technologies inside of the new projects, and had 
   [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Ovirt-engine-core-20111102.odp)
 * Ayal Baron - VDSM Overview: The node virtualization management API
   [[Slides - PDF]](https://resources.ovirt.org/old-site-files/wiki/OVirt_VDSM_20111102.pdf)
-  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt_VDSM_20111102.odp)   
+  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt_VDSM_20111102.odp)
 * Ayal Baron - Ovirt Storage Overview
   [[Slides - PDF]](https://resources.ovirt.org/old-site-files/wiki/OVirt_VDSM_Storage_20111102.pdf)
   [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt_VDSM_Storage_20111102.odp)

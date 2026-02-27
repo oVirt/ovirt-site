@@ -25,22 +25,22 @@ In order to invoke an internal command, and pass the context of the calling comm
 For example:
  public CreateSnapshotCommand(T parameters, CommandContext cmdContext) {
 
-                    super(parameters, cmdContext);      
+                    super(parameters, cmdContext);
                     setSnapshotName(parameters.getDescription());
             }
 
 2. From commands, instead of using getBackend().runInternalAction or Backend.getInstance().runInternalAction use
 
-            runInternalAction       
+            runInternalAction
       This method was introduced at CommandBase, and is responsible for propagating the context.
 
 For example:
 
-                 VdcReturnValueBase returnValue = runInternalAction(VdcActionType.HotPlugDiskToVm, params);       
+                 VdcReturnValueBase returnValue = runInternalAction(VdcActionType.HotPlugDiskToVm, params);
 
 3. Invoke internal commands properly from classes that are not commands In case a command is using a helper (a class that does not extend CommandBase, and usually holds some functionality that is shared for several commands who are not of the same inheritance sub tree) , or another class which is not a command - the syntax of
 
-                 Backend.getInstance().runInternalAction(...) should be used. 
+                 Backend.getInstance().runInternalAction(...) should be used.
 
 In this case, the caller might or might not pass the command context as a parameter to the call.
 

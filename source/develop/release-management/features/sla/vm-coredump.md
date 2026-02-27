@@ -43,9 +43,9 @@ For libvirt support, please see [libvirt's documentation on virDomainCoreDump AP
 ```python
 def coreDump(self, to, params):
 
-         """  
+         """
          dump a VM to a designated file.
-         :param to: a string designates the dump file 
+         :param to: a string designates the dump file
          :param params: a dictionary containing:
              *post-action* - The action taken after core dump, which is
                              'crash', 'live', or 'reset'.
@@ -54,7 +54,7 @@ def coreDump(self, to, params):
                              reset: reset the VM after core dump.
              *bypass-cache* - avoid file system cache when saving.
              *memory-only* - dump VM's memory only.
-         """  
+         """
 ```
 
 

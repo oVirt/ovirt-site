@@ -10,14 +10,14 @@ This procedure shows you how to list all account information.
 
 . Log in to the machine on which the {virt-product-fullname} {engine-name} is installed.
 . List the account details.
-* All user account details: 
+* All user account details:
 +
 [source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool query --what=user
 ----
 +
-* All group account details: 
+* All group account details:
 +
 [source,terminal,subs="normal"]
 ----
@@ -30,14 +30,14 @@ This procedure shows you how to apply filters when listing account information.
 
 . Log in to the machine on which the {virt-product-fullname} {engine-name} is installed.
 . Filter account details using the `--pattern` parameter.
-* List user account details with names that start with the character _j_. 
+* List user account details with names that start with the character _j_.
 +
 [source,terminal,subs="normal"]
 ----
 # ovirt-aaa-jdbc-tool query --what=user --pattern="name=_j*_"
 ----
 +
-* List groups that have the department attribute set to _marketing_: 
+* List groups that have the department attribute set to _marketing_:
 +
 [source,terminal,subs="normal"]
 ----

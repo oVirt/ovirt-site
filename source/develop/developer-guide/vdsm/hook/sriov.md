@@ -43,7 +43,7 @@ Will attach 2 sr-iov VFs to vm
 *   Load sr-iov PF and VF
     -   Intel Corporation 82576 Gigabit Network Connection:
 
-      modprobe igb max_vfs=7 
+      modprobe igb max_vfs=7
 
 7 is max for 82576 card
 

@@ -171,7 +171,7 @@ During an engine backup and subsequent restore, on engine restore it is expected
 
       servers FQDNs
 
-   
+
 
 3. Existing option pool.default.socketfactory.resolver.supportIPv6
 
@@ -203,7 +203,7 @@ Users now can decide if to install specific vdsm hooks or not.
 
  - [BZ 1948418](https://bugzilla.redhat.com/show_bug.cgi?id=1948418) **[RFE] Add memory, and CPU sizes to Hosts/Virtual Machines Trend dashboard**
 
-   Feature: 
+   Feature:
 
 added to hosts and vms trend dashboards 2 panels. one withe the total memory size, and one with the total cpu cores.
 
@@ -217,7 +217,7 @@ added to hosts and vms trend dashboards 2 panels. one withe the total memory siz
 
 
 
-Reason: 
+Reason:
 
 This way we can navigate easily if there are several different engines (with different dwh).
 
@@ -226,15 +226,15 @@ This way we can navigate easily if there are several different engines (with dif
 
  - [BZ 1966177](https://bugzilla.redhat.com/show_bug.cgi?id=1966177) **[CBT][RFE] Unable to delete a vm checkpoint if vm has poweroff state**
 
-   Feature: 
+   Feature:
 
 VM checkpoint can be removed while the VM is in a 'DOWN' state.
 
 
 
-Reason: 
+Reason:
 
-Until now, the VM checkpoint that was taken during a VM backup process can be removed only when the VM is running. This fix provides the ability to remove the VM checkpoint when the VM isn't running using the same API - 
+Until now, the VM checkpoint that was taken during a VM backup process can be removed only when the VM is running. This fix provides the ability to remove the VM checkpoint when the VM isn't running using the same API -
 
 
 
@@ -242,7 +242,7 @@ DELETE /vms/123/checkpoints/456/
 
 
 
-Result: 
+Result:
 
 VM checkpoint can be removed when the VM is 'UP' or 'DOWN' using the same API.
 
@@ -295,15 +295,15 @@ Result:
 
  - [BZ 1966177](https://bugzilla.redhat.com/show_bug.cgi?id=1966177) **[CBT][RFE] Unable to delete a vm checkpoint if vm has poweroff state**
 
-   Feature: 
+   Feature:
 
 VM checkpoint can be removed while the VM is in a 'DOWN' state.
 
 
 
-Reason: 
+Reason:
 
-Until now, the VM checkpoint that was taken during a VM backup process can be removed only when the VM is running. This fix provides the ability to remove the VM checkpoint when the VM isn't running using the same API - 
+Until now, the VM checkpoint that was taken during a VM backup process can be removed only when the VM is running. This fix provides the ability to remove the VM checkpoint when the VM isn't running using the same API -
 
 
 
@@ -311,13 +311,13 @@ DELETE /vms/123/checkpoints/456/
 
 
 
-Result: 
+Result:
 
 VM checkpoint can be removed when the VM is 'UP' or 'DOWN' using the same API.
 
  - [BZ 1913858](https://bugzilla.redhat.com/show_bug.cgi?id=1913858) **[RFE] Enable high-availability for VMs that are pinned to host(s)**
 
-   
+
 
  - [BZ 1958081](https://bugzilla.redhat.com/show_bug.cgi?id=1958081) **[RFE] Enable ramfb for mdev with display=on**
 
@@ -335,13 +335,13 @@ Allow removing any VM checkpoint from the checkpoint chain and not just the root
 
 
 
-Reason: 
+Reason:
 
 Users should be able to remove any checkpoint from the VM backups checkpoints chain.
 
- 
 
-Result: 
+
+Result:
 
 Any checkpoint from the VM checkpoints chain can be removed and not just the root checkpoint in the chain.
 
@@ -354,7 +354,7 @@ Any checkpoint from the VM checkpoints chain can be removed and not just the roo
 
 
 
-Reason: This allows to make changes in the bootstrap VM 
+Reason: This allows to make changes in the bootstrap VM
 
 
 
@@ -380,7 +380,7 @@ In the next version we will completely delete the old name.
 
  - [BZ 1899875](https://bugzilla.redhat.com/show_bug.cgi?id=1899875) **drop support for VM-FEX**
 
-   
+
 
 
 #### oVirt Engine
@@ -440,221 +440,221 @@ In the next version we will completely delete the old name.
 
  - [BZ 1976768](https://bugzilla.redhat.com/show_bug.cgi?id=1976768) **Inquiries regarding missing data in the calendar table created/inserted into the ovirt_engine_history DB.**
 
-   
+
 
 
 #### VDSM
 
  - [BZ 1883399](https://bugzilla.redhat.com/show_bug.cgi?id=1883399) **During migration, late volume extension request on src is possibly not refreshed on dst, qcow2 corrupt bit set**
 
-   
+
 
  - [BZ 1870887](https://bugzilla.redhat.com/show_bug.cgi?id=1870887) **StorageDomain.dump() missing several keys for volume if one key is missing.**
 
-   
+
 
  - [BZ 1973345](https://bugzilla.redhat.com/show_bug.cgi?id=1973345) **Create template broken with block storage**
 
-   
+
 
  - [BZ 1970008](https://bugzilla.redhat.com/show_bug.cgi?id=1970008) **VDSM service fails if the vdsm log file (/var/log/vdsm/vdsm.log) is not owned by vdsm:kvm**
 
-   
+
 
  - [BZ 1949059](https://bugzilla.redhat.com/show_bug.cgi?id=1949059) **Reducing LUNs from storage domain is failing with error "LVM command executed by lvmpolld failed"**
 
-   
+
 
  - [BZ 1946193](https://bugzilla.redhat.com/show_bug.cgi?id=1946193) **Snapshot creation after blocking connection from host to storage fails**
 
-   
+
 
  - [BZ 1961752](https://bugzilla.redhat.com/show_bug.cgi?id=1961752) **Panic if SPM lease is lost**
 
-   
+
 
  - [BZ 1725915](https://bugzilla.redhat.com/show_bug.cgi?id=1725915) **Vdsm tries to tear down in-use volume of ISO in block storage domain**
 
-   
+
 
  - [BZ 1944495](https://bugzilla.redhat.com/show_bug.cgi?id=1944495) **GET diskattachments for a VM using qemu-guest-agent is missing a logical_name for disks without monted file-system**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1950593](https://bugzilla.redhat.com/show_bug.cgi?id=1950593) **Can't properly upload image to Storage Domain without using Test Connection button**
 
-   
+
 
  - [BZ 1961945](https://bugzilla.redhat.com/show_bug.cgi?id=1961945) **RHV should upgrade guest BIOS from i440fx chipset to q35 automatically when the cluster is set with the q35 chipset**
 
-   
+
 
  - [BZ 1976742](https://bugzilla.redhat.com/show_bug.cgi?id=1976742) **Import template from export domain fails with NullPointerException**
 
-   
+
 
  - [BZ 1588061](https://bugzilla.redhat.com/show_bug.cgi?id=1588061) **Suspend VM leaves disks as leftover**
 
-   
+
 
  - [BZ 1974181](https://bugzilla.redhat.com/show_bug.cgi?id=1974181) **Can't create/update instance type via API with display section specified**
 
-   
+
 
  - [BZ 1939198](https://bugzilla.redhat.com/show_bug.cgi?id=1939198) **Refresh LUN operation via Admin Portal fails with "No host was found to perform the operation"**
 
-   
+
 
  - [BZ 1970718](https://bugzilla.redhat.com/show_bug.cgi?id=1970718) **Engine hits NPE when importing template with disks on 2 storage domains**
 
-   
+
 
  - [BZ 1969765](https://bugzilla.redhat.com/show_bug.cgi?id=1969765) **[CBT] Failed to redefine VM checkpoints for full backup that was taken after previous incremental backup**
 
-   
+
 
  - [BZ 1947312](https://bugzilla.redhat.com/show_bug.cgi?id=1947312) **bochs-display: there's no video object in REST API and REST default video type for UEFI server is incorrect.**
 
-   
+
 
  - [BZ 1887434](https://bugzilla.redhat.com/show_bug.cgi?id=1887434) **LVM IDs and Machine ID are same for all new VMs created from sealed template**
 
-   
+
 
  - [BZ 1779983](https://bugzilla.redhat.com/show_bug.cgi?id=1779983) **After memory hot plug, Why the VM is showing icon for "server with the newer configuration for next run"?**
 
-   
+
 
  - [BZ 1946876](https://bugzilla.redhat.com/show_bug.cgi?id=1946876) **automatic Maximum Memory exceeds possible maximum on new VM dialog**
 
-   
+
 
  - [BZ 1941581](https://bugzilla.redhat.com/show_bug.cgi?id=1941581) **[RFE] Add to API external template import**
 
-   
+
 
  - [BZ 1961396](https://bugzilla.redhat.com/show_bug.cgi?id=1961396) **[CodeChange][i18n] oVirt 4.4.7 webadmin - translation update**
 
-   
+
 
  - [BZ 1960968](https://bugzilla.redhat.com/show_bug.cgi?id=1960968) **Disable checking of SSH connection when adding a host into the ansible-runner-service inventory**
 
-   
+
 
  - [BZ 1951894](https://bugzilla.redhat.com/show_bug.cgi?id=1951894) **Add validation when creating storage domain with disperse volume type**
 
-   
+
 
  - [BZ 1962177](https://bugzilla.redhat.com/show_bug.cgi?id=1962177) **Disk search API returns zero result if max parameter is specified**
 
-   
+
 
  - [BZ 1930298](https://bugzilla.redhat.com/show_bug.cgi?id=1930298) **'NUMA Node Count' number is not set if at the same editing the user sets vcpu pinning.**
 
-   
+
 
  - [BZ 1954404](https://bugzilla.redhat.com/show_bug.cgi?id=1954404) **[RFE][cinderlib] Add option to copy Managed block storage disks via the UI**
 
-   
+
 
  - [BZ 1954878](https://bugzilla.redhat.com/show_bug.cgi?id=1954878) **[RFE] Auto Pinning Policy: improve tooltip description and policy names**
 
-   
+
 
  - [BZ 1963680](https://bugzilla.redhat.com/show_bug.cgi?id=1963680) **Block the 'Existing' auto-pinning policy**
 
-   
+
 
  - [BZ 1957240](https://bugzilla.redhat.com/show_bug.cgi?id=1957240) **Adding ISO domain deprecation message is misleading**
 
-   
+
 
  - [BZ 1940529](https://bugzilla.redhat.com/show_bug.cgi?id=1940529) **[RFE] Set guaranteed memory of VM according to its defined memory when not specified**
 
-   
+
 
  - [BZ 1588100](https://bugzilla.redhat.com/show_bug.cgi?id=1588100) **AddVmTemplate ends with failure even though its copyImage task succeeded on vdsm**
 
-   
+
 
  - [BZ 1932484](https://bugzilla.redhat.com/show_bug.cgi?id=1932484) **[RFE] Export/import VMs/templates with TPM**
 
-   
+
 
  - [BZ 1940766](https://bugzilla.redhat.com/show_bug.cgi?id=1940766) **No longer possible to select console type since ovirt-web-ui-1.6.8 upgrade (regression)**
 
-   
+
 
  - [BZ 1913793](https://bugzilla.redhat.com/show_bug.cgi?id=1913793) **NPE on host reinstall UI dialog**
 
-   
+
 
  - [BZ 1958047](https://bugzilla.redhat.com/show_bug.cgi?id=1958047) **NullPointerException during VM export to data domain**
 
-   
+
 
  - [BZ 1956967](https://bugzilla.redhat.com/show_bug.cgi?id=1956967) **'Next run config changes' mark appears when nothing was changed on VM**
 
-   
+
 
  - [BZ 1929730](https://bugzilla.redhat.com/show_bug.cgi?id=1929730) **Fails to update vNUMA nodes from number to 0 for running VM (next configuration run).**
 
-   
+
 
  - [BZ 1577121](https://bugzilla.redhat.com/show_bug.cgi?id=1577121) **[ALL_LANG]  The language list format in the drop-down on the welcome page should be consistent**
 
-   
+
 
  - [BZ 1954920](https://bugzilla.redhat.com/show_bug.cgi?id=1954920) **Auto Pinning Policy results in division by zero on hosts with 1 NUMA node.**
 
-   
+
 
  - [BZ 1947337](https://bugzilla.redhat.com/show_bug.cgi?id=1947337) **Select noVNC by default for Kubevirt VMs**
 
-   
+
 
  - [BZ 1954447](https://bugzilla.redhat.com/show_bug.cgi?id=1954447) **[CBT] Unable to create snapshot on a RAW disk after incremental backup**
 
-   
+
 
 
 #### oVirt Engine SDK 4 Python
 
  - [BZ 1956167](https://bugzilla.redhat.com/show_bug.cgi?id=1956167) **SDK example script "backup_vm.py" fails to complete "full" cycle**
 
-   
+
 
 
 #### imgbased
 
  - [BZ 1964490](https://bugzilla.redhat.com/show_bug.cgi?id=1964490) **After upgrading the oVirt node to 4.4.6 it's impossible to login through cockpit**
 
-   
+
 
  - [BZ 1955415](https://bugzilla.redhat.com/show_bug.cgi?id=1955415) **RHVH 4.4: There are AVC denied errors in audit.log after upgrade**
 
-   
+
 
 
 #### oVirt Web UI
 
  - [BZ 1577121](https://bugzilla.redhat.com/show_bug.cgi?id=1577121) **[ALL_LANG]  The language list format in the drop-down on the welcome page should be consistent**
 
-   
+
 
 
 #### oVirt Engine UI Extensions
 
  - [BZ 1860646](https://bugzilla.redhat.com/show_bug.cgi?id=1860646) **[RFE] Manage vGPU dialog, add option for assigning more than one vGPU instance to VM**
 
-   
+
 
  - [BZ 1961331](https://bugzilla.redhat.com/show_bug.cgi?id=1961331) **[CodeChange][i18n] oVirt 4.4.7 ui-extensions - translation update**
 
-   
+
 
 
 ### No Doc Update
@@ -663,117 +663,117 @@ In the next version we will completely delete the old name.
 
  - [BZ 1962641](https://bugzilla.redhat.com/show_bug.cgi?id=1962641) **Add "Count threads as cores" to Grafana dashboards**
 
-   
+
 
  - [BZ 1937714](https://bugzilla.redhat.com/show_bug.cgi?id=1937714) **[RFE] Add rx and tx drop to Grafana**
 
-   
+
 
  - [BZ 1961598](https://bugzilla.redhat.com/show_bug.cgi?id=1961598) **race in Termination.java**
 
-   
+
 
  - [BZ 1877478](https://bugzilla.redhat.com/show_bug.cgi?id=1877478) **[RFE] collect network metrics in DWH ( rx and tx drop )**
 
-   
+
 
 
 #### VDSM
 
  - [BZ 1966143](https://bugzilla.redhat.com/show_bug.cgi?id=1966143) **Requiring nmstate-plugin-ovsdb causes installation of unwanted openvswitch versions**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1902179](https://bugzilla.redhat.com/show_bug.cgi?id=1902179) **Ignore message about not using latest kernel after upgrade when a host hasn't been rebooted**
 
-   
+
 
  - [BZ 1913785](https://bugzilla.redhat.com/show_bug.cgi?id=1913785) **Failed to add host with error Format specifier '%2b'**
 
-   
+
 
  - [BZ 1975225](https://bugzilla.redhat.com/show_bug.cgi?id=1975225) **Occasional failures to export VM to OVA**
 
-   
+
 
  - [BZ 1968183](https://bugzilla.redhat.com/show_bug.cgi?id=1968183) **Running an imported VM with TPM which wasn't running while exporting fails**
 
-   
+
 
  - [BZ 1817346](https://bugzilla.redhat.com/show_bug.cgi?id=1817346) **[UI] SHA1 fingerprint shown to the user for approval**
 
-   
+
 
  - [BZ 1934201](https://bugzilla.redhat.com/show_bug.cgi?id=1934201) **ovirt-engine-notifier emails not sent unless MAIL_FROM is set**
 
-   
+
 
  - [BZ 1964541](https://bugzilla.redhat.com/show_bug.cgi?id=1964541) **[RFE] New network dialogue is missing IDs on all elements**
 
-   
+
 
  - [BZ 1877478](https://bugzilla.redhat.com/show_bug.cgi?id=1877478) **[RFE] collect network metrics in DWH ( rx and tx drop )**
 
-   
+
 
  - [BZ 1942023](https://bugzilla.redhat.com/show_bug.cgi?id=1942023) **[RFE] host-deploy: Allow adding non-CentOS hosts based on RHEL**
 
-   
+
 
  - [BZ 1959839](https://bugzilla.redhat.com/show_bug.cgi?id=1959839) **Support renewing separate machine PKI**
 
-   
+
 
  - [BZ 1913789](https://bugzilla.redhat.com/show_bug.cgi?id=1913789) **[RFE] Add RHEL 9 as a guest operating systems**
 
-   
+
 
  - [BZ 1917707](https://bugzilla.redhat.com/show_bug.cgi?id=1917707) **when upgrading host, tasks appear in the audit log multiple times**
 
-   
+
 
  - [BZ 1951579](https://bugzilla.redhat.com/show_bug.cgi?id=1951579) **RHV api issues when account has only "UserRole" permissions**
 
-   
+
 
 
 #### oVirt Engine SDK 4 Python
 
  - [BZ 1956750](https://bugzilla.redhat.com/show_bug.cgi?id=1956750) **Python oVirt SDK overwrites /dev/null with cookie file**
 
-   
+
 
 
 #### oVirt Release Package
 
  - [BZ 1947759](https://bugzilla.redhat.com/show_bug.cgi?id=1947759) **allow optional vdsm-hooks intallation on oVirt Node**
 
-   
+
 
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1922748](https://bugzilla.redhat.com/show_bug.cgi?id=1922748) **[RFE] Use Ansible module instead of REST API**
 
-   
+
 
 
 #### oVirt Ansible collection
 
  - [BZ 1973640](https://bugzilla.redhat.com/show_bug.cgi?id=1973640) **Hosted engine deploy fail in version 1.5.1 - VM is not managed by the engine**
 
-   
+
 
  - [BZ 1953029](https://bugzilla.redhat.com/show_bug.cgi?id=1953029) **HE deployment fails on "Add lines to answerfile"**
 
-   
+
 
  - [BZ 1922748](https://bugzilla.redhat.com/show_bug.cgi?id=1922748) **[RFE] Use Ansible module instead of REST API**
 
-   
+
 
 
 #### Contributors

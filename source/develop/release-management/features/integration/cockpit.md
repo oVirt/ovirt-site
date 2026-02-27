@@ -6,7 +6,7 @@ authors: mlibra
 
 # Proposed Feature 4.0: Cockpit-oVirt Plugin
 
-## Summary 
+## Summary
 The oVirt's webadmin provides complete datacenter/cluster view and it's administration but lacks in tuning of specific hosts parameters.
 Recent oVirt's UI can be considered as comprehensive but heavy-weight, confusing for non-advanced users, resource-consuming and it's accessibility can be limited in case of high-loaded engine.
 
@@ -37,7 +37,7 @@ Brings benefits in:
 ### Dependencies
 Cockpit needs to be installed and running.
 
-The plugin has dependency on the 
+The plugin has dependency on the
 
 * Cockpit - needs to be installed and running
 * VDSM running on the host.
@@ -73,9 +73,9 @@ High priority ongoing enhancements:
 More details and list of next planed enhancements can be found in the issue tracker, see [2]
 
 ## Detailed Description
-![](/images/wiki/cockpit_vmsList.png) 
-![](/images/wiki/cockpit_vmDetail.png) 
-![](/images/wiki/cockpit_vdsmConfig.png) 
+![](/images/wiki/cockpit_vmsList.png)
+![](/images/wiki/cockpit_vmDetail.png)
+![](/images/wiki/cockpit_vdsmConfig.png)
 
 ### Basic
 
@@ -133,6 +133,6 @@ Refer the plugin's README file for install instructions.
 ## External links
 * [The plugin on github](https://github.com/mareklibra/cockpit-ovirt)
 * [The Issue Tracker](https://github.com/mareklibra/cockpit-ovirt/issues)
-* [The Plugin's README.md](https://github.com/mareklibra/cockpit-ovirt/blob/master/README.md) 
+* [The Plugin's README.md](https://github.com/mareklibra/cockpit-ovirt/blob/master/README.md)
 * [The Cockpit project](http://cockpit-project.org/ )
 

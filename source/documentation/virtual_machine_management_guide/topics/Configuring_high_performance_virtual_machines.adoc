@@ -209,7 +209,7 @@ To set the NUMA Pinning Policy, you need a NUMA-enabled pinned host with at leas
 
 .To set the NUMA pinning policy automatically:
 . In the *Resource Allocation* tab, under *CPU Allocation*, select `Resize and Pin NUMA` from the *CPU Pinning Policy* drop-down list.
-. Click btn:[OK]. 
+. Click btn:[OK].
 
 
 [IMPORTANT]

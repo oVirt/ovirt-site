@@ -49,7 +49,7 @@ We can add a similar alert also for regular hosts:
 
 ![ 800px](/images/wiki/Update_available_mockups.png  " 800px")
 
-**API:** 
+**API:**
 
 ```xml
 GET /hosts/{host:id}/
@@ -92,7 +92,7 @@ The interval for updates checking is determined by the configuration value 'Host
 
 *   For consistency, a support will be added for **oVirt-node** upgrade in UP status.
 
-**API:** 
+**API:**
 
     POST /hosts/{host:id}/upgrade|rel=upgrade
 

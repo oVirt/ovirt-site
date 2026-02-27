@@ -118,7 +118,7 @@ Logger module provides functionality to setup specific logging of oVirt. You can
 
 ### Command-line interface
 
-    logger 
+    logger
       --help  Show help for logger module.
       log-record
           --extension-name=[STRING]  Name of logger extension.

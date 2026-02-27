@@ -84,7 +84,7 @@ Modify method *getRelatedTableName* to return the correct table name for your en
          ''else if (StringHelper.EqOp(obj, SearchObjects.GLUSTER_VOLUMES_OBJ_NAME)) {
          ''        retval = "gluster_volumes";
          ''    }
-             
+
 
 Modify method *getPrimeryKeyName* to return the name of the primary key of your entity table
 
@@ -97,7 +97,7 @@ Modify method *getDefaultSort* to return the default ordering clause to be used 
          ''else if (StringHelper.EqOp(obj, SearchObjects.GLUSTER_VOLUMES_OBJ_NAME)) {
          ''        retval = "vol_name ASC ";
          ''    }
-             
+
 
 Modify method *getFieldAutoCompleter* and introduce an else if for your entity to return an object of the condition field auto completer that you will write for the entity.
 
@@ -172,7 +172,7 @@ In case auto-completion is not required for values of the given field, return nu
 Write a new class that extends *SearchObjectsBaseAutoCompleter* and add required verbs in the constructor.
 
       ''   public GlusterVolumeCrossRefAutoCompleter() {
-      ''       mVerbs.put(SearchObjects.VDC_CLUSTER_OBJ_NAME, 
+      ''       mVerbs.put(SearchObjects.VDC_CLUSTER_OBJ_NAME,
       ''                           SearchObjects.VDC_CLUSTER_OBJ_NAME);
       ''       buildCompletions();
       ''   }
@@ -185,7 +185,7 @@ These verbs will also get added to the list of auto-completion proposals for the
 
 Add entries for the newly created auto completer classes to frontend/webadmin/modules/sharedgwt/src/main/java/org/ovirt/engine/SharedGwt.gwt.xml
 
-      ''   
+      ''
 
      ''       ...
      ''       <include name="core/searchbackend/GlusterVolumeConditionFieldAutoCompleter.java" />

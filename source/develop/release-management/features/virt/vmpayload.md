@@ -76,7 +76,7 @@ This is an example for the API for this feature, the vm_paload element will work
                </payload>
            </payloads>
         </vm>
-       
+
 
 ## Design Notes
 
@@ -86,7 +86,7 @@ vmPayload is passed in the create params:
         'floppy': [{'filename': 'content' }, {'filename': 'content'}],
         'sysprep': {'filename': 'content' },
         'network': '...' }
-       
+
 
 ## User work-flows
 

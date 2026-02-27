@@ -341,39 +341,39 @@ TBD
        check that you can't configure vdsm if cpu hardware support for virtualization is disabled by bios or not supported by the CPU
 
 
-[1] 
+[1]
 
-[2] 
+[2]
 
-[3] 
+[3]
 
-[4] 
+[4]
 
-[5] 
+[5]
 
-[6] 
+[6]
 
-[7] 
+[7]
 
-[8] 
+[8]
 
-[9] 
+[9]
 
-[10] 
+[10]
 
-[11] 
+[11]
 
-[12] 
+[12]
 
-[13] 
+[13]
 
-[14] 
+[14]
 
-[15] 
+[15]
 
-[16] 
+[16]
 
-[17] 
+[17]
 
 [18] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
 
@@ -403,8 +403,8 @@ TBD
 
 [31] This means that the function is not required in the new code design
 
-[32] 
+[32]
 
-[33] 
+[33]
 
 [34] only if we did not install in development mode

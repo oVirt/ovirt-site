@@ -137,7 +137,7 @@ At this point I connected to the console of the new machine, using:
 and the temporary password shown above, and continued the installation of fedora 19 on the new VM. I configured its hostname to be 'he1vm.home.local'. When the installation finished, I pressed 'Reboot', and then, on the console where I ran 'hosted-engine --deploy' on didi-box1, I continued:
 
                 Has the OS installation been completed successfully?
-                Answering no will allow you to reboot from the previously selected boot media. (Yes, No)[Yes]:  
+                Answering no will allow you to reboot from the previously selected boot media. (Yes, No)[Yes]:
       [ INFO  ] Creating VM
                 You can now connect to the VM with the following command:
                       /bin/remote-viewer vnc://localhost:5900

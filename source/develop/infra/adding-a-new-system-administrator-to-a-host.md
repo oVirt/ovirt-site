@@ -98,7 +98,7 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
 
     ls /home/foo/.ssh/ -hal
     total 12K
-    drwx------ 2 foo foo 4.0K Dec  3 19:38 .                 
+    drwx------ 2 foo foo 4.0K Dec  3 19:38 .
     drwx------ 3 foo foo 4.0K Dec  3 19:34 ..                ## ~/.ssh is correct
     -rw-r--r-- 1 foo foo  604 Dec  3 19:33 authorized_keys   ## authorized_keys file is correct
 

@@ -61,7 +61,7 @@ device:id = UUID.fromString(name)
            <ip version="v4" address="10.35.1.177"/>
            <ip version="v6" address="fe80::21a:4aff:fe16:151"/>
        </ips>
-             <mac address></mac>        
+             <mac address></mac>
  </network_device>
 ```
 
@@ -96,7 +96,7 @@ device:id = UUID.fromString(name+mac)
            <ip version="v4" address="10.35.1.177"/>
            <ip version="v6" address="fe80::21a:4aff:fe16:151"/>
        </ips>
-             <mac address></mac>        
+             <mac address></mac>
  </network_device>
 ```
 

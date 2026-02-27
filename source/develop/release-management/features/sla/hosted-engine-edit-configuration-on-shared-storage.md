@@ -7,7 +7,7 @@ authors: jtokar
 # Allow updating Hosted Engine configuration on shared storage
 
 ## Summary
-Currently the hosted engine configuration is saved in a tar archive on a shared storage without any way of editing or updating it. This will allow users to easily update and get the shared configuration. 
+Currently the hosted engine configuration is saved in a tar archive on a shared storage without any way of editing or updating it. This will allow users to easily update and get the shared configuration.
 
 Currently there are two configuration archives on the shared storage, one contains the vm ovf and the other contains the hosted engine configuration.
 For the first stage this feature will provide the ability to edit broker.conf (that is located inside the configuration archive), for the second stage support for editing parts of the vm ovf will be added.
@@ -18,7 +18,7 @@ To achieve this new functionalities will be added to the hosted engine client:
 ### Already implemented:
  1. Set a new value
  2. Get the current value for a specific key
- 
+
 ### Future functionality:
  1. Get a list of all keys and their current value
  2. Download a configuration archive
@@ -58,7 +58,7 @@ Broker.conf:
 
       hosted-engine --set-shared-config key value --type broker
       sets the value, returns nothing
-  
+
       hosted-engine --get-shared-config key
       returns: key: value type
 
@@ -84,13 +84,13 @@ Broker.conf:
       Invalid configuration key missing_key.
       Available keys are:
       broker : ['smtp-port', 'destination-emails', 'smtp-server', 'source-email', 'state_transition']
-      
+
       hosted-engine --set-shared-config missing_key
       returns an error:
       Invalid configuration key missing_key.
       Available keys are:
       broker : ['smtp-port', 'destination-emails', 'smtp-server', 'source-email', 'state_transition']
-      
+
       hosted-engine --get-shared-config key --type=missing_type
       returns an error:
       Invalid configuration type missing_type, supported types are: broker
@@ -102,7 +102,7 @@ Broker.conf:
 ### To get all keys and values (not yet implemented):
         hosted-engine --get-all-config
         returns:
-          type: broker  
+          type: broker
           key: value
           key2: value
 

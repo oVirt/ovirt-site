@@ -16,7 +16,7 @@ Aligns the behavior of VM with a lease and VM snapshots operations.
 
 ## Description
 The VM leases feature was introduced in oVirt engine 4.1 version.
-This feature adds the ability to acquire a lease per VM on shared storage in order to avoid split-brain, 
+This feature adds the ability to acquire a lease per VM on shared storage in order to avoid split-brain,
 and starting a VM on another host if the original host becomes non-responsive.
 
 Few improvements were made in oVirt 4.2.2.1 version which aligns the behavior of VM with a lease and VM snapshots operations:
@@ -58,13 +58,13 @@ The VM will use the lease that was created for the preview.
 
 
 * ### Custom preview to a snapshot with a lease:
-It is possible to customize the preview of a snapshot and select whether the preview will include 
+It is possible to customize the preview of a snapshot and select whether the preview will include
 the VM lease or not.
 Moreover, it is possible to select the VM lease from a different snapshot.
-When performing a custom preview, the selected VM lease will be created even if the active snapshot 
+When performing a custom preview, the selected VM lease will be created even if the active snapshot
 has a lease.
-This behavior is different than the regular preview, the active snapshot VM lease will 
-not be removed from the storage domain until the snapshot will be committed, if the user selects to undo the 
+This behavior is different than the regular preview, the active snapshot VM lease will
+not be removed from the storage domain until the snapshot will be committed, if the user selects to undo the
 snapshot preview the created lease will be removed.
 
 ## New engine API

@@ -32,7 +32,7 @@ Removing snapshots will work faster when the VM is not running.
 ### Design considerations:
 
 * SPM is a bottleneck and we want to reduce SPM tasks as much as possible
-* Live and Cold merge flows are equivalent so it is a good chance to have a single implementation for both flows. 
+* Live and Cold merge flows are equivalent so it is a good chance to have a single implementation for both flows.
 
 ### Flow:
 
@@ -69,7 +69,7 @@ Removing snapshots will work faster when the VM is not running.
     Finalize step updates Vdsm and qemu metadata and must be run as SPM task.
 
     * Update qemu metadata
-    
+
         Update qemu metadata to reflect the chain after the merge. If the top volume is not the leaf, update its child parent to be the base volume. This is done by performing qemu-img rebase -u.
 
     * Update Vdsm metadata
@@ -98,9 +98,9 @@ Today, no recovery special handling is required because data is copied from base
 * No connectivity to host during Cold Merge
 
   Once connectivity reestablished, the engine tries to continue monitoring the job on the host. There are two options:
-  
+
   * The job exists on the host. In this case, the engine continues to monitor it
-  
+
   * The job wasn't found on the host. In this case, the engine checks the base value state, if it is LEGAL, the merge didn't start and the engine has to send merge command again; if the state is ILLEGAL, the engine fails the merge operation and the admin has to retry
 
 * Vdsm fails to get Engine command

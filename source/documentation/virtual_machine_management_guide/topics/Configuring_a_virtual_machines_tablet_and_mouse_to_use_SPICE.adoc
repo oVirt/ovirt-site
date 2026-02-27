@@ -14,14 +14,14 @@ Edit the `/etc/X11/xorg.conf` file to enable SPICE for your virtual machine's ta
 # /sbin/lsusb -v | grep 'QEMU USB Tablet'
 ----
  If there is no output from the command, do not continue configuring the tablet.
-. Back up `/etc/X11/xorg.conf`: 
+. Back up `/etc/X11/xorg.conf`:
 +
 [source,terminal,subs="normal"]
 ----
 # cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
 ----
 +
-. Make the following changes to `/etc/X11/xorg.conf`:				
+. Make the following changes to `/etc/X11/xorg.conf`:
 +
 [source,terminal,subs="normal"]
 ----
@@ -32,20 +32,20 @@ InputDevice    "Keyboard0" "CoreKeyboard"
 InputDevice    "Tablet" "SendCoreEvents"
 InputDevice    "Mouse" "CorePointer"
 EndSection
-							 
+
 Section "InputDevice"
 Identifier  "Mouse"
 Driver      "void"
 #Option      "Device" "/dev/input/mice"
 #Option      "Emulate3Buttons" "yes"
 EndSection
-							 
+
 Section "InputDevice"
 Identifier  "Tablet"
 Driver      "evdev"
 Option      "Device" "/dev/input/event2"
 Option "CorePointer" "true"
-EndSection 
+EndSection
 ----
 
 . Log out and log back into the virtual machine to restart X-Windows.

@@ -52,8 +52,8 @@ of 'esc'+':' combination ;)
 
 <!-- -->
 
-    >> open help --> 
-       install new software --> 
+    >> open help -->
+       install new software -->
        choose the Luna location -->
        filter by m2e
     >> check all components, install and restart eclipse at the end
@@ -62,9 +62,9 @@ of 'esc'+':' combination ;)
 
 <!-- -->
 
-    >> open Windows --> 
-       Preferences --> 
-       Maven --> 
+    >> open Windows -->
+       Preferences -->
+       Maven -->
        Installations
     >> Choose 3 installation. If it's not there, use the 'add' button and add the path to your Maven 3 installation.
 
@@ -72,10 +72,10 @@ of 'esc'+':' combination ;)
 
 <!-- -->
 
-    >> file --> 
-       import --> 
-       Maven --> 
-       Existing Maven Projects --> 
+    >> file -->
+       import -->
+       Maven -->
+       Existing Maven Projects -->
        browse into your engine sources direcotry and click OK
 
 *   You may need to first build the project directly through maven as some referenced projects are auto generated. close eclipse, build with maven and open eclipse again.
@@ -92,7 +92,7 @@ of 'esc'+':' combination ;)
 
 <!-- -->
 
-    Window ->  Preferences ->  Java ->  Editor ->  Save Actions -> Additional Actions ->  Configure ->  Code Organizing ->  Remove trailing whitespace -> All lines 
+    Window ->  Preferences ->  Java ->  Editor ->  Save Actions -> Additional Actions ->  Configure ->  Code Organizing ->  Remove trailing whitespace -> All lines
 
 *   By now, hopefully, you should have resolved all compilation errors shown by eclipse, and ready to start development of oVirt engine.
 

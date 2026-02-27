@@ -78,7 +78,7 @@ ways to convert it:
 
     for now by default 0 only used(first screen),
     add the option to take screenshot by screen number
-    
+
 * Change generate screenshot API call to be asynchronous
 
 

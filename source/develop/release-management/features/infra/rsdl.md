@@ -715,9 +715,9 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
           * @throws IOException
           *             Signals that an I/O exception of some sort has occurred.
           */
-         public Cluster add(org.ovirt.engine.sdk.entities.Cluster cluster) throws 
+         public Cluster add(org.ovirt.engine.sdk.entities.Cluster cluster) throws
                  ClientProtocolException, ServerException, IOException {
-             
+
                  ....
          }
 
@@ -754,7 +754,7 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
           * @throws IOException
           *             Signals that an I/O exception of some sort has occurred.
           */
-         public Cluster add(org.ovirt.engine.sdk.entities.Cluster cluster, String expect, String correlationId) throws 
+         public Cluster add(org.ovirt.engine.sdk.entities.Cluster cluster, String expect, String correlationId) throws
                  ClientProtocolException, ServerException, IOException {
                  ....
          }

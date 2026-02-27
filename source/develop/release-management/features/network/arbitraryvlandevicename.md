@@ -31,7 +31,7 @@ vlans =  {'myvlan20':
                     'ipv6addrs': [],
                     'mtu': '1500',
                     'netmask': '',
-                    'vlanid': 20}} 
+                    'vlanid': 20}}
 ```
 
 **notice:** The map already contained 'iface' key which represents the base interface name.

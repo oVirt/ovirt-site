@@ -41,7 +41,7 @@ Copy the contents of the box below to /etc/vdsm/mom-balloon.policy on the hyperv
     })
 
     ### Main Script
-    # Methodology: Since running KSM does incur some overhead, try to run it only 
+    # Methodology: Since running KSM does incur some overhead, try to run it only
     # when necessary.  If the amount of committed KSM shareable memory is high or if
     # free memory is low, enable KSM to try to increase free memory.  Large memory
     # machines should scan more often than small ones.  Likewise, machines under
@@ -119,7 +119,7 @@ Copy the contents of the box below to /etc/vdsm/mom-balloon.policy on the hyperv
             (set balloon_size balloon_min)
             0)
         # Set the new target for the BalloonController.  Only set it if the
-        # value makes sense and is a large enough change to be worth it.   
+        # value makes sense and is a large enough change to be worth it.
         (if (and (<= balloon_size guest.balloon_cur)
                 (change_big_enough guest balloon_size))
             (guest.Control "balloon_target" balloon_size)
@@ -140,7 +140,7 @@ Copy the contents of the box below to /etc/vdsm/mom-balloon.policy on the hyperv
                                     (+ 1 max_balloon_change_percent)))
 
             # Determine the new target for the BalloonController.  Only set
-            # if the value is a large enough for the change to be worth it. 
+            # if the value is a large enough for the change to be worth it.
             (if (> balloon_size guest.balloon_max)
                 (set balloon_size guest.balloon_max) 0)
             (if (< balloon_size balloon_min)

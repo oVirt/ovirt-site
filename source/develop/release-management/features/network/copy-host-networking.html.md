@@ -8,7 +8,7 @@ authors: amusil
 
 ## Summary
 
-Ordinarily, adding hosts in oVirt in the UI is tedious because you, as an administrator, have to set up the host 
+Ordinarily, adding hosts in oVirt in the UI is tedious because you, as an administrator, have to set up the host
 network on each new host.
 
 The Copy Host Networking feature makes adding new hosts easier because you can configure the network on a single host
@@ -25,16 +25,16 @@ in the Administration Portal UI, and as a REST API method.
 
 ### Example flow
 
-After creating a cluster, you add several hosts (`Host0, Host1, Host2`). 
-You configure the network settings for `Host0`. The two other hosts have the same network 
+After creating a cluster, you add several hosts (`Host0, Host1, Host2`).
+You configure the network settings for `Host0`. The two other hosts have the same network
 interface layout as `Host0`, so you copy the network configuration from `Host0` to `Host1` and `Host2`.
 
 In the Admin Portal, you go to the `Host1` and `Host2` network interfaces and click
 the `Copy Host Networking` button. In the popup window that appears,
 you select the host, `Host0`, from which to copy the configuration.
 
-Alternatively, with the REST API, you can use the `copynetworks` method for `Host1` and `Host2`. 
-This method takes a single parameter, the host ID from which to copy the configuration (`Host0`). 
+Alternatively, with the REST API, you can use the `copynetworks` method for `Host1` and `Host2`.
+This method takes a single parameter, the host ID from which to copy the configuration (`Host0`).
 
 ### Procedure
 
@@ -52,16 +52,16 @@ source host.
    * Note: only one host must be selected for this action to be available.
 5. In the popup window that appears, select the destination host to which the configuration is to be copied.
    * Note: only hosts in the same cluster as the source host will be listed as potential destinations.
-6. Click the `Copy Host Networks` button. 
+6. Click the `Copy Host Networks` button.
 7. Engine applies the configuration and posts a notification when done.
 
 ![copy host networks image](../../../../images/wiki/copy_host_networks.png)
-  
+
 #### Copy a network configuration using the REST API
 
-Send POST method 
+Send POST method
 
-`api/hosts/{destinaton_host_id}/copyhostnetworks` 
+`api/hosts/{destinaton_host_id}/copyhostnetworks`
 
 with body:
 
@@ -86,9 +86,9 @@ with body:
 
 ### Limitations
 
-* You can copy host configurations only within the same cluster. 
+* You can copy host configurations only within the same cluster.
 
-* You cannot copy network configurations that contain static IP addresses: 
+* You cannot copy network configurations that contain static IP addresses:
 This sets the boot protocol in the resulting network to `none`.
 
 * Copying a configuration to a host with the same interface names but different physical network connections will
@@ -97,7 +97,7 @@ produce a bad configuration.
 * The destination host has to have an equal or greater number of interfaces as the original host. Otherwise,
 the feature cannot determine what to do and the operation will fail.
 
-* The cluster's management network stays on the original interface which is excluded from the operation. 
+* The cluster's management network stays on the original interface which is excluded from the operation.
 
 * Copying QoS, DNS and custom_properties is not supported.
 
@@ -117,7 +117,7 @@ Given the parameters, the method validates that the following items are correct:
 * Both hosts are in the same cluster.
 * The destination host has an equal or higher number of interfaces than the source host.
 
-(NOTE: These interface names and physical connections to the datacenter are recommended to be identical. Otherwise, 
+(NOTE: These interface names and physical connections to the datacenter are recommended to be identical. Otherwise,
 this sorting process might produce a bad network configuration on the destination host.)
 
 The method prepares a set of network attachment definitions for the DestinationHost by doing the following:
@@ -137,20 +137,20 @@ The method prepares a set of network attachment definitions for the DestinationH
  transaction.
 * If there is an error, it reverts the configuration changes.
 
-The Admin Portal has a new button called Copy Host Networking. Clicking the button opens a dialog window. There, 
+The Admin Portal has a new button called Copy Host Networking. Clicking the button opens a dialog window. There,
 you can select the source host from which to copy the configuration.
 
 
 ### Future work
 
-The biggest limitation is network mapping of interfaces with different name. 
+The biggest limitation is network mapping of interfaces with different name.
 This can be overcome by enabling custom mapping which would let the administrator to map certain
 or all interfaces to their corresponding equivalents on the destination host. This way the limitation
 of interface count on destination host could be removed assuming that the administrator would provide
 specific mapping for this setups. This functionality could be enabled via UI and REST API.
 
 Static IP configuration could be improved by letting the administrator to set the increment value
-or provide mapping some or all of the static addresses. 
+or provide mapping some or all of the static addresses.
 
 ## Testing
 
@@ -164,13 +164,13 @@ or provide mapping some or all of the static addresses.
 excessive should be left without any configuration change
 
 * Configuration that should be tested for successful run, all settings should be copied except the
-static IP configuration which should be set as none: 
+static IP configuration which should be set as none:
 
     -  Interface with single network
     -  Bond with two interfaces with single non-VLAN and VLAN network attached
     -  Interface with multiple VLANs
     -  Interface with a label
     -  Network with DHCP configuration IPv4 and IPv6
-    -  Network with static IP configuration IPv4 and IPv6 
+    -  Network with static IP configuration IPv4 and IPv6
     -  Network with stateless IPv6 configuration
-    -  Network with no boot protocol 
+    -  Network with no boot protocol

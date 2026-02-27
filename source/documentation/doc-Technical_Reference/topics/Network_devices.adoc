@@ -11,4 +11,4 @@
 
 * The *rtl8139* network interface controller exposes a virtualized *Realtek Semiconductor Corp RTL8139* to guests.
 
-Multiple network interface controllers are permitted per guest. Each controller added takes up an available PCI slot on the guest. 
+Multiple network interface controllers are permitted per guest. Each controller added takes up an available PCI slot on the guest.

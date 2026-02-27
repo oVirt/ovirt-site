@@ -35,7 +35,7 @@ You can configure QXL drivers using either a graphical interface or the command 
 
 *Configuring QXL drivers on the command line*
 
-. Back up */etc/X11/xorg.conf*: 
+. Back up */etc/X11/xorg.conf*:
 +
 [source,terminal,subs="normal"]
 ----
@@ -43,7 +43,7 @@ You can configure QXL drivers using either a graphical interface or the command 
 ----
 +
 . Make the following change to the Device section of */etc/X11/xorg.conf*:
-+			
++
 [source,terminal,subs="normal"]
 ----
 Section 	"Device"

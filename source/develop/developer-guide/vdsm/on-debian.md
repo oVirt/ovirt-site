@@ -43,13 +43,13 @@ copy all the .deb to ~/debian/binary than regenerate Packages.gz and Source.gz
 
 Than add Release files:
 
-      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/binary/Release 
+      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/binary/Release
       Archive: unstable
       Component: contrib
       Origin: stirabos
       Label: First attempt to have VDSM on Debian Jessie (still not working)
       Architecture: amd64
-      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/source/Release 
+      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/source/Release
       Archive: unstable
       Component: contrib
       Origin: stirabos

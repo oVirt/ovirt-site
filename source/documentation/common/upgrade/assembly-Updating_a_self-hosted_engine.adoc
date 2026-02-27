@@ -9,7 +9,7 @@ To update a self-hosted engine from your current version to the latest version, 
 
 [NOTE]
 ====
-Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see the section Updating the {virt-product-fullname} {engine-name}. 
+Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see the section Updating the {virt-product-fullname} {engine-name}.
 ====
 
 [discrete]

@@ -4,8 +4,8 @@
 <subtitle>Accessing and using the VM Portal</subtitle>
 <abstract><para>This document shows you how to use the Red Hat Virtualization VM Portal.</para>
 <!--<para>{beta-disclaimer}</para>--></abstract>
-<authorgroup id="Author_Group"> 
-	<author> 
+<authorgroup id="Author_Group">
+	<author>
 		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
 		<affiliation>
 			<orgname>

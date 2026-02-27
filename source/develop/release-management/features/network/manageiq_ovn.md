@@ -35,7 +35,7 @@ Since there are some gaps between the 'Neutron like' API oVirt's OVN provider ha
 * Removing the network provider from ManageIQ in case it is removed from oVirt.
 
 ## Limitations
-* ManageIQ supports only one network provider for one infra provider (such as oVirt infra provider). 
+* ManageIQ supports only one network provider for one infra provider (such as oVirt infra provider).
 * In oVirt there is no way to distinguish between Openstack network provider and OVN provider. Therefore, ManageIQ has no way to find out what provider is the OVN one.
 In case oVirt has more than one network provider, the first one (alphabetic order) will be used.
 

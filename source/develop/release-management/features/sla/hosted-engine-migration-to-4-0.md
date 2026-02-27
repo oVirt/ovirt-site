@@ -22,7 +22,7 @@ In 4.0 we are releasing oVirt engine for el7 but not for el6 so we should provid
 *   Email: <stirabos@redhat.com>
 
 ### Detailed Description
-The upgrade procedure is long and pretty error prone so we are extending ovirt-hosted-engine-setup to support also this flow and not just only fresh deployments. 
+The upgrade procedure is long and pretty error prone so we are extending ovirt-hosted-engine-setup to support also this flow and not just only fresh deployments.
 The upgrade flow supports:
 - el6 appliance based hosted-engine -> el7 appliance based hosted-engine
 - custom el6 hosted-engine VM -> el7 appliance based hosted-engine
@@ -48,7 +48,7 @@ The upgrade flow will not support creating a custom el7 VM.
 - - not interactively  (from cloud-init and checking the output over a virtio channel) run engine-setup to configure the 4.0 engine
 - check the engine status
 - via REST api, scan external disks and add the floating backup disk to the engine since it was created after the backup was taken
- 
+
 ### Rollback
 At the end of the procedure, the backup disk will contain a copy of the engine VM disk before the upgrade.
 The backup can be rolled back at any time with the --rollback-upgrade option.
@@ -99,17 +99,17 @@ The script will enforce that the engine VM is running on this host and this host
     [ INFO  ] Checking SPM status on this host
     [ INFO  ] Connecting to the Engine
     [ INFO  ] This upgrade tool is running on the SPM host
-  
+
 Add the missing information, it depends on how the 3.6 engine was deployed.
-  
+
     [ INFO  ] Detecting available oVirt engine appliances
               The following appliance have been found on your system:
                     [1] - The oVirt Engine Appliance image (OVA) - 4.0-20160727.1.el7.centos
                     [2] - Directly select an OVA file
               Please select an appliance (1, 2) [1]:
-  
+
 Select the 4.0 appliance
-  
+
     [ INFO  ] Verifying its sha1sum
     [ INFO  ] Checking OVF archive content (could take a few minutes depending on archive size)
     [ INFO  ] Checking OVF XML content (could take a few minutes depending on archive size)
@@ -120,7 +120,7 @@ Select the 4.0 appliance
                engine-backup --mode=backup --file=engine_backup.tar.gz --log=engine_backup.log
               Then copy the backup archive to this host and input here its path when ready.
               Please specify path to engine backup archive you would like to restore on the new appliance: /root/engine_backup.tar.gz
- 
+
 Connect to the host and run engine-backup, copy the archive to the host.
 
     [ INFO  ] Validating backup file '/root/engine_backup.tar.gz'
@@ -128,9 +128,9 @@ Connect to the host and run engine-backup, copy the archive to the host.
     [ INFO  ] '/root/engine_backup.tar.gz' is a sane backup file
     [ INFO  ] Checking version requirements
     [ INFO  ] Connecting to the Engine
-    
+
 The script will do the preliminary checks.
-    
+
     [ INFO  ] All the datacenters and clusters are at a compatible level
               Enter root password that will be used for the engine appliance (leave it empty to skip):
               Confirm appliance root password:
@@ -150,7 +150,7 @@ and it will create the backup disk trough the engine
     [ INFO  ] Still waiting for engine VM backup disk to be created. This may take several minutes...
     [ INFO  ] Still waiting for engine VM backup disk to be created. This may take several minutes...
     [ INFO  ] The engine VM backup disk is now ready
-    
+
 It will shutdown the engine VM and it will copy the VM over the backup disk
 
     [ INFO  ] Shutting down the current engine VM
@@ -162,9 +162,9 @@ The it will copy the el7 appliance over the engine VM disk
     [ INFO  ] Extracting disk image from OVF archive (could take a few minutes depending on archive size)
     [ INFO  ] Validating pre-allocated volume size
     [ INFO  ] Uploading volume to data domain (could take a few minutes depending on archive size)
-    
+
 It will inject there the engine backup
-    
+
     [ INFO  ] Injecting engine backup
     [ INFO  ] Backup successfully injected
     [ INFO  ] Image successfully imported from OVF
@@ -332,7 +332,7 @@ If everything went fine, it will autonomously execute engine-setup
               |- [ INFO  ] Execution of setup completed successfully
               |- HE_APPLIANCE_ENGINE_SETUP_SUCCESS
     [ INFO  ] Engine-setup successfully completed
-    
+
 It will wait for the new engine to come and it will check that everything is fine
 
     [ INFO  ] Engine-setup successfully completed
@@ -370,7 +370,7 @@ In order to rollback:
               Continuing will rollback the engine VM from a previous upgrade attempt.
               This procedure will restore an engine VM image from a backup taken during an upgrade attempt.
               The result of any action occurred after the backup creation instant could be definitively lost.
-              Are you sure you want to continue? (Yes, No)[Yes]: 
+              Are you sure you want to continue? (Yes, No)[Yes]:
               Configuration files: []
               Log file: /var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-20160805154705-arsb4n.log
               Version: otopi-1.5.1 (otopi-1.5.1-1.el7.centos)
@@ -379,11 +379,11 @@ In order to rollback:
     [ INFO  ] Stage: Programs detection
     [ INFO  ] Stage: Environment setup
 
-After initial checks (engine VM is down, global maintenance mode), 
+After initial checks (engine VM is down, global maintenance mode),
 
     [ INFO  ] Checking maintenance mode
     [ INFO  ] The engine VM is down.
-    
+
 The script will let the user choose a backup source from the available backup disks.
 The backup disk label will indicate when the backup was taken:
 

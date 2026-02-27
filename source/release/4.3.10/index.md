@@ -44,7 +44,7 @@ To learn about features introduced before 4.3.10, see the
 
  - [BZ 1717336](https://bugzilla.redhat.com/show_bug.cgi?id=1717336) **[downstream clone - 4.3.6] [RFE] OVF_STORE last update not exposed in the UI**
 
-   
+
 
 
 ### Bug Fixes
@@ -70,7 +70,7 @@ To learn about features introduced before 4.3.10, see the
 
  - [BZ 1829597](https://bugzilla.redhat.com/show_bug.cgi?id=1829597) **Require lvm2 with supporting locking_type=4 for pvs command on CentOS**
 
-   
+
 
 
 #### imgbased
@@ -86,15 +86,15 @@ In this release, the installation with Kickstart succeeds.
 
  - [BZ 1832707](https://bugzilla.redhat.com/show_bug.cgi?id=1832707) **Errors from tar are not logged**
 
-   
+
 
  - [BZ 1825740](https://bugzilla.redhat.com/show_bug.cgi?id=1825740) **[OVN] ovirt sync to ovirt-provider-ovn breaks on upgrade of ovirt-engine-4.2.8.9-0.1.el7ev.noarch to ovirt-engine-4.3.9.4-11.el7.noarch**
 
-   
+
 
  - [BZ 1815411](https://bugzilla.redhat.com/show_bug.cgi?id=1815411) **Disable usage of Ansible 2.10 for RHV**
 
-   
+
 
 
 ### No Doc Update
@@ -103,18 +103,18 @@ In this release, the installation with Kickstart succeeds.
 
  - [BZ 1829348](https://bugzilla.redhat.com/show_bug.cgi?id=1829348) **lvm2 dependency on ppc64le need to stay on 7.6**
 
-   
+
 
 
 #### oVirt Engine
 
  - [BZ 1827039](https://bugzilla.redhat.com/show_bug.cgi?id=1827039) **Error retrieving OpenID userinfo [RHV clone - 4.3.10]**
 
-   
+
 
  - [BZ 1817450](https://bugzilla.redhat.com/show_bug.cgi?id=1817450) **host_service.install() does not work with deploy_hosted_engine as True. [RHV clone - 4.3.10]**
 
-   
+
 
 
 #### Contributors

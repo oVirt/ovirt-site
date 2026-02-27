@@ -76,7 +76,7 @@ This call will result in adding following devices:
 ```xml
     <graphics
       autoport="yes"
-      keymap="en-us" 
+      keymap="en-us"
       listen="0"
       passwd="*****"
       passwdValidTo="1970-01-01T00:00:01"

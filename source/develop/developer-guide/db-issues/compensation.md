@@ -17,16 +17,16 @@ Postgres does not implement the READ-UNCOMMITTED isolation level. We have to not
 
 Change log is recorded in the database in the business_entity_snapshot table
 
-           Column      |          Type          | Modifiers 
+           Column      |          Type          | Modifiers
       -----------------+------------------------+-----------
       id              | uuid                   | not null
       command_id      | uuid                   | not null
       command_type    | character varying(256) | not null
-      entity_id       | character varying(128) | 
-      entity_type     | character varying(128) | 
-      entity_snapshot | text                   | 
-      snapshot_class  | character varying(128) | 
-      snapshot_type   | integer                | 
+      entity_id       | character varying(128) |
+      entity_type     | character varying(128) |
+      entity_snapshot | text                   |
+      snapshot_class  | character varying(128) |
+      snapshot_type   | integer                |
       insertion_order | integer                |
 
 Each command may affect multiple entities
@@ -49,7 +49,7 @@ The business entity must be serializable, so does the type of the ID in order to
 
        CHANGED_ENTITY – update/delete
        NEW_ENTITY_ID – insert
-       CHANGED_STATUS_ONLY – update status 
+       CHANGED_STATUS_ONLY – update status
 
 ## CompensationContext
 

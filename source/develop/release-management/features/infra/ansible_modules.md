@@ -30,7 +30,7 @@ systems to enforce, or a set of steps in a general IT process. Playbooks uses [Y
 general playbooks consist of tasks. Every tasks executes specific module with parameters.
 
 ## Modules
-Ansible ships with a number of modules (called the ‘module library’) that can be executed directly on remote hosts or through 
+Ansible ships with a number of modules (called the ‘module library’) that can be executed directly on remote hosts or through
 Playbooks. Modules have to be idempotent. The concept that change commands should only be applied when they need to be applied,
 and that it is better to describe the desired state of a system than the process of how to get to that state. This feature page
 describes oVirt ansible modules.
@@ -86,7 +86,7 @@ The following table shows oVirt modules and version of Ansible where the modules
 [ovirt_groups]: #ovirt_groups
 [ovirt_permissions]: #ovirt_permissions
 
-## ovirt_auth 
+## ovirt_auth
 [[source]](https://github.com/ansible/ansible-modules-extras/blob/0cfb1c4c3492045d891cdaa2bbb9636ec683636f/cloud/ovirt/ovirt_auth.py)
 module authenticates to oVirt engine and creates SSO
 token, which should be later used in all other oVirt modules, so all modules don’t need to perform login and logout. This
@@ -170,7 +170,7 @@ ovirt_vms:
 ovirt_vms:
     name: myvm
     memory: 4GiB
-  
+
 # When change on the VM needs restart of the VM, use next_run state,
 # The VM will be updated and rebooted if there are any changes.
 # If present state would be used, VM won't be restarted.
@@ -649,7 +649,7 @@ module to manage oVirt MAC pools. This module can handle creating and removing o
     ranges:
       - 00:1a:4a:16:01:51,00:1a:4a:16:01:61
       - 00:1a:4a:16:02:51,00:1a:4a:16:02:61
-      
+
 # Remove MAC pool:
 - ovirt_mac_pools:
     state: absent
@@ -876,7 +876,7 @@ To execute the playbook run following command:
 ```bash
 $ cd $HOME/ovirt-ansible
 $ ansible-playbook playbooks/setup_demo.yml --ask-vault-pass
-Vault password: 
+Vault password:
 
 PLAY [Setup oVirt environment] *************************************************
 

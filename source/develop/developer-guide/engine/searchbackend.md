@@ -31,7 +31,7 @@ The problems in general:
 *   The search query is wrapped with an outer query and mapped with id, so the primary key will be scanned even if it is not used in the result and not filtered
 
       engine=# explain SELECT * FROM (SELECT * FROM audit_log WHERE ( audit_log_id IN (SELECT audit_log.audit_log_id FROM  audit_log   WHERE  audit_log.vds_id::varchar LIKE '78933a44-360c-11e1-8fec-2f707af25b44' ))  ORDER BY audit_log_id DESC ) as T1 OFFSET (1 -1) LIMIT 100;
-                                                            QUERY PLAN                                                        
+                                                            QUERY PLAN
       -------------------------------------------------------------------------------------------------------------------------
       Limit  (cost=`**`592.60..593.13`**` rows=42 width=3163)
         ->  Sort  (cost=592.60..592.71 rows=42 width=826)
@@ -47,7 +47,7 @@ The problems in general:
 
 The first problem is that LIKE can not use indices. In this query, we could just use =.
 
-      engine=# EXPLAIN SELECT * FROM (SELECT * FROM audit_log WHERE ( audit_log_id IN (SELECT audit_log.audit_log_id  FROM  audit_log   WHERE  audit_log.vds_id = '78933a44-360c-11e1-8fec-2f707af25b44' ))  ORDER BY audit_log_id DESC ) as T1 OFFSET (1 -1) LIMIT 100;                                            QUERY  PLAN                                            
+      engine=# EXPLAIN SELECT * FROM (SELECT * FROM audit_log WHERE ( audit_log_id IN (SELECT audit_log.audit_log_id  FROM  audit_log   WHERE  audit_log.vds_id = '78933a44-360c-11e1-8fec-2f707af25b44' ))  ORDER BY audit_log_id DESC ) as T1 OFFSET (1 -1) LIMIT 100;                                            QUERY  PLAN
       --------------------------------------------------------------------------------------------------
       Limit  (cost=`**`499.25..499.64`**` rows=31 width=3163)
         ->  Sort  (cost=499.25..499.33 rows=31 width=826)
@@ -63,7 +63,7 @@ As a result of this simplification, the estimated query cost dropped from ~600 t
 
       engine=# CREATE INDEX idx_audit_log_vds_id on audit_log(vds_id);CREATE INDEX
       engine=# EXPLAIN SELECT * FROM (SELECT * FROM audit_log WHERE (audit_log_id IN (SELECT audit_log.audit_log_id  FROM  audit_log   WHERE  audit_log.vds_id = '78933a44-360c-11e1-8fec-2f707af25b44' ))  ORDER BY audit_log_id DESC ) as T1 OFFSET (1 -1) LIMIT 100;
-                                                      QUERY PLAN                                                 
+                                                      QUERY PLAN
       ------------------------------------------------------------------------------------------------------------
       Limit  (cost=`**`292.67..293.05`**` rows=31 width=3163)
         ->  Sort  (cost=292.67..292.74 rows=31 width=826)
@@ -82,7 +82,7 @@ As a result of this simplification, the estimated query cost dropped from ~600 t
 Note that the estimated cost dropped because it can check a relevant index. Now let's simplify the SQL statement to avoid index-scanning pk_audit_log, by removing the redundant outer query.
 
       engine=# EXPLAIN SELECT * FROM audit_log   WHERE  audit_log.vds_id = '78933a44-360c-11e1-8fec-2f707af25b44'  ORDER BY audit_log_id DESC OFFSET 0 LIMIT 100;
-                                                QUERY PLAN                                           
+                                                QUERY PLAN
       ------------------------------------------------------------------------------------------------
       Limit  (cost=`**`87.57..87.65`**` rows=31 width=826)
         ->  Sort  (cost=87.57..87.65 rows=31 width=826)

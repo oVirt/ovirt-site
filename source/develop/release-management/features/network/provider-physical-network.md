@@ -88,7 +88,7 @@ If no corresponding logical network is found, the physical network is ignored
 during import and synchronization.
 The [external network provider][1] describes the physical network with three
 attributes `provider:physical_network`, `provider:network_type` and
-`provider:segmentation_id`.  
+`provider:segmentation_id`.
 The corresponding logical network is detected by matching the three attributes:
 * `provider:physical_network` to [VDSM name][2] of the network
 * `provider:network_type` to the type of the network

@@ -17,7 +17,7 @@ Once Ignition has been configured as the initialization method, it cannot be rev
 +
 [NOTE]
 ====
-If the {enterprise-linux} CoreOS image you are using contains an Ignition version different than 2.3.0, you need to use a script in the *Ignition Script* field to enforce the Ignition version included in your {enterprise-linux} CoreOS image. 
+If the {enterprise-linux} CoreOS image you are using contains an Ignition version different than 2.3.0, you need to use a script in the *Ignition Script* field to enforce the Ignition version included in your {enterprise-linux} CoreOS image.
 
 When you use an Ignition script, the script instructions take precedence over and override any conflicting Ignition settings you configured in the UI.
 ====

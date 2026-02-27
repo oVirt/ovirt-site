@@ -73,19 +73,19 @@ The **`ip_address_assignments`** representation is:
 ```xml
  <ip_address_assignments>
    <ip_address_assignment>
-           <assignment_method>STATIC</assignment_method> 
-             
+           <assignment_method>STATIC</assignment_method>
+
      <ip address="…" netmask="…" gateway ="…"/>
    </ip_address_assignment>
    <ip_address_assignment>
-           <assignment_method>STATIC</assignment_method> 
+           <assignment_method>STATIC</assignment_method>
      <ip address="…" netmask="…" gateway ="…"/>
      <ip>
    </ip_address_assignment>
-       
-         
+
+
    <ip_address_assignment>
-           <assignment_method>STATIC</assignment_method> 
+           <assignment_method>STATIC</assignment_method>
      <ip address="…" netmask="…" gateway ="…" version="6"/>
    </ip_address_assignment>
  <ip_address_assignments>
@@ -96,7 +96,7 @@ A new **`link_aggregation`** element is added to abstract the implementation:
 ```xml
    <link_aggregation>
      <options>
-             
+
        <option>
          <name>module</name>
          <value>bonding</value>
@@ -280,7 +280,7 @@ Request should contain only nics or bonds (no vlans).
 *   Deprecated Host nics actions:
 
     `/api/hosts/{host:id}/nics/{nic:id}/attach`
-    is replaced by **POST** request to 
+    is replaced by **POST** request to
     `/api/hosts/{host:id}/nics/{nic:id}/networkattachments`
 
 and:

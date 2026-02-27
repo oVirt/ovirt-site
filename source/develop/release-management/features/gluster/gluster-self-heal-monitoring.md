@@ -52,9 +52,9 @@ These policies will be checked after all other existing policies. Similar to exi
 Current Self-Heal info command takes long time to respond so ware working on a better way to determine if a host is source of self healing. Until then, we will check just the brick status.
 
 More info about standard host fencing is available at http://old.ovirt.org/Automatic_Fencing#Automatic_Fencing http://old.ovirt.org/Fence_kdump https://www.youtube.com/watch?v=V1JQtmdleaM
- 
+
 ## Host Maintenance
-Self-Heal status and Cluster quorum should be considered while moving the host to maintenance or fencing the host. Host will not be allowed to move to maintenance/fence when there are some unsynced entries present on the bricks from the particular host. Considering Heal info sync interval is 10 minutes, we will fetch heal info before moving the host to maintenance. If brick processes are down on the node then maintenance will be allowed. Also, we will provide a force option in the UI which can be used to move the host to maintenance even when there are some unsynced entries in the host. 
+Self-Heal status and Cluster quorum should be considered while moving the host to maintenance or fencing the host. Host will not be allowed to move to maintenance/fence when there are some unsynced entries present on the bricks from the particular host. Considering Heal info sync interval is 10 minutes, we will fetch heal info before moving the host to maintenance. If brick processes are down on the node then maintenance will be allowed. Also, we will provide a force option in the UI which can be used to move the host to maintenance even when there are some unsynced entries in the host.
 
 Host Maintenance will be enabled/disabled based on the following criteria.
 
@@ -63,11 +63,11 @@ Host Maintenance will be enabled/disabled based on the following criteria.
 | Bricks are Down | --- | Allowed |
 | Unsynced Entries present | --- | Not Allowed |
 | No Unsynced Entries | Quorum available without this Node | Allowed |
-| No Unsynced Entries | Quorum not available without this Node | Not Allowed | 
+| No Unsynced Entries | Quorum not available without this Node | Not Allowed |
 
 ###MaintenanceNumberOfVdssCommand (for Host Maintenance)
   MaintenanceNumberOfVdssCommand is used for moving one or more number of hosts to maintenance. It will be enhanced to consider gluster self-heal and quorum before moving the host to maintenance. Following validations will be added to MaintenanceNumberOfVdssCommand.validate() method.
-  
+
      if (host supports both gluster & virt services & not force-maintenance)
       if(all bricks are down)
         allow host maintenance
@@ -79,7 +79,7 @@ Host Maintenance will be enabled/disabled based on the following criteria.
             allow host maintenance
           else
             disable host maintenance
-  
+
 ## UI Changes
 
 ### Volumes Tab
@@ -95,11 +95,11 @@ New icon with warning symbol will be shown on the status column for the bricks w
 - 'X unsynced entries present' when unsynced entries present and its not getting reduced (healed)
 - Expected time to heal all the unsynced entries will be shown if more then two values found in 'unsynced_entries_history' for the brick and it shows.
 
-#####Note: 
+#####Note:
 Expected time to heal is computed as follows:
 
-1. Calculate the average heal rate using 'unsynced_entries_history'. For example, if we have values '1000, 800, 600' in 
+1. Calculate the average heal rate using 'unsynced_entries_history'. For example, if we have values '1000, 800, 600' in
 'unsynced_entries_history' and self-heal info sync frequency is 10 minutes then average heal rate will be 20 minutes.
 2. Expected time to heal is calculated using unSyncedEntries/average heal rate.
 
- 
+

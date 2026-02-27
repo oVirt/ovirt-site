@@ -291,7 +291,7 @@ network are encapsulated in tunnels by OVN.
    the tunneling overhead greater than the desired MTU, e.g. 8058 bytes. In the
    default configuration of ovirt-provider-ovn the tunneling overhead is 58 bytes.
 2. Assign this network, to a host NIC of every host in the cluster. Ensure that
-   the switch port connected to this NICs is configured to accept big frames, 
+   the switch port connected to this NICs is configured to accept big frames,
    e.g. by using [LLDP][17].
 3. Configure OVN to use this new network to create the tunnels:
 ~~~~

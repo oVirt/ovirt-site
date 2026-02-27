@@ -7,7 +7,7 @@ authors: bzlotnik
 # Managed Block Storage Copy
 
 ## Summary
-The motivation for this feature is to allow users to copy disks from regular Storage Domains to Managed Block Storage Domains. 
+The motivation for this feature is to allow users to copy disks from regular Storage Domains to Managed Block Storage Domains.
 
 ### Owner
 *   Benny Zlotnik (<bzlotnik@redhat.com>)

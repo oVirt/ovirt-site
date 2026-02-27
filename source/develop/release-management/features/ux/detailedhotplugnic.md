@@ -121,8 +121,8 @@ A new API is added for this feature.
     hotunplugNic (params)
 
     params = {
-    'vmId': vmUUID, 
-    'nic':  
+    'vmId': vmUUID,
+    'nic':
            {'type': 'interface',
             'device': 'bridge|sriov|vnlink|bridgeless',
             'network': 'network name',                      <--- bridge name

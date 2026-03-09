@@ -36,4 +36,3 @@ Please use this information with caution, as wiki updates are not always catchin
       retVal = (vdsCurrentMem <= vdsMemLimit);
 
 The retVal is a boolean flag which validates to True when there is sufficient memory.
-

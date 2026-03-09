@@ -24,4 +24,3 @@ You can follow <https://fedoraproject.org/wiki/Scsi-target-utils_Quickstart_Guid
 ## Expected Results
 
 *   Hosted engine setup should detect the failure at volume creation or earlier
-

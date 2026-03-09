@@ -18,4 +18,3 @@ will add disk device of specified lun id (lun id in client side, i.e. the one th
 Option section: directlun=lunid:readonly,lunid... - currenly, only the "readonly" option is available.
 
 NOTE: Will be made obsolete by the direct LUN feature in 3.1
-

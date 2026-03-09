@@ -370,4 +370,3 @@ Action Groups:
 ## External Scheduler
 
 See [External Scheduler](/develop/release-management/features/sla/external-scheduling-proxy.html)
-

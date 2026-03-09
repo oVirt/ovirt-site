@@ -51,4 +51,3 @@ bridge over bond over several nics:
 legless bridge (in-host only communication)
 
       bridge3
-

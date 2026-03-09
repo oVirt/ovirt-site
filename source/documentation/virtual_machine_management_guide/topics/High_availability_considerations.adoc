@@ -18,4 +18,3 @@ A highly available host requires a power management device and fencing parameter
 * There must be enough CPUs on the destination host that are not in use to support the virtual machine's requirements.
 
 * There must be enough RAM on the destination host that is not in use to support the virtual machine's requirements.
-

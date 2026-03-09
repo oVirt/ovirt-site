@@ -22,4 +22,3 @@ The feature can be set per VM/Template/Pool via the VM popup dialog.
 *   Backend - DONE (http://gerrit.ovirt.org/#/c/19619/)
 *   Frontend - DONE (http://gerrit.ovirt.org/#/c/19620/)
 *   Restapi - review pending (http://gerrit.ovirt.org/#/c/21911/)
-

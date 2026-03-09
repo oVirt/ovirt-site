@@ -106,6 +106,3 @@ Testing has to be executed on a Debian 7 system. Lower version do not fulfil the
 **Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM
 
 **Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
-
-
-

@@ -487,4 +487,3 @@ curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d '<disk id
 * Quota - The user might import disks which will extend a defined Quota in DC.
 
 This scenario is similar to when a user enforce a quota though it already been extended. The default behavior will treat that by letting the user still use the resources though they will not be able to create any more disks.
-

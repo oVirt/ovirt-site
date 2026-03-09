@@ -25,4 +25,3 @@ For each of the following methods: GUI/CLI/Python-API/REST-API
 GUI/CLI/Python-API/REST-API must allow you to define a fully operational DC hierarchy.
 
 ## Optional
-

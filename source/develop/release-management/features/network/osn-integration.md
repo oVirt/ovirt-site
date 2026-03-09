@@ -171,6 +171,3 @@ In order to test the feature follow these steps:
 ### Documentation / External references
 
 *   General purpose wiki: [Network_Provider](/develop/release-management/features/network/detailed-osn-integration.html)
-
-
-

@@ -20,4 +20,3 @@ The flow:
       1. The Window's component create a named pipe and is waiting for an incoming connection.
       2. The guest agent send the user's credentials though the named pipe.
       4. Using the user's credentials received from the named pipe, a login is performed on user's behalf.
-

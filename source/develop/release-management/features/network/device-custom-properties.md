@@ -156,4 +156,3 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 ## Comments and Discussion
 
 *   On the arch@ovirt.org mailing list.
-

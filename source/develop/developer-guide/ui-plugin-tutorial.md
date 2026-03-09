@@ -503,4 +503,3 @@ And we're done! Take a break from coding and play the game to see new score and 
 ### Mission Accomplished
 
 Congratulations! You've made it past all the levels, you should have a pretty good understanding of UI plugins now.
-

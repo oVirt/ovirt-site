@@ -91,6 +91,3 @@ No changes will be done to the REST API, but the implementation will allow speci
 <!-- -->
 
 *   NAT-based host-only network requested by DHC <https://lists.ovirt.org/hyperkitty/list/users@ovirt.org/thread/ED3I6QKRNZ6QEEPNIFVR2JPWER2GUMRQ/>
-
-
-

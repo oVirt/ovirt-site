@@ -51,7 +51,3 @@ Support multiple OpenStack external providers that use different Keystone URLs f
 ## Documentation / External references
 
 [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1157999)
-
-
-
-

@@ -97,6 +97,3 @@ response for the event which the callback depends on.
 ### Documentation / External references
 
 <https://bugzilla.redhat.com/show_bug.cgi?id=1284903>
-
-
-

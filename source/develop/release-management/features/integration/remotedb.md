@@ -84,5 +84,3 @@ engine-setup --gen-answer-file=<answer file full path>
 ```console
 engine-setup --answer-file=<answer file full path>
 ```
-
-

@@ -18,4 +18,3 @@ The user identifiers (UIDs) and group identifiers (GIDs) allocated may vary betw
 
 If UID `36` or GID `36` is already used by another account on the system a conflict will arise during installation of the `vdsm` and `qemu-kvm-rhev` packages.
 ====
-

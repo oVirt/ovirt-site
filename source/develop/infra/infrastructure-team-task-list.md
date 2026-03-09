@@ -47,4 +47,3 @@ authors:
 ## Standard procedures
 
 Standard procedures for performing any one-time or ongoing tasks are found in [Infrastructure documentation](/develop/infra/infrastructure-documentation.html).
-

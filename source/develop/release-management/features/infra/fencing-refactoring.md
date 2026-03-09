@@ -111,4 +111,3 @@ Following feature should be tested:
 *   Ability to add multiple sequential fence agents
 *   Ability to add multiple concurrent fence agents
 *   Ability to mix sequential/concurrent fence agents
-

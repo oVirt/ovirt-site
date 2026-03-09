@@ -94,6 +94,3 @@ Add RO disk search capability
 ## Benefit to oVirt
 
 This features allows the usage of read only disks. This is useful where we'd like to expose the data but don't want it to be altered. This is a new feature in the engine, allowing the attachment of a disk to a VM to be done with read only rights. A shareable disk could be attached to one VM as RO, and to another as RW.
-
-
-

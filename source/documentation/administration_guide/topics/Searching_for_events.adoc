@@ -36,5 +36,3 @@ The following table describes all search options you can use to search for event
 `Events: Vms.name = testdesktop and Hosts.name = gonzo.example.com`
 
 This example returns a list of events, where the event occurred on the virtual machine named `testdesktop` while it was running on the host `gonzo.example.com`.
-
-

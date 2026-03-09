@@ -49,4 +49,3 @@ So we'd like to begin with 3 policies expressing the range.
     -   VDSM
     -   MoM
 *   Detailed design: Sla/policies/qos
-

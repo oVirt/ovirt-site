@@ -116,4 +116,3 @@ title: oVirt 4.0.z Release Management
 *   See [oVirt 4.0 release-management](/develop/release-management/releases/4.0/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.0.1 Release Notes](/release/4.0.1/)
 *   Blocking bugs must be fixed: [oVirt 4.0.1 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.0.1&v1=blocker)
-

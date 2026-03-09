@@ -26,4 +26,3 @@ dnf install -y ovirt-release-master epel-release
 ```
 
 RHEL and derivates are explained [here](/download/install_on_rhel.html).
-

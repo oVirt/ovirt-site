@@ -253,4 +253,3 @@ Features being considered for inclusion/already in master:
     -   <http://gerrit.ovirt.org#/c/13181/>
 *   Frontend Clean-up/Refactoring (at least partial/first phase)
 *   Upgrade Google Web Toolkit & related framework versions
-

@@ -30,4 +30,3 @@ diskParam.setFormat("cow");
 Disk disk = vm.getDisks().add(diskParam);
 ----
 +
-

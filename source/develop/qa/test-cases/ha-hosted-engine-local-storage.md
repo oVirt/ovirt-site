@@ -38,4 +38,3 @@ So, each host creates an unreplicated gluster volume and exposes the `<host>-loc
 from where it can be used by the host on which it resides for VM backing storage.
 
 Given the only obstacle being oVirt design architecture and not any physical or 3rd party problem, it ought to be feasible to permit each host to provide local storage only for use by itself.
-

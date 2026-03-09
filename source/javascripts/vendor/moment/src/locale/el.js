@@ -86,4 +86,3 @@ export default moment.defineLocale('el', {
         doy : 4  // The week that contains Jan 4st is the first week of the year.
     }
 });
-

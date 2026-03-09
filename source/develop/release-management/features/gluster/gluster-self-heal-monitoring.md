@@ -101,5 +101,3 @@ Expected time to heal is computed as follows:
 1. Calculate the average heal rate using 'unsynced_entries_history'. For example, if we have values '1000, 800, 600' in
 'unsynced_entries_history' and self-heal info sync frequency is 10 minutes then average heal rate will be 20 minutes.
 2. Expected time to heal is calculated using unSyncedEntries/average heal rate.
-
-

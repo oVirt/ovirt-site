@@ -144,4 +144,3 @@ include collectd. Either use `includepkgs` and add those you need, or use
 ### VDSM
 
  - [BZ 1461811](https://bugzilla.redhat.com/show_bug.cgi?id=1461811) <b>RHEL7.4 | Trying to start a VM after restore RAM snapshot fails - 'virDomainRestoreFlags() failed'</b><br>
-

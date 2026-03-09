@@ -55,4 +55,3 @@ Porting the guest agent and VDSM to Ubuntu is a high priority for the project.
 ## Arch Linux
 
 * [oVirt on Arch Linux](/develop/developer-guide/arch-linux.html)
-

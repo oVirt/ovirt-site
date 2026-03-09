@@ -276,4 +276,3 @@ packages from other repos.
 #### oVirt Release Package
 
  - [BZ 1613231](https://bugzilla.redhat.com/show_bug.cgi?id=1613231) <b>goferd errors in /var/log/messages of Red Hat Virtualization Host</b><br>
-

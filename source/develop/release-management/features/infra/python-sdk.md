@@ -354,4 +354,3 @@ codegen
 ## Maintainers
 
 Michael Pasternak: mishka8520@yahoo.com, Juan Hernandez: juan.hernandez@redhat.com
-

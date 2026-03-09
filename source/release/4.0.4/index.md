@@ -331,4 +331,3 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1340963](https://bugzilla.redhat.com/show_bug.cgi?id=1340963) <b>configuring SSO integration cause API failure in engine-image-uploader</b><br>
  - [BZ 1335169](https://bugzilla.redhat.com/show_bug.cgi?id=1335169) <b>nfs-utils package is required by image-uploader but is not listed as dependency</b><br>
-

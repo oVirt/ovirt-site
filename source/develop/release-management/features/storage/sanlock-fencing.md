@@ -154,6 +154,3 @@ Using disk based leases, we can ensure that VMs are killed when sanlock looses t
 Adding disk based leases will probably require a new storage domain format, as the current leases volume can only hold 256-2000 leases (depending on sector size), and this may not be enough for some setups. Another issue, is how to pass leases from one VM to another during migration.
 
 For this version, we prefer to have simpler solution.
-
-
-

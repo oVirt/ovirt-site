@@ -94,5 +94,3 @@ Increase capacity of hosts for certain workloads.
 ## Documentation / External references
 
 *   TBD
-
-

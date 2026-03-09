@@ -97,4 +97,3 @@ During engine setup, the existing CPU Types are renamed and changed either to _d
 5. User puts host A into the maintenance, updates the microcode and activates the host. The warning on the Host A disappears
 6. User puts host B into the maintenance, updates the microcode and activates the host. The warning on the Host B disappears
 7. There is no warning on the cluster in the Cluster list view
-

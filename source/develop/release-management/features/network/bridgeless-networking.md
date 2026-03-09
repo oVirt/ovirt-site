@@ -47,7 +47,3 @@ Some consumers of oVirt Node don't require the bridge or even conflict with an e
 ## Documentation / External references
 
 *   Coming Soon
-
-
-
-

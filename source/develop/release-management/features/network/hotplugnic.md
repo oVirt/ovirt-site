@@ -47,6 +47,3 @@ Affected oVirt projects:
 *   User Portal
 
 ### Documentation / External references
-
-
-

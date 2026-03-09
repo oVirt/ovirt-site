@@ -17,5 +17,3 @@ The btn:[Remove] button is disabled while virtual machines are running; you must
 . Click btn:[Remove].
 . Optionally, select the *Remove Disk(s)* check box to remove the virtual disks attached to the virtual machine together with the virtual machine. If the *Remove Disk(s)* check box is cleared, then the virtual disks remain in the environment as floating disks.
 . Click btn:[OK].
-
-

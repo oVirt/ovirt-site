@@ -8,4 +8,3 @@ Two emulated sound devices are available:
 * The *ac97* emulates an *Intel 82801AA AC97 Audio* compatible sound card.
 
 * The *es1370* emulates an *ENSONIQ AudioPCI ES1370* sound card.
-

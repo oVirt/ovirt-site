@@ -147,4 +147,3 @@ In order to support quota on duplicate image stored on different storage domains
 | image_id           | UUID        | not null        | Image Id          |
 | storage_domain_id | UUID        | not null        | Storage domain id |
 | quota_id           | UUID        |                 | Quota id          |
-

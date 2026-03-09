@@ -137,4 +137,3 @@ wizard.
 * [The Cockpit project](http://cockpit-project.org)
 * [gdeploy](https://github.com/gluster/gdeploy)
 * [HCI deployment using oVirt and Gluster](https://blogs.ovirt.org/2016/08/up-and-running-with-ovirt-4-0-and-gluster-storage/)
-

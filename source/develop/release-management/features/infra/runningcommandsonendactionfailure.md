@@ -58,5 +58,3 @@ Dependencies on features:
 Affected oVirt projects:
 
 *   Engine-core
-
-

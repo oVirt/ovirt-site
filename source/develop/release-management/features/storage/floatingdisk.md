@@ -57,4 +57,3 @@ Affected oVirt projects:
 ## Documentation / External references
 
 *   [Features/DetailedFloatingDisk](/develop/release-management/features/storage/detailedfloatingdisk.html)
-

@@ -32,5 +32,3 @@ The following table describes all search options for users.
 `Users: Events.severity > normal and Vms.status = up or Vms.status = pause`
 
 This example returns a list of users where events of greater than normal severity have occurred on their virtual machines AND the virtual machines are still running; or the users' virtual machines are paused.
-
-

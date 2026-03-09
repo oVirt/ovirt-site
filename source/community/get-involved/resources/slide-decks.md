@@ -30,4 +30,3 @@ Help preparing an updated deck is welcome.
 ## Resources from previous conferences
 
 Slides, video and more examples can be found in [Archived Conferences Presentations](/community/archived_conferences_presentations.html) page.
-

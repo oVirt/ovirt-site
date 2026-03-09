@@ -153,4 +153,3 @@ This query will be used in order to obtain the Vm configuration (VmStatic + disk
 
 
 ### Open Issues
-

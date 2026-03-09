@@ -148,5 +148,3 @@ Affected oVirt projects:
 ## Documentation / External references
 
 Bugzilla - <https://bugzilla.redhat.com/show_bug.cgi?id=840692>
-
-

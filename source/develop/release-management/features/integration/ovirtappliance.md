@@ -72,4 +72,3 @@ To use the appliance proceed as follows:
     2.  Login as root
     3.  Start the Engine configuration using: `engine-setup --offline --config-append=ovirt-engine-answers`
     4.  Answer the remaining questions, **take care to use a FQDN which is resolvable on your network**
-

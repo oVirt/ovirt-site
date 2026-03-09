@@ -49,4 +49,3 @@ Client application capable of parsing an RDP file and invoking console session (
 *   Plugin
 
 <b>(MS Internet Explorer only)</b> Usage of the plugin doesn't require user intervention and is invoked automatically.
-

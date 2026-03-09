@@ -67,4 +67,3 @@ authors:
 *   **SHOULD**: Alerts when balloon not supported by guest
 *   **SHOULD**: (scheduling API first) VM affinity
 *   **SHOULD**: (scheduling API first) VM not getting minimum guaranteed memory
-

@@ -411,4 +411,3 @@ Once the user selects a backup image, the procedure will replace the engine VM d
     [ INFO  ] Stage: Termination
     [ INFO  ] Hosted Engine successfully rolled back
     [ INFO  ] Please exit global maintenance mode to restart the engine VM.
-

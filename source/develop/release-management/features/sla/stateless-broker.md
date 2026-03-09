@@ -49,4 +49,3 @@ Therefore, as most part of that functionality is not needed, we can get rid of m
 ## Benefit to oVirt
 
 Less code - less errors. Standard module is well tested and it is easier to suport code based on it. We will also move some heavy stuff from agent to broker, making agent react faster.
-

@@ -31,4 +31,3 @@ The flow:
 8. The PAM module sets the user and password fields and passes them down the PAM stack (defined in the files: /etc/pam.d/gdm-rhev-cred and /etc/pam.d/kdm-rhev-cred) to perform the actual authentication.
 
 ![](/images/wiki/Guest-agent-sso.png)
-

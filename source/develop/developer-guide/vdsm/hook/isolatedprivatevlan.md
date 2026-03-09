@@ -36,4 +36,3 @@ isolatedprivatevlan=aa:bb:cc:dd:ee:ff,10.35.16.50
 ```
 
 Note: if no IP is supplied, the clean-traffic filter will not be added
-

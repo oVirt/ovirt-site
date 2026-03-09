@@ -118,4 +118,3 @@ A new oVirt Live ISO is available:
  - recovery of VMs after VDSM restart doesn't work on PPC
  - Vdsm sampling threads unexpectingly stops with IOError ENODEV
  - vdsm tests do not check for sudo availability
-

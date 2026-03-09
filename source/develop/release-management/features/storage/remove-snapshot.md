@@ -128,4 +128,3 @@ Following table describes the behavior of the available deployments:
 ## Hosted Engine
 
 No effects is expected on hosted engine deployments
-

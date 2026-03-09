@@ -64,4 +64,3 @@ This change will introduce multiple bricks sharing same block device into oVirt,
 ## Open issues
 
 * [BUG-1515299: (https://bugzilla.redhat.com/show_bug.cgi?id=1515299)[RFE] - Support multiple bricks per storage device and configuring lvmcache]
-

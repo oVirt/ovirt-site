@@ -35,4 +35,3 @@ Example:
       qos=mac=in{...}^out{...}&mac..
 
 Will add QoS to VM interface, can control the in and out traffic by average traffic, peek traffic and burst limit
-

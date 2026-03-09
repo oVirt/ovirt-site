@@ -11,4 +11,3 @@ authors: amuller
 **Visualization:** This is how the landing page looks like in oVirt 3.2, in Firefox 17.
 
 ![](/images/wiki/LandingPage.png)
-

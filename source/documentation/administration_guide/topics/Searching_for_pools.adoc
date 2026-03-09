@@ -21,5 +21,3 @@ The following table describes all search options for Pools.
 `Pools: type = automatic`
 
 This example returns a list of pools with a type of `automatic`.
-
-

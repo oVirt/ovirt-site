@@ -233,4 +233,3 @@ Depends: [Create vm with watchdog from template (UI)](#create-vm-with-watchdog-f
 2.  check on the rest api if the watchdog card is persisted
 
 ### Remove watchdog from VM (REST-API)
-

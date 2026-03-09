@@ -44,4 +44,3 @@ This page holds relevant information for MoM and other SLA-related packages
 Note: libvirt-0.10.1 can't be installed by yum, you should download the rpm from URL and install it.
 
 *   -   <git:git://libvirt.org/libvirt.git>
-

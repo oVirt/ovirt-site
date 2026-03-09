@@ -64,7 +64,3 @@ Hosted-engine VM configuration is now saved on the shared storage to enable subs
 
       == Hosted Engine ==
       Hosted Engine configuration has been moved to its shared storage allowing to centralize any configuration change without the need of manually copy the configuration to all the hosts in its cluster.
-
-
-
-

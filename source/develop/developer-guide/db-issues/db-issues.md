@@ -22,4 +22,3 @@ The following issues will be covered
 * [Snapshot Marerialized Views](/develop/developer-guide/db-issues/materializedviews.html)
 * [DBFacade DAOs ,Transactions and Search Engine](/develop/developer-guide/db-issues/dbfacade-dao-and-transaction.html)
 * [Compensation](/develop/developer-guide/db-issues/compensation.html)
-

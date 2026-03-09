@@ -279,4 +279,3 @@ Explain what will be done in case the feature won't be ready on time
       00000028-0028-0028-0028-000000000164 | no-other-rarp-traffic   | 3.6
       00000029-0029-0029-0029-00000000006b | qemu-announce-self      | 3.6
       0000002a-002a-002a-002a-000000000070 | qemu-announce-self-rarp | 3.6
-

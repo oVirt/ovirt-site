@@ -90,4 +90,3 @@ This infrastructure is in the package: org.ovirt.engine.core.bll.adbroker, and i
         DirectorySearcher searcher = new DirectorySearcher(credentials);
 
         List<AdUser> resultByname = searcher.FindAll(queryData);
-

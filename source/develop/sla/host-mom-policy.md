@@ -46,4 +46,3 @@ In oVirt, we want to increase the sophistication of the MOM policy to govern mor
 *   Migrating VMs to other hosts in the cluster
 
 Just about anything is possible with the MOM policies (with a modest amount of MOM development required). The hard part is actually defining what we want.
-

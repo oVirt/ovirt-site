@@ -212,6 +212,3 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
                                                             ` os.osx_10_6.derivedFrom.value = linux`
 
                                                             Restart jboss                                                                                                                        | Edit a current VM and change its os to "Snow Leopard". Test case #2 should pass.                                      |
-
-
-

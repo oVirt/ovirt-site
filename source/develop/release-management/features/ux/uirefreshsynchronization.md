@@ -64,4 +64,3 @@ The solution to this problem is very similar to the solution of the actions. Ins
 As demonstrated by the following figure:
 
 ![](/images/wiki/UI_Sync_event.png)
-

@@ -395,6 +395,3 @@ As previous test case, but do the first steps on block-based storage and the lat
 ## Documentation / External references
 
 <a name="1">[1]</a> [libvirt's snapshot XML format](http://libvirt.org/formatsnapshot.html)
-
-
-

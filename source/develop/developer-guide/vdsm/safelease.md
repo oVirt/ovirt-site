@@ -19,4 +19,3 @@ It is used for taking cluster wide locks on pools. This helps preventing the hos
 Safelease uses an algorithm base on the article ["Light-Weight Leases for Storage-Centric Coordination"](https://dspace.mit.edu/handle/1721.1/30464) by G Chockler and D Malkhi.
 
 It basically uses a sector sized block of data and assumes writes and reads to and from it are atomic. It requires a constant connection to the storage to keep the lease alive.
-

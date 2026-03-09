@@ -23,5 +23,3 @@ Repeat these steps until the export domain contains all the templates to migrate
 . Click menu:Storage[Domains] and select the export domain.
 . Click the domain name to see the details view.
 . Click the *Template Import* tab to view all exported templates in the export domain.
-
-

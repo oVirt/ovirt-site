@@ -40,7 +40,3 @@ This feature will improve Host availability since once a Host fails the PM statu
 ### Documentation / External references
 
 [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1090800%20)
-
-
-
-

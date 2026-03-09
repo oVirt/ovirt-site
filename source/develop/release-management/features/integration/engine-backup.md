@@ -219,6 +219,3 @@ TBD
 ## Documentation / External references
 
 See output of `engine-backup --help`.
-
-
-

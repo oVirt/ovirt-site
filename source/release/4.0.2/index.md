@@ -320,4 +320,3 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 #### Team: Node
 
  - [BZ 1333091](https://bugzilla.redhat.com/show_bug.cgi?id=1333091) <b>Web UI theme doesn't fit 16:9 screens / background is not scaled/streched correctly</b><br>
-

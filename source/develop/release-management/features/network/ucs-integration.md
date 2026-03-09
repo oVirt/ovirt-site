@@ -124,4 +124,3 @@ This level of integration would make it possible for the oVirt Engine to go from
 ### Level VII: "Working title: The rise of the Host"
 
 It is left for future planning, but the basic idea would be to be able to use the networks of the UCS Network provider from level V and apply them to host virtual functions from the oVirt API/GUI.
-

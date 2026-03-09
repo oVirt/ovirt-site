@@ -37,4 +37,3 @@ These hooking points are named:
 The feature allows customers to add their own functionality before hot-plugging and hot-unplugging disks.
  This can be done by adding scripts performing custom behaviour.
 More details regarding the actual usage can be found [here](/develop/developer-guide/vdsm/hooks.html) and [here](/documentation/administration_guide/#appe-VDSM_and_Hooks).
-

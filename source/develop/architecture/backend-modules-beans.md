@@ -13,4 +13,3 @@ which might be described as a beefier, platform-agnostic Cron jobs alternative t
 The beans module is used extensively when monitoring hosts. The [VDSBroker](/develop/architecture/backend-modules-vdsbroker.html)
 module's class VdsUpdateRunTimeInfo monitors hosts' CPU, memory usage and so on.
 A method of the IRSBrokerCommand class monitors the SPM-host for storage related issues.
-

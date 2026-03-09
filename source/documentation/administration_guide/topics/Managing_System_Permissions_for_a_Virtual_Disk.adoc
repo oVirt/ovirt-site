@@ -16,4 +16,3 @@ The virtual disk creator role permits the following actions:
 ====
 You can only assign roles and permissions to existing users.
 ====
-

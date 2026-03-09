@@ -116,5 +116,3 @@ Affected oVirt projects:
 *   Engine
 *   Webadmin
 *   User Portal
-
-

@@ -215,4 +215,3 @@ Scenario:
     -   change the mount path to another storage server
     -   edit mount options
     -   activate the domain
-

@@ -49,4 +49,3 @@ authors:
 ### Open issues
 
 *   **Signing**: Who should sign tarballs?
-

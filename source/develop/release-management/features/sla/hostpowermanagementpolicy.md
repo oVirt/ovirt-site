@@ -86,4 +86,3 @@ Bug-Url: <https://bugzilla.redhat.com/show_bug.cgi?id=1035238>
 *   Wake On Lan fencing method:
     -   each host has to report MAC and WOL capability for each NIC
     -   locality information to know who can send the proper WOL packet (each host will report it's ARP database of visible MAC addresses for each NIC)
-

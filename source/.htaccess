@@ -602,4 +602,3 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 <IfModule php5_module>
   php_value session.cookie_httponly true
 </IfModule>
-

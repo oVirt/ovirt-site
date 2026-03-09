@@ -229,4 +229,3 @@ New vdsm errors will be added:
     However note that in vm migration, the vm does not change its layer-2 subnet and telling the switch of its new location is all that is needed.
     This is NOT the case when the VM is connected to a different network, with its own vlan and ip limitations.
     One cannot assume that a guest server application would continue to operate uninterrupted.
-

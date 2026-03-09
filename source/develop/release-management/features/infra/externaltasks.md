@@ -119,4 +119,3 @@ See also [UI-Plugins](/develop/release-management/features/ux/uiplugins43.html)
 
        Repeat test 2 with a job that includes a mix of internal and external steps ,
        Make sure that for internal steps the job/step parent id should be set in the URI parameters
-

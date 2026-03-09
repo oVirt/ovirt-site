@@ -37,4 +37,3 @@ authors: amuller
 *   Required - Require a transaction, may use an existing one
 
 The enum value is passed with the commands' options. However, the command may use an annotation which overrides the transaction option passed in to the command. In any case, the 'handleTransactivity' method fills in a class field called scope. The scope value (Suppress, RequiresNew or Required) is passed on to the static method 'TransactionSupport.executeInScope'. The method accepts the scope value and the command to run, and runs the command's 'runInTransaction' method.
-

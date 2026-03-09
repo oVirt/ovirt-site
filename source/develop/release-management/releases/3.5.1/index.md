@@ -488,4 +488,3 @@ Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the 
  - [RHEV] rhevm-log-collector does not gather /etc/ovirt-engine-reports or /etc/ovirt-engine-dwh
  - postgres data is not collected
  - remove password leak from ovirt-engine setup answer file
-

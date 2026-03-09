@@ -120,4 +120,3 @@ packages from other repos.
 #### ovirt-engine-dwh
 
  - [BZ 1519756](https://bugzilla.redhat.com/show_bug.cgi?id=1519756) <b>[downstream clone - 4.1.9] Cannot change dwh sampling scale with 'engine-setup --reconfigure-dwh-scale'</b><br>
-

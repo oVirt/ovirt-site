@@ -126,6 +126,3 @@ Due to [this bug](https://bugzilla.redhat.com/show_bug.cgi?id=1102881), libvirt 
 *   Start in webadmin with a running VM that has one or more snapshots
 *   Remove a snapshot as in the positive flow but immediately terminate the VM
 *   A live merge failure event should appear in the audit log and the snapshot should remain in the list
-
-
-

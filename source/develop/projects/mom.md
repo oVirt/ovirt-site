@@ -36,4 +36,3 @@ Our git repository sits on oVirt's Gerrit server. Development takes place on mos
 ## IRC
 
 There is [#ovirt](/community/about/contact.html) on oftc.
-

@@ -47,4 +47,3 @@ Load balancing is an optional settings telling the engine to periodically check 
 An example of this can be found here: [Host Memory balance](/develop/sla/host-memory-balance.html)
 
 **This includes a complete explanation of every part of the code, I would recommend taking a look at it if you wish to write your own external scheduling component**
-

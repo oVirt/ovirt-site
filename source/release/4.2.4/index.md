@@ -293,4 +293,3 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1572542](https://bugzilla.redhat.com/show_bug.cgi?id=1572542) <b>argument vlan_tag is of type <type 'str'> and we were unable to convert to int: invalid literal for int() with base 10: '8000\\\\n1'\"}"</b><br>
-

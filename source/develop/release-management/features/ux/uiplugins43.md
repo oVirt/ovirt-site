@@ -822,5 +822,3 @@ When Cockpit is not running on the selected host, the menu action is disabled an
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `cockpit-plugin`
 
  ![](/images/wiki/Cockpit_UIPlugin.png "Cockpit UI Plugin")
-
-

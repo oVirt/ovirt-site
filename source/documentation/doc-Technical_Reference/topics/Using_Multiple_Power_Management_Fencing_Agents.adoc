@@ -12,4 +12,3 @@ When two fencing agents are defined on a host, they can be configured to use a c
 * *Concurrent*: Both primary and secondary agents have to respond to the Stop command for the host to be stopped. If one agent responds to the Start command, the host will go up.
 
 * *Sequential*: To stop or start a host, the primary agent is used first, and if it fails, the secondary agent is used.
-

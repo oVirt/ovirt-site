@@ -304,5 +304,3 @@ Old  `ChangeCD` implementation will be used for ISOs on old ISO domains.
 
 - [Discussion in ovirt devel mailing list.](https://www.mail-archive.com/devel@ovirt.org/msg16082.html)
 - [Bug 1725915: Vdsm tries to tear down in-use volume of ISO in block storage domain](https://bugzilla.redhat.com/show_bug.cgi?id=1725915)
-
-

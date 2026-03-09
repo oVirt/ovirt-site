@@ -113,4 +113,3 @@ will upgrade to latest 3.3.
 ### VDSM
 
 ### ovirt-node-plugin-vdsm
-

@@ -130,4 +130,3 @@ Testing of this feature should cover:
 [Provider Extended Attributes of Networks in OpenStack Networking API v2.0](https://developer.openstack.org/api-ref/network/v2/#provider-extended-attributes)
 
 [Unrestricted Network Names](/develop/release-management/features/network/unrestricted-network-names.html)
-

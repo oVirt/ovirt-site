@@ -63,4 +63,3 @@ authors: vfeenstr
             -   TODO (needs to be verified, maybe even fixed)
 
 ## Additional Information
-

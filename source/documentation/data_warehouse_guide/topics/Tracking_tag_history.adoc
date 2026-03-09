@@ -14,4 +14,3 @@ The ETL Service collects tag information as displayed in the Administration Port
 * An entity or tag branch is removed from the Administration Portal - the `ovirt_engine_history` database flags the corresponding tag and relations as removed in new entries. Removed tags and relations are only flagged as removed or detached.
 
 * A tag branch is moved - the corresponding tag and relations are updated as new entries. Moved tags and relations are only flagged as updated.
-

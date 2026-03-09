@@ -268,4 +268,3 @@ Add additional fields to job and step tables upon upgrade Add the permission(Act
 [Features/ExternalTasks](/develop/release-management/features/infra/externaltasks.html)
 
 ### Future directions
-

@@ -67,4 +67,3 @@ A new oVirt Live ISO is available at:
 
  - [BZ 1316143](https://bugzilla.redhat.com/show_bug.cgi?id=1316143) - 3.6 hosted-engine hosts can't be added properly to 3.6 host cluster that was started with 3.4.
  - [BZ 1319721](https://bugzilla.redhat.com/show_bug.cgi?id=1319721) - Call to getImagesList on NFS on host without connected storage...
-

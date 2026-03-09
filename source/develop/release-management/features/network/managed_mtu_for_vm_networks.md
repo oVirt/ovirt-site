@@ -409,4 +409,3 @@ The automatic calculation of the MTU would be a follow-up feature.
       The MTU of logical networks, including external ones, is propageted the
       whole path down to the guest's network interface. This will enable the
       usage of MTU > 1500 bytes for external networks.
-

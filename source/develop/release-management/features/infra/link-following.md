@@ -107,4 +107,3 @@ Dots denote levels of depth. Limitless levels of following possible:
 
 Combinations possible:
 <code>GET .../api/vms?follow=nics.x, nics.y</code>
-

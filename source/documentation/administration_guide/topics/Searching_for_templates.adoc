@@ -35,5 +35,3 @@ Date format is *mm/dd/yy*.
 `Template: Events.severity >= normal and Vms.uptime > 0`
 
 This example returns a list of templates where events of normal or greater severity have occurred on virtual machines derived from the template, and the virtual machines are still running.
-
-

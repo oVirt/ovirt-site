@@ -125,4 +125,3 @@ The case for iface name predictability in general
 
 
 *   On the arch@ovirt.org mailing list.
-

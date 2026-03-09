@@ -206,4 +206,3 @@ Following exception prevents host monitoring but affected host stays in status '
  - Problem parsing stomp frames where trailing \\0 was cut off
  - [scale] Data Center crashing and contending forever due to missing pvs. All SDs are Unknown/Inactive.
  - Require ioprocess 0.14
-

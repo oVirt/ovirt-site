@@ -35,5 +35,3 @@ endif::ovirt-doc[]
 . Double-click the file.
 . Click *Run* if prompted by a security warning.
 . Click *Yes* if prompted by User Account Control.
-
-

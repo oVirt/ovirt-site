@@ -52,4 +52,3 @@ The activex-plugin way of invoking RDP console allows automatic user logon. The 
 *   Select 'Native client' in Console Options dialog.
 *   Click console button to invoke console.
 *   Expected result: The RDP console is invoked (with possible dialog window informing user that they are invoking RDP console) with Windows logon screen.
-

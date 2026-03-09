@@ -15,5 +15,3 @@ This query returns all running virtual machines for users whose names begin with
 This query returns all virtual machines tagged with "paris-loc" for users whose names begin with "m".
 
 When two criteria are specified without `AND` or `OR`, `AND` is implied. `AND` precedes `OR`, and `OR` precedes implied `AND`.
-
-

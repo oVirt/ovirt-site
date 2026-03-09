@@ -50,4 +50,3 @@ to create the VM/s for the OpenShift install.
 By default, it will install the metrics store as all-in-one OpenShift master node on one oVirt VM.
 If more than 1 VM is required, the user will need to supply a configuration file to the oVirt metrics role, that defines the number of VMs to configure.
 Basic VMs profiles will be available, but can be updated by the user if needed.
-

@@ -216,4 +216,3 @@ This would execute an ethtool process for each slave.
 ## Comments and Discussion
 
 *   On the devel@ovirt.org mailing list.
-

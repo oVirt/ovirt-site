@@ -123,4 +123,3 @@ No changes for VDSM API.
 ### Open Issues
 
 NA
-

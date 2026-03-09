@@ -86,6 +86,3 @@ Note: I'm not familiar with oVirt at code level so the closer to it, the bigger 
 [Generate separate certificates for spice / display network, update them on display network modification](https://bugzilla.redhat.com/show_bug.cgi?id=835018)
 
 *   this very page is directly based on the RFE
-
-
-

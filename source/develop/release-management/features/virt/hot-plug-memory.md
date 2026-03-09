@@ -76,4 +76,3 @@ its possible to manipulate the libvirt xml in the following vdsm hooks
 ### Compatibility issues
 
 Not yet supported on PPC
-

@@ -85,4 +85,3 @@ oVirt's MOM sub-project integration<sup>[[1](/develop/release-management/feature
 ## Notes
 
 1.  Due to API change, This will be supported in 3.1 clusters only.
-

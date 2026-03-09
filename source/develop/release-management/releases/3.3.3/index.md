@@ -139,4 +139,3 @@ will upgrade to latest 3.3.
 ### ovirt-node-plugin-vdsm
 
 * Use Management class to pass informations
-

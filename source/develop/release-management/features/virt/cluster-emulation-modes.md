@@ -124,7 +124,3 @@ add a RHEL6 node to cluster "f"
 *   -   expected result:
 
 host should go NON_OPERATIONAL with reason UNSUPPORTED_EMULATION_MODE
-
-
-
-

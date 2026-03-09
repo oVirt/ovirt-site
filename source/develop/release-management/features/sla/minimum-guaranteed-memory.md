@@ -107,5 +107,3 @@ Others projects:
 *   mom
 
 ### Documentation / External references
-
-

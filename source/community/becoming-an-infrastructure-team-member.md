@@ -61,4 +61,3 @@ When you begin all this work with the intention of joining the team, you will be
 
 After an incubation period, whose length will depend on the quality and quantity of your contributions, and your cultural fit with the team,
 you will become [a core team member](/develop/infra/infrastructure.html#team). Congratulations!
-

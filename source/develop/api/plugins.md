@@ -11,4 +11,3 @@ Current Pluggable systems listing:
 
 *   [VDSM-Hooks](/develop/developer-guide/vdsm/hooks.html)
 *   [UI Plugins](/develop/release-management/features/ux/uiplugins43.html)
-

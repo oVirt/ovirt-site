@@ -133,4 +133,3 @@ According to the new validations.
 
 *   -   Which network should be assigned as the management one?
     -   What should be done with the host of the cluster?
-

@@ -210,4 +210,3 @@ Affected oVirt projects:
 
 *   Engine-core
 *   Admin Portal
-

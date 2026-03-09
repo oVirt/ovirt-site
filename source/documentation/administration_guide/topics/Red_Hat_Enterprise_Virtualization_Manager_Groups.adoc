@@ -15,5 +15,3 @@ A number of system user groups are created to support {virt-product-fullname} wh
 * The *ovirt-vmconsole* group (GID `498`). Group members include:
 
 * The *ovirt-vmconsole* user.
-
-

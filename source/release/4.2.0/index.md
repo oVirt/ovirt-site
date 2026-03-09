@@ -1198,4 +1198,3 @@ packages from other repos.
 #### MOM
 
  - [BZ 1454633](https://bugzilla.redhat.com/show_bug.cgi?id=1454633) <b>mom continuously crashing on getVmInfo (mom/HypervisorInterfaces/vdsmjsonrpcInterface.py)     data['pid'] = vm['pid'] KeyError: 'pid'</b><br>
-

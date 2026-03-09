@@ -24,4 +24,3 @@ size: Optional suffixes "k" or "K" (kilobyte, 1024) "M" (megabyte, 1024k) and "G
 Note: more than one disk can be added:
 
          scratchpad=20G,/tmp/disk1:1T,/tmp/disk2
-

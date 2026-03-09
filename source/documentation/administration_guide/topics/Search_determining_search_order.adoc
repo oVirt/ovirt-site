@@ -9,5 +9,3 @@ For example:
 `events: severity > normal sortby time desc`
 
 This query returns all Events whose severity is higher than Normal, sorted by time (descending order).
-
-

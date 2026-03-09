@@ -49,4 +49,3 @@ authors: doron
 *   Time based: turn on/off at a given time
 *   Various algorithms implementations
 *   Statistic-based scheduling
-

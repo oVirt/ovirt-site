@@ -139,4 +139,3 @@ The output format would look like -
             <gluster_volume href="/ovirt-engine/api/clusters/{cluster-id}/glustervolumes/{volume-id}" id="{volume-id}"/>
         </statistic>
     </statistics>
-

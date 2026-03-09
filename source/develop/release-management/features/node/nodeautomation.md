@@ -42,5 +42,3 @@ TBD
 ## Documentation / External references
 
 TBD
-
-

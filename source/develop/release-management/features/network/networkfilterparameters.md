@@ -331,6 +331,3 @@ There are use cases, e.g. [Bug 1009608 - [RFE] support for PVLANs in RHEV][7],
 for using the same parameters for multiple VMs.
 Instead of manage the filter parameters for each single VM's network interfaces,
 it would be more adequate to manage them per vNIC profile.
-
-
-

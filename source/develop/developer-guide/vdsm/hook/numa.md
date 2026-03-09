@@ -36,4 +36,3 @@ Examples:
       numa=strict:1-4
       numa=strict:5
       numa=interleave:1-4,^3,6
-

@@ -13,5 +13,3 @@ Consider the following when using live storage migration:
 * You can live migrate disks between any two storage domains in the same data center.
 
 * You cannot live migrate direct LUN hard disk images or disks marked as shareable.
-
-

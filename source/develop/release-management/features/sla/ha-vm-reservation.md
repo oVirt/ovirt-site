@@ -81,5 +81,3 @@ Detailed design can be found here [HA_VM_reservation_detailedDesign](/develop/re
 ## Benefit to oVirt
 
 Provide assurance to the end user that critical VMs will have access to the required resources in the event of a host failure without negatively impacting the collective performance of existing workloads
-
-

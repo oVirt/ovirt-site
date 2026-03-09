@@ -39,4 +39,3 @@ Key design points:
 *   Write a vdsmsh tool that provides a host-level command line interface to vdsm via the REST API
 *   Create a QMF agent that also integrates via the API Bridge
 *   Change ovirt-engine to interact with vdsm via QMF
-

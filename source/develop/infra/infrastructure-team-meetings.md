@@ -895,4 +895,3 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   What is the mission of the oVirt infra project?
     -   Strawdog: "To provide a free/open source infrastructure of participation that supports the development of the oVirt project, and to do so by providing full free/open access to the entire infrastructure as a collaboration."
 *   Any other business? (AOB)
-

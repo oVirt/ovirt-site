@@ -205,4 +205,3 @@ Dropped the following bugs:
 ### oVirt Optimizer
 
 * Optimizer should not propose steps if solution is not doable
-

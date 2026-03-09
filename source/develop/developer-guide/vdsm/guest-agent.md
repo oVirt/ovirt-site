@@ -48,4 +48,3 @@ The following actions can be requested from the agent:
     -   [Automatic login on Microsoft's Windows](/develop/developer-guide/vdsm/guest-agent-login-windows.html)
 *   **Logoff** - Log off the active user.
 *   **Shutdown** - Shut down the virtual machine.
-

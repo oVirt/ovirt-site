@@ -23,5 +23,3 @@ The following table describes all search options for Data Centers.
 `Datacenter: type = nfs and status != up`
 
 This example returns a list of data centers with a storage type of NFS and status other than up.
-
-

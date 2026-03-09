@@ -125,4 +125,3 @@ A new oVirt Live ISO is available:
 *   ovirt-engine-cli
 *   qemu-kvm-rhev
 *   qemu-kvm-ev
-

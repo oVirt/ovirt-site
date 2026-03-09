@@ -173,4 +173,3 @@ packages from other repos.
 #### oVirt provider OVN
 
  - [BZ 1491546](https://bugzilla.redhat.com/show_bug.cgi?id=1491546) <b>vdsm-tool does not start required services before configuring the host</b><br>
-

@@ -13,4 +13,3 @@ The login screen is the login screen used by both the Administration Portal and 
 * The header text
 
 The classes for the login screen are located in *common.css*.
-

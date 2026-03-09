@@ -257,5 +257,3 @@ Known limitations:
 
 *   [Support only in the Fedora 20 and onwards](http://bugzilla.redhat.com/show_bug.cgi?id=1057724)
 *   [VDSM for ppc64 needs qemu 1.6](http://bugzilla.redhat.com/show_bug.cgi?id=1063799)
-
-

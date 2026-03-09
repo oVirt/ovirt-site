@@ -98,4 +98,3 @@ It is platform and language independent and aims to promote reuse of application
 ## Maintainers
 
 Michael Pasternak: <mishka8520@yahoo.com>, Juan Hernandez: <juan.hernandez@redhat.com>
-

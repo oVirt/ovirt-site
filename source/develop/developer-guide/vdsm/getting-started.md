@@ -43,4 +43,3 @@ Maximum bandwidth for migration, in MiBps, 0 means libvirt's 'default, since 0.1
 
       [vars]
       migration_max_bandwidth = 32
-

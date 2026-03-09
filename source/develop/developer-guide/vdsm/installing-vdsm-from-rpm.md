@@ -96,4 +96,3 @@ If Vdsm was started earlier with ssl=true, it would refuse to start and you may 
       systemctl start vdsmd
 
 which edits **/etc/libvirt/qemu.conf** and changes **spice_tls=1** to **spice_tls=0**.
-

@@ -118,4 +118,3 @@ if [ $CONFIG -gt 0 ]; then
 fi
 
 $ROOT/$DEVENV/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start
-

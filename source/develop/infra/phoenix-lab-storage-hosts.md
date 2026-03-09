@@ -145,4 +145,3 @@ Here's the current configuration files:
     USERCTL=no
     BOOTPROTO=none
     ONBOOT=yes
-

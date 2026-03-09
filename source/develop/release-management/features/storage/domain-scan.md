@@ -44,6 +44,3 @@ Tentatively none.
 ## Documentation / External references
 
 To be written.
-
-
-

@@ -82,4 +82,3 @@ each view will show a separate table including its limit, in All we’ll have a 
 ### Profiles
 
 Each profile will have its separate table and all will be connected to qos table. In engine, there will be a base dao and base profile BE for all profiles, should share some of the basic flows.
-

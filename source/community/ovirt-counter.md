@@ -20,4 +20,3 @@ If you want your oVirt deployment listed here you can edit this page following t
 |--------------------------------------------------------------------|---------------|--------------|----------|---------|--------|
 | **Totals**                                                         | -             | 7            | 7        | 21      | 268    |
 {: .bordered}
-

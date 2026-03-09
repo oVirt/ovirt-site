@@ -16,4 +16,3 @@ libvirt xml:
 ```xml
 <smartcard mode='passthrough' type='spicevmc'/>
 ```
-

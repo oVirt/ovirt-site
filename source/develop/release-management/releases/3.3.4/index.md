@@ -122,4 +122,3 @@ sos: plugin should ignore /var/run/vdsm/storage
 * rhevm-log-collector garbles the tty when multiple hosts are gathered and ssh is called with the "-t" flag
  - Do not collect .pgpass files from RHEV-M.
  - Collect ovirt-engine runtime configuration files
-

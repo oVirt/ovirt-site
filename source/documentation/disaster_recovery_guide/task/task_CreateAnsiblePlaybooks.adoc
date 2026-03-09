@@ -48,4 +48,3 @@ include::{taskdir}/task_GenerateMapping.adoc[leveloffset=+1]
 include::{taskdir}/task_CreateFailoverFailbackPlaybooks.adoc[leveloffset=+1]
 
 include::{taskdir}/task_CreateCleanupPlaybook.adoc[leveloffset=+1]
-

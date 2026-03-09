@@ -9,5 +9,3 @@
 * The type of action being performed
 
 * The object on which the action is being performed
-
-

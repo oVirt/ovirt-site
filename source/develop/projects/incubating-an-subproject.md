@@ -64,4 +64,3 @@ The Incubated project can, at any time, petition for a vote of the Board to grad
 The vote of the Board must be unanimous.
 Any NO votes must clearly indicate why the Director did not approve graduation and must provide clear guidance on what he/she is
 looking for to address the deficiency.
-

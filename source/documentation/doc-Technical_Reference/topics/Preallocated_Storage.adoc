@@ -17,4 +17,3 @@ If thin provisioning functionality provided by your storage back-end is being us
 ====
 If thin provisioning functionality is provided by your storage back-end, it should be used as the preferred implementation of thin provisioning. Storage should be provisioned from the graphical user interface as preallocated, leaving thin provisioning to the back-end solution.
 ====
-

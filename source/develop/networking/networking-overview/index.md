@@ -94,4 +94,3 @@ networking configuration below, like VLAN, bonding, and MTU, is shared between h
 
 This implies that hosts should not assign an IP address to VLANs which are connected to VMs
 to reduce the surface of the host which might be confused by any VM traffic.
-

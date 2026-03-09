@@ -1515,4 +1515,3 @@ New package
 ## oVirt Optimizer
 
 * recurring admin@internal logged in messages in events when using Optimizer
-

@@ -35,4 +35,3 @@ Note: The VM must be pinned to host and this hook will fail any migration attemp
 Host attached USB devices can be viewed with `lsusb`
 
 N.B.: link to binary file is dead 2014 05 13
-

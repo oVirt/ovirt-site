@@ -65,6 +65,3 @@ No memory based scheduling will be available. There is no danger to the existing
 ### Release Notes
 
 TBD
-
-
-

@@ -16,5 +16,3 @@ You can create new affinity groups in the Administration Portal.
 . Select the *Enforcing* check box to apply hard enforcement, or ensure this check box is cleared to apply soft enforcement.
 . Use the drop-down list to select the virtual machines to be added to the affinity group. Use the *+* and *-* buttons to add or remove additional virtual machines.
 . Click btn:[OK].
-
-

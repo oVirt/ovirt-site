@@ -74,5 +74,3 @@ and group with "pci","ide" and so.
 the downside of this approach is that it is very general,
 and probably most devices will just be PCI and it will be useless
 another issue is that address is available only after the vm was run.
-
-

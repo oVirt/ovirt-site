@@ -27,5 +27,3 @@ The following table describes all search options for networks.
 `Network: mtu > 1500 and vmnetwork = true`
 
 This example returns a list of networks with a maximum transmission unit greater than 1500 bytes, and which are set up for use by only virtual machines.
-
-

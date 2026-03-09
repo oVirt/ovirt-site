@@ -46,4 +46,3 @@ Will attach 2 sr-iov VFs to vm
       modprobe igb max_vfs=7
 
 7 is max for 82576 card
-

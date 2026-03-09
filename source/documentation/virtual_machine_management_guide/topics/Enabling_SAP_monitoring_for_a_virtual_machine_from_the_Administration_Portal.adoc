@@ -13,6 +13,3 @@ Enable SAP monitoring on a virtual machine through the Administration Portal.
 +
 If previous properties have been set, select the plus sign to add a new property rule and select `sap_agent`.
 . Click btn:[OK].
-
-
-

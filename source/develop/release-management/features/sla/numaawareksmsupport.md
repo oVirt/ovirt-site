@@ -196,5 +196,3 @@ Take all hosts in clusters up.
 *   Reusing and dependent on existing oVirt engine mechanisms, and reusing VDSM host mechanisms.
 
 <!-- -->
-
-

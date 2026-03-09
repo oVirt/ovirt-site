@@ -29,4 +29,3 @@ When requesting help for fixing a problem, please provide enough information to 
 * Versions of relevant packages - e.g. the output of: `yum -q list installed centos-\*release\* centos-\*repos\* ovirt-release\* ovirt-engine redhat-release vdsm glusterfs`.
 
 Thank you!
-

@@ -400,4 +400,3 @@ Demo videos of the POC in action are available on youtube.
 #### The 2nd part (VM connectivity)
 
 <http://www.youtube.com/watch?v=uW3vrY2Y3xc>
-

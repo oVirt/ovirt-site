@@ -43,4 +43,3 @@ vdsm-reg master.
 
 
 Author: --Alon Bar-Lev (Alonbl) 02:24, 1 July 2014 (GMT)
-

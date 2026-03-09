@@ -63,7 +63,3 @@ Cover all methods for registering an oVirt Node to oVirt Engine
 ### Documentation / External references
 
 *   Coming Soon
-
-
-
-

@@ -283,4 +283,3 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1548110](https://bugzilla.redhat.com/show_bug.cgi?id=1548110) <b>VDO rpm should be pulled in as rpm dependency</b><br>
-

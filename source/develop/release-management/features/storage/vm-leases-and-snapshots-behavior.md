@@ -126,7 +126,3 @@ This feature is required for resolving
 [2] <https://gerrit.ovirt.org/#/c/86228/>
 
 [3] <https://gerrit.ovirt.org/#/c/86513/>
-
-
-
-

@@ -186,4 +186,3 @@ Lets say, that we've got one cluster. It's not configured yet to have its own MA
 ### DB details
 
 ![](/images/wiki/Erd.png)
-

@@ -7,4 +7,3 @@ authors:
 ---
 
 # External Events
-

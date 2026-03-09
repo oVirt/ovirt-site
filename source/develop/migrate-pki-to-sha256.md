@@ -182,4 +182,3 @@ On hosts:
 openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -text | grep Signature
 openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -text | grep Signature
 ```
-

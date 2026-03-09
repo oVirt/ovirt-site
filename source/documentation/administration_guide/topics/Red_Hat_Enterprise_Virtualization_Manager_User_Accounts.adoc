@@ -9,5 +9,3 @@ A number of system user accounts are created to support {virt-product-fullname} 
 * The *ovirt* user (UID `108`). Owner of the *ovirt-engine* Red Hat JBoss Enterprise Application Platform instance.
 
 * The *ovirt-vmconsole* user (UID `498`). Required for the guest serial console.
-
-

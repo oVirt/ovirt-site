@@ -230,5 +230,3 @@ Direct LUN enables adding a block device to the system either by its GUID or UUI
 [Features/Design/StableDeviceAddresses](/develop/release-management/features/virt/stabledeviceaddresses.html)
 
 ### Open Issues
-
-

@@ -175,5 +175,3 @@ This module provides basic command to check your extensions configuration.
 List extensions example:
 
     ovirt-engine-extensions-tool info list-extensions
-
-

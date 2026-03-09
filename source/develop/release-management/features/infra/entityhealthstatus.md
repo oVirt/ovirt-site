@@ -124,6 +124,3 @@ Enabeling to see problems that were reported by external systems in the entity m
 See also [UI-Plugins](/develop/release-management/features/ux/uiplugins43.html)
 
 ### Documentation / External references
-
-
-

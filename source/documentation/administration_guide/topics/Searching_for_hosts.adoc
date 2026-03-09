@@ -42,5 +42,3 @@ The following table describes all search options for hosts.
 `Hosts: cluster = Default and Vms.os = rhel6`
 
 This example returns a list of hosts which are part of the Default cluster and host virtual machines running the {enterprise-linux} 6 operating system.
-
-

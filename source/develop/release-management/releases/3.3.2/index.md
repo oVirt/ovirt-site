@@ -275,4 +275,3 @@ No bugs reported at moment.
  - [LOG_COLLECTOR] - infinite loop in configuration parser
  - warning suggesting the user to use filters when collected logs are too big
  - rhevm-log-collector does not collect database dump
-

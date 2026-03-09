@@ -86,4 +86,3 @@ Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 *   Release notes must be filled: [oVirt 3.3.1 release notes](/develop/release-management/releases/3.3.1/)
 *   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.1 release
 *   QE must test the release
-

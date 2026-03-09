@@ -72,4 +72,3 @@ With these definitions, we can both create the images/network/virt domains and c
 ## Documentation / External References
 
 ## Known issues for followup
-

@@ -106,4 +106,3 @@ To test the feature, a setup should include at least one host within the data-ce
 1.  Edit the logical network definition of network 'red' (i.e. change vlan-id or any property but its name)
 2.  Approve the command.
 3.  Verify network 'red' was modified correctly on the relevant data-center's hosts.
-

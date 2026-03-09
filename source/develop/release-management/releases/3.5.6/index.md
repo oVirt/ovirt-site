@@ -101,4 +101,3 @@ A new oVirt Live ISO is available:
 *   qemu-guest-agent
 *   seabios
 *   sgabios
-

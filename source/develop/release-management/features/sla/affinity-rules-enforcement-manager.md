@@ -187,5 +187,3 @@ This manager includes:
 
 For more information see the following BugZilla link:
 <https://bugzilla.redhat.com/show_bug.cgi?id=1112332>
-
-

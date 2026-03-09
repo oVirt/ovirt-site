@@ -25,4 +25,3 @@ Starting with oVirt 3.5 non-storage related operations can be executed asynchron
 ## Expected Results
 
 *   Live Merge should run and the snapshot should be deleted
-

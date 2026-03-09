@@ -63,5 +63,3 @@ This feature is using the following LVM commands:
 *   [pvmove](https://man7.org/linux/man-pages/man8/pvmove.8.html)
 
 *   [vgreduce](https://man7.org/linux/man-pages/man8/vgreduce.8.html)
-
-

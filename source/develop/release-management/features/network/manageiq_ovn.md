@@ -128,4 +128,3 @@ First an authentication is done against 'Keystone' to get the `token` and then o
 * When an operator adds an OVN network via ManageIQ, ManageIQ would issue an auto-import of the new network into oVirt.
 * Add network provider to oVirt's infra provider manually via ManageIQ.
 * Currenty the OVN provider authorizes users through oVirt. Once authentication plugin will be added to the OVN provider, ManageIQ will have to support it.
-

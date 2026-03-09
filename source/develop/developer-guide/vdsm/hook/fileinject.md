@@ -40,4 +40,3 @@ fileinject:/c/windows/myfile.txt:content
 ```
 
 This means that with Windows the path must start with `/c/` prefix (if the Windows os in in `c:\`, `/d/` for `d:\`) and must start with `/` for Linux based machines
-

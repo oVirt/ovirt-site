@@ -14,4 +14,3 @@ syntax:
       smbios: smbios={'serial': '1234'}^{'vendor': 'redhat'}
 
 add/edit 2 attributes to smbios: serial and vendor
-

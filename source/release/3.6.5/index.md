@@ -150,4 +150,3 @@ oVirt Node is now released continously. Please refer to the [Node Project](/down
 
  - [BZ 1313516](https://bugzilla.redhat.com/show_bug.cgi?id=1313516) <b>failover serverset don't work - getting null objects as addreses</b><br>
  - [BZ 1313583](https://bugzilla.redhat.com/show_bug.cgi?id=1313583) <b>aaa-ldap setup tool shouldn't offer advanced option to specify custom DNS servers as it cannot be verified</b><br>
-

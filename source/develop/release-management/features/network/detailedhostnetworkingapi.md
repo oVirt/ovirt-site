@@ -96,4 +96,3 @@ The setupnetworks API exposed by VDSM remains the same:
        connectivityTimeout
 
 **HostSetupNetworksParameters** will hold the relevant information to be sent to **HostSetupNetworksVDSCommand**.
-

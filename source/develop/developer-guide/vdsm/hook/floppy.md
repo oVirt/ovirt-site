@@ -26,4 +26,3 @@ Note: some linux distros need to load the floppy disk kernel module:
 Syntax:
 
       floppy: floppy=/path/to/vfd
-

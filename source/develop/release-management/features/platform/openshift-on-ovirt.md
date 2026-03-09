@@ -37,5 +37,3 @@ which allows oVirt to use whatever it supports, NFS, Gluster, FC, ISCSI, even Lo
 ## DIAGRAM
 ![](/images/okd-on-ovirt/OKD_oVirt_arch.png)
 ![](/images/okd-on-ovirt/OKD_oVirt_extensions.png)
-
-

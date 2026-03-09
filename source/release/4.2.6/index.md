@@ -199,4 +199,3 @@ packages from other repos.
 
  - [BZ 1608961](https://bugzilla.redhat.com/show_bug.cgi?id=1608961) <b>tear down ovirt-provider-ovn when an host is removed from ovirt-engine</b><br>
  - [BZ 1566112](https://bugzilla.redhat.com/show_bug.cgi?id=1566112) <b>Exception when trying to run multiple VMs (VMs failed to run)</b><br>
-

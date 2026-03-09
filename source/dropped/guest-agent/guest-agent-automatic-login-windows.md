@@ -25,4 +25,3 @@ Both above component are included in the ovirt-guest-agent git repo
 2. The RHEV-Agnet receives the user's credentials from the VDSM through the virtio-serial device.
 3. The agent sends the user's credentials through the named pipe.
 4. Using the user's credentials received from the named pipe, a login is performed on the user's behalf.
-

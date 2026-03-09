@@ -162,4 +162,3 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1460982](https://bugzilla.redhat.com/show_bug.cgi?id=1460982) <b>[downstream clone - 4.1.5] [TEXT] Error message is confusing when hosted-engine Storage Domain can't be mounted</b><br>
-

@@ -10,5 +10,3 @@ You can edit the name and description of a tag.
 . Select the tag you want to modify and click *Edit*.
 . Change the *Name* and *Description* fields as necessary.
 . Click btn:[OK].
-
-

@@ -311,4 +311,3 @@ For nics, the previous scenario deletes the previous IP configuration and sets t
         </li>
 
 3.  You're done ;-)
-

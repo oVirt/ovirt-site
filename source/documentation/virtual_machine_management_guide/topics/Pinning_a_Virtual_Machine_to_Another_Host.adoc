@@ -15,5 +15,3 @@ If the virtual machine has any host devices attached to it, pinning it to anothe
 . Click *Pin to another host*. This opens the *Pin VM to Host* window.
 . Use the *Host* drop-down menu to select a host.
 . Click btn:[OK] to pin the virtual machine to the selected host.
-
-

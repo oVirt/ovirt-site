@@ -84,4 +84,3 @@ with body containing:
 *   Have a VM with an attached shared disk
 *   Clone the VM
 *   Verify the new VM has the disk attached as well
-

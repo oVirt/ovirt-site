@@ -63,6 +63,3 @@ Old pending resource tracking will be used. There is no danger to the existing f
 ## Release Notes
 
 TBD
-
-
-

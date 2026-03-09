@@ -14,5 +14,3 @@ You can influence the ordering of the migration queue by setting the priority of
 . Select the *High Availability* tab.
 . Select *Low*, *Medium*, or *High* from the *Priority* drop-down list.
 . Click btn:[OK].
-
-

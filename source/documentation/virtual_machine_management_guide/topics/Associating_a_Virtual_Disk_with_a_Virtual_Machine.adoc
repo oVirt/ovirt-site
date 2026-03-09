@@ -26,4 +26,3 @@ Once a floating disk is attached to a virtual machine, the virtual machine can a
 ====
 No Quota resources are consumed by attaching virtual disks to, or detaching virtual disks from, virtual machines.
 ====
-

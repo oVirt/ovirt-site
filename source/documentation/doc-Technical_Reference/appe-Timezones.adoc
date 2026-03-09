@@ -103,4 +103,3 @@ The API maps Windows Standard Format timezone names to tz database format when s
 |`Pacific/Port_Moresby` |`West Pacific Standard Time`
 |`Pacific/Tongatapu` |`Tonga Standard Time`
 |===
-

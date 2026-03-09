@@ -107,4 +107,3 @@ $ vdsClient -s 0 getVGList
    ```bash
    $ vncviewer <oVirt Node>:<displayPort>
    ```
-

@@ -43,4 +43,3 @@ This procedure shows you how to apply filters when listing account information.
 ----
 # ovirt-aaa-jdbc-tool query --what=group --pattern="department=_marketing_"
 ----
-

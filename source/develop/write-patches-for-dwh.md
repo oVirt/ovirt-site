@@ -101,4 +101,3 @@ Second,
 *   Copy from the zip file to the git repository : `./ovirt-dwh/tos_project`
 
 **Important** ! Copy only into the folders that already exist in the `tos_project` folder. Do not copy : `Metadata`, `sqlPatterns` and `temp`.
-

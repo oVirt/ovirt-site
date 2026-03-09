@@ -252,5 +252,3 @@ After the backup VM copy the data from the disk, detach the disk snapshot from t
 #### Add disk from scratch
 
 Adding a disk from scratch for restore VM ![](/images/wiki/AddDiskFromScratch.png)
-
-

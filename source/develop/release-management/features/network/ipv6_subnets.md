@@ -558,4 +558,3 @@ The following is a list of (possible) future features:
   - this implies implementing fixed IPs in the UI for VMs
 - address mode selector when creating a subnet through the UI enabling a
 different address mode to be chosen
-

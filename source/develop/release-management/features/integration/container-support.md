@@ -190,6 +190,3 @@ TODO
 We add a new optional feature, so there is no negative fallback and no contingency plan, oVirt will just keep working as usual.
 
 ## Release Notes
-
-
-

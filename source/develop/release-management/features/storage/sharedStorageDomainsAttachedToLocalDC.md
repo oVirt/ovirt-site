@@ -60,4 +60,3 @@ https://bugzilla.redhat.com/show_bug.cgi?id=1353137 - Memory volume placement sh
 https://bugzilla.redhat.com/show_bug.cgi?id=1353134 - Reconstructing master should prefer shared domains over local domains
 https://bugzilla.redhat.com/show_bug.cgi?id=1309212 - Allow changing DC type from local to shared and vice versa
 https://bugzilla.redhat.com/show_bug.cgi?id=1302185 - [RFE] Allow attaching shared storage domains to a local DC
-

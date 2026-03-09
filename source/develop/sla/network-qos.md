@@ -118,5 +118,3 @@ Others projects:
 ### Documentation / External references
 
 *   See: <http://libvirt.org/formatdomain.html#elementQoS> for documentation of the VM level network QoS XML.
-
-

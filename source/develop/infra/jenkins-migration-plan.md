@@ -54,4 +54,3 @@ The following is a migration plan for [jenkins.ovirt.org](https://jenkins.ovirt.
         * gerrit access
 
         * linode access
-

@@ -15,4 +15,3 @@ authors: vfeenstr
 3.  The service then will send the credentials to a named Pipe ("\\\\\\\\.\\\\pipe\\\\VDSMPipe") via the CallNamedPipe system call
 4.  The plugin either GINA on Windows XP® or the Credentials Provider on Windows 7® will issue the login process with the credentials received.
 5.  If the login credentials are valid, the user is authenticated and the Desktop session started
-

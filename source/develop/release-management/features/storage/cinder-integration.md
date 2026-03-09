@@ -302,4 +302,3 @@ When client Ceph authentication (Cephx) is enabled, authentication keys should b
          rbd_user = cinder
 
 Note: client authentication keys are only used upon running a VM; i.e. authentication for ceph volume manipulation should be configured solely on Cinder side.
-

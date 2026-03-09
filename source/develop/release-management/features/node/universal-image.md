@@ -45,9 +45,3 @@ This model will then get additional testing and use outside of the oVirt Project
     -   ovirt-node
     -   ovirt-node-image
     -   New Package for the plugin
-
-
-
-
-
-

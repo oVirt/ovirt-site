@@ -7,4 +7,3 @@ Various aspects of the {virt-product-fullname} {engine-name} can be customized, 
 The files required to customize the {engine-name} are located in the */etc/ovirt-engine/branding/* directory on the system on which the {engine-name} is installed. The files comprise a set of cascading style sheet files that are used to style various aspects of the graphical user interface and a set of properties files that contain messages and links that are incorporated into various components of the {engine-name}.
 
 To customize a component, edit the file for that component and save the changes. The next time you open or refresh that component, the changes will be applied.
-

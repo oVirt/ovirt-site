@@ -72,4 +72,3 @@ Need new element suspend_type of following resources:
 the support for hibernation has been already added, see <http://gerrit.ovirt.org/#/c/1121/>
 
 ## Documentation / External references
-

@@ -117,5 +117,3 @@ runCostFunctions will execute a set of cost function plugins sequentially (provi
 Will execute the balance plugin named balance name on the hosts and properties_map.
 
 ## Testing
-
-

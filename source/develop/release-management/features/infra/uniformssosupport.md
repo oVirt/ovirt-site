@@ -9,4 +9,3 @@ authors:
 # Uniform SSO Support
 
 Specification is available in external file: [PDF](http://resources.ovirt.org/old-site-files/wiki/OVirt_SSO_Specification.pdf)
-

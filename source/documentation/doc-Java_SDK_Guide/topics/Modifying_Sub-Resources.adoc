@@ -34,4 +34,3 @@ disk.setAlias("test_Disk1_updated");
 VMDisk updateDisk = disk.update();
 ----
 +
-

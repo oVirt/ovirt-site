@@ -71,6 +71,3 @@ This will allow a user to provide a backward-compatibility for certain VMs and t
 *   RFE: <https://bugzilla.redhat.com/show_bug.cgi?id=838487>
 *   RFE: <https://bugzilla.redhat.com/show_bug.cgi?id=838490>
 *   RFE: <https://bugzilla.redhat.com/show_bug.cgi?id=952238>
-
-
-

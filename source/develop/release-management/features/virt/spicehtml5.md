@@ -42,4 +42,3 @@ Prerequisities: Browser that has proper websockets and postmessage support (test
     -   (The console opens in a new tab and this behavior is usualy blocked by browsers. For opening the console you must allow displaying pop-up windows from engine's domain.)
 
 Results: The new browser tab with spice-html5 session appears.
-

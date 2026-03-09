@@ -104,4 +104,3 @@ Behavior:
 ```
 
 ## Documentation / External references
-

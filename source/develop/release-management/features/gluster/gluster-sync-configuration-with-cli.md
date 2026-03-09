@@ -86,4 +86,3 @@ getGlusterRefreshRateHeavy(): Runs less frequently and syncs information that ad
 ### Detach
 
 ![](/images/wiki/Gluster-Sync-detach.png)
-

@@ -131,4 +131,3 @@ A new oVirt Live ISO is available:
 ### oVirt Image Uploader
 
 * option insecure doesn't work
-

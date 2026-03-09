@@ -62,4 +62,3 @@ traffic to the monitoring machine
 traffic from the monitoring machine
 
       $ ebtables -t nat -A PREROUTING -s 00:1a:4a:16:01:51 -i vnet0 -j dnat --to-destination 00:1a:4a:16:01:11
-

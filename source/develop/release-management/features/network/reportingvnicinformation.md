@@ -145,4 +145,3 @@ Affected oVirt projects:
 \* ipv4_addresses --> inet
 
 *   ipv6_addresses --> inet6
-

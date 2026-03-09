@@ -23,5 +23,3 @@ The following table describes all search options for clusters.
 `Clusters: initialized = true or name = Default`
 
 This example returns a list of clusters which are initialized or named Default.
-
-

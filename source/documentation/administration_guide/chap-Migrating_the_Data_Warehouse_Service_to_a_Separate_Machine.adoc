@@ -37,4 +37,3 @@ include::common/database/proc-stopping-the-data-warehouse-service.adoc[leveloffs
 include::common/database/proc-configuring-the-new-data-warehouse-machine.adoc[leveloffset=+1]
 
 include::common/database/proc-disabling-the-data-warehouse-service.adoc[leveloffset=+1]
-

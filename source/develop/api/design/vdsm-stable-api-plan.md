@@ -66,4 +66,3 @@ Things to declare
 
 *   Deprecation should be done sparsely
 *   Once marked deprecated, the API will remain available for at least 1 major release.
-

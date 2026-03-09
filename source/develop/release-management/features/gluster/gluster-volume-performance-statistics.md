@@ -179,4 +179,3 @@ To view the profile info, "Details" sub-menu of the Profiling menu needs to be c
 4.  You can now view the profile statistics using "Profiling" sub tab or the API
 
 ## Design
-

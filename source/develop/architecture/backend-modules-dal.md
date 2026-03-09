@@ -21,4 +21,3 @@ Both ReadDAO and ModificationsDAO are generic interfaces defined by two generics
 *   GenericDAO - An interface for DAOs that are both Read and Modifications, or CRUD complete. Most DAOs implement this interface. As the name suggests it is a generic interface like ReadDAO and ModificationsDAO.
 
 **Spring and JDBC:** The dal module uses the popular [Spring](http://www.springsource.org/) library for its JDBC (Java Database Connectivity) wrapper to talk to the PostgreSQL database.
-

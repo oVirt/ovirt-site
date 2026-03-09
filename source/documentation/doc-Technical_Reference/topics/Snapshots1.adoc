@@ -21,5 +21,3 @@ The three primary snapshot operations are:
 * Deletion, which involves deleting a restoration point that is no longer required.
 
 For task-based information about snapshot operations, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#sect-Snapshots[Snapshots] in the _{virt-product-fullname} Virtual Machine Management Guide_.
-
-

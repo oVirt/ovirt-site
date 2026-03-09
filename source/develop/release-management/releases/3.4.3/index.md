@@ -120,4 +120,3 @@ Bugs fixed between RC and GA
  - Can't login the hypervisor with correct password after upgrading the RHEV-H from "rhevh-6.5-20140603.2.el6ev.iso" to "rhevh-6.5-20140618.0.el6ev.iso"
  - avoid XML-RPC integer overflows in balloon stats
  - Thin provisioning disks broken on block storage when using pthreading 1.3
-

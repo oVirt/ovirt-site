@@ -10,4 +10,3 @@ vhostmd (the Virtual Host Metrics Daemon) allows virtual machines to see limited
 The vhostmd package must be installed on each host where guests are required to get host metrics.
 
 The vhostmd hook enables vhostmd functionality on oVirt guests
-

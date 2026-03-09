@@ -47,4 +47,3 @@ This feature will allow quick changing of console parameters from frontend.
 *   Refresh the browser window (to reinitialize gwt app)
 *   Open Console Options dialog for that VM again
 *   Check if previously selected options are selected now.
-

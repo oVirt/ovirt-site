@@ -76,5 +76,3 @@ Affected oVirt projects:
 *   Engine-core
 *   Webadmin
 *   API
-
-

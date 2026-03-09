@@ -12,5 +12,3 @@
 . Click *Permissions*.
 . Click btn:[Remove]. A warning message displays, asking you to confirm removal of the selected permissions.
 . To proceed, click btn:[OK]. To abort, click *Cancel*.
-
-

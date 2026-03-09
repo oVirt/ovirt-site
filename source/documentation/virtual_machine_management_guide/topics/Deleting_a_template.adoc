@@ -10,5 +10,3 @@ If you have used a template to create a virtual machine using the thin provision
 . Click menu:Compute[Templates] and select a template.
 . Click btn:[Remove].
 . Click btn:[OK].
-
-

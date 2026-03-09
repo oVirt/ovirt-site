@@ -91,4 +91,3 @@ The things that can be tested are: 1. Test case 1 (Check for regression) Make su
 These fixes are a part of the on going effort around the Async Task Manager changes. See also [1](/develop/release-management/features/infra/asynctaskmanagerchanges.html)
 
 ## Documentation / External references
-

@@ -39,5 +39,3 @@ This feature allows oVirt to automatically scale applications based on their res
 ## Documentation / External references
 
 Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
-
-

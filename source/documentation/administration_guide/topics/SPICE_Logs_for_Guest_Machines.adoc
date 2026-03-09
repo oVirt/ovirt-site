@@ -18,4 +18,3 @@ $ killall - u $USER spice-vdagent
 $ spice-vdagent -x -d [-d] [ \|& tee spice-vdagent.log ]
 ----
 |===
-

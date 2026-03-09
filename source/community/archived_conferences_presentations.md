@@ -516,4 +516,3 @@ We introduced the project, the technologies inside of the new projects, and had 
 * Doron Fediuck - Get Me Started! Setting up a development setup
   [[Slides - PDF]](https://resources.ovirt.org/old-site-files/wp/ovirt-dev-setup.pdf)
   [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wp/ovirt-dev-setup.odp)
-

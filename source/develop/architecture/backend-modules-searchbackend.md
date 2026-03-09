@@ -13,4 +13,3 @@ In addition to being used to implement the search bar, the module is used to dis
 The user can see the query that was ran when a tab was clicked.
 
 For more information see [Introducing_Entity_Search](/develop/developer-guide/introducing-entity-search.html).
-

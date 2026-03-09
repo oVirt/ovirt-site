@@ -274,4 +274,3 @@ ovirt-host-deploy is executed by ovirt-engine using python2. This cause Host ins
 
  - [BZ 1335426](https://bugzilla.redhat.com/show_bug.cgi?id=1335426) <b>Cockpit port (9090) is getting closed on HE hosts</b><br>
  - [BZ 1353537](https://bugzilla.redhat.com/show_bug.cgi?id=1353537) <b>hosted-engine --vm-status --json does not show global maintenance mode</b><br>
-

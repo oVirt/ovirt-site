@@ -618,4 +618,3 @@ There are 3 main tests:
 [oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider.html)
 
 [RFE Provide support for adding security groups and rules using ovirt-provider-ovn](https://bugzilla.redhat.com/show_bug.cgi?id=1539829)
-

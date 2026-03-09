@@ -22,4 +22,3 @@ To outline, next steps would be:
 
 **Prev:** [Chapter: Deploying oVirt and Gluster hyperconverged](chap-Deploying_Hyperconverged.html) <br/>
 **Next:** [Chapter: Troubleshooting](chap-Troubleshooting.html)
-

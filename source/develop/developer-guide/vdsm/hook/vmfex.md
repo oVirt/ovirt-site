@@ -61,4 +61,3 @@ virsh net-autostart direct-pool
 (where `/tmp/direct-pool.xml` contains the xml above)
 
 Note that these interface definitions are completely static - you never need to modify them due to migration, or starting up/shutting down the guest.
-

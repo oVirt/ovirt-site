@@ -11,4 +11,3 @@
 
 
 *Physically shared devices*:: Certain hardware platforms allow virtualized guests to directly access various hardware devices and components. This process in virtualization is known as passthrough or device assignment. Passthrough allows devices to appear and behave as if they were physically attached to the guest operating system.
-

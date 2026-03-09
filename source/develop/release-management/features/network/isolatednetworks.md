@@ -62,4 +62,3 @@ Using this resource, an isolated networks could be configured on host, if a netw
        /api/hosts/{host:id}/setupnetworks
 
 No changes required. Without specifying the host_nic for the network_attachment element, an isolated will be configured on the host.
-

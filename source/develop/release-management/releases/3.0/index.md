@@ -133,4 +133,3 @@ It is important to use your most up-to-date Fedora, with \`iscsi-initiator-utils
 ## Data Warehouse and Reports
 
 No packaging for the components will be released as part of the inital oVirt Project release.
-

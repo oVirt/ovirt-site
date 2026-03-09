@@ -51,4 +51,3 @@ export default moment.defineLocale('en-il', {
         return number + output;
     }
 });
-

@@ -66,5 +66,3 @@ There is no REST API available to create brick based on storage devices of host.
 New API:
 
       PUT /clusters/{cluster:id}/hosts/{host:id}/brickdevices/add
-
-

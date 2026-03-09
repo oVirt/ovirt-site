@@ -165,4 +165,3 @@ In one of the hosts, after messing the network, vdsm did not automatically creat
                                           # just edit it and add a newline at the end
     (virsh)# net-edit ovirtmgmt
     (virsh)# net-autostart ovirtmgmt
-

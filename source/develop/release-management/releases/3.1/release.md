@@ -21,4 +21,3 @@ For more information on oVirt 3.1, including installation instructions, please r
 The new release is available for [download](/download/).
 
 For the entire oVirt community, thanks for your participation in making this release happen. In particular, thanks to anyone who contributed to the release through testing, submitting patches, and bug reporting.
-

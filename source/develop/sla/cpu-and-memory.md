@@ -101,4 +101,3 @@ int virDomainSetMemoryParameters (virDomainPtr domain,
 *   Guarenteed
 *   Hard Limits
 *   Soft Limits
-

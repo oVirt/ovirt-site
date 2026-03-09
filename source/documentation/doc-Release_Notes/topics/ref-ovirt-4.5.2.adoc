@@ -110,5 +110,3 @@ The items in this section are either no longer supported, or will no longer be s
 
 BZ#link:https://bugzilla.redhat.com/2111600[2111600]::
 ovirt-engine-extension-aaa-jdbc and ovirt-engine-extension-aaa-ldap are deprecated in RHV 4.4 SP1. They remain in the RHV product, but for any new request, you should use integration with Red Hat Single Sign-On as described in https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#Configuring_Red_Hat_SSO
-
-

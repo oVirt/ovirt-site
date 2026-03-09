@@ -144,4 +144,3 @@ Query](/develop/developer-guide/engine/writing-a-new-user-query.html)
 * Should Create Host permissions be inherited for viewing?
 * Should we grant VM/Template Creator to any user who is a VM/Template Admin?
 * How do Disk Permissions integrate with this solution?
-

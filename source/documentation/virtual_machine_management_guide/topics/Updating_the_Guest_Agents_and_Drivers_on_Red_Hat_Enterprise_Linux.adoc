@@ -32,7 +32,3 @@ Update the guest agents and drivers on your {enterprise-linux} virtual machines 
 ----
 # systemctl restart ovirt-guest-agent.service
 ----
-
-
-
-

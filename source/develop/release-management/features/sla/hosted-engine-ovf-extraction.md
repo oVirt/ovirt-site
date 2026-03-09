@@ -40,4 +40,3 @@ The specific goals associated with this feature are as follows:
 ## Documentation / External references
 
 *   [Documentation/External references](/develop/release-management/features/sla/hosted-engine-agent-offloading.html)
-

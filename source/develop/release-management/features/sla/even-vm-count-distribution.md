@@ -104,7 +104,3 @@ pseudo (python) code for the balance() method
 ## Testing
 
 * TBD
-
-
-
-

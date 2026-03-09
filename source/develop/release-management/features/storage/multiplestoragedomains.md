@@ -126,4 +126,3 @@ Being developed in parallel with quotas. Can't anticipate changes needed to work
 ## Needed documentation
 
 The docs will need to be updated with new screenshots showing adding a disk to a VM and selecting the storage domain there.
-

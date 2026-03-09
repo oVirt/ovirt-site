@@ -16,4 +16,3 @@
 * \_layouts / \_includes - page templates
 * \_sass / stylesheets / javascripts / fonts / images - site assets
 * \_plugins - Jekyll plugins
-

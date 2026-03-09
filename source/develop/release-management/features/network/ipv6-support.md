@@ -313,4 +313,3 @@ Use REST API for:
 ### Discussion
 
 On the devel@ovirt.org mailing list.
-

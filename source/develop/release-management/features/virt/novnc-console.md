@@ -121,4 +121,3 @@ With release 3.5 oVirt supports also the deploy of WebSocket Proxy on a separate
 *   Select 'noVNC', and click OK to save. ![](/images/wiki/ConsoleOptions_noVNC.png)
 *   Click the console button to invoke the console.
     -   (The console opens in a new tab and this behavior is usualy blocked by browsers. For opening the console you must allow displaying pop-up windows from engine's domain and you must have Certificate Authority correctly imported in your browser.).
-

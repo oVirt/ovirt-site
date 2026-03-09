@@ -14,4 +14,3 @@ syntax:
       pincpu=1
 
 will pin the vm to cpu 1
-

@@ -192,5 +192,3 @@ this will "reset" the vm configuration - delete all existing snapshots of the vm
 do we want to let user choose if to auto update stateless vms (check box)?
 
 *   saving version number - add new column or use name column?
-
-

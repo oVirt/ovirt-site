@@ -49,5 +49,3 @@ EndSection
 ----
 
 . Log out and log back into the virtual machine to restart X-Windows.
-
-

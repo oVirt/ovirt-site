@@ -62,4 +62,3 @@ The following steps should be tested:
 ### Comments and Discussion
 
 On the devel@ovirt.org and users@ovirt.org mailing lists.
-

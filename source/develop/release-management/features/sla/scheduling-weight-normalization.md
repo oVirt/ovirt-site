@@ -111,4 +111,3 @@ The feature is ready and only needs to be enabled.
 ### Comments and Discussion
 
 Please use the devel@ovirt.org mailinglist for discussing this feature.
-

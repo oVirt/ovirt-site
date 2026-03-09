@@ -20,4 +20,3 @@ oVirt’s goal is deliver a complete and comprehensive virtualization management
 The collection of oVirt subprojects is by no means complete; new subprojects can be added at any time, using an [established procedure](/develop/projects/incubating-an-subproject.html). As long as projects [maintain their health](/develop/projects/requirements-for-healthy-subprojects.html), they will be a part of the oVirt ecosystem.
 
 Input and concepts have been used from LVM and many other existing and well functioning Linux communities. We invite you to join the oVirt ecosystem and come and add your experience, know how, and complementary assets to create a truly open data center virtualization platform.
-

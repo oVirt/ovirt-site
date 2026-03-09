@@ -10,4 +10,3 @@
 //= require _bootstrap-includes
 
 //= require bootstrap-sortable
-

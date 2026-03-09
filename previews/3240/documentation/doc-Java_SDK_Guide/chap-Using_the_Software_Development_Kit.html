@@ -199,14 +199,12 @@
 <pre class="CodeRay highlight"><code data-lang="Java">VM newVM = vm.update();</code></pre>
 </div>
 </div>
+<div id="Getting_a_Resource" class="paragraph">
+<p>= Getting a Resource</p>
+</div>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="Getting_a_Resource">Getting a Resource</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>In the Java Software Development Kit, resources can be referred to via two attributes: <code>name</code>, and <code>UUID</code>. Both return an object with the specified attribute if that object exists.</p>
 </div>
@@ -226,11 +224,8 @@
 <pre class="CodeRay highlight"><code data-lang="Java">VM vm = api.getVMs().get(<span style="color:#0a8;font-weight:bold">UUID</span>.fromString(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">5a89a1d2-32be-33f7-a0d1-f8b5bc974ff6</span><span style="color:#710">&quot;</span></span>));</code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="Adding_Virtual_Machines">Adding Resources</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="Adding_Virtual_Machines">Adding Resources</h3>
 <div class="paragraph">
 <p>The following examples outline two ways to add resources to the {virt-product-fullname} {engine-name}. In these examples, the resource to be added is a virtual machine.</p>
 </div>
@@ -281,10 +276,8 @@ vmParams.setTemplate(templateParam);
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="Performing_Actions_on_Resources">Performing Actions on Resources</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="Performing_Actions_on_Resources">Performing Actions on Resources</h3>
 <div class="paragraph">
 <p>The following example outlines how to perform actions on a resource. In this example, a virtual machine with the name 'test' is started.</p>
 </div>
@@ -329,14 +322,12 @@ actionParam.setVm(vmParam);</code></pre>
 });</code></pre>
 </div>
 </div>
+<div id="Listing_Sub-Resources" class="paragraph">
+<p>= Listing Sub-Resources</p>
+</div>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="Listing_Sub-Resources">Listing Sub-Resources</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>The following example outlines how to list the sub-resources of a resource. In this example, the sub-resources of a virtual machine with the name 'test' are listed.</p>
 </div>
@@ -388,8 +379,8 @@ actionParam.setVm(vmParam);</code></pre>
 </li>
 </ol>
 </div>
-<div class="sect2">
-<h3 id="Adding_Sub-Resources_to_a_Resource">Adding Sub-Resources to a Resource</h3>
+<div class="sect3">
+<h4 id="Adding_Sub-Resources_to_a_Resource">Adding Sub-Resources to a Resource</h4>
 <div class="paragraph">
 <p>The following example outlines how to add sub-resources to a resource. In this example, a new disk with a size of '1073741824L', interface 'virtio' and format 'cow' are added to a virtual machine with the name 'test'.</p>
 </div>
@@ -422,12 +413,12 @@ diskParam.setFormat(<span style="background-color:hsla(0,100%,50%,0.05)"><span s
 <pre class="CodeRay highlight"><code data-lang="Java">Disk disk = vm.getDisks().add(diskParam);</code></pre>
 </div>
 </div>
+<div id="Modifying_Sub-Resources" class="paragraph">
+<p>= Modifying Sub-Resources</p>
+</div>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="Modifying_Sub-Resources">Modifying Sub-Resources</h3>
 <div class="paragraph">
 <p>The following example outlines how to modify sub-resources. In this example, the name of a disk with the name 'test_Disk1' belonging to a virtual machine with the name 'test' is changed to 'test_Disk1_updated'.</p>
 </div>
@@ -465,12 +456,12 @@ diskParam.setFormat(<span style="background-color:hsla(0,100%,50%,0.05)"><span s
 <pre class="CodeRay highlight"><code data-lang="Java">VMDisk updateDisk = disk.update();</code></pre>
 </div>
 </div>
+<div id="Performing_Actions_on_Sub-Resources" class="paragraph">
+<p>= Performing Actions on Sub-Resources</p>
+</div>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="Performing_Actions_on_Sub-Resources">Performing Actions on Sub-Resources</h3>
 <div class="paragraph">
 <p>The following example outlines how to perform actions on sub-resources. In this example, a disk with the name 'test_Disk1' belonging to a virtual machine with the name 'test' is activated.</p>
 </div>
@@ -514,7 +505,7 @@ diskParam.setFormat(<span style="background-color:hsla(0,100%,50%,0.05)"><span s
 </div>
 </div>
 </div>
-
+</div>
 
 
         </section>

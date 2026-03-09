@@ -14,5 +14,3 @@ To include a file from the common directory in a guide:
     ln -s ../common .
 
 4. Edit the Pantheon configuration entry for each guide in which the file appears. Under the *Additional Content Directories* field, enter `common`, and save the configuration.
-
-

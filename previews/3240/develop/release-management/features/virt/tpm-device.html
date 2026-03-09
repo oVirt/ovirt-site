@@ -331,7 +331,6 @@
 <p>Power-off operation could be changed to call ungraceful shutdown rather than direct destroy, with destroy operation called separately once the VM gets down.  Then final TPM data could be retrieved reliably also after power-off (from the point of hypervisor, there are still no guarantees in the guest OS in case of ungraceful shutdown).  This change would require changes on the Vdsm side to be meaningful but it can be implemented (without the hypervisor guarantees) also with current Vdsm if invoking guest shutdown followed by hard destroy immediately is acceptable as a power-off operation.</p>
 
 
-
         </section>
       </section>
     </main>

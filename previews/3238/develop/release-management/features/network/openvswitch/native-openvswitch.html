@@ -229,7 +229,7 @@ OVS is to be fully integrated (natively) into oVirt through VDSM, becoming the d
 <h2 id="overview">Overview</h2>
 <p>The introduction of OVS as an additional network switching solution raises the need to generalize and abstract the requirements from the system networking services and define a spec which considers both options (OVS &amp; native Linux networking).
 The OVS model of arranging networking entities is different from the native Linux networking, but is closer to industry networking modeling.
-A VM can not be simply connected to an OvS bridge. In order to connect a VM to an OvS bridge, a user must first define an OvS VM network. 
+A VM can not be simply connected to an OvS bridge. In order to connect a VM to an OvS bridge, a user must first define an OvS VM network.
 This automatically creates an OVN network, which is built on top of an OvS integration bridge. The VM is then attached to the OVN network via the OvS integration bridge (see <a href="/ovirt-site/previews/3238/develop/release-management/features/network/autodefine-external-network.html">Autodefine External Network</a>).</p>
 
 <h3 id="network-entities">Network Entities</h3>
@@ -334,7 +334,7 @@ The proposed abstraction level is aimed to leave existing logic isolated from OV
   <li>The modeling of each switch is different, having it seperated reduces complex logic.</li>
 </ul>
 
-<p>Switch implementations are registered per availability, with an identification and a callback. 
+<p>Switch implementations are registered per availability, with an identification and a callback.
 setupNetworks requests are expected to arrive from Engine with a switch type ID, based on which the request is forwarded to the switch implementation.</p>
 
 <p>Each switch should have its own validation check in addition to a common one, handling switch specific rules.</p>

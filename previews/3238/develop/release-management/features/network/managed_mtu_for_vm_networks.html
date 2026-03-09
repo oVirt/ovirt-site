@@ -442,7 +442,7 @@ network are encapsulated in tunnels by OVN.</p>
 the tunneling overhead greater than the desired MTU, e.g. 8058 bytes. In the
 default configuration of ovirt-provider-ovn the tunneling overhead is 58 bytes.</li>
   <li>Assign this network, to a host NIC of every host in the cluster. Ensure that
-the switch port connected to this NICs is configured to accept big frames, 
+the switch port connected to this NICs is configured to accept big frames,
 e.g. by using [LLDP][17].</li>
   <li>Configure OVN to use this new network to create the tunnels:
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=&lt;cluster name&gt; ovn_central=&lt;ovn central ip&gt; ovn_tunneling_interface=&lt;vdsm network name of the new logical host network&gt;" /usr/share/ovirt-engine/playbooks/ovirt-provider-ovn-driver.yml

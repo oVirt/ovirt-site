@@ -146,31 +146,31 @@
 </ul>
 
 <h2 id="summary">Summary</h2>
-<p>Current support of SR-IOV (single root I/O virtualization) in engine 
+<p>Current support of SR-IOV (single root I/O virtualization) in engine
 does not allow migration, which
-limits its usability. However current support of SR-IOV does support 
-hot-plugging and hot-unplugging. We can employ this to enable currently 
+limits its usability. However current support of SR-IOV does support
+hot-plugging and hot-unplugging. We can employ this to enable currently
 not supported migration. When VM is migrated to another host, its
 passthrough nic will be hot-unplugged, and related VF (virtual function)
 will be released.
 Then we can perform VM migration, and after that we’ll perform hot-plug.
-Therefore, after migrating VM, there will be slight delay before nic 
+Therefore, after migrating VM, there will be slight delay before nic
 reappears in VM.</p>
 
 <h2 id="detailed-description">Detailed Description</h2>
 
-<p>Currently, VMs using SR-IOV nics cannot be migrated. To preserve this 
-behavior user can specify, whether each passthrough nic is ‘migratable’ 
-or not. A VM can only be migrated, when all its nics passthrough 
+<p>Currently, VMs using SR-IOV nics cannot be migrated. To preserve this
+behavior user can specify, whether each passthrough nic is ‘migratable’
+or not. A VM can only be migrated, when all its nics passthrough
 nics are marked as migratable.</p>
 
-<p>Hot-plug can succeed only if there’s available VF on 
-target host. To avoid possible race, migration will allocate VF first, 
-proceeding only if there is available one. 
+<p>Hot-plug can succeed only if there’s available VF on
+target host. To avoid possible race, migration will allocate VF first,
+proceeding only if there is available one.
 If there’s none, VM won’t be migrated.</p>
 
-<p>Migration with SR-IOV vNICs is a tricky multi-state operation, and can 
-fail. If the operation fails after the VM is already running on the 
+<p>Migration with SR-IOV vNICs is a tricky multi-state operation, and can
+fail. If the operation fails after the VM is already running on the
 destination, the VM would not be migrated back.</p>
 
 <h3 id="rest">REST</h3>
@@ -179,21 +179,21 @@ destination, the VM would not be migrated back.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Type</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">VnicProfile</span> <span class="kd">extends</span> <span class="nc">Identified</span> <span class="o">{</span>
-    
+
     <span class="c1">//...</span>
-    
+
     <span class="nc">VnicPassThrough</span> <span class="nf">passThrough</span><span class="o">();</span>
     <span class="kt">boolean</span> <span class="nf">migratable</span><span class="o">();</span>
-    
+
     <span class="c1">//...</span>
-<span class="o">}</span>    
+<span class="o">}</span>
 </code></pre></div></div>
 
 <h3 id="gui">GUI</h3>
 
 <p>In UI, you need to flag passthrough nic as migratable to be able to do
 migration when SR-IOV is used. Only passthrough nic can be marked as
-migratable, or not marked as migratable. Other nics are always 
+migratable, or not marked as migratable. Other nics are always
 migratable, thus migratable checkbox will be selected and greyed out
 when passthrough checkbox is not selected.</p>
 
@@ -202,14 +202,14 @@ when passthrough checkbox is not selected.</p>
 
 <h3 id="guest-side-support">Guest-side support</h3>
 
-<p>While migrating, the guest can notice that one of its vNICs has been 
-unplugged, and communication is lost. To avoid that, VM admin should 
-add two vNICs: an SR-IOV one for performance, and a virtio one for 
-backup during migration. The guest should create a bonding (or teaming) 
-device on top of these, so that user-space guest application can ignore 
+<p>While migrating, the guest can notice that one of its vNICs has been
+unplugged, and communication is lost. To avoid that, VM admin should
+add two vNICs: an SR-IOV one for performance, and a virtio one for
+backup during migration. The guest should create a bonding (or teaming)
+device on top of these, so that user-space guest application can ignore
 the temporary disappearance of the SR-IOV device.</p>
 
-<p>When migration finishes and the SR-IOV device is restored, it should be 
+<p>When migration finishes and the SR-IOV device is restored, it should be
 reattached to that bond. In the context of this feature, we would supply
 the el7 hooking mechanism to make it happen seamlessly in the future, while
 currently migration is possible using the following procedure via NetworkManager:</p>

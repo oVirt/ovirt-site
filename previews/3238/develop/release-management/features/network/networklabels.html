@@ -269,7 +269,7 @@ With the <strong>Network labels</strong> feature the amount of actions required 
 <p><strong>For example:</strong></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   networks 'red' and 'blue' labelled 'lbl1'
-   network 'red' is assigned to a cluster 'A' and 'B'. 
+   network 'red' is assigned to a cluster 'A' and 'B'.
    network 'blue' is assigned to a cluster 'B'.
 </code></pre></div></div>
 
@@ -280,10 +280,10 @@ If network ‘blue’ will be unassigned from cluster ‘B’, label ‘lbl1’ 
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Network 'red' - lbl1
    Network 'blue' - lbl1
-   
+
    Host X - eth0 - lbl1
    Host Y - bond0 - lbl1
-   
+
    * Removing 'lbl1' from network 'red' will trigger the removal of network 'red' from eth0 (Host X) and from bond0 (Host Y)
    * Adding network 'green' with label 'lbl1' will trigger the addition of network 'green' to eth0 (Host X) and to bond0 (Host Y)
 </code></pre></div></div>
@@ -438,8 +438,8 @@ There are certain configurations which aren’t supported by the ‘Setup Networ
   <span class="nt">&lt;host_nics&gt;</span>
     <span class="nt">&lt;host_nic&gt;</span>
       <span class="nt">&lt;labels&gt;</span>
-              <span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"label_name_1"</span> <span class="nt">/&gt;</span> 
-              <span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"label_name_2"</span> <span class="nt">/&gt;</span> 
+              <span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"label_name_1"</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"label_name_2"</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;/labels&gt;</span>
             ...
     <span class="nt">&lt;/host_nic&gt;</span>

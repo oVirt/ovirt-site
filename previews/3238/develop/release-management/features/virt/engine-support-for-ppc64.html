@@ -313,10 +313,10 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public class ArchStrategyFactory {
         private static final EnumMap&lt;ArchitectureType, ArchStrategy&gt; architectureArchStrategyMap =  new EnumMap&lt;ArchitectureType, ArchStrategy&gt;(ArchitectureType.class);
 
-        public static ArchStrategy getStrategy(ArchitectureType architecture) { 
+        public static ArchStrategy getStrategy(ArchitectureType architecture) {
             return architectureArchStrategyMap.get(architecture);
         }
-    } 
+    }
 
     public void addCdromAddress(Map&lt;String, Object&gt; cdromDevice) {
         Map&lt;String, String&gt; cdromAddress = new HashMap&lt;String, String&gt;();
@@ -385,7 +385,7 @@ os.other_ppc64.displayProtocols.value = vnc/cirrus
 <p>Due to the fact that there is no notion of a more featured family containing a less one on POWER, it’s necessary to adapt the code to encapsulate the x86 levels and report the (non) compatibility between POWER families accordingly. This can be addressed by using again the strategy class which will manage the cpu details and provide functions free of the level semantic:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    boolean sameCpuNames = StringUtils.equals(oldGroup.getcpu_name(), getVdsGroup().getcpu_name());
-    if (!sameCpuNames) {  
+    if (!sameCpuNames) {
         if (suspendedVms) {
             addCanDoActionMessage(VdcBllMessages.VDS_GROUP_CANNOT_UPDATE_CPU_WITH_SUSPENDED_VMS);
             result = false;
@@ -421,7 +421,7 @@ public class VDSGroup ...
         return result
     }
 
-    private ArchStrategy getArchStrategy() {   
+    private ArchStrategy getArchStrategy() {
         ArchStrategy strategy = strategyFactory.get(getArch(), getVersion());
         return strategy;
     }

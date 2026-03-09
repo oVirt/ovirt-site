@@ -142,7 +142,7 @@ Also, assume that c3 and c4 includes sensetive information that should be shown 
 
 <p>4) Assume you have a SP that selects from T by id (c1 column), it should now look like :</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="k">Create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">FUNCTION</span> <span class="n">GetAllFromT</span><span class="p">(</span><span class="n">v_id</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">v_user_id</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">v_is_filtered</span> <span class="nb">BOOLEAN</span><span class="p">)</span>   
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="k">Create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">FUNCTION</span> <span class="n">GetAllFromT</span><span class="p">(</span><span class="n">v_id</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">v_user_id</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">v_is_filtered</span> <span class="nb">BOOLEAN</span><span class="p">)</span>
       <span class="k">RETURNS</span> <span class="k">SETOF</span> <span class="n">T</span>
         <span class="k">AS</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
       <span class="k">DECLARE</span>

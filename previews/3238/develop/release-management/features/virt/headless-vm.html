@@ -179,9 +179,9 @@
     <p>Enable the oVirt Serial Console for this VM.</p>
   </li>
   <li>
-    <p>Manage the VM via a required graphic console only on its first run by using the “Run Once” dialog, which enables 
-to run a Headless VM as non-Headless only for the first run. 
-A checkbox is added to the “Run Once” dialog and let the user choose how he wants to run this VM for the first 
+    <p>Manage the VM via a required graphic console only on its first run by using the “Run Once” dialog, which enables
+to run a Headless VM as non-Headless only for the first run.
+A checkbox is added to the “Run Once” dialog and let the user choose how he wants to run this VM for the first
 time only and with which Graphic Protocol (SPICE or VNC).</p>
   </li>
 </ol>
@@ -192,11 +192,11 @@ time only and with which Graphic Protocol (SPICE or VNC).</p>
 
 <ol>
   <li>
-    <p>How to access the VM, if needed. Options can be to enable the oVirt Serial Console, or install SSH or any 
+    <p>How to access the VM, if needed. Options can be to enable the oVirt Serial Console, or install SSH or any
 other service for command line access.</p>
   </li>
   <li>
-    <p>What is the IP of this VM, if needed, since if the Guest-Agent is not installed then the oVirt Engine won’t 
+    <p>What is the IP of this VM, if needed, since if the Guest-Agent is not installed then the oVirt Engine won’t
 know The VM IP.</p>
   </li>
 </ol>
@@ -234,7 +234,7 @@ know The VM IP.</p>
 
 <h4 id="backend">Backend</h4>
 
-<p>No new property was added to the VM object and marking a VM as Headless is done by using existing properties. 
+<p>No new property was added to the VM object and marking a VM as Headless is done by using existing properties.
 In case of Headless VM / Template / Pool / Instance Type:</p>
 
 <ol>
@@ -261,7 +261,7 @@ This is done by using REST API with the “vms/&lt;vm-id&gt;/graphicsconsoles”
 <h5 id="usage-1">Usage:</h5>
 <ol>
   <li>
-    <p>In case an existing VM or Template or Instance-Type is non-Headless and you want to change it to Headless, 
+    <p>In case an existing VM or Template or Instance-Type is non-Headless and you want to change it to Headless,
  you need to remove all graphics console devices for this entity by calling the following API:</p>
 
     <p>DELETE  ..api/instancetypes/&lt;instancetype-id&gt;\/graphicsconsoles/&lt;console-id&gt;</p>
@@ -279,7 +279,7 @@ This is done by using REST API with the “vms/&lt;vm-id&gt;/graphicsconsoles”
     <p>When the last graphics console is removed - the VM becomes Headless</p>
   </li>
   <li>
-    <p>In case an existing VM or Template or Instance-Type is Headless and you wish to change it to non-Headless, 
+    <p>In case an existing VM or Template or Instance-Type is Headless and you wish to change it to non-Headless,
  you need to add a graphics cosnole device for this entity by calling the following APIs:</p>
 
     <p>POST  ..api/instancetypes/&lt;instancetype-id&gt;/graphicsconsoles</p>
@@ -323,7 +323,7 @@ This is done by using REST API with the “vms/&lt;vm-id&gt;/graphicsconsoles”
 
 <ul>
   <li>The ability to access the Headless VM and obtaining the VM IP are not automatically supported -
-In case a VM is currently running in Ovirt in a Headless mode, without a serial console enabled and without Guest-Agent installed, the user won’t be able to obtain an access or login to that VM and also won’t be able to check for the VM IP via the Ovirt Engine. 
+In case a VM is currently running in Ovirt in a Headless mode, without a serial console enabled and without Guest-Agent installed, the user won’t be able to obtain an access or login to that VM and also won’t be able to check for the VM IP via the Ovirt Engine.
 There is no warning for such cases in which no guest-agent is running or no serial console enabled and no ssh key installed and it’s the user responsibility to manage it in advance (either by enabling the serial console or by manage the VM on it’s first run via the “run Once” dialog which enables to run a Headless VM as non-Headless only for the first run).</li>
   <li>
     <p>Prior to  running a VM with a Headless mode, the Grub configuration for this VM should be set to console mode since otherwise the Grub will cause the guest OS boot process to hang.</p>

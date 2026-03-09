@@ -139,7 +139,7 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>Ordinarily, adding hosts in oVirt in the UI is tedious because you, as an administrator, have to set up the host 
+<p>Ordinarily, adding hosts in oVirt in the UI is tedious because you, as an administrator, have to set up the host
 network on each new host.</p>
 
 <p>The Copy Host Networking feature makes adding new hosts easier because you can configure the network on a single host
@@ -157,15 +157,15 @@ in the Administration Portal UI, and as a REST API method.</p>
 
 <h3 id="example-flow">Example flow</h3>
 
-<p>After creating a cluster, you add several hosts (<code class="language-plaintext highlighter-rouge">Host0, Host1, Host2</code>). 
-You configure the network settings for <code class="language-plaintext highlighter-rouge">Host0</code>. The two other hosts have the same network 
+<p>After creating a cluster, you add several hosts (<code class="language-plaintext highlighter-rouge">Host0, Host1, Host2</code>).
+You configure the network settings for <code class="language-plaintext highlighter-rouge">Host0</code>. The two other hosts have the same network
 interface layout as <code class="language-plaintext highlighter-rouge">Host0</code>, so you copy the network configuration from <code class="language-plaintext highlighter-rouge">Host0</code> to <code class="language-plaintext highlighter-rouge">Host1</code> and <code class="language-plaintext highlighter-rouge">Host2</code>.</p>
 
 <p>In the Admin Portal, you go to the <code class="language-plaintext highlighter-rouge">Host1</code> and <code class="language-plaintext highlighter-rouge">Host2</code> network interfaces and click
 the <code class="language-plaintext highlighter-rouge">Copy Host Networking</code> button. In the popup window that appears,
 you select the host, <code class="language-plaintext highlighter-rouge">Host0</code>, from which to copy the configuration.</p>
 
-<p>Alternatively, with the REST API, you can use the <code class="language-plaintext highlighter-rouge">copynetworks</code> method for <code class="language-plaintext highlighter-rouge">Host1</code> and <code class="language-plaintext highlighter-rouge">Host2</code>. 
+<p>Alternatively, with the REST API, you can use the <code class="language-plaintext highlighter-rouge">copynetworks</code> method for <code class="language-plaintext highlighter-rouge">Host1</code> and <code class="language-plaintext highlighter-rouge">Host2</code>.
 This method takes a single parameter, the host ID from which to copy the configuration (<code class="language-plaintext highlighter-rouge">Host0</code>).</p>
 
 <h3 id="procedure">Procedure</h3>
@@ -232,7 +232,7 @@ and select the <code class="language-plaintext highlighter-rouge">Copy Host Netw
     <p>You can copy host configurations only within the same cluster.</p>
   </li>
   <li>
-    <p>You cannot copy network configurations that contain static IP addresses: 
+    <p>You cannot copy network configurations that contain static IP addresses:
 This sets the boot protocol in the resulting network to <code class="language-plaintext highlighter-rouge">none</code>.</p>
   </li>
   <li>
@@ -269,7 +269,7 @@ and uses it to overwrite the network configuration of the destination host (Dest
   <li>The destination host has an equal or higher number of interfaces than the source host.</li>
 </ul>
 
-<p>(NOTE: These interface names and physical connections to the datacenter are recommended to be identical. Otherwise, 
+<p>(NOTE: These interface names and physical connections to the datacenter are recommended to be identical. Otherwise,
 this sorting process might produce a bad network configuration on the destination host.)</p>
 
 <p>The method prepares a set of network attachment definitions for the DestinationHost by doing the following:</p>
@@ -291,12 +291,12 @@ this sorting process might produce a bad network configuration on the destinatio
   <li>If there is an error, it reverts the configuration changes.</li>
 </ul>
 
-<p>The Admin Portal has a new button called Copy Host Networking. Clicking the button opens a dialog window. There, 
+<p>The Admin Portal has a new button called Copy Host Networking. Clicking the button opens a dialog window. There,
 you can select the source host from which to copy the configuration.</p>
 
 <h3 id="future-work">Future work</h3>
 
-<p>The biggest limitation is network mapping of interfaces with different name. 
+<p>The biggest limitation is network mapping of interfaces with different name.
 This can be overcome by enabling custom mapping which would let the administrator to map certain
 or all interfaces to their corresponding equivalents on the destination host. This way the limitation
 of interface count on destination host could be removed assuming that the administrator would provide

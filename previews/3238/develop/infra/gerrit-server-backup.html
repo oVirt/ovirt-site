@@ -141,7 +141,7 @@ passwd gerrit-backup
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>touch /home/gerrit-backup/.ssh/authorized_keys
 vi /home/gerrit-backup/.ssh/authorized_keys # add id_rsa.pub contents
-chmod 644 /home/gerrit-backup/.ssh/authorized_keys 
+chmod 644 /home/gerrit-backup/.ssh/authorized_keys
 chmod 700 /home/gerrit-backup/.ssh/
 </code></pre></div></div>
 
@@ -279,7 +279,7 @@ MAILTO=root
 # Gerrit backup script - database backup
 #
 # 0.1 Alpha - 20111207 Karsten Wade &lt;kwade@redhat.com&gt; &lt;quaid@iquaid.org&gt;
-# 
+#
 #
 # Copyright 2011 Karsten Wade &lt;kwade@redhat.com&gt; &lt;quaid@iquaid.org&gt;
 #
@@ -342,7 +342,7 @@ $SCP $BACKUPDIR/$BACKUPFILE-$DATE.tgz $REMOTEUSER@$REMOTEHOST:$REMOTEDIR/
 # Gerrit backup script - gerrit2 user home backup
 #
 # 0.1 Alpha - 20111208 Karsten Wade &lt;kwade@redhat.com&gt; &lt;quaid@iquaid.org&gt;
-# 
+#
 #
 # Copyright 2011 Karsten Wade &lt;kwade@redhat.com&gt; &lt;quaid@iquaid.org&gt;
 #

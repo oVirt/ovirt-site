@@ -676,7 +676,7 @@ That allows VMs to share disks, move Storage Domain to another environment, and 
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=977778">BZ 977778</a> <strong>[RFE] - Mechanism for converting disks for non-running VMS</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Support the conversion of a disk’s format and allocation policy</p>
 
     <p>Reason: Users may want to change allocation policy or format to make reduce space usage or improve performance. As well as enable incremental backup on existing raw disks.</p>
@@ -715,20 +715,20 @@ Support the conversion of a disk’s format and allocation policy</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1624015">BZ 1624015</a> <strong>[RFE] Expose Console Options and Console invocation via API</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Setting the default console type (for both new and existing VMs) can be done engine widely by using CLI for setting the following engine-config parameters:
 <code class="language-plaintext highlighter-rouge">engine-config -s ClientModeVncDefault=NoVnc</code> to prefer NoVnc instead of remote-viewer
-and 
+and
 <code class="language-plaintext highlighter-rouge">engine-config -s ClientModeConsoleDefault=vnc</code> to prefer VNC over SPICE in case the VM has both available.</p>
 
     <p>If the actual console type for existed VMs was chosen manually via ‘console options’ dialog, cleaning the browser local storage is needed.
 So in case  it’s required to set console type globally for
 all existing VMs, please clear the browser local storage after running the engine.</p>
 
-    <p>Reason: 
+    <p>Reason:
 An option for setting default console type for all provisioned VMs globally at once was not supported up till now. Needed to go one VM by one and set the console type via the ‘console options’ dialog.</p>
 
-    <p>Result: 
+    <p>Result:
 Support setting console type globally for all VMs, existed and new ones, by using the engine-config parameters.</p>
   </li>
   <li>
@@ -809,13 +809,13 @@ Support setting console type globally for all VMs, existed and new ones, by usin
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1849169">BZ 1849169</a> <strong>[RFE] add virtualCPUs/physicalCPUs ratio property to evenly_distributed policy</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 A new parameter was added to the evenly_distributed scheduling policy that takes into account the ratio between virtual and physical CPUs on the host.
-Reason: 
+Reason:
 To prevent the host from over utilization of all physical CPUs.
-Result: 
+Result:
 When the ratio is set to 0, the evenly distributed policy works as before. If the value is greater than 0, the vCPU to physical CPU is considered as follows:
-a. when scheduling a VM, hosts with lower CPU utilization are preferred. However, if adding of the VM would cause the vCPU to physical ratio to be exceeded, the hosts vCPU to physical ratio AND cpu utilization are considered. 
+a. when scheduling a VM, hosts with lower CPU utilization are preferred. However, if adding of the VM would cause the vCPU to physical ratio to be exceeded, the hosts vCPU to physical ratio AND cpu utilization are considered.
 b. in a running environment, if the host’s vCPU to physical ratio is above the limit, some of the VMs might be load balanced to the hosts with lower vCPU to physical CPU ratio.</p>
   </li>
   <li>
@@ -826,7 +826,7 @@ b. in a running environment, if the host’s vCPU to physical ratio is above the
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1944834">BZ 1944834</a> <strong>[RFE] Timer for Console Disconnect Action - Shutdown VM after N minutes of being disconnected (Webadmin-only)</strong></p>
 
-    <p>The feature adds a user-specified delay to the ‘Shutdown’ Console Disconnect Action of a VM. The shutdown won’t be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled. 
+    <p>The feature adds a user-specified delay to the ‘Shutdown’ Console Disconnect Action of a VM. The shutdown won’t be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled.
 This prevents a user’s session loss after an accidental disconnect.</p>
   </li>
   <li>
@@ -841,14 +841,14 @@ This prevents a user’s session loss after an accidental disconnect.</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1616436">BZ 1616436</a> <strong>[RFE] Sparsify uploads</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Detect zero areas in uploaded images and use optimized zero write method to write the zeroes to the underlying storage.</p>
 
-    <p>Reason: 
+    <p>Reason:
 Not all clients support sparse files when uploading images, resulting in fully allocated images even when the disk is using thin allocation policy.</p>
 
     <p>Result:
-Images uploaded to disks with thin allocation policy remain sparse, minimizing the storage allocation. Uploading 
+Images uploaded to disks with thin allocation policy remain sparse, minimizing the storage allocation. Uploading
 images containing large zeroed areas is usually faster now.</p>
   </li>
   <li>
@@ -883,10 +883,10 @@ images containing large zeroed areas is usually faster now.</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1931939">BZ 1931939</a> <strong>[RFE] Add the engine FQDN to dwh</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 add engine fqdn column to dwh</p>
 
-    <p>Reason: 
+    <p>Reason:
 to be able to link to the admin portal when dwh is on separate machine</p>
 
     <p>Result:
@@ -1009,10 +1009,10 @@ the engine fqdn is available in dwh, in the history_configuration table.</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2051997">BZ 2051997</a> <strong>[RFE] Default thin provisioning extension thresholds should match modern hardware</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Adapt thin provisioning defaults to match modern hardware with faster write and larger capacity. The minimum allocation size was increased from 1 GiB to 2.5G, and the minimum free space threshold was increased from 512 MiB to 2 GiB.</p>
 
-    <p>Reason: 
+    <p>Reason:
 With modern hardware virtual machines sometimes paused temporarily when writing to thin disks on block based storage.</p>
 
     <p>Result:
@@ -1021,10 +1021,10 @@ The system allocates more data earlier, minimizing virtual machines pauses.</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2012830">BZ 2012830</a> <strong>[RFE] Use lvm devices instead of lvm filter on RHEL 8.6 / CentOS Stream 9</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Use LVM devices instead lvm filter to manage storage devices.</p>
 
-    <p>Reason: 
+    <p>Reason:
 LVM filter is hard to manage and also in some case hard to set up in a correct way. LVM devices provides more easy way how to manage devices. Morover, starting CentOS Stream 9/RHEL 9, this will be the default used by LVM.</p>
 
     <p>Result:
@@ -1045,7 +1045,7 @@ With this feature, vdsm use LVM devices file for managing storage devices and LV
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=977778">BZ 977778</a> <strong>[RFE] - Mechanism for converting disks for non-running VMS</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Support the conversion of a disk’s format and allocation policy</p>
 
     <p>Reason: Users may want to change allocation policy or format to make reduce space usage or improve performance. As well as enable incremental backup on existing raw disks.</p>
@@ -1055,7 +1055,7 @@ Support the conversion of a disk’s format and allocation policy</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1944834">BZ 1944834</a> <strong>[RFE] Timer for Console Disconnect Action - Shutdown VM after N minutes of being disconnected (Webadmin-only)</strong></p>
 
-    <p>The feature adds a user-specified delay to the ‘Shutdown’ Console Disconnect Action of a VM. The shutdown won’t be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled. 
+    <p>The feature adds a user-specified delay to the ‘Shutdown’ Console Disconnect Action of a VM. The shutdown won’t be immediate anymore, but will occur after the delay, unless the user reconnects to the VM console, when it will be canceled.
 This prevents a user’s session loss after an accidental disconnect.</p>
   </li>
   <li>
@@ -1070,14 +1070,14 @@ This prevents a user’s session loss after an accidental disconnect.</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1616436">BZ 1616436</a> <strong>[RFE] Sparsify uploads</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Detect zero areas in uploaded images and use optimized zero write method to write the zeroes to the underlying storage.</p>
 
-    <p>Reason: 
+    <p>Reason:
 Not all clients support sparse files when uploading images, resulting in fully allocated images even when the disk is using thin allocation policy.</p>
 
     <p>Result:
-Images uploaded to disks with thin allocation policy remain sparse, minimizing the storage allocation. Uploading 
+Images uploaded to disks with thin allocation policy remain sparse, minimizing the storage allocation. Uploading
 images containing large zeroed areas is usually faster now.</p>
   </li>
 </ul>
@@ -1667,11 +1667,11 @@ images containing large zeroed areas is usually faster now.</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=2053669">BZ 2053669</a> <strong>[RFE] Allow changing vm powerstate during backup operation without interrupting the backup</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Use a temporary snapshot during a backup to decouple the backup
 operation from the VM.</p>
 
-    <p>Reason: 
+    <p>Reason:
 Backup can take lot of time. Preventing changes in VM power
 state or migration during a backup is a problem for users.</p>
 
@@ -1686,18 +1686,18 @@ A VM can be started, stopped, or migrated during backup.</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1667517">BZ 1667517</a> <strong>[RFE] add VM Portal setting for set screen mode</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 console options including set screen mode is added to VM Portal</p>
 
-    <p>Reason: 
+    <p>Reason:
 There was no option to set screen mode in VM Portal</p>
 
-    <p>Result: 
+    <p>Result:
 The following console options can now be set in VM Portal:
-default console type to use (Spice, VNC, noVNC, RDP for Windows), 
-full screen mode (on/off) per console type, 
+default console type to use (Spice, VNC, noVNC, RDP for Windows),
+full screen mode (on/off) per console type,
 smartcard enabled/disabled
-Ctrl+Alt+Del mapping 
+Ctrl+Alt+Del mapping
 SSH key</p>
 
     <p>A new dialog was added: VM portal -&gt; Account Settings -&gt; Console options dialog.</p>
@@ -1720,14 +1720,14 @@ SSH key</p>
   <li>
     <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1781241">BZ 1781241</a> <strong>missing “connect automatically” option in vm portal</strong></p>
 
-    <p>Feature: 
+    <p>Feature:
 Adding back the support for automatically connecting to a Virtual Machine option. This is now enabled as part of the Account Setting console options dialog.</p>
 
-    <p>Reason: 
-This feature enables to connect automatically to a running Virtual Machine every time the user logs into the VM Portal. 
+    <p>Reason:
+This feature enables to connect automatically to a running Virtual Machine every time the user logs into the VM Portal.
 This functionality was supported by old VM Portal and also by the User Portal and was requested to be supported by current VM Portal as well.</p>
 
-    <p>Result: 
+    <p>Result:
 The current feature is now supported while usage is a bit different than how it was on previous User and VM portals:</p>
     <ul>
       <li>Each user can choose a VM to auto connect to from a list on a global level, as part of Account Setting’s console dialog.</li>

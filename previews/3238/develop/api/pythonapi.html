@@ -228,7 +228,7 @@ from ovirtsdk.api import API
 from ovirtsdk.xml import params
 
 VERSION = params.Version(major='3', minor='0')
- 
+
 URL =           'https://192.168.1.1:8443/api'
 USERNAME =      'my_user@my.domain.com'
 PASSWORD =      'my_password'
@@ -374,14 +374,14 @@ except Exception as e:
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MB = 1024*1024
 GB = 1024*MB
-   
+
 try:
     api.vms.add(params.VM(name=VM_NAME, memory=2*GB, cluster=api.clusters.get(CLUSTER_NAME), template=api.templates.get('Blank')))
     print 'VM created'
 
     api.vms.get(VM_NAME).nics.add(params.NIC(name='eth0', network=params.Network(name='ovirtmgmt'), interface='virtio'))
     print 'NIC added to VM'
- 
+
     api.vms.get(VM_NAME).disks.add(params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get(STORAGE_NAME)]),
                                                 size=512*MB,
                                                 # type_='system', - disk type is deprecated
@@ -425,7 +425,7 @@ except Exception as e:
         print 'Waiting for VM to reach Suspended status'
         while api.vms.get(VM_NAME).status.state != 'suspended':
             sleep(1)
- 
+
     except Exception as e:
         if e.reason == 'Bad Request' \
             and 'asynchronous running tasks' in e.detail:
@@ -552,7 +552,7 @@ except Exception as e:
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DATA_CENTER_NAME = 'my_dc_name'
 vmVlan400 = params.Network(name = 'VM_VLAN_400',
-                       data_center = api.datacenters.get(name = DATA_CENTER_NAME), 
+                       data_center = api.datacenters.get(name = DATA_CENTER_NAME),
                        description = 'a tagged vm network',
                        vlan = params.VLAN(id = '400'))
 
@@ -563,7 +563,7 @@ vmVlan400 = api.networks.add(vmVlan400)
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DATA_CENTER_NAME = 'my_dc_name'
 nonVmVlan500 = params.Network(name = 'NON_VM_VLAN_500',
-                       data_center = api.datacenters.get(name = DATA_CENTER_NAME), 
+                       data_center = api.datacenters.get(name = DATA_CENTER_NAME),
                        description = 'a tagged non-vm network',
                        vlan = params.VLAN(id = '500'),
                        usages = params.Usages())
@@ -581,7 +581,7 @@ api.clusters.get(CLUSTER_NAME).networks.add(vmVlan400)
 
 <p>The target configuration of the following program is:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eth0 ---| 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eth0 ---|
         |          |------ ovirtmgmt
         |--- bond0 |------ bond0.100 ----- NON_VM_VLAN_100
         |          |------ bond0.200 ----- VM_VLAN_200
@@ -590,7 +590,7 @@ eth4 ---|
 nic0 = params.HostNIC(name = 'eth0', network =  params.Network(), boot_protocol='none', ip=params.IP(address=`*`,` `netmask=`*`, gateway=''))
 nic1 = params.HostNIC(name = 'eth4', network =  params.Network(), boot_protocol='none', ip=params.IP(address=`*`,` `netmask=`*`, gateway=''))
 
-# bond 
+# bond
 bond = params.Bonding(
    slaves = params.Slaves(host_nic = [ nic0, nic1 ]),
             options = params.Options(
@@ -626,8 +626,8 @@ vlanNetwork2 = params.HostNIC(network = params.Network(name = networkName), name
 host = api.hosts.get('my-host-name')
 host.nics.setupnetworks(params.Action(force = 0,
                                       check_connectivity = 1,
-                                      host_nics = params.HostNics(host_nic = [ managementNetwork, 
-                                                                               vlanNetwork, 
+                                      host_nics = params.HostNics(host_nic = [ managementNetwork,
+                                                                               vlanNetwork,
                                                                                vlanNetwork2 ])))
 </code></pre></div></div>
 

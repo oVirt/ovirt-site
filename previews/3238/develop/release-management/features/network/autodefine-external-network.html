@@ -139,9 +139,9 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>This feature extends <a href="/ovirt-site/previews/3238/develop/release-management/features/network/provider-physical-network.html">Provider Physical Network</a> 
-adding support for auto-defined external network connected to physical ones. 
-With this feature implemented, when a physical VM network is created, Engine 
+<p>This feature extends <a href="/ovirt-site/previews/3238/develop/release-management/features/network/provider-physical-network.html">Provider Physical Network</a>
+adding support for auto-defined external network connected to physical ones.
+With this feature implemented, when a physical VM network is created, Engine
 automatically creates an external network based on it, and connects the external
 network to the physical one. This makes it easier to use the former feature, and
 helps oVirt to model host networks and VM networks separately.</p>
@@ -157,13 +157,13 @@ helps oVirt to model host networks and VM networks separately.</p>
 
 <h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
 
-<p>Provider Physical Network is useful for users who would like to 
-manage their network via SDN (such as OVN or Neutron) yet have near-native 
-performance. However, without auto-define feature, such admin would have to 
+<p>Provider Physical Network is useful for users who would like to
+manage their network via SDN (such as OVN or Neutron) yet have near-native
+performance. However, without auto-define feature, such admin would have to
 create a physical network (and attach it to hosts), create an external network,
-and remember to connect this two networks together. Autodefine helps reducing 
-these administrative tasks. In an OvS cluster with an external provider 
-attached, the external network is automatically created and connected to the 
+and remember to connect this two networks together. Autodefine helps reducing
+these administrative tasks. In an OvS cluster with an external provider
+attached, the external network is automatically created and connected to the
 physical one.</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
@@ -175,26 +175,26 @@ The user needs to make sure that connection to external provider is valid.</p>
 
 <ul>
   <li>
-    <p>With OvS switch type in cluster, only external networks are allowed to 
+    <p>With OvS switch type in cluster, only external networks are allowed to
 be attached to the VM interface via UI.</p>
   </li>
   <li>
     <p>Physical network linked to any external network cannot be removed. This is for
-keeping the consistency of database. In the future we might add a way to 
+keeping the consistency of database. In the future we might add a way to
 remove all dependent external networks with physical one.</p>
   </li>
   <li>
-    <p>The switch type of existing clusters cannot be changed (from Linux bridge to 
-OvS or vice versa) via UI. Thus, we currently do not need to worry about 
+    <p>The switch type of existing clusters cannot be changed (from Linux bridge to
+OvS or vice versa) via UI. Thus, we currently do not need to worry about
 auto-defining external networks on top of existing physical networks.</p>
   </li>
   <li>
-    <p>Currently, updating the physical network will not update the auto-defined 
+    <p>Currently, updating the physical network will not update the auto-defined
 external network. This might change in the future.</p>
   </li>
   <li>
-    <p>VMs will be scheduled only on hosts that does have attached linked physical 
-network to one of it’s interfaces. Same rule applies for hotplug of VM 
+    <p>VMs will be scheduled only on hosts that does have attached linked physical
+network to one of it’s interfaces. Same rule applies for hotplug of VM
 interfaces.</p>
   </li>
 </ul>
@@ -203,23 +203,23 @@ interfaces.</p>
 
 <h3 id="creating-of-new-physical-network">Creating of new physical network</h3>
 
-<p>When creating new network choose its name. Check the <code class="language-plaintext highlighter-rouge">VM network</code>. If vlan 
-tagging is needed, check the <code class="language-plaintext highlighter-rouge">Enable VLAN tagging</code> and put the tag into the 
+<p>When creating new network choose its name. Check the <code class="language-plaintext highlighter-rouge">VM network</code>. If vlan
+tagging is needed, check the <code class="language-plaintext highlighter-rouge">Enable VLAN tagging</code> and put the tag into the
 field. Please note that auto-define can be triggered only on top of network that
 is not marked as external.</p>
 
 <p><img src="../../../../images/wiki/auto-define_create.png" alt="Creation of physical network" title="New physical network" /></p>
 
-<p>After confirmation if all conditions were met, the external network connected to 
-the physical one, will be created simultaneously. The auto-defined external 
+<p>After confirmation if all conditions were met, the external network connected to
+the physical one, will be created simultaneously. The auto-defined external
 network is named <code class="language-plaintext highlighter-rouge">external_name_of_physical_network</code> (The physical network name
-might be shortened so that auto-defined network name is not bigger than 256 
+might be shortened so that auto-defined network name is not bigger than 256
 characters).</p>
 
 <p><img src="../../../../images/wiki/auto-define_created.png" alt="Auto-define network created" title="Auto-define external network" /></p>
 
-<p>In case there are clusters with different default external providers in the data 
-center the Engine will create multiple external networks for every provider and 
+<p>In case there are clusters with different default external providers in the data
+center the Engine will create multiple external networks for every provider and
 add a number behind to this auto-defined network name.</p>
 
 <p>Please note that all hosts running VMs connected to the external network has
@@ -231,27 +231,27 @@ to be attached to the physical network.</p>
 
 <ul>
   <li>
-    <p>A new query <code class="language-plaintext highlighter-rouge">GetAllVmNetworksByClusterId</code> that returns only VM networks is 
-added. For Cluster with OvS switch type, this query returns only external 
+    <p>A new query <code class="language-plaintext highlighter-rouge">GetAllVmNetworksByClusterId</code> that returns only VM networks is
+added. For Cluster with OvS switch type, this query returns only external
 networks.</p>
   </li>
   <li>
-    <p>Validations for all limited operations with auto-defined external network and 
+    <p>Validations for all limited operations with auto-defined external network and
 its linked physical network. According to <a href="#limitations">Autodefine External Network - Limitations</a></p>
   </li>
   <li>
-    <p>Added new command <code class="language-plaintext highlighter-rouge">AutodefineExternalNetwork</code>. This command is 
-triggered every time a new network is created. The command validates the 
-incoming network and its parameters. Then it finds all clusters with OvS 
+    <p>Added new command <code class="language-plaintext highlighter-rouge">AutodefineExternalNetwork</code>. This command is
+triggered every time a new network is created. The command validates the
+incoming network and its parameters. Then it finds all clusters with OvS
 switch type attached to incoming network and clusters external providers.
-The command continues with creating new external network and connecting it to 
-the incoming physical network and attaching to clusters. The command might 
-create multiple external networks, one for each external provider in the data 
+The command continues with creating new external network and connecting it to
+the incoming physical network and attaching to clusters. The command might
+create multiple external networks, one for each external provider in the data
 center. The command will automatically create vNIC profile, with permissions
 given only to the user that created the physical network.</p>
   </li>
   <li>
-    <p>Added new function <code class="language-plaintext highlighter-rouge">getAllExternalNetworksLinkedToPhysicalNetwork</code> into 
+    <p>Added new function <code class="language-plaintext highlighter-rouge">getAllExternalNetworksLinkedToPhysicalNetwork</code> into
 <code class="language-plaintext highlighter-rouge">NetworkDao</code> which returns list of all external networks linked to provided
 physical network.</p>
   </li>
@@ -266,7 +266,7 @@ physical network.</p>
     <p>Addition/Removal new physical network.</p>
   </li>
   <li>
-    <p>Physical network linked to external network cannot be 
+    <p>Physical network linked to external network cannot be
 removed.</p>
   </li>
   <li>
@@ -276,11 +276,11 @@ removed.</p>
     <p>Cluster switch type cannot be updated to OvS for existing cluster.</p>
   </li>
   <li>
-    <p>VMs cannot be scheduled on hosts without attached physical network linked to 
+    <p>VMs cannot be scheduled on hosts without attached physical network linked to
 auto-define network.</p>
   </li>
   <li>
-    <p>Interface cannot be hotplugged onto a VM that runs on host that is not 
+    <p>Interface cannot be hotplugged onto a VM that runs on host that is not
 attached to physical network which is linked to auto-define network.</p>
   </li>
 </ul>

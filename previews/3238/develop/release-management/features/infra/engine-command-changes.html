@@ -200,7 +200,7 @@
 <p>For example:
  public CreateSnapshotCommand(T parameters, CommandContext cmdContext) {</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                super(parameters, cmdContext);      
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                super(parameters, cmdContext);
                 setSnapshotName(parameters.getDescription());
         }
 </code></pre></div></div>
@@ -209,21 +209,21 @@
   <li>
     <p>From commands, instead of using getBackend().runInternalAction or Backend.getInstance().runInternalAction use</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     runInternalAction           This method was introduced at CommandBase, and is responsible for propagating the context.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     runInternalAction    This method was introduced at CommandBase, and is responsible for propagating the context.
 </code></pre></div>    </div>
   </li>
 </ol>
 
 <p>For example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>             VdcReturnValueBase returnValue = runInternalAction(VdcActionType.HotPlugDiskToVm, params);       
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>             VdcReturnValueBase returnValue = runInternalAction(VdcActionType.HotPlugDiskToVm, params);
 </code></pre></div></div>
 
 <ol>
   <li>
     <p>Invoke internal commands properly from classes that are not commands In case a command is using a helper (a class that does not extend CommandBase, and usually holds some functionality that is shared for several commands who are not of the same inheritance sub tree) , or another class which is not a command - the syntax of</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>          Backend.getInstance().runInternalAction(...) should be used. 
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>          Backend.getInstance().runInternalAction(...) should be used.
 </code></pre></div>    </div>
   </li>
 </ol>

@@ -153,7 +153,7 @@ because all paths became faulty.</p>
 As a result only when all paths are faulty and the access to the storage
 domain is not working, the user will get an indication:</p>
 <ul>
-  <li>If the all the hosts in the Data Center are reporting a problem in the 
+  <li>If the all the hosts in the Data Center are reporting a problem in the
 storage domain. the storage domain status that will become ‘Inactive’.</li>
   <li>If only one host reports a problem in the storage domain, the status
 of the host will become ‘Non Operational’.</li>
@@ -171,7 +171,7 @@ of the host will become ‘Non Operational’.</li>
 <h3 id="how-it-works">How it works</h3>
 
 <p>Vdsm will register to udev multipath events during storage initialization.
-Vdsm will also build a map of all the faulty paths. 
+Vdsm will also build a map of all the faulty paths.
 For each event, Vdsm will update the map, according to the event.
 The details of the faulty paths will be part of the statistics provided by
 ‘Host.getStats’ verb.</p>

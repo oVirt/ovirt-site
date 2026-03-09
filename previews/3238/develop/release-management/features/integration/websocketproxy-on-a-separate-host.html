@@ -258,7 +258,7 @@
 
 <p>Than, on the second host, run engine setup</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [root@f19t12 ~]# engine-setup 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [root@f19t12 ~]# engine-setup
   [ INFO  ] Stage: Initializing
   [ INFO  ] Stage: Environment setup
             Configuration files: []
@@ -268,42 +268,42 @@
   [ INFO  ] Stage: Programs detection
   [ INFO  ] Stage: Environment setup
   [ INFO  ] Stage: Environment customization
-           
+
             --== PRODUCT OPTIONS ==--
-           
-            Configure WebSocket Proxy on this host (Yes, No) [Yes]: 
+
+            Configure WebSocket Proxy on this host (Yes, No) [Yes]:
 </code></pre></div></div>
 
 <p>Choose Yes here</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            Setup can automatically configure the firewall on this system.
             Note: automatic configuration of the firewall may overwrite current settings.
-            Do you want Setup to configure the firewall? (Yes, No) [Yes]: 
+            Do you want Setup to configure the firewall? (Yes, No) [Yes]:
   [ INFO  ] iptables will be configured as firewall manager.
-            Host fully qualified DNS name of this server [f19t12.localdomain]: 
+            Host fully qualified DNS name of this server [f19t12.localdomain]:
   [ INFO  ] Stage: Setup validation
-           
+
             --== CONFIGURATION PREVIEW ==--
-           
+
             Update Firewall                         : True
             Host FQDN                               : f19t12.localdomain
             Firewall manager                        : iptables
             Configure WebSocket Proxy               : True
-           
-            Please confirm installation settings (OK, Cancel) [OK]: 
+
+            Please confirm installation settings (OK, Cancel) [OK]:
   [ INFO  ] Stage: Transaction setup
   [ INFO  ] Stopping websocket-proxy service
   [ INFO  ] Stage: Misc configuration
   [ INFO  ] Stage: Package installation
   [ INFO  ] Stage: Misc configuration
   [ INFO  ] Configuring WebSocket Proxy
-           
+
             ATTENTION
-           
+
             Manual actions are required on the engine host
             in order to enroll certs for this host and configure the engine about it.
-           
-            Please execute this command on the engine host: 
+
+            Please execute this command on the engine host:
                engine-config -s WebSocketProxy=f19t12.localdomain:6100
             and than restart the engine service to make it effective
 </code></pre></div></div>
@@ -318,7 +318,7 @@
 <p>back to the second host:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            Do you prefer to manage certificate signing request and response
-            inline or thought support files? (Inline, Files) [Inline]: 
+            inline or thought support files? (Inline, Files) [Inline]:
 </code></pre></div></div>
 
 <p>Choose the way you prefer, here we run with the inline mode:</p>
@@ -345,7 +345,7 @@
   23hFCulH9ok=
   -----END CERTIFICATE REQUEST-----
   --=451b80dc-996f-432e-9e4f-2b29ef6d1141=--
-           
+
             Enroll SSL certificate for the websocket proxy service.
             It can be done using engine internal CA, if no 3rd party CA is available,
             with this sequence:
@@ -390,7 +390,7 @@
 
 <p>The cert will be available at the proposed path, so, on the engine host:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [root@f19t11 ~]# cat /etc/pki/ovirt-engine/certs/websocket-proxy-f19t12.localdomain.cer       
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [root@f19t11 ~]# cat /etc/pki/ovirt-engine/certs/websocket-proxy-f19t12.localdomain.cer
   Certificate:
       Data:
           Version: 3 (0x2)
@@ -425,14 +425,14 @@
                       46:ed
                   Exponent: 65537 (0x10001)
           X509v3 extensions:
-              X509v3 Subject Key Identifier: 
+              X509v3 Subject Key Identifier:
                   87:D6:7C:B1:4D:89:E5:ED:79:1E:2C:5C:51:AD:9E:45:D6:7E:6D:FC
-              Authority Information Access:  `                CA Issuers - URI:`[`http://f19t11.localdomain:80/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`](http://f19t11.localdomain:80/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA)
-              X509v3 Authority Key Identifier: 
+              Authority Information Access: `                CA Issuers - URI:`[`http://f19t11.localdomain:80/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`](http://f19t11.localdomain:80/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA)
+              X509v3 Authority Key Identifier:
                   keyid:7C:62:A5:65:2B:58:8A:61:20:8E:F5:A2:B3:1E:2D:03:C4:3E:80:11
                   DirName:/C=US/O=localdomain/CN=f19t11.localdomain.84133
                   serial:10:00
-              X509v3 Basic Constraints: 
+              X509v3 Basic Constraints:
                   CA:FALSE
               X509v3 Key Usage: critical
                   Digital Signature, Key Encipherment
@@ -486,7 +486,7 @@
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            Please input WSP certificate chain that matches certificate request,
             (issuer is not mandatory, from intermediate and upper)
-           
+
             type '--=451b80dc-996f-432e-9e4f-2b29ef6d1141=--' in own line to mark end.
 </code></pre></div></div>
 
@@ -534,12 +534,12 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [ INFO  ] Generating post install configuration file '/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf'
   [ INFO  ] Stage: Transaction commit
   [ INFO  ] Stage: Closing up
-           
+
             --== SUMMARY ==--
-           
-           
+
+
             --== END OF SUMMARY ==--
-           
+
   [ INFO  ] Stage: Clean up
             Log file is located at /var/log/ovirt-engine/setup/ovirt-engine-setup-20140919173308-96y9sa.log
   [ INFO  ] Generating answer file '/var/lib/ovirt-engine/setup/answers/20140919173600-setup.conf'
@@ -571,7 +571,7 @@
 
 <p>On A:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  yum install ovirt-engine-setup 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  yum install ovirt-engine-setup
   engine-setup
 </code></pre></div></div>
 

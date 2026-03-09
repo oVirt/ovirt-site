@@ -141,7 +141,7 @@ Please use this information with caution, as wiki updates are not always catchin
           + curVds.getreserved_mem()    // reported by vds as host_mem_reserve(256) + extra_mem_reserve(65) = 321
           + vm.getMinAllocatedMem();    // 'Physical Memory Guaranteed'
 
-  double vdsMemLimit = 
+  double vdsMemLimit =
           curVds.getmax_vds_memory_over_commit()   // comes from cluster. default is 120
           / 100.0                                    // get the overcommit ratio right
           * curVds.getphysical_mem_mb()    // reported by vdsm: 'cat /proc/meminfo | grep MemTotal' / 1024

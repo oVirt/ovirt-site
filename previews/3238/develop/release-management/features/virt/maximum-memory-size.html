@@ -151,9 +151,9 @@ libvirt’s <code class="language-plaintext highlighter-rouge">maxMemory</code> 
 <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1388245">Related bug</a>.</p>
 
 <h2 id="engine">Engine</h2>
-<p>Maximum memory value is stored in <code class="language-plaintext highlighter-rouge">VmBase.maxMemorySizeMb</code> property. It is validated against range 
+<p>Maximum memory value is stored in <code class="language-plaintext highlighter-rouge">VmBase.maxMemorySizeMb</code> property. It is validated against range
 [<em>memory of VM</em>, <em>*MaxMemorySizeInMB</em>], where <em>*MaxMemorySizeInMB</em> is one of <code class="language-plaintext highlighter-rouge">VM32BitMaxMemorySizeInMB</code>,
-<code class="language-plaintext highlighter-rouge">VM64BitMaxMemorySizeInMB</code> and <code class="language-plaintext highlighter-rouge">VMPpc64BitMaxMemorySizeInMB</code> configuration options depending on selected operating 
+<code class="language-plaintext highlighter-rouge">VM64BitMaxMemorySizeInMB</code> and <code class="language-plaintext highlighter-rouge">VMPpc64BitMaxMemorySizeInMB</code> configuration options depending on selected operating
 system of the VM. Default value in webadmin UI is 4x size of memory.</p>
 
 <p>During migration of engine 4.0 -&gt; 4.1 all VM-like entities will get max memory = 4x memory.</p>
@@ -188,7 +188,7 @@ VM memory. Larger max memory is discouraged because:</p>
   <li>I can make QEMU process to start for longer time.</li>
   <li>If hot plugged memory is also required to be hot unpluggable, it needs to be considered as <em>movable</em> by the guest kernel.
 Kernel requires the amount of movable memory to be at most 4x larger that non-movable memory for stable run.</li>
-  <li>On PowerPC platform continuous block of non-movable memory of size 1/64 of the max memory needs to be allocated for 
+  <li>On PowerPC platform continuous block of non-movable memory of size 1/64 of the max memory needs to be allocated for
 each VM.</li>
 </ul>
 

@@ -362,7 +362,7 @@ import org.ovirt.engine.core.dal.dbbroker.DbFacade;
 import org.ovirt.engine.core.utils.log.Log;
 import org.ovirt.engine.core.utils.log.LogFactory;
 public class ChildCommandCallback extends CommandCallBack {
-    private static final Log log = LogFactory.getLog(MergeCommandCallback.class); 
+    private static final Log log = LogFactory.getLog(MergeCommandCallback.class);
     @Override
     public void doPolling(Guid cmdId, List&lt;Guid&gt; childCmdIds) {
         // If the VM Job exists, the command is still active

@@ -204,7 +204,7 @@ This can save a lot time and make the setup easier.</p>
 
 <h4 id="prerequisites">Prerequisites</h4>
 <ul>
-  <li>Make sure your host and your virtual machine support nested virtualization. You can find detailed instructions here:     <br />
+  <li>Make sure your host and your virtual machine support nested virtualization. You can find detailed instructions here:
 http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/.
 After setting nested virtualization in the host, reboot it.</li>
   <li>If you are opting for a DHCP network configuration (and not static) you must have a resolvable MAC address and DHCP name.
@@ -214,12 +214,12 @@ After setting nested virtualization in the host, reboot it.</li>
 
 <p>Launch hosted-engine –deploy as usual</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [root@c71ghe1 ~]# hosted-engine --deploy 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [root@c71ghe1 ~]# hosted-engine --deploy
   [ INFO  ] Stage: Initializing
   [ INFO  ] Generating a temporary VNC password.
   [ INFO  ] Stage: Environment setup
             Continuing will configure this host for serving as hypervisor and create a VM where you have to install oVirt Engine afterwards.
-            Are you sure you want to continue? (Yes, No)[Yes]: 
+            Are you sure you want to continue? (Yes, No)[Yes]:
             Configuration files: []
             Log file: /var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-20150527003826-ger99j.log
             Version: otopi-1.4.0_master (otopi-1.4.0-0.0.master.20150525193239.git66c59b4.el7)
@@ -229,9 +229,9 @@ After setting nested virtualization in the host, reboot it.</li>
   [ INFO  ] Stage: Programs detection
   [ INFO  ] Stage: Environment setup
   [ INFO  ] Stage: Environment customization
-           
+
             --== STORAGE CONFIGURATION ==--
-           
+
             During customization use CTRL-D to abort.
 </code></pre></div></div>
 
@@ -240,19 +240,19 @@ After setting nested virtualization in the host, reboot it.</li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs3, nfs4)[nfs3]: nfs4
             Please specify the full shared storage connection path to use (example: host:/path): 192.168.1.115:/Virtual/exthe7
   [ INFO  ] Installing on first host
-            Please provide storage domain name. [hosted_storage]: 
+            Please provide storage domain name. [hosted_storage]:
             Local storage datacenter name is an internal name
             and currently will not be shown in engine's admin UI.
-            Please enter local datacenter name [hosted_datacenter]: 
-           
+            Please enter local datacenter name [hosted_datacenter]:
+
             --== SYSTEM CONFIGURATION ==--
-           
-           
+
+
             --== NETWORK CONFIGURATION ==--
-           
-            iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]: 
-            Please indicate a pingable gateway IP address [192.168.1.1]: 
-           
+
+            iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]:
+            Please indicate a pingable gateway IP address [192.168.1.1]:
+
             --== VM CONFIGURATION ==--
 </code></pre></div></div>
 
@@ -269,7 +269,7 @@ After setting nested virtualization in the host, reboot it.</li>
 <p>You could provide a custom cloud-init no-cloud ISO image for complex configuration or you can simply have hosted-engine-setup generating one for you on flight.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            Would you like to generate on-fly a cloud-init no-cloud ISO image
-            or do you have an existing one (Generate, Existing)[Generate]? 
+            or do you have an existing one (Generate, Existing)[Generate]?
 </code></pre></div></div>
 
 <p>Configure your appliance</p>
@@ -282,10 +282,10 @@ After setting nested virtualization in the host, reboot it.</li>
 
 <p>If everything is OK and you don’t need any other setup action on the engine VM, hosted-engine-setup could automatically start engine-setup for you on the appliance in order to silently setup the engine.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            Automatically execute engine-setup on the engine appliance on first boot (Yes, No)[Yes]? 
-            Automatically restart the engine VM as a monitored service after engine-setup (Yes, No)[Yes]? 
-            Enter root password that will be used for the engine appliance (leave it empty to skip): 
-            Confirm appliance root password: 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            Automatically execute engine-setup on the engine appliance on first boot (Yes, No)[Yes]?
+            Automatically restart the engine VM as a monitored service after engine-setup (Yes, No)[Yes]?
+            Enter root password that will be used for the engine appliance (leave it empty to skip):
+            Confirm appliance root password:
             Please provide the domain name you would like to use for the engine appliance.
             Engine VM domain: [localdomain]
 </code></pre></div></div>
@@ -313,35 +313,35 @@ After setting nested virtualization in the host, reboot it.</li>
 <p>You could customize the memory and CPU requirements of you appliance</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            Please specify the memory size of the appliance in MB [Defaults to OVF value: 16384]: 4096
-            Please specify an alias for the Hosted Engine image [hosted_engine]: 
+            Please specify an alias for the Hosted Engine image [hosted_engine]:
             The following CPU types are supported by this host:
               - model_SandyBridge: Intel SandyBridge Family
               - model_Westmere: Intel Westmere Family
               - model_Nehalem: Intel Nehalem Family
               - model_Penryn: Intel Penryn Family
               - model_Conroe: Intel Conroe Family
-            Please specify the CPU type to be used by the VM [model_SandyBridge]: 
+            Please specify the CPU type to be used by the VM [model_SandyBridge]:
   [WARNING] Minimum requirements for disk size not met
 </code></pre></div></div>
 
 <p>If you opted for DHCP adressing you should be sure to have a correct DHCP reservation for your appliance.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:1e:02:c1]: 
-            Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]: 
-           
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            You may specify a unicast MAC address for the VM or accept a randomly generated default [00:16:3e:1e:02:c1]:
+            Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]:
+
             --== HOSTED ENGINE CONFIGURATION ==--
-           
-            Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]: 
-            Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
-            Confirm 'admin@internal' user password: 
-            Please provide the name of the SMTP server through which we will send notifications [localhost]: 
-            Please provide the TCP port number of the SMTP server [25]: 
-            Please provide the email address from which notifications will be sent [root@localhost]: 
-            Please provide a comma-separated list of email addresses which will get notifications [root@localhost]: 
+
+            Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]:
+            Enter 'admin@internal' user password that will be used for accessing the Administrator Portal:
+            Confirm 'admin@internal' user password:
+            Please provide the name of the SMTP server through which we will send notifications [localhost]:
+            Please provide the TCP port number of the SMTP server [25]:
+            Please provide the email address from which notifications will be sent [root@localhost]:
+            Please provide a comma-separated list of email addresses which will get notifications [root@localhost]:
   [ INFO  ] Stage: Setup validation
-           
+
             --== CONFIGURATION PREVIEW ==--
-           
+
             Engine FQDN                        : topolino.localdomain
             Bridge name                        : ovirtmgmt
             SSH daemon port                    : 22
@@ -362,8 +362,8 @@ After setting nested virtualization in the host, reboot it.</li>
             OVF archive (for disk boot)        : /mnt/ovirt.ova
             Restart engine VM after engine-setup: True
             CPU Type                           : model_SandyBridge
-           
-            Please confirm installation settings (Yes, No)[Yes]: 
+
+            Please confirm installation settings (Yes, No)[Yes]:
   [ INFO  ] Stage: Transaction setup
   [ INFO  ] Stage: Misc configuration
   [ INFO  ] Stage: Package installation
@@ -419,51 +419,51 @@ After setting nested virtualization in the host, reboot it.</li>
             |- [ INFO  ] Stage: Programs detection
             |- [ INFO  ] Stage: Environment setup
             |- [ INFO  ] Stage: Environment customization
-            |-          
+            |-
             |-           --== PRODUCT OPTIONS ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== PACKAGES ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== ALL IN ONE CONFIGURATION ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== NETWORK CONFIGURATION ==--
-            |-          
+            |-
             |- [ ERROR ] Host name is not valid: topolino.localdomain did not resolve into an IP address
             |- [ INFO  ] firewalld will be configured as firewall manager.
             |- [ ERROR ] Host name is not valid: topolino.localdomain did not resolve into an IP address
-            |-          
+            |-
             |-           --== DATABASE CONFIGURATION ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== OVIRT ENGINE CONFIGURATION ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== STORAGE CONFIGURATION ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== PKI CONFIGURATION ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== APACHE CONFIGURATION ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== SYSTEM CONFIGURATION ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== MISC CONFIGURATION ==--
-            |-          
-            |-          
+            |-
+            |-
             |-           --== END OF CONFIGURATION ==--
-            |-          
+            |-
             |- [ INFO  ] Stage: Setup validation
             |- [WARNING] Cannot validate host name settings, reason: cannot resolve own name 'topolino.localdomain'
             |- [WARNING] Less than 16384MB of memory is available
-            |-          
+            |-
             |-           --== CONFIGURATION PREVIEW ==--
-            |-          
+            |-
             |-           Application mode                        : virt
             |-           Firewall manager                        : firewalld
             |-           Update Firewall                         : True
@@ -498,18 +498,18 @@ After setting nested virtualization in the host, reboot it.</li>
             |- [ INFO  ] Generating post install configuration file '/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf'
             |- [ INFO  ] Stage: Transaction commit
             |- [ INFO  ] Stage: Closing up
-            |-          
+            |-
             |-           --== SUMMARY ==--
-            |-          
+            |-
             |- [WARNING] Less than 16384MB of memory is available
             |-           SSH fingerprint: BC:40:1F:C9:50:E1:9B:2A:08:FE:E6:5B:29:BB:E4:49
             |-           Internal CA 6F:D2:D0:70:F6:FC:EF:19:06:29:23:8B:4E:48:23:8C:18:F5:89:6D
             |-           Note! If you want to gather statistical information you can install Reports and/or DWH: `          |-               `[`http://www.ovirt.org/Ovirt_DWH`](/Ovirt_DWH) `          |-               `[`http://www.ovirt.org/Ovirt_Reports`](/Ovirt_Reports)
             |-           Web access is enabled at: `          |-               `[`http://topolino.localdomain:80/ovirt-engine`](http://topolino.localdomain:80/ovirt-engine) `          |-               `[`https://topolino.localdomain:443/ovirt-engine`](https://topolino.localdomain:443/ovirt-engine)
             |-           Please use the user "admin" and password specified in order to login
-            |-          
+            |-
             |-           --== END OF SUMMARY ==--
-            |-          
+            |-
             |- [ INFO  ] Starting engine service
             |- [ INFO  ] Restarting httpd
             |- [ INFO  ] Stage: Clean up
@@ -523,12 +523,12 @@ After setting nested virtualization in the host, reboot it.</li>
 
 <p>Hosted-engine-setup will detect the success of the failure (en specific exit codes or after a long timeout) of engine-setup. Than conclude as usual.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [ INFO  ] Engine-setup successfully completed 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [ INFO  ] Engine-setup successfully completed
   [ ERROR ] Engine is still unreachable
   [ INFO  ] Engine is still not reachable, waiting...
   [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
   [ INFO  ] Connecting to the Engine
-            Enter the name of the cluster to which you want to add the host (Default) [Default]: 
+            Enter the name of the cluster to which you want to add the host (Default) [Default]:
   [ INFO  ] Waiting for the host to become operational in the engine. This may take several minutes...
   [ INFO  ] Still waiting for VDSM host to become operational...
   [ INFO  ] Still waiting for VDSM host to become operational...

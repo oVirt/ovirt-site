@@ -488,7 +488,7 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... rdblacklist=nouveau"
 
 <p>SR-IOV capability can be found via /sys/bus/pci/devices/`device_name`/sriov_numvfs and sriov_totalvfs, that indicate the device SHOULD be capable of spawning multiple virtual functions. It is possible that the bus device is connected to doesn’t have enough bandwidth for these virtual functions.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo 7 &gt; sriov_numvfs                                                                                                                                                                    
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo 7 &gt; sriov_numvfs
 -bash: echo: write error: Cannot allocate memory
 
 dmesg | tail -n 1

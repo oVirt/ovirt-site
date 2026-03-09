@@ -261,7 +261,7 @@ devices will be smaller or equal to requested memory size decrement.</p>
 
 <h4 id="example">Example</h4>
 
-<p>Let’s suppose there is a running VM started with 1GiB memory that was given three 
+<p>Let’s suppose there is a running VM started with 1GiB memory that was given three
 256MiB hot-plugs. This resulted in additional memory devices of following sizes:
 256MiB, 256MiB, 128MiB, 128MiB and the VM having 1792MiB memory available in total.</p>
 
@@ -276,7 +276,7 @@ of sizes 256MiB and 128MiB. Thus the VM will end up with 1792MiB - (256MiB + 128
 
 <span class="nt">&lt;vm&gt;</span>
     <span class="nt">&lt;memory&gt;</span>1468006400<span class="nt">&lt;/memory&gt;</span> <span class="c">&lt;!-- 1400 * 1024^2 --&gt;</span>
-    
+
     <span class="c">&lt;!-- and optionally --&gt;</span>
     <span class="nt">&lt;memory_policy&gt;</span>
         <span class="nt">&lt;guaranteed&gt;</span>943718400<span class="nt">&lt;/guaranteed&gt;</span> <span class="c">&lt;!-- 900 * 1024^2 --&gt;</span>

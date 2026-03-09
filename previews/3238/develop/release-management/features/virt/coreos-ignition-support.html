@@ -220,10 +220,10 @@ ignition config, except for ‘hostname’ - which will drop the hostname value 
 
 <h2 id="crud">CRUD</h2>
 
-<p>To start working with ignition first import the Fedora CoreOS image as a template from the ovirt 
+<p>To start working with ignition first import the Fedora CoreOS image as a template from the ovirt
 glance provider, call the template ‘fcos’.</p>
 
-<p>Now create a VM from that template using this python snippet. 
+<p>Now create a VM from that template using this python snippet.
 It will ignite the VM and change the password of user <code class="language-plaintext highlighter-rouge">core</code> to <code class="language-plaintext highlighter-rouge">changeme</code>:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
@@ -252,7 +252,7 @@ It will ignite the VM and change the password of user <code class="language-plai
         <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">images</span> <span class="k">if</span> <span class="n">i</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">'Fedora CoreOS 30.337 for x86_64'</span><span class="p">),</span>
         <span class="bp">None</span>
     <span class="p">)</span>
-    
+
     <span class="c1"># Import the fcos image as template named 'fcos' to domain 'mydata;
 </span>    <span class="n">image_service</span> <span class="o">=</span> <span class="n">images_service</span><span class="p">.</span><span class="n">image_service</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="nb">id</span><span class="p">)</span>
 

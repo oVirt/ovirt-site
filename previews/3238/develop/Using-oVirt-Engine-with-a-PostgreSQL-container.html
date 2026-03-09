@@ -144,7 +144,7 @@ yum install ovirt-engine -y
   <li>Start postgres container:</li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run --name=postgresql -d -p 5432:5432 registry.centos.org/centos/postgres:latest 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run --name=postgresql -d -p 5432:5432 registry.centos.org/centos/postgres:latest
 </code></pre></div></div>
 
 <ol>
@@ -195,7 +195,7 @@ exit
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>engine-setup
 
-# engine-setup 
+# engine-setup
 [ INFO  ] Stage: Initializing
 [ INFO  ] Stage: Environment setup
           Configuration files: ['/etc/ovirt-engine-setup.conf.d/10-packaging-jboss.conf', '/etc/ovirt-engine-setup.conf.d/10-packaging.conf']
@@ -205,88 +205,88 @@ exit
 [ INFO  ] Stage: Programs detection
 [ INFO  ] Stage: Environment setup
 [ INFO  ] Stage: Environment customization
-         
+
           --== PRODUCT OPTIONS ==--
-         
-          Configure Engine on this host (Yes, No) [Yes]: 
-          Configure Image I/O Proxy on this host? (Yes, No) [Yes]: 
-          Configure WebSocket Proxy on this host (Yes, No) [Yes]: 
+
+          Configure Engine on this host (Yes, No) [Yes]:
+          Configure Image I/O Proxy on this host? (Yes, No) [Yes]:
+          Configure WebSocket Proxy on this host (Yes, No) [Yes]:
           Please note: Data Warehouse is required for the engine. If you choose to not configure it on this host, you have to configure it on a remote host, and then configure the engine on this host so that it can access the database of the remote Data Warehouse host.
           Configure Data Warehouse on this host (Yes, No) [Yes]: No
-          Configure VM Console Proxy on this host (Yes, No) [Yes]: 
-         
+          Configure VM Console Proxy on this host (Yes, No) [Yes]:
+
           --== PACKAGES ==--
-         
+
 [ INFO  ] Checking for product updates...
 [ INFO  ] No product updates found
-         
+
           --== NETWORK CONFIGURATION ==--
-         
-          Host fully qualified DNS name of this server [centos-1.osas.lab]: 
+
+          Host fully qualified DNS name of this server [centos-1.osas.lab]:
           Setup can automatically configure the firewall on this system.
           Note: automatic configuration of the firewall may overwrite current settings.
-          Do you want Setup to configure the firewall? (Yes, No) [Yes]: 
+          Do you want Setup to configure the firewall? (Yes, No) [Yes]:
 [ INFO  ] firewalld will be configured as firewall manager.
-         
+
           --== DATABASE CONFIGURATION ==--
-         
+
           Where is the Engine database located? (Local, Remote) [Local]: Remote
-         
+
           ATTENTION
-         
+
           Manual action required.
           Please create database for ovirt-engine use. Use the following commands as an example:
-         
+
           create role engine with login encrypted password '&lt;password&gt;';
           create database engine owner engine
            template template0
            encoding 'UTF8' lc_collate 'en_US.UTF-8'
            lc_ctype 'en_US.UTF-8';
-         
+
           Make sure that database can be accessed remotely.
-         
+
           Engine database host [localhost]: centos-1.osas.lab
-          Engine database port [5432]: 
-          Engine database secured connection (Yes, No) [No]: 
-          Engine database name [engine]: 
-          Engine database user [engine]: 
-          Engine database password: 
-         
+          Engine database port [5432]:
+          Engine database secured connection (Yes, No) [No]:
+          Engine database name [engine]:
+          Engine database user [engine]:
+          Engine database password:
+
           --== OVIRT ENGINE CONFIGURATION ==--
-         
-          Engine admin password: 
-          Confirm engine admin password: 
-          Application mode (Virt, Gluster, Both) [Both]: 
-         
+
+          Engine admin password:
+          Confirm engine admin password:
+          Application mode (Virt, Gluster, Both) [Both]:
+
           --== STORAGE CONFIGURATION ==--
-         
-          Default SAN wipe after delete (Yes, No) [No]: 
-         
+
+          Default SAN wipe after delete (Yes, No) [No]:
+
           --== PKI CONFIGURATION ==--
-         
-          Organization name for certificate [osas.lab]: 
-         
+
+          Organization name for certificate [osas.lab]:
+
           --== APACHE CONFIGURATION ==--
-         
+
           Setup can configure the default page of the web server to present the application home page. This may conflict with existing applications.
-          Do you wish to set the application as the default page of the web server? (Yes, No) [Yes]: 
+          Do you wish to set the application as the default page of the web server? (Yes, No) [Yes]:
           Setup can configure apache to use SSL using a certificate issued from the internal CA.
-          Do you wish Setup to configure that, or prefer to perform that manually? (Automatic, Manual) [Automatic]: 
-         
+          Do you wish Setup to configure that, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
+
           --== SYSTEM CONFIGURATION ==--
-         
-          Configure an NFS share on this server to be used as an ISO Domain? (Yes, No) [No]: 
-         
+
+          Configure an NFS share on this server to be used as an ISO Domain? (Yes, No) [No]:
+
           --== MISC CONFIGURATION ==--
-         
-         
+
+
           --== END OF CONFIGURATION ==--
-         
+
 [ INFO  ] Stage: Setup validation
 [WARNING] Less than 16384MB of memory is available
-         
+
           --== CONFIGURATION PREVIEW ==--
-         
+
           Application mode                        : both
           Default SAN wipe after delete           : False
           Firewall manager                        : firewalld
@@ -308,8 +308,8 @@ exit
           Configure Image I/O Proxy               : True
           Configure VMConsole Proxy               : True
           Configure WebSocket Proxy               : True
-         
-          Please confirm installation settings (OK, Cancel) [OK]: 
+
+          Please confirm installation settings (OK, Cancel) [OK]:
 [ INFO  ] Stage: Transaction setup
 [ INFO  ] Stopping engine service
 [ INFO  ] Stopping ovirt-fence-kdump-listener service
@@ -332,9 +332,9 @@ exit
 [ INFO  ] Stage: Closing up
 [ INFO  ] Starting engine service
 [ INFO  ] Restarting ovirt-vmconsole proxy service
-         
+
           --== SUMMARY ==--
-         
+
 [ INFO  ] Restarting httpd
           Please use the user 'admin@internal' and password specified in order to login
           The engine requires access to the Data Warehouse database.
@@ -345,9 +345,9 @@ exit
           Internal CA 8F:C8:A6:B6:D0:6E:34:92:D2:65:21:63:9C:35:64:4D:EE:09:59:72
           SSH fingerprint: 0d:54:5c:7e:63:6f:fb:85:47:f7:00:8d:4f:95:cc:c1
 [WARNING] Less than 16384MB of memory is available
-         
+
           --== END OF SUMMARY ==--
-         
+
 [ INFO  ] Stage: Clean up
           Log file is located at /var/log/ovirt-engine/setup/ovirt-engine-setup-20170803144341-soqdsk.log
 [ INFO  ] Generating answer file '/var/lib/ovirt-engine/setup/answers/20170803144525-setup.conf'
@@ -357,12 +357,12 @@ exit
 </code></pre></div></div>
 <p>You should be able to access oVirt’s web portal at the address mentioned above.</p>
 
-<p>Notes: When you first start your machine, be sure to start the Docker container that has your database. 
+<p>Notes: When you first start your machine, be sure to start the Docker container that has your database.
 After this, restart the <code class="language-plaintext highlighter-rouge">ovirt-engine</code> service using the following command:
   <code class="language-plaintext highlighter-rouge">systemctl restart ovirt-engine</code></p>
 
-<p>Do use the image pulled from registry.centos.org/centos/postgres:latest. 
-The one provided by PostgreSQL is difficult to configure since it seems intended to use as is. Your mileage on this may vary. 
+<p>Do use the image pulled from registry.centos.org/centos/postgres:latest.
+The one provided by PostgreSQL is difficult to configure since it seems intended to use as is. Your mileage on this may vary.
 The 404 error that appears initially should disappear and you should get the web login page for oVirt, after a few seconds or so.</p>
 
 

@@ -208,7 +208,7 @@ A task may have other nesting sub-tasks under it.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Waiting -&gt; Started (x %) |
                              -&gt; Completed
                              |
-                             -&gt; Failed
+                             -&gt; Failed 
 </code></pre></div></div>
 
 <p><strong>Sub Task Flow</strong></p>
@@ -263,8 +263,8 @@ A user would like to clone a VM and cranks up our Rapid Cloning wizard. They fil
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Create an external job which is marked as auto-cleared
    Add external steps and sub steps to the job
-   Update on completed tasks and sub tasks
-   Check that job completes successfully and is cleared after the configured timeout
+   Update on completed tasks and sub tasks 
+   Check that job completes successfully and is cleared after the configured timeout 
 </code></pre></div></div>
 
 <h3 id="test-2">Test 2</h3>
@@ -276,7 +276,7 @@ A user would like to clone a VM and cranks up our Rapid Cloning wizard. They fil
 
 <h3 id="test-3">Test 3</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Repeat test 1 with a job that includes a mix of internal and external steps ,
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Repeat test 1 with a job that includes a mix of internal and external steps , 
    Make sure that for internal steps the job/step parent id should be set in the URI parameters
 </code></pre></div></div>
 

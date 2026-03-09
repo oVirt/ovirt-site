@@ -343,7 +343,7 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
 </span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">sys</span> 
 <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">'cantmigrate'</span><span class="p">):</span>
    <span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">'cantmigrate: before_vm_migrate_source: cannot migrate this VM</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
    <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -353,19 +353,19 @@
 
 <p>And this is an example that uses the Hooking module to read a custom property that defines CPU pinning for a VM, and alters the VM’s XML accordingly:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python 
 </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">hooking</span>
 <span class="kn">import</span> <span class="nn">traceback</span>
-
+    
 <span class="c1">#pincpu usages
 #=============
 #pincpu="0" (use the first cpu)
 #pincpu="1-4" (use cpus 1-4)
 #pincpu="^3" (don't use cpu 3)
 #pincpu="1-4,^3,6" (or all together)
-</span>
+</span>  
 <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">'pincpu'</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
        <span class="n">domxml</span> <span class="o">=</span> <span class="n">hooking</span><span class="p">.</span><span class="n">read_domxml</span><span class="p">()</span>   <span class="c1">#here we read the VM XML into the domxml variable

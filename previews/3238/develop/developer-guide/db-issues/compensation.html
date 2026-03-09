@@ -139,16 +139,16 @@
 
 <p>Change log is recorded in the database in the business_entity_snapshot table</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       Column      |          Type          | Modifiers
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       Column      |          Type          | Modifiers 
   -----------------+------------------------+-----------
   id              | uuid                   | not null
   command_id      | uuid                   | not null
   command_type    | character varying(256) | not null
-  entity_id       | character varying(128) |
-  entity_type     | character varying(128) |
-  entity_snapshot | text                   |
-  snapshot_class  | character varying(128) |
-  snapshot_type   | integer                |
+  entity_id       | character varying(128) | 
+  entity_type     | character varying(128) | 
+  entity_snapshot | text                   | 
+  snapshot_class  | character varying(128) | 
+  snapshot_type   | integer                | 
   insertion_order | integer                |
 </code></pre></div></div>
 
@@ -173,7 +173,7 @@ The business entity must be serializable, so does the type of the ID in order to
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   CHANGED_ENTITY – update/delete
    NEW_ENTITY_ID – insert
-   CHANGED_STATUS_ONLY – update status
+   CHANGED_STATUS_ONLY – update status 
 </code></pre></div></div>
 
 <h2 id="compensationcontext">CompensationContext</h2>

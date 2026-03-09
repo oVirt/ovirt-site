@@ -138,7 +138,7 @@
 <h1 id="live-migration-for-high-performance-vms">Live migration for High Performance VMs</h1>
 
 <h2 id="summary">Summary</h2>
-<p>In oVirt 4.2 we added a new “High Performance” VM profile type.
+<p>In oVirt 4.2 we added a new “High Performance” VM profile type. 
 By choosing This High Performance (HP) VM type, the VM is pre-configured with a set of suggested and recommended configuration settings for reaching the best efficiency.</p>
 
 <p>This required configuration settings includes pinning the VM to a host based on the host specific configuration. Due to that pinning settings, the migration option for the HP VM type was automatically forced to be disabled.</p>
@@ -157,7 +157,7 @@ By choosing This High Performance (HP) VM type, the VM is pre-configured with a 
     <p>Setting a new or an existing VM to run as a HP VM, by selecting the “High Performance” type in the “Optimized for” pull down menu field displayed in VM new/edit dialog, will now automatically set the migration mode to be “Allow manual migration only”.</p>
   </li>
   <li>
-    <p>Setting a new or an existing VM to run as Server/Desktop type with pinning configuration, will now automatically set the migration mode to be “Allow manual migration only”.
+    <p>Setting a new or an existing VM to run as Server/Desktop type with pinning configuration, will now automatically set the migration mode to be “Allow manual migration only”. 
  A VM with pinning configuration (aka “a pinned VM”) is referring to any VM that is configured with at least one of the following settings: Pass-Through Host CPU enabled, CPU Pinning topology setting, or NUMA nodes pinning setting for that VM.</p>
   </li>
   <li>
@@ -270,7 +270,7 @@ This change is crucial for supporting High Availability since if  the VM is assi
     <p>A notification message was added to the “Maintenance host(s)” dialog for informing the user on HP/Pinned VMs that are going to be migrated as a result of switching selected host(s) status to “Maintenance”.</p>
   </li>
   <li>
-    <p>Changing the “NUMA Topology” dialog for enabling pinning the VM to more than one host and displaying only relevant VMs in that dialog.
+    <p>Changing the “NUMA Topology” dialog for enabling pinning the VM to more than one host and displaying only relevant VMs in that dialog. 
 The “NUMA pinning” dialog is now displaying the configuration relevant to the first host in “Specific Host(s)” list, in case there is more than one host, but the NUMA configuration is anyway relevant for all hosts in list since all hosts should have similar NUMA configuration.</p>
   </li>
 </ul>
@@ -293,13 +293,13 @@ The “NUMA pinning” dialog is now displaying the configuration relevant to th
     <p>Setting the migration mode to be “Allow manual migration only” for HP/pinned VMs via REST api is not done automatically. The default value for those VMs set via REST api is “Allow manual and automatic migration”, so the user should explicitly change it to manual migration if required.</p>
   </li>
   <li>
-    <p>In case of a VM set with NUMA pinning but without specifically setting the CPU pinning policy, migrating the VM to a destination host with less CPUs then in source host will always fail.
-The reason is that in case the NUMA pinning policy is set and CPU pinning policy is not specifically mentioned by the user then an automatic CPU pinning is calculated, using all CPUs in host.
-The workaround for this issue, which is anyway the recommended option, is
+    <p>In case of a VM set with NUMA pinning but without specifically setting the CPU pinning policy, migrating the VM to a destination host with less CPUs then in source host will always fail. 
+The reason is that in case the NUMA pinning policy is set and CPU pinning policy is not specifically mentioned by the user then an automatic CPU pinning is calculated, using all CPUs in host. 
+The workaround for this issue, which is anyway the recommended option, is 
 to always set CPU pinning manually to override the automatic pinning.</p>
   </li>
   <li>
-    <p>No special support for easy creation of Affinity Groups for HP/Pinned VMs via the UI. Since HP VMs are limited by the hosts to run on and by the number of VMs to run together on the same host (due to enabling Pass-Through Host CPU, CPU pinning, NUMA pinning, IO thread pinning, huge pages..etc) then it is required to apply affinity rules on those VMs.
+    <p>No special support for easy creation of Affinity Groups for HP/Pinned VMs via the UI. Since HP VMs are limited by the hosts to run on and by the number of VMs to run together on the same host (due to enabling Pass-Through Host CPU, CPU pinning, NUMA pinning, IO thread pinning, huge pages..etc) then it is required to apply affinity rules on those VMs. 
 Currently the user will need to manually apply that since there is no automatic filtering in Affinity UI dialog for that.
 This will be implemented in future versions.</p>
   </li>

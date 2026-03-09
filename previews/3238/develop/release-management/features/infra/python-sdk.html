@@ -337,10 +337,10 @@ This software development kit allows you to develop Python-based applications fo
 </ul>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sd</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">storagedomains</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'nfs_data'</span><span class="p">)</span>
-<span class="n">diskParam</span> <span class="o">=</span> <span class="n">params</span><span class="p">.</span><span class="n">Disk</span><span class="p">(</span><span class="n">storage_domains</span><span class="o">=</span><span class="n">params</span><span class="p">.</span><span class="n">StorageDomains</span><span class="p">(</span><span class="n">storage_domain</span><span class="o">=</span><span class="p">[</span><span class="n">sd</span><span class="p">]),</span>
-                        <span class="n">size</span><span class="o">=</span><span class="mi">5368709120</span><span class="p">,</span>
-                        <span class="n">type_</span><span class="o">=</span><span class="s">'data'</span><span class="p">,</span>
-                        <span class="n">interface</span><span class="o">=</span><span class="s">'virtio'</span><span class="p">,</span>
+<span class="n">diskParam</span> <span class="o">=</span> <span class="n">params</span><span class="p">.</span><span class="n">Disk</span><span class="p">(</span><span class="n">storage_domains</span><span class="o">=</span><span class="n">params</span><span class="p">.</span><span class="n">StorageDomains</span><span class="p">(</span><span class="n">storage_domain</span><span class="o">=</span><span class="p">[</span><span class="n">sd</span><span class="p">]),</span> 
+                        <span class="n">size</span><span class="o">=</span><span class="mi">5368709120</span><span class="p">,</span> 
+                        <span class="n">type_</span><span class="o">=</span><span class="s">'data'</span><span class="p">,</span> 
+                        <span class="n">interface</span><span class="o">=</span><span class="s">'virtio'</span><span class="p">,</span> 
                         <span class="nb">format</span><span class="o">=</span><span class="s">'cow'</span><span class="p">)</span>
 
 <span class="n">myVm</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">vms</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'nfs_desktop'</span><span class="p">)</span>
@@ -381,7 +381,7 @@ This software development kit allows you to develop Python-based applications fo
 </ul>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nic1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'eth01'</span>
-
+      
 <span class="n">nic2</span> <span class="o">=</span> <span class="n">nic1</span><span class="p">.</span><span class="n">update</span><span class="p">()</span>
 
 <span class="n">nic3</span> <span class="o">=</span> <span class="n">vm6</span><span class="p">.</span><span class="n">nics</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'eth01'</span><span class="p">)</span>

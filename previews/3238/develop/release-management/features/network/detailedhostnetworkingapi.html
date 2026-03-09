@@ -252,7 +252,7 @@ The other commands which uses SetupNetworksCommand will now use <strong>HostSetu
        bonding : name | nic : name
        vlan : id
        [
-        bootproto : dhcp
+        bootproto : dhcp 
         or
         ipaddr : ip
         netmask : netmask
@@ -268,7 +268,7 @@ The other commands which uses SetupNetworksCommand will now use <strong>HostSetu
        -- OR --
        remove : True
     add { network name : attributes } to map
-
+     
    for each bond:
      create attributes map:
         nics=[nic1 , nic2, ...]

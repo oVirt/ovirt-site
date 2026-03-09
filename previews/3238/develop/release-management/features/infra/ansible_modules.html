@@ -163,7 +163,7 @@ systems to enforce, or a set of steps in a general IT process. Playbooks uses <a
 general playbooks consist of tasks. Every tasks executes specific module with parameters.</p>
 
 <h2 id="modules">Modules</h2>
-<p>Ansible ships with a number of modules (called the ‘module library’) that can be executed directly on remote hosts or through
+<p>Ansible ships with a number of modules (called the ‘module library’) that can be executed directly on remote hosts or through 
 Playbooks. Modules have to be idempotent. The concept that change commands should only be applied when they need to be applied,
 and that it is better to describe the desired state of a system than the process of how to get to that state. This feature page
 describes oVirt ansible modules.</p>
@@ -339,7 +339,7 @@ network interfaces in more depth you should use modules specifically for it.</p>
 <span class="na">ovirt_vms</span><span class="pi">:</span>
     <span class="na">name</span><span class="pi">:</span> <span class="s">myvm</span>
     <span class="na">memory</span><span class="pi">:</span> <span class="s">4GiB</span>
-
+  
 <span class="c1"># When change on the VM needs restart of the VM, use next_run state,</span>
 <span class="c1"># The VM will be updated and rebooted if there are any changes.</span>
 <span class="c1"># If present state would be used, VM won't be restarted.</span>
@@ -800,7 +800,7 @@ module to manage oVirt MAC pools. This module can handle creating and removing o
     <span class="na">ranges</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">00:1a:4a:16:01:51,00:1a:4a:16:01:61</span>
       <span class="pi">-</span> <span class="s">00:1a:4a:16:02:51,00:1a:4a:16:02:61</span>
-
+      
 <span class="c1"># Remove MAC pool:</span>
 <span class="pi">-</span> <span class="na">ovirt_mac_pools</span><span class="pi">:</span>
     <span class="na">state</span><span class="pi">:</span> <span class="s">absent</span>
@@ -1016,7 +1016,7 @@ your, just enter this command:</p>
 <p>To execute the playbook run following command:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$HOME</span>/ovirt-ansible
 <span class="nv">$ </span>ansible-playbook playbooks/setup_demo.yml <span class="nt">--ask-vault-pass</span>
-Vault password:
+Vault password: 
 
 PLAY <span class="o">[</span>Setup oVirt environment] <span class="k">*************************************************</span>
 

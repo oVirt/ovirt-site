@@ -139,23 +139,23 @@
 
 <h2 id="summary">Summary</h2>
 
-<p>Currently importing a VM from an external source might result in a
+<p>Currently importing a VM from an external source might result in a 
 non-functional VM from the network perspective:</p>
 
 <ul>
   <li>Mapping the vNic profile by name might lead to one of the following:
     <ul>
-      <li>vNics that are not connected to any network that is defined in the
+      <li>vNics that are not connected to any network that is defined in the 
 oVirt the VM was imported to</li>
-      <li>vNic is connected to an undesired vNic profile that matches by
+      <li>vNic is connected to an undesired vNic profile that matches by 
   name but not by the meaning.</li>
     </ul>
   </li>
-  <li>The MAC address that was assigned to the vNic in the external
+  <li>The MAC address that was assigned to the vNic in the external 
 system could be problematic in the local oVirt setup.</li>
 </ul>
 
-<p>The feature intends to solve the mentioned problems in the flow of
+<p>The feature intends to solve the mentioned problems in the flow of 
 importing VMs from a data domain storage.</p>
 
 <h2 id="owner">Owner</h2>
@@ -168,13 +168,13 @@ importing VMs from a data domain storage.</p>
 <h2 id="proposed-solution">Proposed solution</h2>
 
 <h3 id="mapping-vnic-profiles-to-the-target-ones">Mapping vNic profiles to the target ones.</h3>
-<p>The mapping of the source vNic profiles to the ones that are defined
-under destination DC/custer would be possible as part of the import
+<p>The mapping of the source vNic profiles to the ones that are defined 
+under destination DC/custer would be possible as part of the import 
 operation.</p>
 
 <h4 id="rest-api">REST API</h4>
-<p>The user would supply the desired mappings as part of the import VMs
-request. The mapping would look like a collection of entries,
+<p>The user would supply the desired mappings as part of the import VMs 
+request. The mapping would look like a collection of entries, 
 where each of the entries would consist of the following:</p>
 
 <ul>
@@ -183,7 +183,7 @@ where each of the entries would consist of the following:</p>
   <li>Target network profile</li>
 </ul>
 
-<p>The mappings data would be passed as additional optional data of the
+<p>The mappings data would be passed as additional optional data of the 
 existing VM import request:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /storagedomains/{storagedomain:id}/vms/{vm:id}/register
@@ -209,19 +209,19 @@ existing VM import request:</p>
 </code></pre></div></div>
 
 <p>Since the mappings are optional, any vNic profile that the mapping isn’t
- supplied for, would be mapped to a profile with the same name, if
-that exists, or an “empty” profile otherwise, like that’s done
+ supplied for, would be mapped to a profile with the same name, if 
+that exists, or an “empty” profile otherwise, like that’s done 
 currently.
 A missing “target_network_profile” element would mean the target profile
- is an “empty” profile. That is useful for the case in which source
-profile is known to be used in a target system for something else and an
+ is an “empty” profile. That is useful for the case in which source 
+profile is known to be used in a target system for something else and an 
 alternative profile isn’t exist yet.</p>
 
 <h4 id="gui">GUI</h4>
-<p>The engine would scan all VMs that are intended to be imported and will
+<p>The engine would scan all VMs that are intended to be imported and will 
 provide a list of network+profile that are defined on the vNics of those
  VMs. Then mappings could be defined (by the user) in an expandable span
- that would be added to the import VM dialog.
+ that would be added to the import VM dialog. 
 Each line would represent a single mapping with the following fields:</p>
 
 <ul>
@@ -233,15 +233,15 @@ Each line would represent a single mapping with the following fields:</p>
 
 <p><img src="/ovirt-site/previews/3238/images/wiki/import_vm-vnic_mapping.jpg" alt="Network mapping modal" /></p>
 
-<p>Initially all vNic profiles would be mapped to a matching (by name)
+<p>Initially all vNic profiles would be mapped to a matching (by name) 
 network+profile on the target or would be an “Empty” profile if no match
- exists. Then the user would be able to change that to any desired
-profile. The list of the available networks would be filtered according
-to the chosen cluster and the list of the profiles would be filtered by
+ exists. Then the user would be able to change that to any desired 
+profile. The list of the available networks would be filtered according 
+to the chosen cluster and the list of the profiles would be filtered by 
 the chosen network.</p>
 
 <h3 id="re-assign-mac-addresses-for-the-vnics-of-an-imported-vm">Re-assign MAC addresses for the vNics of an imported VM</h3>
-<p>The user will be able to request to re-assign a new MAC instead of the
+<p>The user will be able to request to re-assign a new MAC instead of the 
 one that is problematic in the context of the target cluster.
 The reasons for a MAC to be problematic are:</p>
 
@@ -250,12 +250,12 @@ The reasons for a MAC to be problematic are:</p>
   <li>The MAC is out of range of the destination cluster.</li>
 </ul>
 
-<p>Note that a re-assign request modifies only problematic MACs. If a VM
+<p>Note that a re-assign request modifies only problematic MACs. If a VM 
 has “good” MACs as well, they would remain.</p>
 
 <h4 id="rest-api-1">REST API</h4>
-<p>The import VM request will have additional boolean
-parameter “reassign_bad_macs”. In order to keep backward compatibility
+<p>The import VM request will have additional boolean 
+parameter “reassign_bad_macs”. In order to keep backward compatibility 
 the default value of the new parameter will be False.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /storagedomains/{storagedomain:id}/vms/{vm:id}/register
@@ -271,8 +271,8 @@ the default value of the new parameter will be False.</p>
 </code></pre></div></div>
 
 <h4 id="gui-1">GUI</h4>
-<p>VM with a problematic MAC would be marked by a warning triangle with an
-explanatory tooltip. Checking re-assign for that VM may eliminate the
+<p>VM with a problematic MAC would be marked by a warning triangle with an 
+explanatory tooltip. Checking re-assign for that VM may eliminate the 
 warning (if the warning is only due to MAC problem).
 <img src="/ovirt-site/previews/3238/images/wiki/register_vm-mac_in_use.jpg" alt="" /></p>
 
@@ -285,7 +285,7 @@ warning (if the warning is only due to MAC problem).
 <h2 id="testing">Testing</h2>
 
 <ul>
-  <li>Import a VM with a network profile that does not exist on the
+  <li>Import a VM with a network profile that does not exist on the 
 destination cluster
     <ul>
       <li>no mapping supplied -&gt; Empty vNic profile</li>
@@ -297,14 +297,14 @@ destination cluster
 (e.g. network=”red”, profile=”gold”)
     <ul>
       <li>no mapping supplied -&gt; VM connected to the vNic profile “red-gold”</li>
-      <li>mapping maps the src profile to “green-silver” -&gt; vNic is
+      <li>mapping maps the src profile to “green-silver” -&gt; vNic is 
   connected to “green-silver” profile</li>
     </ul>
   </li>
-  <li>On REST API - mapping is supplied but contains a non-existent
-destination profile -&gt; user should get an error message with HTTP 400
+  <li>On REST API - mapping is supplied but contains a non-existent 
+destination profile -&gt; user should get an error message with HTTP 400 
 series error code.</li>
-  <li>Verify that re-assigning MACs actually works, and that good MACs are
+  <li>Verify that re-assigning MACs actually works, and that good MACs are 
 given.</li>
   <li>Verify that warning sign appears in the following cases:
     <ul>

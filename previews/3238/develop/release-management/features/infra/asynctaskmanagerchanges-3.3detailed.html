@@ -225,7 +225,7 @@
                      ExecutionHandler.createDefaultContexForTasks(getExecutionContext())));
          }
          return commandsMap;
-     }
+     } 
 </code></pre></div></div>
 
 <p>and in the place where AddVmTemplateCommand was calling Back.runInternalAction the new code calls CommandBase.runCommand.</p>

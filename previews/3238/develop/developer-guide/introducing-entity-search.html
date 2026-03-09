@@ -345,7 +345,7 @@
 <p>Write a new class that extends <em>SearchObjectsBaseAutoCompleter</em> and add required verbs in the constructor.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ''   public GlusterVolumeCrossRefAutoCompleter() {
-  ''       mVerbs.put(SearchObjects.VDC_CLUSTER_OBJ_NAME,
+  ''       mVerbs.put(SearchObjects.VDC_CLUSTER_OBJ_NAME, 
   ''                           SearchObjects.VDC_CLUSTER_OBJ_NAME);
   ''       buildCompletions();
   ''   }
@@ -359,7 +359,7 @@
 
 <p>Add entries for the newly created auto completer classes to frontend/webadmin/modules/sharedgwt/src/main/java/org/ovirt/engine/SharedGwt.gwt.xml</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ''
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ''   
 
  ''       ...
  ''       &lt;include name="core/searchbackend/GlusterVolumeConditionFieldAutoCompleter.java" /&gt;

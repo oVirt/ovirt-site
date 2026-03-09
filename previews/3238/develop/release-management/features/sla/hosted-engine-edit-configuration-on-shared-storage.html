@@ -195,7 +195,7 @@ In case the checksum is different an error will be returned: “Update failed. T
 
   hosted-engine --set-shared-config key value --type broker
   sets the value, returns nothing
-
+  
   hosted-engine --get-shared-config key
   returns: key: value type
 
@@ -223,13 +223,13 @@ In case the checksum is different an error will be returned: “Update failed. T
   Invalid configuration key missing_key.
   Available keys are:
   broker : ['smtp-port', 'destination-emails', 'smtp-server', 'source-email', 'state_transition']
-
+  
   hosted-engine --set-shared-config missing_key
   returns an error:
   Invalid configuration key missing_key.
   Available keys are:
   broker : ['smtp-port', 'destination-emails', 'smtp-server', 'source-email', 'state_transition']
-
+  
   hosted-engine --get-shared-config key --type=missing_type
   returns an error:
   Invalid configuration type missing_type, supported types are: broker
@@ -243,7 +243,7 @@ In case the checksum is different an error will be returned: “Update failed. T
 <h3 id="to-get-all-keys-and-values-not-yet-implemented">To get all keys and values (not yet implemented):</h3>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    hosted-engine --get-all-config
     returns:
-      type: broker
+      type: broker  
       key: value
       key2: value
 </code></pre></div></div>

@@ -138,7 +138,7 @@
   class APIBase(object)
        def __init__(self):
            cli = hsm.ServiceProxy(hsm_proxy_server)
-
+   
            if cli:  &lt;---HSM standalone service exists
               self._irs = cli
            else:  &lt;---fall back to the legacy way

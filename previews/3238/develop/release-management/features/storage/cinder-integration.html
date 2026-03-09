@@ -356,7 +356,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
         <span class="nt">&lt;storage_domain&gt;</span>
             <span class="nt">&lt;name&gt;</span>cinder<span class="nt">&lt;/name&gt;</span>
         <span class="nt">&lt;/storage_domain&gt;</span>
-    <span class="nt">&lt;/storage_domains&gt;</span>
+    <span class="nt">&lt;/storage_domains&gt;</span> 
     <span class="nt">&lt;provisioned_size&gt;</span>1073741824<span class="nt">&lt;/provisioned_size&gt;</span>
     <span class="nt">&lt;interface&gt;</span>virtio<span class="nt">&lt;/interface&gt;</span>
     <span class="nt">&lt;format&gt;</span>raw<span class="nt">&lt;/format&gt;</span>
@@ -379,7 +379,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
 
 <p>Cinder disks are deleted asynchronously, hence ‘;async’ flag could be passed as part of the URL for getting 202-Accepted return status.</p>
 
-<p>E.g.
+<p>E.g. 
     <code class="language-plaintext highlighter-rouge">DELETE /api/disks/{disk_id};async</code></p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;action&gt;&lt;/action&gt;</span>

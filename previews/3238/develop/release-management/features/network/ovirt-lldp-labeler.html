@@ -140,8 +140,8 @@
 <h2 id="summary">Summary</h2>
 
 <p>oVirt LLDP labeler is a tool that utilizes LLDP support
-added to oVirt in 4.2. The tool helps to some extent automate network
-configuration overhead in clusters that are managed by the labeler.
+added to oVirt in 4.2. The tool helps to some extent automate network 
+configuration overhead in clusters that are managed by the labeler. 
 It can be used as a separate service or as one-time tool using its cli.</p>
 
 <h3 id="owner">Owner</h3>
@@ -154,8 +154,8 @@ It can be used as a separate service or as one-time tool using its cli.</p>
 <h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
 
 <p>The labeler is a service that is capable of helping the oVirt administrator
-to automate some network related tasks. According to configuration reported
-via LLDP from peer switch, the labeler is capable of labeling host network
+to automate some network related tasks. According to configuration reported 
+via LLDP from peer switch, the labeler is capable of labeling host network 
 interface or bond interfaces together.</p>
 
 <h3 id="example-vlan-flow">Example VLAN flow</h3>
@@ -163,9 +163,9 @@ interface or bond interfaces together.</p>
 <p>Consider following scenario:</p>
 
 <p>Engine contains logical network <code class="language-plaintext highlighter-rouge">vlan10</code> tagged as VLAN with id 10
-and label <code class="language-plaintext highlighter-rouge">lldp_vlan_10</code>. Multiple hosts that have it’s <code class="language-plaintext highlighter-rouge">eth1</code>
-connected to switch with VLAN id 10 configured and LLDP reporting
-enabled for the interfaces connected to the hosts. To automatically
+and label <code class="language-plaintext highlighter-rouge">lldp_vlan_10</code>. Multiple hosts that have it’s <code class="language-plaintext highlighter-rouge">eth1</code> 
+connected to switch with VLAN id 10 configured and LLDP reporting 
+enabled for the interfaces connected to the hosts. To automatically 
 connect our logical network <code class="language-plaintext highlighter-rouge">vlan10</code> with the <code class="language-plaintext highlighter-rouge">eth1</code> on every host,
 the administrator just needs to configure and run the labeler:</p>
 
@@ -178,16 +178,16 @@ the administrator just needs to configure and run the labeler:</p>
 
 <p>1) Run the oVirt LLDP labeler by executing <code class="language-plaintext highlighter-rouge">python /usr/share/ovirt-lldp-labeler/ovirt_lldp_labeler_cli.py</code></p>
 
-<p>After the labeler run, the hosts will automatically set a <code class="language-plaintext highlighter-rouge">lldp_vlan_10</code>
-label on top of the <code class="language-plaintext highlighter-rouge">eth1</code> interfaces, which results in the automatic
-connection of <code class="language-plaintext highlighter-rouge">eth1</code> with <code class="language-plaintext highlighter-rouge">vlan10</code> network, due to the matching label.
-This can be repeated every time a new host is added to the cluster,
-as well as for network changes within current hosts e.g. the switch
+<p>After the labeler run, the hosts will automatically set a <code class="language-plaintext highlighter-rouge">lldp_vlan_10</code> 
+label on top of the <code class="language-plaintext highlighter-rouge">eth1</code> interfaces, which results in the automatic 
+connection of <code class="language-plaintext highlighter-rouge">eth1</code> with <code class="language-plaintext highlighter-rouge">vlan10</code> network, due to the matching label. 
+This can be repeated every time a new host is added to the cluster, 
+as well as for network changes within current hosts e.g. the switch 
 port connection was switched between <code class="language-plaintext highlighter-rouge">eth1</code> and <code class="language-plaintext highlighter-rouge">eth2</code> on the host.</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-<p>The labeler has to be capable of reaching the desired engine REST API and the
+<p>The labeler has to be capable of reaching the desired engine REST API and the 
 <code class="language-plaintext highlighter-rouge">python-ovirt-engine-sdk4</code> in a version greater than <code class="language-plaintext highlighter-rouge">4.2</code> has to be installed.</p>
 
 <h2 id="limitations">Limitations</h2>
@@ -207,37 +207,37 @@ The required parameters are:</p>
 <h3 id="service">Service</h3>
 
 <p>The labeler service is done through timers available in systemd. The timer calls
-a target which executes the cli tool. The delay is one hour by default and can be
+a target which executes the cli tool. The delay is one hour by default and can be 
 changed in the timer specification.</p>
 
 <h3 id="labeler">Labeler</h3>
 
-<p>The tool itself is divided into two parts. The labeling part and the bonding
+<p>The tool itself is divided into two parts. The labeling part and the bonding 
 part, each can be enabled or disabled in the configuration file.</p>
 
-<p>Each step described below is done for each host, that is part of the cluster
+<p>Each step described below is done for each host, that is part of the cluster 
 specified in the configuration file.</p>
 
 <ul>
   <li>
-    <p>The bonding part starts by fetching all LLDP available for interfaces that are
-not part of any existing bond already. The labeler is not trying to modify
-existing bonds, just to create new ones. The LLDP information is then searched
-for <code class="language-plaintext highlighter-rouge">Link Aggregation</code> capabilities. The interfaces, that are capable of
-aggregation, are grouped together by <code class="language-plaintext highlighter-rouge">Aggregation Link ID</code>. Before creating
-a bond, the interface with attached <code class="language-plaintext highlighter-rouge">ovirtmgmt</code> network is filtered out, as we
-don’t want to risk losing connectivity with the host. Also, rules about which
-networks can be attached to an interface are applied. After creating bond
-candidates the last step is to re-attach all networks from slaves to the bond
-candidate. All network configurations made by the labeler are marked as
+    <p>The bonding part starts by fetching all LLDP available for interfaces that are 
+not part of any existing bond already. The labeler is not trying to modify 
+existing bonds, just to create new ones. The LLDP information is then searched 
+for <code class="language-plaintext highlighter-rouge">Link Aggregation</code> capabilities. The interfaces, that are capable of 
+aggregation, are grouped together by <code class="language-plaintext highlighter-rouge">Aggregation Link ID</code>. Before creating 
+a bond, the interface with attached <code class="language-plaintext highlighter-rouge">ovirtmgmt</code> network is filtered out, as we 
+don’t want to risk losing connectivity with the host. Also, rules about which 
+networks can be attached to an interface are applied. After creating bond 
+candidates the last step is to re-attach all networks from slaves to the bond 
+candidate. All network configurations made by the labeler are marked as 
 permanent so host restart won’t wipe them.</p>
   </li>
   <li>
     <p>The labeling part fetches LLDP from all non-VLAN interfaces and bond slaves.
-The labeler search every interface LLDP information for <code class="language-plaintext highlighter-rouge">VLAN ID</code> tlvs. For
-every VLAN tlv, the labeler creates label candidate, in format of
-<code class="language-plaintext highlighter-rouge">lldp_vlan_$(VLAN-ID)</code>, where <code class="language-plaintext highlighter-rouge">$(VLAN-ID)</code> is substituted with VLAN id from
-the reported LLDP information. It is possible to have multiple VLAN on
+The labeler search every interface LLDP information for <code class="language-plaintext highlighter-rouge">VLAN ID</code> tlvs. For 
+every VLAN tlv, the labeler creates label candidate, in format of 
+<code class="language-plaintext highlighter-rouge">lldp_vlan_$(VLAN-ID)</code>, where <code class="language-plaintext highlighter-rouge">$(VLAN-ID)</code> is substituted with VLAN id from 
+the reported LLDP information. It is possible to have multiple VLAN on 
 the interface, in this case, the interface ends up with multiple labels.</p>
   </li>
 </ul>
@@ -249,7 +249,7 @@ Full configuration documentation is available in the <a href="https://github.com
 
 <p>First two files are usually located in <code class="language-plaintext highlighter-rouge">/etc/ovirt-lldp-labeler/conf.d/</code>.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">ovirt-lldp-credentials.conf</code> contains login information to access the
+<p>The <code class="language-plaintext highlighter-rouge">ovirt-lldp-credentials.conf</code> contains login information to access the 
 engine API. This file is restricted with permission 0600 to prevent any
 unwanted access to the file.</p>
 <ul>
@@ -267,7 +267,7 @@ unwanted access to the file.</p>
 </ul>
 
 <p>The last configuration file is the configuration of the systemd timer. It is usually
-located in <code class="language-plaintext highlighter-rouge">/usr/lib/systemd/system/</code> and it is called
+located in <code class="language-plaintext highlighter-rouge">/usr/lib/systemd/system/</code> and it is called 
 <code class="language-plaintext highlighter-rouge">ovirt-lldp-labeler.timer</code>.</p>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">OnUnitActiveSec</code> The timer delay for single labeler runs.</li>
@@ -289,7 +289,7 @@ located in <code class="language-plaintext highlighter-rouge">/usr/lib/systemd/s
 
 <ul>
   <li>Installation</li>
-  <li>Security - only the ovirt-lldp-credentials.conf owner should be able to
+  <li>Security - only the ovirt-lldp-credentials.conf owner should be able to 
 read/write into the config</li>
   <li>Service timer</li>
 </ul>

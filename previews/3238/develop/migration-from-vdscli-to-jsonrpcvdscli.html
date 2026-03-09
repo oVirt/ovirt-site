@@ -132,7 +132,7 @@
 
 <p>Here is jsonrpcvdscli code:
       from vdsm import jsonrpcvdscli
-      from vdsm.config import config
+      from vdsm.config import config 
       requestQueues = config.get(‘addresses’, ‘request_queues’)
       requestQueue = requestQueues.split(“,”)[0]
       destServer = jsonrpcvdscli.connect(requestQueue, host=host, port=port)</p>
@@ -148,7 +148,7 @@
   client = clientIF.createStompClient(client_socket)
   requestQueues = config.get('addresses', 'request_queues')
   requestQueue = requestQueues.split(",")[0]
-  destServer = jsonrpcvdscli.connect(requestQueue, client)
+  destServer = jsonrpcvdscli.connect(requestQueue, client) 
 </code></pre></div></div>
 
 <p>Please note that above code do not connect during the process of creation. It is required to call a procedure to physically establish connection.</p>

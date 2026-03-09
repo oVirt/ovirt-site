@@ -147,13 +147,13 @@
 <h2 id="urandom-replaces-random"><code class="language-plaintext highlighter-rouge">urandom</code> replaces <code class="language-plaintext highlighter-rouge">random</code></h2>
 
 <h3 id="summary">Summary</h3>
-<p><code class="language-plaintext highlighter-rouge">/dev/urandom</code> random number generator (RNG) source replace <code class="language-plaintext highlighter-rouge">/dev/random</code> for VMs with effective compatibility
+<p><code class="language-plaintext highlighter-rouge">/dev/urandom</code> random number generator (RNG) source replace <code class="language-plaintext highlighter-rouge">/dev/random</code> for VMs with effective compatibility 
 version &gt;= 4.1. <code class="language-plaintext highlighter-rouge">urandom</code> presents a non-blocking (“unlimited”) rng source as opposed to <code class="language-plaintext highlighter-rouge">random</code>.</p>
 
 <p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1374227">Related bug</a>.</p>
 
 <h3 id="engine">Engine</h3>
-<p>Each time VM effective compatibility level is changed (by change of cluster compatibility level or VM custom
+<p>Each time VM effective compatibility level is changed (by change of cluster compatibility level or VM custom 
 compatibility level) source of rng generator device is checked and updated if necessary.</p>
 
 <h3 id="non-cluster-entities">Non-cluster Entities</h3>

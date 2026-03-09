@@ -398,7 +398,7 @@ b. Ensure that <code class="language-plaintext highlighter-rouge">showmount -e &
   <li>Try to create a file in it via the <code class="language-plaintext highlighter-rouge">touch</code> command, i.e. <code class="language-plaintext highlighter-rouge">touch /tmpmnt/tempfile</code></li>
   <li>Cleanup the file <code class="language-plaintext highlighter-rouge">rm -f /tmpmnt/tempfile</code></li>
   <li>Exit from the vdsm user and cleanup the temporary mountpoint:
-    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span><span class="nb">exit</span>
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span><span class="nb">exit</span>  
 <span class="gp">#</span><span class="w"> </span>umount /tmpmnt
 <span class="gp">#</span><span class="w"> </span>rf <span class="nt">-rf</span> /tmpmnt
 </code></pre></div>    </div>

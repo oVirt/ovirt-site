@@ -178,13 +178,13 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--== STORAGE CONFIGURATION ==--
 
 During customization use CTRL-D to abort.
-Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs
+Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs 
 Please note that Replica 3 support is required for the shared storage.
 Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/glusterfs
 </code></pre></div></div>
 
 <h4 id="config-files-changes">Config files changes</h4>
-<p>Hosted engine storage domain can use backup-volfile-servers option to mount the gluster volume.
+<p>Hosted engine storage domain can use backup-volfile-servers option to mount the gluster volume. 
 This can be provided to the hosted-engine deployment via an answer file (using –config-append option), as the UX currently does not prompt for it</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[environment:default]
@@ -240,7 +240,9 @@ vdsClient -s 0 glusterVolumesList volumeName='&lt;volname&gt;' remoteServer='&lt
 
 <h2 id="testing">Testing</h2>
 
-<p>*</p>
+<ul>
+  <li></li>
+</ul>
 
 <h2 id="release-notes">Release Notes</h2>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#Self Hosted Engine Gluster Support

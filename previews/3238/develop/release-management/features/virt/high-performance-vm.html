@@ -161,7 +161,7 @@
 
 <ul>
   <li>
-    <p>Setting a VM to run as a High Performance VM can be done to a new or existing VM via UI by selecting the “High Performance” type in the “Optimized for” pull down menu field displayed in VM new/edit dialog.
+    <p>Setting a VM to run as a High Performance VM can be done to a new or existing VM via UI by selecting the “High Performance” type in the “Optimized for” pull down menu field displayed in VM new/edit dialog. 
 This new VM type is added in addition to already existed VM types: “Server”, “Desktop”.</p>
   </li>
   <li>
@@ -225,7 +225,7 @@ This new VM type is added in addition to already existed VM types: “Server”,
 <h4 id="disable-vm-migration"><strong>Disable VM migration</strong></h4>
 <p>Displayed in ‘Host’ side-tab of the VM dialog.</p>
 
-<p>The VM cannot be migrated, either automatically or manually for oVirt 4.2.
+<p>The VM cannot be migrated, either automatically or manually for oVirt 4.2. 
 Support migration is planned for oVirt 4.3 . See https://bugzilla.redhat.com/show_bug.cgi?id=1457250.</p>
 
 <h4 id="enable-io-threads-num-of-io-threads--1"><strong>Enable IO Threads, Num Of IO Threads = 1</strong></h4>
@@ -320,8 +320,8 @@ No UI settings are required for this option.</p>
 <p>In case that KSM in cluster level or host level is not disabled upon VM saving, a recommendation/warning will be displayed in a pop-up and the user will be asked to disable it either in cluster level, host level or for the specific VM.</p>
 
 <h4 id="enable--memory-backing-with-huge-pages"><strong>Enable  memory backing with huge pages</strong></h4>
-<p>This is a new configuration setting added for oVirt 4.2.
-This feature includes host side changes in addition to engine and UI changes. The UI changes will be added as a predefined new key option in the ‘Custom Properties’ side-tab of the VM dialog.
+<p>This is a new configuration setting added for oVirt 4.2. 
+This feature includes host side changes in addition to engine and UI changes. The UI changes will be added as a predefined new key option in the ‘Custom Properties’ side-tab of the VM dialog. 
 This new “hugepages” key will allow to set the size of the huge page in kB.</p>
 
 <p>In case that huge pages configuration is not set upon VM saving, a recommendation/warning will be displayed in a pop-up and the user will be asked to set it and verify it fits the host configuration (i.e. guest huge pages selected size should be supported by the pinned host, recommending to set the biggest pages available and also checking that guest_number_of_huge_pages_for_selected_size &lt;= host_number_of_huge_pages_for_selected_size).</p>

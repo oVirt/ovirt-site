@@ -239,7 +239,7 @@
 
 <p>The last test we did with removing the 2 Fiber channels to the hypervisor… This will put the VM’s in a pause state. This is the reason:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  the KVM team advised this would be an unsafe migration. iirc, since IO can be stuck at kernel level,  &lt;br /&gt;pending write to the storage, which would cause corruption if storage is recovered while the VM is now running on another machine.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  the KVM team advised this would be an unsafe migration. iirc, since IO can be stuck at kernel level,  &lt;br /&gt;pending write to the storage, which would cause corruption if storage is recovered while the VM is now running on another machine. 
 </code></pre></div></div>
 
 

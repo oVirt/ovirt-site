@@ -214,8 +214,8 @@
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # version 3 traps: allow user ovirtengine to log,execute,net
   authUser log,execute,net ovirtengine
-
-  # version 3 add a user NoAuthnoPriv who can send noAuthNoPriv
+  
+  # version 3 add a user NoAuthnoPriv who can send noAuthNoPriv 
   authUser log,execute,net NoAuthNoPriv noauth
   # Log incoming traps to /var/log/snmptrapd.log
   logOption f /var/log/snmptrapd.log
@@ -235,7 +235,7 @@ Edit /etc/snmp/snmptrapd.conf to add the library specific directive in front of 
 <h4 id="create-the-users">Create the users</h4>
 
 <p>edit /var/lib/net-snmp/snmpd.conf add createUser to support version 3 traps
-and
+and 
 edit /var/lib/net-snmp/snmptrapd.conf add creatUser to support version 3 traps</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  createUser -e 0x8000000001020505 ovirtengine MD5 authpass AES privpass

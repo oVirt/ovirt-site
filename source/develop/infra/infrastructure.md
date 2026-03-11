@@ -93,9 +93,6 @@ The main thing is to communicate with us if you have any questions, are interest
 *   [Mailing list infra@ovirt.org](https://lists.ovirt.org/hyperkitty/list/infra@ovirt.org/)
 *   [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt)
 
-### Meetings
-
-[Infrastructure Meetings](/develop/infra/infrastructure-team-meetings.html)
 
 ### Decision process
 

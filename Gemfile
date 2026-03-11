@@ -30,7 +30,7 @@ group :jekyll_plugins do
   gem "jekyll-font-awesome-sass"
   gem 'jekyll-analytics'
   gem 'jekyll-asciidoc'
-  gem 'nokogiri', '~> 1.14.3'
+  gem 'nokogiri', '~> 1.19.1'
 end
 
 # for syntax highlighting

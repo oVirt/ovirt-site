@@ -90,13 +90,13 @@ TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, THE OVIRT PROJECT OFFERS THE 
 
 ### LIMITATION OF LIABILITY
 
-EXCEPT TO THE EXTENT REQUIRED BY APPLICABLE LAW AND THEN ONLY TO THAT EXTENT, IN NO EVENT WILL THE OVIRT PROJECT, ITS EMPLOYEES, OFFICERS, DIRECTORS, AFFILIATES OR AGENTS ("OVIRT PROJECT PARTIES") BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY INCIDENTAL, DIRECT, INDIRECT, PUNITIVE, ACTUAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY OR OTHER DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF REVENUE OR INCOME, LOST PROFITS, PAIN AND SUFFERING, EMOTIONAL DISTRESS, COST OF SUBSTITUTE GOODS OR SERVICES, OR SIMILAR DAMAGES SUFFERED OR INCURRED BY YOU OR ANY THIRD PARTY THAT ARISE IN CONNECTION WITH THE WEBSITE (OR THE TERMINATION THEREOF FOR ANY REASON), EVEN IF THE OVIRT PROJECT PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+EXCEPT TO THE EXTENT REQUIRED BY APPLICABLE LAW AND THEN ONLY TO THAT EXTENT, IN NO EVENT WILL THE OVIRT PROJECT BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY INCIDENTAL, DIRECT, INDIRECT, PUNITIVE, ACTUAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY OR OTHER DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF REVENUE OR INCOME, LOST PROFITS, PAIN AND SUFFERING, EMOTIONAL DISTRESS, COST OF SUBSTITUTE GOODS OR SERVICES, OR SIMILAR DAMAGES SUFFERED OR INCURRED BY YOU OR ANY THIRD PARTY THAT ARISE IN CONNECTION WITH THE WEBSITE (OR THE TERMINATION THEREOF FOR ANY REASON), EVEN IF THE OVIRT PROJECT HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-THE OVIRT PROJECT PARTIES SHALL NOT BE RESPONSIBLE OR LIABLE FOR ANY CONTENT POSTED ON THE WEBSITE. IN PARTICULAR, THE OVIRT PROJECT PARTIES SHALL NOT BE RESPONSIBLE FOR CLAIMS OF INFRINGEMENT RELATING TO CONTENT POSTED ON THE WEBSITE, FOR YOUR USE OF THE WEBSITE, OR FOR THE CONDUCT OF THIRD PARTIES ON THE WEBSITE OR OTHERWISE RELATING TO THE WEBSITE.
+THE OVIRT PROJECT SHALL NOT BE RESPONSIBLE OR LIABLE FOR ANY CONTENT POSTED ON THE WEBSITE. IN PARTICULAR, THE OVIRT PROJECT SHALL NOT BE RESPONSIBLE FOR CLAIMS OF INFRINGEMENT RELATING TO CONTENT POSTED ON THE WEBSITE, FOR YOUR USE OF THE WEBSITE, OR FOR THE CONDUCT OF THIRD PARTIES ON THE WEBSITE OR OTHERWISE RELATING TO THE WEBSITE.
 
 ### Indemnification
 
-You agree to indemnify and hold harmless the oVirt Project Parties (defined above) from and against any and all loss, expenses, damages, and costs, including attorneys' fees, resulting, whether directly or indirectly, from your violation of the Terms. You also agree to indemnify and hold harmless the oVirt Project Parties from and against any and all claims brought by third parties, including without limitation claims for patent, copyright or trademark infringement, arising out of your use of the Website and the Content you make available through the Website by any means, such as through a posting, a link, reference to Content, or otherwise.
+You agree to indemnify and hold harmless the oVirt Project from and against any and all loss, expenses, damages, and costs, including attorneys' fees, resulting, whether directly or indirectly, from your violation of the Terms. You also agree to indemnify and hold harmless the oVirt Project from and against any and all claims brought by third parties, including without limitation claims for patent, copyright or trademark infringement, arising out of your use of the Website and the Content you make available through the Website by any means, such as through a posting, a link, reference to Content, or otherwise.
 
 ### Privacy Policy
 
@@ -105,23 +105,6 @@ The oVirt Project is committed to handling responsibly the information and data 
 ### Copyright Complaints; DMCA Compliance
 
 The oVirt Project respects the intellectual property rights of others and prohibits users of the Website from submitting, uploading, posting or otherwise transmitting any materials that violate another person’s intellectual property rights.
-
-To file a notice of copyright infringement with the oVirt Project concerning the Website, please provide the following information to the oVirt Board:
-
-1.  A description of the copyrighted work or other intellectual property that you claim has been infringed.
-2.  A description of the material that you claim is infringing the copyrighted work listed in item 1.
-3.  An address, telephone number, and an email address where the alleged infringing party can contact you.
-4.  The following statement: "I have a good faith belief that use of the copyrighted materials described above as allegedly infringing is not authorized by the copyright owner, its agent, or the law."
-5.  The following statement: "I swear, under penalty of perjury, that the information in the notification is accurate and that I am the copyright owner or am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed."
-6.  Your electronic or physical signature.
-
-To file a counter notification with us, please provide the following information to the oVirt Board:
-
-1.  A description of the material that the oVirt Project has removed or to which the oVirt Project has disabled access.
-2.  Your name, address, telephone number, email address, and a statement that you consent to the jurisdiction of the United States District Court for the judicial district in which your address is located (or the United States District Court for the Eastern District of North Carolina if your address is outside of the United States), and that you will accept service of process from the person who provided notification of infringement or an agent of such person.
-3.  The following statement: "I swear, under penalty of perjury, that I have a good faith belief that the material identified above was removed or disabled as a result of a mistake or misidentification of the material to be removed or disabled."
-4.  Your electronic or physical signature.
-
 
 ### Termination of this Agreement
 
@@ -134,8 +117,6 @@ Your access to, and use of, the Website may be terminated by you or by the oVirt
 The disclaimer of warranties, the limitation of liability and the jurisdiction and applicable law provisions of these Terms, and your warranties and indemnification obligations, shall survive any termination. The license grants mentioned herein shall continue in effect subject to the terms of the applicable license.
 
 ### Miscellaneous Terms
-
-These Terms are governed by the laws of the State of New York, exclusive of its choice of law rules. You and the oVirt Project agree to submit to the jurisdiction of the state courts located within Wake County, North Carolina and to the jurisdiction of the federal courts located in the United States District Court for the Eastern District of North Carolina.
 
 The oVirt Project’s failure to insist on or enforce strict performance of any of the Terms shall not be construed as a waiver of any provision or right.
 

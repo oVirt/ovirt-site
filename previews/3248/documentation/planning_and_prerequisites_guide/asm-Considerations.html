@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Considerations | oVirt</title>
+<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="Considerations" />
+<meta property="og:title" content="oVirt" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -13,10 +13,10 @@
 <meta property="og:site_name" content="oVirt" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Considerations" />
+<meta property="twitter:title" content="oVirt" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Considerations","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3248/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3248/documentation/planning_and_prerequisites_guide/asm-Considerations.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3248/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3248/documentation/planning_and_prerequisites_guide/asm-Considerations.html"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -70,7 +70,7 @@
         
         <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
            <a property="item" typeof="WebPage" href="/ovirt-site/previews/3248/documentation/planning_and_prerequisites_guide/">
-              <span property="name">Planning and Prerequisites Guide</span>
+              <span property="name">Planning And Prerequisites Guide</span>
               <meta property="position" content="3" />
            </a>
         </li>
@@ -91,51 +91,53 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#host-types">1. Host Types</a>
+<li><a href="#considerations">1. Considerations</a>
 <ul class="sectlevel2">
-<li><a href="#ovirt-nodes">1.1. oVirt Nodes</a></li>
-<li><a href="#enterprise-linux-hosts">1.2. Enterprise Linux hosts</a></li>
+<li><a href="#host-types">1.1. Host Types</a>
+<ul class="sectlevel3">
+<li><a href="#ovirt-nodes">1.1.1. oVirt Nodes</a></li>
+<li><a href="#enterprise-linux-hosts">1.1.2. Enterprise Linux hosts</a></li>
 </ul>
 </li>
-<li><a href="#storage-types">2. Storage Types</a>
-<ul class="sectlevel2">
-<li><a href="#nfs">2.1. NFS</a></li>
-<li><a href="#iscsi">2.2. iSCSI</a></li>
-<li><a href="#fibre-channel">2.3. Fibre Channel</a></li>
-<li><a href="#fcoe">2.4. Fibre Channel over Ethernet</a></li>
-<li><a href="#rhhi">2.5. oVirt Hyperconverged Infrastructure</a></li>
-<li><a href="#posix">2.6. POSIX-Compliant FS</a></li>
-<li><a href="#local-storage">2.7. Local Storage</a></li>
+<li><a href="#storage-types">1.2. Storage Types</a>
+<ul class="sectlevel3">
+<li><a href="#nfs">1.2.1. NFS</a></li>
+<li><a href="#iscsi">1.2.2. iSCSI</a></li>
+<li><a href="#fibre-channel">1.2.3. Fibre Channel</a></li>
+<li><a href="#fcoe">1.2.4. Fibre Channel over Ethernet</a></li>
+<li><a href="#rhhi">1.2.5. oVirt Hyperconverged Infrastructure</a></li>
+<li><a href="#posix">1.2.6. POSIX-Compliant FS</a></li>
+<li><a href="#local-storage">1.2.7. Local Storage</a></li>
 </ul>
 </li>
-<li><a href="#networking-considerations">3. Networking Considerations</a></li>
-<li><a href="#directory-server-support">4. Directory Server Support</a></li>
-<li><a href="#infrastructure-considerations">5. Infrastructure Considerations</a>
-<ul class="sectlevel2">
-<li><a href="#local-or-remote-hosting">5.1. Local or Remote Hosting</a></li>
-<li><a href="#remote-hosting-only">5.2. Remote Hosting Only</a></li>
+<li><a href="#networking-considerations">1.3. Networking Considerations</a></li>
+<li><a href="#directory-server-support">1.4. Directory Server Support</a></li>
+<li><a href="#infrastructure-considerations">1.5. Infrastructure Considerations</a>
+<ul class="sectlevel3">
+<li><a href="#local-or-remote-hosting">1.5.1. Local or Remote Hosting</a></li>
+<li><a href="#remote-hosting-only">1.5.2. Remote Hosting Only</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-<div id="preamble">
+<div class="sect1">
+<h2 id="considerations">1. Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter describes the advantages, limitations, and available options for various oVirt components.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="host-types">1. Host Types</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="host-types">1.1. Host Types</h3>
 <div class="paragraph">
 <p>Use the host type that best suits your environment. You can also use both types of host in the same cluster if required.</p>
 </div>
 <div class="paragraph">
 <p>All managed hosts within a cluster must have the same CPU type. Intel and AMD CPUs cannot co-exist within the same cluster.</p>
 </div>
-<div class="sect2">
-<h3 id="ovirt-nodes">1.1. oVirt Nodes</h3>
+<div class="sect3">
+<h4 id="ovirt-nodes">1.1.1. oVirt Nodes</h4>
 <div class="paragraph">
 <p>oVirt Nodes (oVirt Node) have the following advantages over Enterprise Linux hosts:</p>
 </div>
@@ -156,8 +158,8 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="enterprise-linux-hosts">1.2. Enterprise Linux hosts</h3>
+<div class="sect3">
+<h4 id="enterprise-linux-hosts">1.1.2. Enterprise Linux hosts</h4>
 <div class="paragraph">
 <p>Enterprise Linux hosts have the following advantages over oVirt Nodes:</p>
 </div>
@@ -173,10 +175,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="storage-types">2. Storage Types</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="storage-types">1.2. Storage Types</h3>
 <div class="paragraph">
 <p>Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.</p>
 </div>
@@ -213,8 +213,8 @@
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="nfs">2.1. NFS</h3>
+<div class="sect3">
+<h4 id="nfs">1.2.1. NFS</h4>
 <div class="paragraph">
 <p>NFS versions 3 and 4 are supported by oVirt 4. Production workloads require an enterprise-grade NFS server, unless NFS is only being used as an ISO storage domain. When enterprise NFS is deployed over 10GbE, segregated with VLANs, and individual services are configured to use specific ports, it is both fast and secure.</p>
 </div>
@@ -232,8 +232,8 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="iscsi">2.2. iSCSI</h3>
+<div class="sect3">
+<h4 id="iscsi">1.2.2. iSCSI</h4>
 <div class="paragraph">
 <p>Production workloads require an enterprise-grade iSCSI server. When enterprise iSCSI is deployed over 10GbE, segregated with VLANs, and utilizes CHAP authentication, it is both fast and secure. iSCSI can also use multipathing to improve high availability.</p>
 </div>
@@ -251,8 +251,8 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="fibre-channel">2.3. Fibre Channel</h3>
+<div class="sect3">
+<h4 id="fibre-channel">1.2.3. Fibre Channel</h4>
 <div class="paragraph">
 <p>Fibre Channel is both fast and secure, and should be taken advantage of if it is already in use in the target data center. It also has the advantage of low CPU overhead as compared to iSCSI and NFS. Fibre Channel can also use multipathing to improve high availability.</p>
 </div>
@@ -270,8 +270,8 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="fcoe">2.4. Fibre Channel over Ethernet</h3>
+<div class="sect3">
+<h4 id="fcoe">1.2.4. Fibre Channel over Ethernet</h4>
 <div class="paragraph">
 <p>To use Fibre Channel over Ethernet (FCoE) in oVirt, you must enable the <strong>fcoe</strong> key on the Engine, and install the <em>vdsm-hook-fcoe</em> package on the hosts.</p>
 </div>
@@ -289,8 +289,8 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="rhhi">2.5. oVirt Hyperconverged Infrastructure</h3>
+<div class="sect3">
+<h4 id="rhhi">1.2.5. oVirt Hyperconverged Infrastructure</h4>
 <div class="paragraph">
 <p>oVirt Hyperconverged Infrastructure combines oVirt and Gluster Storage on the same infrastructure, instead of connecting oVirt to a remote Gluster Storage server. This compact option reduces operational expenses and overhead.</p>
 </div>
@@ -311,8 +311,8 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="posix">2.6. POSIX-Compliant FS</h3>
+<div class="sect3">
+<h4 id="posix">1.2.6. POSIX-Compliant FS</h4>
 <div class="paragraph">
 <p>Other POSIX-compliant file systems can be used as storage domains in oVirt, as long as they are clustered file systems, such as Red Hat Global File System 2 (GFS2), and support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with oVirt.</p>
 </div>
@@ -330,8 +330,8 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="local-storage">2.7. Local Storage</h3>
+<div class="sect3">
+<h4 id="local-storage">1.2.7. Local Storage</h4>
 <div class="paragraph">
 <p>Local storage is set up on an individual host, using the host&#8217;s own resources. When you set up a host to use local storage, it is automatically added to a new data center and cluster that no other hosts can be added to. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.</p>
 </div>
@@ -343,10 +343,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="networking-considerations">3. Networking Considerations</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="networking-considerations">1.3. Networking Considerations</h3>
 <div class="paragraph">
 <p>Familiarity with network concepts and their use is highly recommended when planning and setting up networking in a oVirt environment. Read your network hardware vendor&#8217;s guides for more information on managing networking.</p>
 </div>
@@ -407,10 +405,8 @@
 <p>oVirt is fully integrated with Cisco Application Centric Infrastructure (ACI), which provides comprehensive network management capabilities, thus mitigating the need to manually configure the oVirt networking infrastructure. The integration is performed by configuring oVirt on Cisco’s Application Policy Infrastructure Controller (APIC) version 3.1(1) and later, according to the <a href="https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/kb/b_Cisco_ACI_Red_Hat_Virtualization.html">Cisco&#8217;s documentation</a>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="directory-server-support">4. Directory Server Support</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="directory-server-support">1.4. Directory Server Support</h3>
 <div class="paragraph">
 <p>During installation, oVirt Engine creates a default <strong>admin</strong> user in a default <strong>internal</strong> domain. This account is intended for use when initially configuring the environment, and for troubleshooting. You can create additional users on the <strong>internal</strong> domain using <code>ovirt-aaa-jdbc-tool</code>. User accounts created on local domains are known as local users. See <a href="https://ovirt.org/documentation/administration_guide/index#sect-Administering_User_Tasks_From_the_commandline">Administering User Tasks From the Command Line</a> in the <em>Administration Guide</em>.</p>
 </div>
@@ -457,12 +453,10 @@
 <p>See: <a href="https://ovirt.org/documentation/administration_guide/index#chap-Users_and_Roles">Users and Roles</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="infrastructure-considerations">5. Infrastructure Considerations</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="local-or-remote-hosting">5.1. Local or Remote Hosting</h3>
+<h3 id="infrastructure-considerations">1.5. Infrastructure Considerations</h3>
+<div class="sect3">
+<h4 id="local-or-remote-hosting">1.5.1. Local or Remote Hosting</h4>
 <div class="paragraph">
 <p>The following components can be hosted on either the Engine or a remote machine. Keeping all components on the Engine machine is easier and requires less maintenance, so is preferable when performance is not an issue. Moving components to a remote machine requires more maintenance, but can improve the performance of both the Engine and Data Warehouse.</p>
 </div>
@@ -513,8 +507,8 @@
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="remote-hosting-only">5.2. Remote Hosting Only</h3>
+<div class="sect3">
+<h4 id="remote-hosting-only">1.5.2. Remote Hosting Only</h4>
 <div class="paragraph">
 <p>The following components must be hosted on a remote machine:</p>
 </div>
@@ -533,6 +527,7 @@
 <p>IdM (<code>ipa-server</code>) is incompatible with the <code>mod_ssl</code> package, which is required by the Engine.</p>
 </dd>
 </dl>
+</div>
 </div>
 </div>
 </div>

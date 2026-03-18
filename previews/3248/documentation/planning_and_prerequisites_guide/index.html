@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Planning and Prerequisites Guide | oVirt</title>
+<title>oVirt | oVirt is a free open-source virtualization solution for your entire enterprise</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="Planning and Prerequisites Guide" />
+<meta property="og:title" content="oVirt" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
 <meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
@@ -13,10 +13,10 @@
 <meta property="og:site_name" content="oVirt" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Planning and Prerequisites Guide" />
+<meta property="twitter:title" content="oVirt" />
 <meta name="twitter:site" content="@ovirt" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"Planning and Prerequisites Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3248/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3248/documentation/planning_and_prerequisites_guide/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"oVirt is a free open-source virtualization solution for your entire enterprise","headline":"oVirt","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/3248/images/logo.svg"}},"url":"https://ovirt.github.io/ovirt-site/previews/3248/documentation/planning_and_prerequisites_guide/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
@@ -82,87 +82,89 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#RHV_Architecture">1. oVirt Architecture</a>
+<li><a href="#planning-and-prerequisites-guide">1. Planning and Prerequisites Guide</a></li>
+<li><a href="#RHV_Architecture">2. oVirt Architecture</a>
 <ul class="sectlevel2">
-<li><a href="#Self-hosted_Engine_Architecture_RHV_planning">1.1. Self-Hosted Engine Architecture</a></li>
-<li><a href="#Standalone_Manager_Architecture_RHV_planning">1.2. Standalone Engine Architecture</a></li>
+<li><a href="#Self-hosted_Engine_Architecture_oVirt_planning">2.1. Self-Hosted Engine Architecture</a></li>
+<li><a href="#Standalone_Manager_Architecture_oVirt_planning">2.2. Standalone Engine Architecture</a></li>
 </ul>
 </li>
-<li><a href="#RHV_requirements">2. Requirements</a>
+<li><a href="#RHV_requirements">3. Requirements</a>
 <ul class="sectlevel2">
-<li><a href="#RHV-manager-requirements">2.1. oVirt Engine Requirements</a>
+<li><a href="#RHV-manager-requirements">3.1. oVirt Engine Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#hardware-requirements_RHV_planning">2.1.1. Hardware Requirements</a></li>
-<li><a href="#browser-requirements_RHV_planning">2.1.2. Browser Requirements</a></li>
-<li><a href="#client-requirements_RHV_planning">2.1.3. Client Requirements</a></li>
-<li><a href="#operating-system-requirements_RHV_planning">2.1.4. Operating System Requirements</a></li>
+<li><a href="#hardware-requirements_oVirt_planning">3.1.1. Hardware Requirements</a></li>
+<li><a href="#browser-requirements_oVirt_planning">3.1.2. Browser Requirements</a></li>
+<li><a href="#client-requirements_oVirt_planning">3.1.3. Client Requirements</a></li>
+<li><a href="#operating-system-requirements_oVirt_planning">3.1.4. Operating System Requirements</a></li>
 </ul>
 </li>
-<li><a href="#host-requirements">2.2. Host Requirements</a>
+<li><a href="#host-requirements">3.2. Host Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#CPU_Requirements_RHV_planning">2.2.1. CPU Requirements</a></li>
-<li><a href="#Memory_Requirements_RHV_planning">2.2.2. Memory Requirements</a></li>
-<li><a href="#Storage_Requirements_RHV_planning">2.2.3. Storage Requirements</a></li>
-<li><a href="#PCI_Device_Requirements_RHV_planning">2.2.4. PCI Device Requirements</a></li>
-<li><a href="#Device_Assignment_Requirements_RHV_planning">2.2.5. Device Assignment Requirements</a></li>
-<li><a href="#vGPU_Requirements_RHV_planning">2.2.6. vGPU Requirements</a></li>
+<li><a href="#CPU_Requirements_oVirt_planning">3.2.1. CPU Requirements</a></li>
+<li><a href="#Memory_Requirements_oVirt_planning">3.2.2. Memory Requirements</a></li>
+<li><a href="#Storage_Requirements_oVirt_planning">3.2.3. Storage Requirements</a></li>
+<li><a href="#PCI_Device_Requirements_oVirt_planning">3.2.4. PCI Device Requirements</a></li>
+<li><a href="#Device_Assignment_Requirements_oVirt_planning">3.2.5. Device Assignment Requirements</a></li>
+<li><a href="#vGPU_Requirements_oVirt_planning">3.2.6. vGPU Requirements</a></li>
 </ul>
 </li>
-<li><a href="#networking-requirements">2.3. Networking requirements</a>
+<li><a href="#networking-requirements">3.3. Networking requirements</a>
 <ul class="sectlevel3">
-<li><a href="#general-requirements">2.3.1. General requirements</a></li>
-<li><a href="#Network-range-for-SHE-deployment_RHV_planning">2.3.2. Network range for self-hosted engine deployment</a></li>
-<li><a href="#dns-requirements_RHV_planning">2.3.3. Firewall Requirements for DNS, NTP, and IPMI Fencing</a></li>
-<li><a href="#RHV-manager-firewall-requirements_RHV_planning">2.3.4. oVirt Engine Firewall Requirements</a></li>
-<li><a href="#host-firewall-requirements_RHV_planning">2.3.5. Host Firewall Requirements</a></li>
-<li><a href="#database-server-firewall-requirements_RHV_planning">2.3.6. Database Server Firewall Requirements</a></li>
-<li><a href="#MTU_Requirements_RHV_planning">2.3.7. Maximum Transmission Unit Requirements</a></li>
+<li><a href="#general-requirements">3.3.1. General requirements</a></li>
+<li><a href="#Network-range-for-SHE-deployment_oVirt_planning">3.3.2. Network range for self-hosted engine deployment</a></li>
+<li><a href="#dns-requirements_oVirt_planning">3.3.3. Firewall Requirements for DNS, NTP, and IPMI Fencing</a></li>
+<li><a href="#RHV-manager-firewall-requirements_oVirt_planning">3.3.4. oVirt Engine Firewall Requirements</a></li>
+<li><a href="#host-firewall-requirements_oVirt_planning">3.3.5. Host Firewall Requirements</a></li>
+<li><a href="#database-server-firewall-requirements_oVirt_planning">3.3.6. Database Server Firewall Requirements</a></li>
+<li><a href="#MTU_Requirements_oVirt_planning">3.3.7. Maximum Transmission Unit Requirements</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#considerations">3. Considerations</a>
+<li><a href="#considerations">4. Considerations</a>
 <ul class="sectlevel2">
-<li><a href="#host-types">3.1. Host Types</a>
+<li><a href="#host-types">4.1. Host Types</a>
 <ul class="sectlevel3">
-<li><a href="#ovirt-nodes">3.1.1. oVirt Nodes</a></li>
-<li><a href="#enterprise-linux-hosts">3.1.2. Enterprise Linux hosts</a></li>
+<li><a href="#ovirt-nodes">4.1.1. oVirt Nodes</a></li>
+<li><a href="#enterprise-linux-hosts">4.1.2. Enterprise Linux hosts</a></li>
 </ul>
 </li>
-<li><a href="#storage-types">3.2. Storage Types</a>
+<li><a href="#storage-types">4.2. Storage Types</a>
 <ul class="sectlevel3">
-<li><a href="#nfs">3.2.1. NFS</a></li>
-<li><a href="#iscsi">3.2.2. iSCSI</a></li>
-<li><a href="#fibre-channel">3.2.3. Fibre Channel</a></li>
-<li><a href="#fcoe">3.2.4. Fibre Channel over Ethernet</a></li>
-<li><a href="#rhhi">3.2.5. oVirt Hyperconverged Infrastructure</a></li>
-<li><a href="#posix">3.2.6. POSIX-Compliant FS</a></li>
-<li><a href="#local-storage">3.2.7. Local Storage</a></li>
+<li><a href="#nfs">4.2.1. NFS</a></li>
+<li><a href="#iscsi">4.2.2. iSCSI</a></li>
+<li><a href="#fibre-channel">4.2.3. Fibre Channel</a></li>
+<li><a href="#fcoe">4.2.4. Fibre Channel over Ethernet</a></li>
+<li><a href="#rhhi">4.2.5. oVirt Hyperconverged Infrastructure</a></li>
+<li><a href="#posix">4.2.6. POSIX-Compliant FS</a></li>
+<li><a href="#local-storage">4.2.7. Local Storage</a></li>
 </ul>
 </li>
-<li><a href="#networking-considerations">3.3. Networking Considerations</a></li>
-<li><a href="#directory-server-support">3.4. Directory Server Support</a></li>
-<li><a href="#infrastructure-considerations">3.5. Infrastructure Considerations</a>
+<li><a href="#networking-considerations">4.3. Networking Considerations</a></li>
+<li><a href="#directory-server-support">4.4. Directory Server Support</a></li>
+<li><a href="#infrastructure-considerations">4.5. Infrastructure Considerations</a>
 <ul class="sectlevel3">
-<li><a href="#local-or-remote-hosting">3.5.1. Local or Remote Hosting</a></li>
-<li><a href="#remote-hosting-only">3.5.2. Remote Hosting Only</a></li>
+<li><a href="#local-or-remote-hosting">4.5.1. Local or Remote Hosting</a></li>
+<li><a href="#remote-hosting-only">4.5.2. Remote Hosting Only</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#recommendations">4. Recommendations</a>
+<li><a href="#recommendations">5. Recommendations</a>
 <ul class="sectlevel2">
-<li><a href="#general-recommendations">4.1. General Recommendations</a></li>
-<li><a href="#security-recommendations">4.2. Security Recommendations</a></li>
-<li><a href="#host-recommendations">4.3. Host Recommendations</a></li>
-<li><a href="#networking-recommendations">4.4. Networking Recommendations</a></li>
-<li><a href="#self-hosted-engine-recommendations">4.5. Self-Hosted Engine Recommendations</a></li>
+<li><a href="#general-recommendations">5.1. General Recommendations</a></li>
+<li><a href="#security-recommendations">5.2. Security Recommendations</a></li>
+<li><a href="#host-recommendations">5.3. Host Recommendations</a></li>
+<li><a href="#networking-recommendations">5.4. Networking Recommendations</a></li>
+<li><a href="#self-hosted-engine-recommendations">5.5. Self-Hosted Engine Recommendations</a></li>
 </ul>
 </li>
-<li><a href="#ovirt-legal-notice">5. Legal notice</a></li>
+<li><a href="#ovirt-legal-notice">6. Legal notice</a></li>
 </ul>
 </div>
-<div id="preamble">
+<div class="sect1">
+<h2 id="planning-and-prerequisites-guide">1. Planning and Prerequisites Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>oVirt is made up of connected components that each play different roles in the environment. Planning and preparing for their requirements in advance helps these components communicate and run efficiently.</p>
@@ -186,13 +188,13 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="RHV_Architecture">1. oVirt Architecture</h2>
+<h2 id="RHV_Architecture">2. oVirt Architecture</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>oVirt can be deployed as a self-hosted engine, or as a standalone Engine. A self-hosted engine is the recommended deployment option.</p>
 </div>
 <div class="sect2">
-<h3 id="Self-hosted_Engine_Architecture_RHV_planning">1.1. Self-Hosted Engine Architecture</h3>
+<h3 id="Self-hosted_Engine_Architecture_oVirt_planning">2.1. Self-Hosted Engine Architecture</h3>
 <div class="paragraph">
 <p>The oVirt Engine runs as a virtual machine on self-hosted engine nodes (specialized hosts) in the same environment it manages. A self-hosted engine environment requires one less physical server, but requires more administrative overhead to deploy and manage. The Engine is highly available without external HA management.</p>
 </div>
@@ -220,7 +222,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="Standalone_Manager_Architecture_RHV_planning">1.2. Standalone Engine Architecture</h3>
+<h3 id="Standalone_Manager_Architecture_oVirt_planning">2.2. Standalone Engine Architecture</h3>
 <div class="paragraph">
 <p>The oVirt Engine runs on a physical server, or a virtual machine hosted in a separate virtualization environment. A standalone Engine is easier to deploy and manage, but requires an additional physical server. The Engine is only highly available when managed externally with a supported High Availability Add-On.</p>
 </div>
@@ -250,12 +252,12 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="RHV_requirements">2. Requirements</h2>
+<h2 id="RHV_requirements">3. Requirements</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="RHV-manager-requirements">2.1. oVirt Engine Requirements</h3>
+<h3 id="RHV-manager-requirements">3.1. oVirt Engine Requirements</h3>
 <div class="sect3">
-<h4 id="hardware-requirements_RHV_planning">2.1.1. Hardware Requirements</h4>
+<h4 id="hardware-requirements_oVirt_planning">3.1.1. Hardware Requirements</h4>
 <div class="paragraph">
 <p>The minimum and recommended hardware requirements outlined here are based on a typical small to medium-sized installation. The exact requirements vary between deployments based on sizing and load.</p>
 </div>
@@ -301,7 +303,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="browser-requirements_RHV_planning">2.1.2. Browser Requirements</h4>
+<h4 id="browser-requirements_oVirt_planning">3.1.2. Browser Requirements</h4>
 <div class="paragraph">
 <p>The following browser versions and operating systems can be used to access the Administration Portal and the VM Portal.</p>
 </div>
@@ -365,7 +367,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="client-requirements_RHV_planning">2.1.3. Client Requirements</h4>
+<h4 id="client-requirements_oVirt_planning">3.1.3. Client Requirements</h4>
 <div class="paragraph">
 <p>Virtual machine consoles can only be accessed using supported Remote Viewer (<code>virt-viewer</code>) clients on Enterprise Linux and Windows. To install <code>virt-viewer</code>, see <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-Installing_Supporting_Components">Installing Supporting Components on Client Machines</a> in the <em>Virtual Machine Management Guide</em>. Installing <code>virt-viewer</code> requires Administrator privileges.</p>
 </div>
@@ -392,7 +394,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="operating-system-requirements_RHV_planning">2.1.4. Operating System Requirements</h4>
+<h4 id="operating-system-requirements_oVirt_planning">3.1.4. Operating System Requirements</h4>
 <div class="paragraph">
 <p>The oVirt Engine must be installed on a base installation of Enterprise Linux 9 or later.</p>
 </div>
@@ -405,9 +407,9 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="host-requirements">2.2. Host Requirements</h3>
+<h3 id="host-requirements">3.2. Host Requirements</h3>
 <div class="sect3">
-<h4 id="CPU_Requirements_RHV_planning">2.2.1. CPU Requirements</h4>
+<h4 id="CPU_Requirements_oVirt_planning">3.2.1. CPU Requirements</h4>
 <div class="paragraph">
 <p>All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the AMD-V™ or Intel VT® hardware virtualization extensions enabled. Support for the No eXecute flag (NX) is also required.</p>
 </div>
@@ -523,7 +525,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 <p>The Secure CPU type contains the latest updates. For details, see BZ#<a href="https://bugzilla.redhat.com/1731395">1731395</a></p>
 </div>
 <div class="sect4">
-<h5 id="Checking_Processor_Flag_Support_RHV_planning">Checking if a Processor Supports the Required Flags</h5>
+<h5 id="Checking_Processor_Flag_Support_oVirt_planning">Checking if a Processor Supports the Required Flags</h5>
 <div class="paragraph">
 <p>You must enable virtualization in the BIOS. Power off and reboot the host after this change to ensure that the change is applied.</p>
 </div>
@@ -558,7 +560,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Memory_Requirements_RHV_planning">2.2.2. Memory Requirements</h4>
+<h4 id="Memory_Requirements_oVirt_planning">3.2.2. Memory Requirements</h4>
 <div class="paragraph">
 <p>The minimum required RAM is 2 GB. For cluster levels 4.2 to 4.5, the maximum supported RAM per VM in oVirt Node is 6 TB. For cluster levels 4.6 to 4.7, the maximum supported RAM per VM in oVirt Node is 16 TB.</p>
 </div>
@@ -567,7 +569,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Storage_Requirements_RHV_planning">2.2.3. Storage Requirements</h4>
+<h4 id="Storage_Requirements_oVirt_planning">3.2.3. Storage Requirements</h4>
 <div class="paragraph">
 <p>Hosts require storage to store configuration, logs, kernel dumps, and for use as swap space. Storage can be local or network-based. oVirt Node (oVirt Node) can boot with one, some, or all of its default allocations  in network storage. Booting from network storage can result in a freeze if there is a network disconnect. Adding a drop-in multipath configuration file can help address losses in network connectivity. If oVirt Node boots from SAN storage and loses connectivity, the files become read-only until network connectivity restores. Using network storage might result in a performance downgrade.</p>
 </div>
@@ -625,7 +627,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="PCI_Device_Requirements_RHV_planning">2.2.4. PCI Device Requirements</h4>
+<h4 id="PCI_Device_Requirements_oVirt_planning">3.2.4. PCI Device Requirements</h4>
 <div class="paragraph">
 <p>Hosts must have at least one network interface with a minimum bandwidth of 1 Gbps. Each host should have two network interfaces, with one dedicated to supporting network-intensive activities, such as virtual machine migration. The performance of such operations is limited by the bandwidth available.</p>
 </div>
@@ -634,7 +636,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Device_Assignment_Requirements_RHV_planning">2.2.5. Device Assignment Requirements</h4>
+<h4 id="Device_Assignment_Requirements_oVirt_planning">3.2.5. Device Assignment Requirements</h4>
 <div class="paragraph">
 <p>If you plan to implement device assignment and PCI passthrough so that a virtual machine can use a specific PCIe device from a host, ensure the following requirements are met:</p>
 </div>
@@ -665,7 +667,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="vGPU_Requirements_RHV_planning">2.2.6. vGPU Requirements</h4>
+<h4 id="vGPU_Requirements_oVirt_planning">3.2.6. vGPU Requirements</h4>
 <div class="paragraph">
 <p>A host must meet the following requirements in order for virtual machines on that host to use a vGPU:</p>
 </div>
@@ -694,15 +696,15 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="networking-requirements">2.3. Networking requirements</h3>
+<h3 id="networking-requirements">3.3. Networking requirements</h3>
 <div class="sect3">
-<h4 id="general-requirements">2.3.1. General requirements</h4>
+<h4 id="general-requirements">3.3.1. General requirements</h4>
 <div class="paragraph">
 <p>oVirt requires IPv6 to remain enabled on the physical or virtual machine running the Engine. Do not disable IPv6 on the Engine machine, even if your systems do not use it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Network-range-for-SHE-deployment_RHV_planning">2.3.2. Network range for self-hosted engine deployment</h4>
+<h4 id="Network-range-for-SHE-deployment_oVirt_planning">3.3.2. Network range for self-hosted engine deployment</h4>
 <div class="paragraph">
 <p>The self-hosted engine deployment process temporarily uses a <code>/24</code> network address under <code>192.168</code>. It defaults to <code>192.168.222.0/24</code>, and if this address is in use, it tries other <code>/24</code> addresses under <code>192.168</code> until it finds one that is not in use. If it does not find an unused network address in this range, deployment fails.</p>
 </div>
@@ -730,7 +732,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="dns-requirements_RHV_planning">2.3.3. Firewall Requirements for DNS, NTP, and IPMI Fencing</h4>
+<h4 id="dns-requirements_oVirt_planning">3.3.3. Firewall Requirements for DNS, NTP, and IPMI Fencing</h4>
 <div class="paragraph">
 <p>The firewall requirements for all of the following topics are special cases that require individual consideration.</p>
 </div>
@@ -783,7 +785,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="RHV-manager-firewall-requirements_RHV_planning">2.3.4. oVirt Engine Firewall Requirements</h4>
+<h4 id="RHV-manager-firewall-requirements_oVirt_planning">3.3.4. oVirt Engine Firewall Requirements</h4>
 <div class="paragraph">
 <p>The oVirt Engine requires that a number of ports be opened to allow network traffic through the system&#8217;s firewall.</p>
 </div>
@@ -959,7 +961,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="host-firewall-requirements_RHV_planning">2.3.5. Host Firewall Requirements</h4>
+<h4 id="host-firewall-requirements_oVirt_planning">3.3.5. Host Firewall Requirements</h4>
 <div class="paragraph">
 <p>Enterprise Linux hosts and oVirt Nodes (oVirt Node) require a number of ports to be opened to allow network traffic through the system&#8217;s firewall. The firewall rules are automatically configured by default when adding a new host to the Engine, overwriting any pre-existing firewall configuration.</p>
 </div>
@@ -1188,7 +1190,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="database-server-firewall-requirements_RHV_planning">2.3.6. Database Server Firewall Requirements</h4>
+<h4 id="database-server-firewall-requirements_oVirt_planning">3.3.6. Database Server Firewall Requirements</h4>
 <div class="paragraph">
 <p>oVirt supports the use of a remote database server for the Engine database (<code>engine</code>) and the Data Warehouse database (<code>ovirt-engine-history</code>). If you plan to use a remote database server, it must allow connections from the Engine and the Data Warehouse service (which can be separate from the Engine).</p>
 </div>
@@ -1256,7 +1258,7 @@ on re-introducing virtualization support but it&#8217;s not ready yet.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="MTU_Requirements_RHV_planning">2.3.7. Maximum Transmission Unit Requirements</h4>
+<h4 id="MTU_Requirements_oVirt_planning">3.3.7. Maximum Transmission Unit Requirements</h4>
 <div class="paragraph">
 <p>The recommended Maximum Transmission Units (MTU) setting for Hosts during deployment is 1500. It is possible to update this setting after the environment is set up to a different MTU.
 Starting with oVirt 4.2, these changes can be made from the Admin Portal, however will require a reboot of the Hosted Engine VM and any other VM&#8217;s using the management network should be powered down first.</p>
@@ -1338,13 +1340,13 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect1">
-<h2 id="considerations">3. Considerations</h2>
+<h2 id="considerations">4. Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter describes the advantages, limitations, and available options for various oVirt components.</p>
 </div>
 <div class="sect2">
-<h3 id="host-types">3.1. Host Types</h3>
+<h3 id="host-types">4.1. Host Types</h3>
 <div class="paragraph">
 <p>Use the host type that best suits your environment. You can also use both types of host in the same cluster if required.</p>
 </div>
@@ -1352,7 +1354,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 <p>All managed hosts within a cluster must have the same CPU type. Intel and AMD CPUs cannot co-exist within the same cluster.</p>
 </div>
 <div class="sect3">
-<h4 id="ovirt-nodes">3.1.1. oVirt Nodes</h4>
+<h4 id="ovirt-nodes">4.1.1. oVirt Nodes</h4>
 <div class="paragraph">
 <p>oVirt Nodes (oVirt Node) have the following advantages over Enterprise Linux hosts:</p>
 </div>
@@ -1374,7 +1376,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect3">
-<h4 id="enterprise-linux-hosts">3.1.2. Enterprise Linux hosts</h4>
+<h4 id="enterprise-linux-hosts">4.1.2. Enterprise Linux hosts</h4>
 <div class="paragraph">
 <p>Enterprise Linux hosts have the following advantages over oVirt Nodes:</p>
 </div>
@@ -1391,7 +1393,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect2">
-<h3 id="storage-types">3.2. Storage Types</h3>
+<h3 id="storage-types">4.2. Storage Types</h3>
 <div class="paragraph">
 <p>Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.</p>
 </div>
@@ -1429,7 +1431,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </ul>
 </div>
 <div class="sect3">
-<h4 id="nfs">3.2.1. NFS</h4>
+<h4 id="nfs">4.2.1. NFS</h4>
 <div class="paragraph">
 <p>NFS versions 3 and 4 are supported by oVirt 4. Production workloads require an enterprise-grade NFS server, unless NFS is only being used as an ISO storage domain. When enterprise NFS is deployed over 10GbE, segregated with VLANs, and individual services are configured to use specific ports, it is both fast and secure.</p>
 </div>
@@ -1448,7 +1450,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect3">
-<h4 id="iscsi">3.2.2. iSCSI</h4>
+<h4 id="iscsi">4.2.2. iSCSI</h4>
 <div class="paragraph">
 <p>Production workloads require an enterprise-grade iSCSI server. When enterprise iSCSI is deployed over 10GbE, segregated with VLANs, and utilizes CHAP authentication, it is both fast and secure. iSCSI can also use multipathing to improve high availability.</p>
 </div>
@@ -1467,7 +1469,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect3">
-<h4 id="fibre-channel">3.2.3. Fibre Channel</h4>
+<h4 id="fibre-channel">4.2.3. Fibre Channel</h4>
 <div class="paragraph">
 <p>Fibre Channel is both fast and secure, and should be taken advantage of if it is already in use in the target data center. It also has the advantage of low CPU overhead as compared to iSCSI and NFS. Fibre Channel can also use multipathing to improve high availability.</p>
 </div>
@@ -1486,7 +1488,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect3">
-<h4 id="fcoe">3.2.4. Fibre Channel over Ethernet</h4>
+<h4 id="fcoe">4.2.4. Fibre Channel over Ethernet</h4>
 <div class="paragraph">
 <p>To use Fibre Channel over Ethernet (FCoE) in oVirt, you must enable the <strong>fcoe</strong> key on the Engine, and install the <em>vdsm-hook-fcoe</em> package on the hosts.</p>
 </div>
@@ -1505,7 +1507,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect3">
-<h4 id="rhhi">3.2.5. oVirt Hyperconverged Infrastructure</h4>
+<h4 id="rhhi">4.2.5. oVirt Hyperconverged Infrastructure</h4>
 <div class="paragraph">
 <p>oVirt Hyperconverged Infrastructure combines oVirt and Gluster Storage on the same infrastructure, instead of connecting oVirt to a remote Gluster Storage server. This compact option reduces operational expenses and overhead.</p>
 </div>
@@ -1527,7 +1529,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect3">
-<h4 id="posix">3.2.6. POSIX-Compliant FS</h4>
+<h4 id="posix">4.2.6. POSIX-Compliant FS</h4>
 <div class="paragraph">
 <p>Other POSIX-compliant file systems can be used as storage domains in oVirt, as long as they are clustered file systems, such as Red Hat Global File System 2 (GFS2), and support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with oVirt.</p>
 </div>
@@ -1546,7 +1548,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect3">
-<h4 id="local-storage">3.2.7. Local Storage</h4>
+<h4 id="local-storage">4.2.7. Local Storage</h4>
 <div class="paragraph">
 <p>Local storage is set up on an individual host, using the host&#8217;s own resources. When you set up a host to use local storage, it is automatically added to a new data center and cluster that no other hosts can be added to. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.</p>
 </div>
@@ -1559,7 +1561,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect2">
-<h3 id="networking-considerations">3.3. Networking Considerations</h3>
+<h3 id="networking-considerations">4.3. Networking Considerations</h3>
 <div class="paragraph">
 <p>Familiarity with network concepts and their use is highly recommended when planning and setting up networking in a oVirt environment. Read your network hardware vendor&#8217;s guides for more information on managing networking.</p>
 </div>
@@ -1621,7 +1623,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect2">
-<h3 id="directory-server-support">3.4. Directory Server Support</h3>
+<h3 id="directory-server-support">4.4. Directory Server Support</h3>
 <div class="paragraph">
 <p>During installation, oVirt Engine creates a default <strong>admin</strong> user in a default <strong>internal</strong> domain. This account is intended for use when initially configuring the environment, and for troubleshooting. You can create additional users on the <strong>internal</strong> domain using <code>ovirt-aaa-jdbc-tool</code>. User accounts created on local domains are known as local users. See <a href="https://ovirt.org/documentation/administration_guide/index#sect-Administering_User_Tasks_From_the_commandline">Administering User Tasks From the Command Line</a> in the <em>Administration Guide</em>.</p>
 </div>
@@ -1669,9 +1671,9 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect2">
-<h3 id="infrastructure-considerations">3.5. Infrastructure Considerations</h3>
+<h3 id="infrastructure-considerations">4.5. Infrastructure Considerations</h3>
 <div class="sect3">
-<h4 id="local-or-remote-hosting">3.5.1. Local or Remote Hosting</h4>
+<h4 id="local-or-remote-hosting">4.5.1. Local or Remote Hosting</h4>
 <div class="paragraph">
 <p>The following components can be hosted on either the Engine or a remote machine. Keeping all components on the Engine machine is easier and requires less maintenance, so is preferable when performance is not an issue. Moving components to a remote machine requires more maintenance, but can improve the performance of both the Engine and Data Warehouse.</p>
 </div>
@@ -1723,7 +1725,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect3">
-<h4 id="remote-hosting-only">3.5.2. Remote Hosting Only</h4>
+<h4 id="remote-hosting-only">4.5.2. Remote Hosting Only</h4>
 <div class="paragraph">
 <p>The following components must be hosted on a remote machine:</p>
 </div>
@@ -1748,13 +1750,13 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect1">
-<h2 id="recommendations">4. Recommendations</h2>
+<h2 id="recommendations">5. Recommendations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This chapter describes configuration that is not strictly required, but may improve the performance or stability of your environment.</p>
 </div>
 <div class="sect2">
-<h3 id="general-recommendations">4.1. General Recommendations</h3>
+<h3 id="general-recommendations">5.1. General Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1798,7 +1800,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect2">
-<h3 id="security-recommendations">4.2. Security Recommendations</h3>
+<h3 id="security-recommendations">5.2. Security Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1823,7 +1825,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect2">
-<h3 id="host-recommendations">4.3. Host Recommendations</h3>
+<h3 id="host-recommendations">5.3. Host Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1842,7 +1844,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </div>
 </div>
 <div class="sect2">
-<h3 id="networking-recommendations">4.4. Networking Recommendations</h3>
+<h3 id="networking-recommendations">5.4. Networking Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1882,7 +1884,7 @@ Starting with oVirt 4.2, these changes can be made from the Admin Portal, howeve
 </li>
 </ul>
 </div>
-<h4 id="Recommended_practices_for_configuring_host_networks_RHV_planning" class="discrete">Recommended Practices for Configuring Host Networks</h4>
+<h4 id="Recommended_practices_for_configuring_host_networks_oVirt_planning" class="discrete">Recommended Practices for Configuring Host Networks</h4>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -1978,7 +1980,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 </div>
 </div>
 <div class="sect2">
-<h3 id="self-hosted-engine-recommendations">4.5. Self-Hosted Engine Recommendations</h3>
+<h3 id="self-hosted-engine-recommendations">5.5. Self-Hosted Engine Recommendations</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2005,7 +2007,7 @@ Always use the oVirt Engine to modify the network configuration of hosts in your
 </div>
 </div>
 <div class="sect1">
-<h2 id="ovirt-legal-notice">5. Legal notice</h2>
+<h2 id="ovirt-legal-notice">6. Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index">Red Hat Virtualization 4.4 Planning and Prerequisites Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>

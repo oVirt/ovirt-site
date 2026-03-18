@@ -6,10 +6,6 @@ Use the host type that best suits your environment. You can also use both types 
 
 All managed hosts within a cluster must have the same CPU type. Intel and AMD CPUs cannot co-exist within the same cluster.
 
-ifdef::rhv-doc[]
-For information about supported maximums and limits, such as the maximum number of hosts that the {virt-product-fullname} {engine-name} can support, see link:https://access.redhat.com/articles/906543[Supported Limits for Red Hat Virtualization].
-endif::[]
-
 == {hypervisor-fullname}s
 
 {hypervisor-fullname}s ({hypervisor-shortname}) have the following advantages over {enterprise-linux-host-fullname}s:

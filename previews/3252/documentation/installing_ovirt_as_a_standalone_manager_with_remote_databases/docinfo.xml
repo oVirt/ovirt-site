@@ -1,0 +1,22 @@
+<title>Installing Red Hat Virtualization as a standalone Manager with remote databases</title>
+<productname>Red Hat Virtualization</productname>
+<productnumber>{vernum_rhv}</productnumber>
+<subtitle>Installing the Red Hat Virtualization Manager on one server, and its databases on a second server</subtitle>
+<abstract>
+	<para>This document describes how to install a standalone Manager environment &ndash; where the Red Hat Virtualization Manager is installed on either a physical server or a virtual machine hosted in another environment &ndash; with the Manager database and the Data Warehouse service and database hosted on a remote server. Although you can choose to host one database locally and the other remotely, this document assumes that both databases will be hosted remotely. If this is not the configuration you want to use, see the other <ulink url="{URL_virt_product_docs}html/product_guide/installation#RHV_Installation_Options_RHV_intro">Installation Options</ulink> in the <citetitle>Product Guide</citetitle>.</para>
+  <!--<para>{beta-disclaimer}</para>-->
+</abstract>
+
+<authorgroup id="Author_Group">
+	<author>
+		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
+		<affiliation>
+			<orgname>
+				Red Hat
+			</orgname>
+			<orgdiv>
+				Customer Content Services
+			</orgdiv>
+		</affiliation><email>rhev-docs@redhat.com</email>
+	</author>
+</authorgroup>

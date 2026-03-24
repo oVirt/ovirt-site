@@ -37,7 +37,7 @@ These settings have been adapted to Mailman 3; they may require some adjustment.
 * on the same page, set *Default action to take when a non-member posts to the list* to 'Discard (no notification)'
 * in *Subscription Policy* set to 'Confirm then Moderate'
 
-### Configuration for -devel (discussion) list:
+### Configuration for -devel (discussion) list
 
 * in *Settings* > *Subscription Policy* set to 'Confirm'
 * in *Message acceptance*, set *Default action to take when a non-member posts to the list* to 'Hold for moderation'

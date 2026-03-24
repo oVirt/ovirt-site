@@ -24,8 +24,9 @@ To start getting involved in the Infrastructure team, introduce yourself on the 
 Your self-introduction should include your name, relevant experience, and why you are interested in helping with oVirt infrastructure.
 
 In step 1, you should get familiar with
+
 * [the team goals](/develop/infra/infrastructure-documentation.html)
-* [the team members](/develop/infra/infrastructure-team-administrators.html)
+* [the team members](https://github.com/orgs/oVirt/teams/infrastructure)
 * the skills we have
 * the infrastructure we use (such as [git](/develop/infra/infrastructure-git-repository.html) and [puppet](/develop/infra/infrastructure-puppet-details.html))
 * [the things we have on our agenda to accomplish](https://ovirt-jira.atlassian.net/browse/OVIRT).
@@ -51,13 +52,10 @@ There are several ways you can get directly involved:
 * All of the above gives most of what is needed to troubleshoot any active issues that occur in the oVirt infrastructure.
   It's possible to help maintainers by identifying problems and suggesting fixes, which builds trust in your skills and ideas.
 * As you begin to understand how the infrastructure and processes work, propose full features or fixes on the mailing list, and work with maintainers to make the changes happen.
-* Start off a new service or instance of a service using our virtualized infrastructure to
-  [become an administrator of a virtual machine](/develop/infra/adding-a-new-system-administrator-to-a-host.html).
-  As an apprentice administrator, the service will be in incubation for a period of time, during which your administration and promotion of the service will be observed.
 
 When you begin all this work with the intention of joining the team, you will be given the status of *apprentice*.
 
-## Step 3: Apprentive to maintainer
+## Step 3: Apprentice to maintainer
 
 After an incubation period, whose length will depend on the quality and quantity of your contributions, and your cultural fit with the team,
 you will become [a core team member](/develop/infra/infrastructure.html#team). Congratulations!

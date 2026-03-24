@@ -1,8 +1,5 @@
 ---
-title: ''
-page_classes: front-page
-pageable: false
-no_container: true
+title: oVirt | Powerful Open Source Virtualization
 authors:
   - bproffitt
   - dneary
@@ -19,75 +16,88 @@ authors:
 hide_metadata: true
 ---
 
-:markdown
+%section#hp-hero
+  / The banner is integrated as the soul of the Hero section
+  .hero-banner-wrapper
+    %img{:src => "/images/banners/banner.svg", :alt => "oVirt Logo"}
 
-%div.banner
-  %a(href="/download/index.html")
-    %img#rome(src="images/banners/ovirt-4.5-GA.png" style="display:block; margin-left: auto; margin-right: auto; align-items: center; margin-bottom: 50px;" alt="oVirt 4.5 has been released")
-
-%section.intro
   .container
     .row
-      .col-xs-12
-        %h1#banner POWERFUL OPEN SOURCE VIRTUALIZATION
-      .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
-        %p#sub-banner oVirt is a free open-source virtualization solution for your entire enterprise
-      .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
-        %a.btn.btn-primary(href="/download") Download 4.5.7
-        %a.btn.btn-primary(href="/release/4.5.7/") Release Notes
+      .col-md-8.col-md-offset-2.text-center
+        %h1
+          The Engine of
+          %span Open
+          Virtualization.
+        %p
+          Scalable. Secure. 100% Community-Driven. Manage your entire enterprise infrastructure from a single, powerful interface.
+        .hero-actions
+          %a.btn.btn-lg{:href => "/download/", :style => "background: #0088CE; color: #fff; padding: 18px 45px; font-weight: 700; border-radius: 50px; margin-right: 15px; border: none; transition: 0.3s;"}
+            Deploy oVirt 4.5
+          %a.btn.btn-lg{:href => "/community/", :style => "border: 2px solid #0088CE; color: #0088CE; padding: 16px 45px; font-weight: 700; border-radius: 50px; background: transparent;"}
+            Join the community
 
-%div.promo_whatisovirt
+%section#community-pulse
   .container
     .row
-      .col-md-8
-        %h2 COMMUNITY POWERED
-        %div
-          :markdown
-            oVirt is an open-source distributed virtualization solution, designed to manage your entire enterprise infrastructure.
-            oVirt uses the trusted KVM hypervisor and is built upon several other community projects, including libvirt, PatternFly, and Ansible.
-      .col-md-4
-        %div
-          %img#kvm(src="/images/logos/kvm.png" alt="kvm logo")
-          %img#libvirt(src="/images/logos/libvirt.png" alt="libvirt logo")
-          %img#patternfly(src="/images/logos/patternfly.png" alt="patternfly logo")
-          %img#ansible(src="/images/logos/ansible.png" alt="ansible logo")
+      .col-md-3
+        .pulse-card
+          .status-dot
+          %span Community activity
+          %h3 User forums
+          %p Help others, solve complex architecture hurdles, and share your setup.
+          %a{:href => "https://lists.ovirt.org/"} Start a discussion →
 
-%div.promo_features
+      .col-md-3
+        .pulse-card
+          .status-dot
+          %span Real-time chat
+          %h3 IRC & Matrix
+          %p Connect directly with developers and power users on OFTC IRC (#ovirt) or via Matrix.
+          %a{:href => "/community/about/contact.html"} Get in touch →
+
+      .col-md-3
+        .pulse-card
+          .status-dot
+          %span Project health
+          %h3 Recent releases
+          %p 4.5.7 is live. See what the community built for your enterprise.
+          %a{:href => "/release/4.5.7/"} View release notes →
+
+      .col-md-3
+        .pulse-card
+          .status-dot
+          %span Get involved
+          %h3 Developer hub
+          %p Contribute to the project. We are open for pull requests.
+          %a{:href => "/develop/"} Build with us →
+
+%section#power-stats
   .container
-    .row
-      .col-md-8
-        %h2 What's included?
-        %div
-          :markdown
-            * Rich web-based user interfaces for both admin and non-admin users
-            * Integrated management of hosts, storage, and network configuration
-            * Live migration of virtual machines and disks between hosts and storage
-            * High availability of virtual machines in the event of host failure
-
-      .col-md-4
-        %div
-          %img(src="/images/promo/graphic_packed_with_features.png" alt="packed with features!")
-
-%div.promo_casestudy
-  .container
-    %h2 Case Studies
-    %div.carousel-inner.text-center
-    :ruby
-      studies = Jekyll.sites.first.pages.select do |p|
-        next unless p.data.page_classes
-        p.data.page_classes[/case-studies/]
-      end.first
-      case_studies = Nokogiri::HTML(studies.content).css('.case-study')
-
-    %div.item.active
-      - (0..2).each do |i|
-        %div.useCaseHolder
-          %div.case-study
-            :markdown
-              #{case_studies[i].content}
-
-  %div
-    .container
-      .textViewAllItems
-        :markdown
-          [See more...](/community/user-stories/user-stories.html)
+    .row.text-center
+      .col-md-10.col-md-offset-1
+        %h2 Built on industry standards
+        .row
+          .col-xs-6.col-md-3
+            / KVM Hypervisor
+            %svg{:width => "60", :height => "60", :viewBox => "0 0 24 24", :fill => "none", :stroke => "#333", "stroke-width" => "1.5"}
+              %rect{:x => "2", :y => "2", :width => "20", :height => "8", :rx => "2"}
+              %rect{:x => "2", :y => "14", :width => "20", :height => "8", :rx => "2"}
+              %path{:d => "M6 6h.01M6 18h.01"}
+            %h4 KVM hypervisor
+          .col-xs-6.col-md-3
+            / OVN Networking
+            %svg{:width => "60", :height => "60", :viewBox => "0 0 24 24", :fill => "none", :stroke => "#333", "stroke-width" => "1.5"}
+              %rect{:x => "2", :y => "5", :width => "20", :height => "14", :rx => "2"}
+              %path{:d => "M2 10h20M2 15h20M10 5v14M14 5v14"}
+            %h4 OVN networking
+          .col-xs-6.col-md-3
+            / High Availability
+            %svg{:width => "60", :height => "60", :viewBox => "0 0 24 24", :fill => "none", :stroke => "#333", "stroke-width" => "1.5"}
+              %path{:d => "M22 12h-4l-3 9L9 3l-3 9H2"}
+            %h4 High availability
+          .col-xs-6.col-md-3
+            / Ansible Automation
+            %svg{:width => "60", :height => "60", :viewBox => "0 0 24 24", :fill => "none", :stroke => "#333", "stroke-width" => "1.5"}
+              %circle{:cx => "12", :cy => "12", :r => "3"}
+              %path{:d => "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"}
+            %h4 Ansible automation

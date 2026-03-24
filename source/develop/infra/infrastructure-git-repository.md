@@ -14,42 +14,44 @@ In the future there may be other services that supersede this need, but for now 
 
 ## Steps
 
-1.  Make the config folder symlink:
+1. Make the config folder symlink:
         cd /root/git/
         ln -s /path/to/foo-project/config/ ovirt-infra-foo
 
-2.  Change in to the config folder via the symlink, then initiate a git repo:
+2. Change in to the config folder via the symlink, then initiate a git repo:
         cd ovirt-infra-foo
         git init
 
-3.  Add one or more files and directories to the repository, then commit the changes:
+3. Add one or more files and directories to the repository, then commit the changes:
         git add * ## Or a specific file or directory
         git commit -m "Initial commit message."
 
-4.  Change to the local git root and make a directory for the new git repo:
+4. Change to the local git root and make a directory for the new git repo:
         cd /usr/local/git_root/
         mkdir ovirt-infra-foo.git
 
-5.  Change to the new directory and initiate the bare repository:
+5. Change to the new directory and initiate the bare repository:
         cd ovirt-infra-foo.git/
         git --bare init
 
-6.  These configurations make sure everything is kept group read/write; merges are disallowed on push; and directory permissions are set:
+6. These configurations make sure everything is kept group read/write; merges are disallowed on push; and directory permissions are set:
         git config core.sharedrepository 1
         git config receive.denyNonFastforwards true
         find objects -type d -exec chmod 02770 {} \;
 
-7.  Change back to the original directory, set the new origin location for tracking, and push up the initial commit:
+7. Change back to the original directory, set the new origin location for tracking, and push up the initial commit:
         cd /root/git/ovirt-infra-foo
         git remote add origin /usr/local/git_root/ovirt-infra-foo.git
         git push origin master
 
-8.  Create local "master" branch that is tracking "origin/master", switch to the new branch:
+8. Create local "master" branch that is tracking "origin/master", switch to the new branch:
         git checkout origin/master
         git branch -f master origin/master
         git checkout master
 
 ### Example session
+
+```console
 
     [root@linode01 git]# ln -s /usr/lib/mailman/Mailman/ ovirt-infra-mailman
     [root@linode01 git]# cd ovirt-infra-mailman/
@@ -130,9 +132,10 @@ In the future there may be other services that supersede this need, but for now 
     Branch master set up to track remote branch master from origin.
     [root@linode01 ovirt-infra-mailman]# git checkout master
     Switched to branch 'master'
+```
 
 ## Resources
 
-*   <http://qugstart.com/blog/ruby-and-rails/create-a-new-git-remote-repository-from-some-local-files-or-local-git-repository/>
+* <http://qugstart.com/blog/ruby-and-rails/create-a-new-git-remote-repository-from-some-local-files-or-local-git-repository/>
 
 [Category:Infrastructure documentation](/develop/infra/infrastructure-documentation.html)

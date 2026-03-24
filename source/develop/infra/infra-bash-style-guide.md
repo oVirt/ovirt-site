@@ -4,9 +4,9 @@ category: infra
 authors: dcaroest
 ---
 
-**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
-
 # Infra bash scripts style guide
+
+**NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>
 
 These are some coding guidelines in order to have a reference when submitting patches. It's based on [the Bash Hackers guidelines](http://wiki.bash-hackers.org/scripting/style).
 
@@ -14,7 +14,7 @@ This is not an enforcement, it's meant to be just a reference, of course, compli
 
 Some good code layout helps you to read your own code after a while. And of course it helps others to read the code too.
 
-# Basic principles
+## Basic principles
 
 * First robustness
 * Second readablity/maintainability
@@ -22,9 +22,9 @@ Some good code layout helps you to read your own code after a while. And of cour
 
 That is why we allow and encourage bashisms, if that improves the robustness or the readablity of the script.
 
-# Indenting and line breaks
+## Indenting and line breaks
 
-## Use 4 spaces per indent
+### Use 4 spaces per indent
 
 To indent, use 4 spaces per indentation level, similar to python indentation.
 
@@ -49,7 +49,7 @@ my_func() {
 }
 ```
 
-## If you have to split a command, use one option per line, with extra indent
+### If you have to split a command, use one option per line, with extra indent
 
 ```bash
 my_command \
@@ -59,7 +59,7 @@ my_command \
     arg2
 ```
 
-## Break sequences pre-operator, same indent
+### Break sequences pre-operator, same indent
 
 ```bash
 command1 \
@@ -68,7 +68,7 @@ command1 \
 | command4
 ```
 
-## Break before redirection, same indent
+### Break before redirection, same indent
 
 ```bash
 command \
@@ -76,7 +76,7 @@ command \
 2> errorlog
 ```
 
-## Compound commands: basic layout
+### Compound commands: basic layout
 
 ```bash
 HEAD_KEYWORD parameters; BODY_BEGIN
@@ -84,7 +84,7 @@ HEAD_KEYWORD parameters; BODY_BEGIN
 BODY_END
 ```
 
-### Long predicates
+#### Long predicates
 
 Avoid long predicates as much as possible, but if you have to:
 
@@ -134,7 +134,7 @@ HEAD_KEYWORD [[ "$command1_res" == 0 ]]; BODY_BEGIN
 BODY_END
 ```
 
-### if/then/elif/else
+#### if/then/elif/else
 
 ```bash
 if ...; then
@@ -146,7 +146,7 @@ else
 fi
 ```
 
-### for
+#### for
 
 ```bash
 for f in /etc/*; do
@@ -154,7 +154,7 @@ for f in /etc/*; do
 done
 ```
 
-### while/until
+#### while/until
 
 ```bash
 while [[ "$answer" != [YyNn] ]]; do
@@ -162,7 +162,7 @@ while [[ "$answer" != [YyNn] ]]; do
 done
 ```
 
-### case
+#### case
 
 ```bash
 case $input in
@@ -179,9 +179,9 @@ case $input in
 esac
 ```
 
-# Syntax and coding guidelines
+## Syntax and coding guidelines
 
-## Basic structure
+### Basic structure
 
 The basic structure of a script simply reads:
 
@@ -196,12 +196,12 @@ if [[ "$0" =~ /bash$ ]]; then
 fi
 ```
 
-## Shebang: use `/bin/bash -e`
+### Shebang: use `/bin/bash -e`
 
 If possible (I know it's not always possible!), use a shebang. Be careful with */bin/sh*: The argument that "on Linux */bin/sh* is a Bash" **is a lie** (and technically irrelevant) The shebang serves two purposes for me:
 
-*   it specifies the interpreter when the script file is called directly: If you code for Bash, specify *bash*!
-*   it documents the desired interpreter (so: use *bash* when you write a Bash-script, use *sh* when you write a general Bourne/POSIX script, ...)
+* it specifies the interpreter when the script file is called directly: If you code for Bash, specify *bash*!
+* it documents the desired interpreter (so: use *bash* when you write a Bash-script, use *sh* when you write a general Bourne/POSIX script, ...)
 
 Whenever able, use the *-e* flag, that will make sure your script fails if any of the commands fail:
 
@@ -215,7 +215,7 @@ If you don't really care about one of the commands failing (or returning `!= 0`)
 mycommand || :
 ```
 
-## Use `[[ ]]` and not `[ ]`
+### Use `[[ ]]` and not `[ ]`
 
 Prefer the bash keyword `[[ ]]` to the old `test` command, it's behavior is a lot more predictable, as it handles spaces as expected.
 
@@ -233,7 +233,7 @@ if [[ -e "$my_var" ]]; then
 fi
 ```
 
-## Declare all globals at the start of the script
+### Declare all globals at the start of the script
 
 Even if empty or inheriting from the env, declare all the globals for better visibility at the top of the script.
 
@@ -244,7 +244,7 @@ MY_VAR1="${ENV_VAR:-default value1}"
 MY_VAR2='default value2'
 ```
 
-## Use dotted/prefixed names in libraries
+### Use dotted/prefixed names in libraries
 
 That way it's a lot easier to debug and maintain all the scripts.
 
@@ -259,7 +259,7 @@ mylib.func1() {
 }
 ```
 
-## Use caps and underscores for globals
+### Use caps and underscores for globals
 
 Also if it could collide with a [reserved var](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08), add a prefix like `MY_`:
 
@@ -302,7 +302,7 @@ for iter in "$@"; do
 done
 ```
 
-## Arrays are there, use them!
+### Arrays are there, use them
 
 ```bash
 var1=(
@@ -333,7 +333,7 @@ for iter in "${my_array[@]}"; do
 done
 ```
 
-## Don't use \`, use `$()`
+### Don't use \`, use `$()`
 
 Though being more portable, the backtick is less robust, it's not nestable and it's less readable.
 
@@ -367,15 +367,15 @@ my_asterisc="$(echo '*')"
 ls "$(echo '*')"
 ```
 
-## If eval is the answer, surely you are asking the wrong question
+### If eval is the answer, surely you are asking the wrong question
 
 Avoid if, unless absolutely neccesary, it's usually unnecessary, and it's really easy to break things. Use only if you really have to and you know what you are doing (add a comment too, so future you will remember).
 
-## Output: `normal > stdout`, `error + debug > stderr`
+### Output: `normal > stdout`, `error + debug > stderr`
 
 If the script gives syntax help (`-?` or `-h` or `--help` arguments), it should go to *STDOUT*, since it's expected output, unless it's a response to a missing or malformed parameter.
 
-## Prefer gnu `getopt` to `getopts`
+### Prefer gnu `getopt` to `getopts`
 
 It's more robust, implements the more readable gnu long options, plus POSIX, and does not hurt readability too much
 
@@ -422,13 +422,13 @@ while true; do
 done
 ```
 
-## Always check the input
+### Always check the input
 
 Never blindly assume anything. If you want the user to input a number, **check the input** for being a number, check for leading zeros, etc... Users will do what they want, not what the program wants. If you have specific format or content needs, **always check the input**
 
-## Functions
+### Functions
 
-### Define local variables with `local` and one per line
+#### Define local variables with `local` and one per line
 
 ```bash
 local var1 \
@@ -444,7 +444,7 @@ local var2
 local var3
 ```
 
-### Define the parameter holder vars first
+#### Define the parameter holder vars first
 
 ```bash
 my_func() {
@@ -456,7 +456,7 @@ my_func() {
 }
 ```
 
-### Make parameters required or set default
+#### Make parameters required or set default
 
 ```bash
 my_func() {
@@ -468,7 +468,7 @@ my_func() {
 }
 ```
 
-### If able, pass all the information as parameters
+#### If able, pass all the information as parameters
 
 By maintaining the encapsulation, the reusability, maintainability and the debuggability (if any of those words exist) are greatly increased.
 
@@ -489,7 +489,7 @@ my_func() {
 }
 ```
 
-### Almost no functions should use exit, use return instead
+#### Almost no functions should use exit, use return instead
 
 Using exit will end any program that halls the function and will not allow no properly react on the event of a failure.
 
@@ -509,7 +509,7 @@ my_func() {
 }
 ```
 
-### Prefer return statements to implicit return
+#### Prefer return statements to implicit return
 
 That helps the debuggability and avoids returning unexpected values.
 
@@ -531,7 +531,7 @@ my_func() {
 }
 ```
 
-### Use lowercase and underscores for vars and function names
+#### Use lowercase and underscores for vars and function names
 
 ```bash
 my_func() {
@@ -541,6 +541,6 @@ my_func() {
 my_var="bla"
 ```
 
-# Note on portability
+## Note on portability
 
 If you can imagine a reason where you script is going to be executed on a machine where bash is not available (most common Linux distributions and GNU-based systems have bash as default shell, and can be easily installed on many others), you should use the POSIX standard.

@@ -12,5 +12,3 @@ The {virt-product-fullname} installation creates two databases:
 * The {engine-name} database (`engine`) is the primary data store used by the {virt-product-fullname} {engine-name}. Information about the virtualization environment like its state, configuration, and performance are stored in this database.
 
 * The Data Warehouse database (`ovirt_engine_history`) contains configuration information and statistical data which is collated over time from the {engine-name} database. The configuration data in the {engine-name} database is examined every minute, and changes are replicated to the Data Warehouse database. Tracking the changes to the database provides information on the objects in the database. This enables you to analyze and enhance the performance of your {virt-product-fullname} environment and resolve difficulties.
-
-To calculate an estimate of the space and resources the `ovirt_engine_history` database will use, use the link:https://access.redhat.com/labs/rhevmhdsc/[RHV {engine-name} History Database Size Calculator] tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.

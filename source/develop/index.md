@@ -41,16 +41,12 @@ Several presentations both on the technical side and on the user side are availa
 
 ## Joining a team
 
-Within oVirt project several teams are taking care of different aspects of the system.
-
 - The [oVirt GitHub issues](https://github.com/search?q=org%3AoVirt+type%3Aissue+state%3Aopen+&type=issues) are labeled accordingly to identify the main impacted area.
-- [Project Infrastructure](infra/infrastructure.html): takes care of the oVirt datacenter and of all the systems and services running within the datacenter such as Jenkins, Gerrit, Apache, ...
-- [Integration and Node](integration/index.html): integrates the oVirt subprojects making them work together as a complete solution.
-- Infra and Metrics: responsible for Engine/VDSM infra code, shared entities, shared features, API/SDK/CLI and reporting.
-- Network: responsible for Integration with Network virtualization providers, Dedicated and user defined networks, and other networking handling.
-- Storage: responsible for providing and handling of storage (SDM, import/export, etc).
-- Virtualization: responsible for VM lifecycle, System and host level scheduling / SLA
-- User Experience: responsible for UI Infra and overall UX consistency.
+- Infrastructure team: takes care of the [infrastructure](infra/infrastructure.html) needed by the oVirt Project.
+- Developers team: takes care of the development of the software
+- Documentation team: takes care of the oVirt website and of the documentation
+- Admins team: takes care of the GitHub organization management and maintenance
+- Security team: takes care of vulnerability reports
 
 The teams are discussing their work on [devel@ovirt.org](https://lists.ovirt.org/hyperkitty/list/devel@ovirt.org/) mailing list so to join a team
 you should start getting involved in these conversations.

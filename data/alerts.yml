@@ -1,0 +1,7 @@
+---
+
+tip: '<div class="alert alert-success" role="alert"><i class="fa fa-lightbulb"></i> <b>Tip: </b>'
+note: '<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note: </b>'
+warning: '<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Warning: </b>'
+important: '<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Important: </b>'
+end: '</div>'

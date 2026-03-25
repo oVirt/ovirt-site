@@ -30,7 +30,6 @@ authors:
 #### oVirt development teams
 
 - [Infrastructure](infra/infrastructure.html)
-- [Integration](integration/index.html)
 - [oVirt Quality Assurance](qa/index.html)
 
 

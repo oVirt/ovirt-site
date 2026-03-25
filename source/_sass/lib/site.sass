@@ -672,3 +672,18 @@ i.fa.fa-angle-right.caret
   border: unset
   width: unset
   height: unset
+
+/* Task lists like in /community/security.html */
+$task-list-padding: 1.5rem
+$checkbox-left-margin: -1.2rem
+
+.task-list
+  list-style-type: none
+  padding-left: $task-list-padding
+
+  .task-list-item
+    list-style-type: none
+
+    input[type="checkbox"]
+      margin: 0 0.5rem 0 $checkbox-left-margin
+      vertical-align: middle

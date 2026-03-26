@@ -117,9 +117,9 @@
         <section id="content" class="content container">
           <div class='alert alert-warning'>Much of this developer documentation provides historical context but may not reflect the current state of the project.<br>If you see outdated content please navigate to the page footer and click "<strong>Report an issue on GitHub</strong>".<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/3255/documentation/'>User Documentation is available here.</a></div>
 
-<p><strong>NOTE</strong>: for the latest version of this doc, see <a href="http://ovirt-infra-docs.readthedocs.org/en/latest/">http://ovirt-infra-docs.readthedocs.org/en/latest/</a></p>
-
 <h1 id="infra-bash-scripts-style-guide">Infra bash scripts style guide</h1>
+
+<p><strong>NOTE</strong>: for the latest version of this doc, see <a href="http://ovirt-infra-docs.readthedocs.org/en/latest/">http://ovirt-infra-docs.readthedocs.org/en/latest/</a></p>
 
 <p>These are some coding guidelines in order to have a reference when submitting patches. It’s based on <a href="http://wiki.bash-hackers.org/scripting/style">the Bash Hackers guidelines</a>.</p>
 
@@ -127,7 +127,7 @@
 
 <p>Some good code layout helps you to read your own code after a while. And of course it helps others to read the code too.</p>
 
-<h1 id="basic-principles">Basic principles</h1>
+<h2 id="basic-principles">Basic principles</h2>
 
 <ul>
   <li>First robustness</li>
@@ -137,9 +137,9 @@
 
 <p>That is why we allow and encourage bashisms, if that improves the robustness or the readablity of the script.</p>
 
-<h1 id="indenting-and-line-breaks">Indenting and line breaks</h1>
+<h2 id="indenting-and-line-breaks">Indenting and line breaks</h2>
 
-<h2 id="use-4-spaces-per-indent">Use 4 spaces per indent</h2>
+<h3 id="use-4-spaces-per-indent">Use 4 spaces per indent</h3>
 
 <p>To indent, use 4 spaces per indentation level, similar to python indentation.</p>
 
@@ -162,7 +162,7 @@ my_func<span class="o">()</span> <span class="o">{</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h2 id="if-you-have-to-split-a-command-use-one-option-per-line-with-extra-indent">If you have to split a command, use one option per line, with extra indent</h2>
+<h3 id="if-you-have-to-split-a-command-use-one-option-per-line-with-extra-indent">If you have to split a command, use one option per line, with extra indent</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_command <span class="se">\</span>
     <span class="nt">--opt1</span> opt1_arg1 <span class="se">\</span>
@@ -171,7 +171,7 @@ my_func<span class="o">()</span> <span class="o">{</span>
     arg2
 </code></pre></div></div>
 
-<h2 id="break-sequences-pre-operator-same-indent">Break sequences pre-operator, same indent</h2>
+<h3 id="break-sequences-pre-operator-same-indent">Break sequences pre-operator, same indent</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>command1 <span class="se">\</span>
 <span class="o">||</span> command2 <span class="se">\</span>
@@ -179,21 +179,21 @@ my_func<span class="o">()</span> <span class="o">{</span>
 | command4
 </code></pre></div></div>
 
-<h2 id="break-before-redirection-same-indent">Break before redirection, same indent</h2>
+<h3 id="break-before-redirection-same-indent">Break before redirection, same indent</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">command</span> <span class="se">\</span>
 1&gt; outfile <span class="se">\</span>
 2&gt; errorlog
 </code></pre></div></div>
 
-<h2 id="compound-commands-basic-layout">Compound commands: basic layout</h2>
+<h3 id="compound-commands-basic-layout">Compound commands: basic layout</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HEAD_KEYWORD parameters<span class="p">;</span> BODY_BEGIN
     BODY_COMMANDS
 BODY_END
 </code></pre></div></div>
 
-<h3 id="long-predicates">Long predicates</h3>
+<h4 id="long-predicates">Long predicates</h4>
 
 <p>Avoid long predicates as much as possible, but if you have to:</p>
 
@@ -240,7 +240,7 @@ HEAD_KEYWORD <span class="o">[[</span> <span class="s2">"</span><span class="nv"
 BODY_END
 </code></pre></div></div>
 
-<h3 id="ifthenelifelse">if/then/elif/else</h3>
+<h4 id="ifthenelifelse">if/then/elif/else</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> ...<span class="p">;</span> <span class="k">then</span>
     ...
@@ -251,21 +251,21 @@ BODY_END
 <span class="k">fi</span>
 </code></pre></div></div>
 
-<h3 id="for">for</h3>
+<h4 id="for">for</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>f <span class="k">in</span> /etc/<span class="k">*</span><span class="p">;</span> <span class="k">do</span>
     ...
 <span class="k">done</span>
 </code></pre></div></div>
 
-<h3 id="whileuntil">while/until</h3>
+<h4 id="whileuntil">while/until</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="o">[[</span> <span class="s2">"</span><span class="nv">$answer</span><span class="s2">"</span> <span class="o">!=</span> <span class="o">[</span>YyNn] <span class="o">]]</span><span class="p">;</span> <span class="k">do</span>
     ...
 <span class="k">done</span>
 </code></pre></div></div>
 
-<h3 id="case">case</h3>
+<h4 id="case">case</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="nv">$input</span> <span class="k">in
     </span>hello<span class="p">)</span> <span class="nb">echo</span> <span class="s2">"You said hello"</span><span class="p">;;</span>
@@ -281,9 +281,9 @@ BODY_END
 <span class="k">esac</span>
 </code></pre></div></div>
 
-<h1 id="syntax-and-coding-guidelines">Syntax and coding guidelines</h1>
+<h2 id="syntax-and-coding-guidelines">Syntax and coding guidelines</h2>
 
-<h2 id="basic-structure">Basic structure</h2>
+<h3 id="basic-structure">Basic structure</h3>
 
 <p>The basic structure of a script simply reads:</p>
 
@@ -297,7 +297,7 @@ FUNCTION_DEFINITIONS
 <span class="k">fi</span>
 </code></pre></div></div>
 
-<h2 id="shebang-use-binbash--e">Shebang: use <code class="language-plaintext highlighter-rouge">/bin/bash -e</code></h2>
+<h3 id="shebang-use-binbash--e">Shebang: use <code class="language-plaintext highlighter-rouge">/bin/bash -e</code></h3>
 
 <p>If possible (I know it’s not always possible!), use a shebang. Be careful with <em>/bin/sh</em>: The argument that “on Linux <em>/bin/sh</em> is a Bash” <strong>is a lie</strong> (and technically irrelevant) The shebang serves two purposes for me:</p>
 
@@ -316,7 +316,7 @@ FUNCTION_DEFINITIONS
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mycommand <span class="o">||</span> :
 </code></pre></div></div>
 
-<h2 id="use---and-not--">Use <code class="language-plaintext highlighter-rouge">[[ ]]</code> and not <code class="language-plaintext highlighter-rouge">[ ]</code></h2>
+<h3 id="use---and-not--">Use <code class="language-plaintext highlighter-rouge">[[ ]]</code> and not <code class="language-plaintext highlighter-rouge">[ ]</code></h3>
 
 <p>Prefer the bash keyword <code class="language-plaintext highlighter-rouge">[[ ]]</code> to the old <code class="language-plaintext highlighter-rouge">test</code> command, it’s behavior is a lot more predictable, as it handles spaces as expected.</p>
 
@@ -332,7 +332,7 @@ FUNCTION_DEFINITIONS
 <span class="k">fi</span>
 </code></pre></div></div>
 
-<h2 id="declare-all-globals-at-the-start-of-the-script">Declare all globals at the start of the script</h2>
+<h3 id="declare-all-globals-at-the-start-of-the-script">Declare all globals at the start of the script</h3>
 
 <p>Even if empty or inheriting from the env, declare all the globals for better visibility at the top of the script.</p>
 
@@ -342,7 +342,7 @@ FUNCTION_DEFINITIONS
 <span class="nv">MY_VAR2</span><span class="o">=</span><span class="s1">'default value2'</span>
 </code></pre></div></div>
 
-<h2 id="use-dottedprefixed-names-in-libraries">Use dotted/prefixed names in libraries</h2>
+<h3 id="use-dottedprefixed-names-in-libraries">Use dotted/prefixed names in libraries</h3>
 
 <p>That way it’s a lot easier to debug and maintain all the scripts.</p>
 
@@ -356,7 +356,7 @@ mylib.func1<span class="o">()</span> <span class="o">{</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h2 id="use-caps-and-underscores-for-globals">Use caps and underscores for globals</h2>
+<h3 id="use-caps-and-underscores-for-globals">Use caps and underscores for globals</h3>
 
 <p>Also if it could collide with a <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08">reserved var</a>, add a prefix like <code class="language-plaintext highlighter-rouge">MY_</code>:</p>
 
@@ -393,7 +393,7 @@ mylib.func1<span class="o">()</span> <span class="o">{</span>
 <span class="k">done</span>
 </code></pre></div></div>
 
-<h2 id="arrays-are-there-use-them">Arrays are there, use them!</h2>
+<h3 id="arrays-are-there-use-them">Arrays are there, use them</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">var1</span><span class="o">=(</span>
     <span class="s2">"elem one"</span>
@@ -421,7 +421,7 @@ var1+<span class="o">=(</span> <span class="s2">"elem three"</span> <span class=
 <span class="k">done</span>
 </code></pre></div></div>
 
-<h2 id="dont-use--use-">Don’t use `, use <code class="language-plaintext highlighter-rouge">$()</code></h2>
+<h3 id="dont-use--use-">Don’t use `, use <code class="language-plaintext highlighter-rouge">$()</code></h3>
 
 <p>Though being more portable, the backtick is less robust, it’s not nestable and it’s less readable.</p>
 
@@ -451,15 +451,15 @@ var1+<span class="o">=(</span> <span class="s2">"elem three"</span> <span class=
 <span class="nb">ls</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">echo</span> <span class="s1">'*'</span><span class="si">)</span><span class="s2">"</span>
 </code></pre></div></div>
 
-<h2 id="if-eval-is-the-answer-surely-you-are-asking-the-wrong-question">If eval is the answer, surely you are asking the wrong question</h2>
+<h3 id="if-eval-is-the-answer-surely-you-are-asking-the-wrong-question">If eval is the answer, surely you are asking the wrong question</h3>
 
 <p>Avoid if, unless absolutely neccesary, it’s usually unnecessary, and it’s really easy to break things. Use only if you really have to and you know what you are doing (add a comment too, so future you will remember).</p>
 
-<h2 id="output-normal--stdout-error--debug--stderr">Output: <code class="language-plaintext highlighter-rouge">normal &gt; stdout</code>, <code class="language-plaintext highlighter-rouge">error + debug &gt; stderr</code></h2>
+<h3 id="output-normal--stdout-error--debug--stderr">Output: <code class="language-plaintext highlighter-rouge">normal &gt; stdout</code>, <code class="language-plaintext highlighter-rouge">error + debug &gt; stderr</code></h3>
 
 <p>If the script gives syntax help (<code class="language-plaintext highlighter-rouge">-?</code> or <code class="language-plaintext highlighter-rouge">-h</code> or <code class="language-plaintext highlighter-rouge">--help</code> arguments), it should go to <em>STDOUT</em>, since it’s expected output, unless it’s a response to a missing or malformed parameter.</p>
 
-<h2 id="prefer-gnu-getopt-to-getopts">Prefer gnu <code class="language-plaintext highlighter-rouge">getopt</code> to <code class="language-plaintext highlighter-rouge">getopts</code></h2>
+<h3 id="prefer-gnu-getopt-to-getopts">Prefer gnu <code class="language-plaintext highlighter-rouge">getopt</code> to <code class="language-plaintext highlighter-rouge">getopts</code></h3>
 
 <p>It’s more robust, implements the more readable gnu long options, plus POSIX, and does not hurt readability too much</p>
 
@@ -504,13 +504,13 @@ var1+<span class="o">=(</span> <span class="s2">"elem three"</span> <span class=
 <span class="k">done</span>
 </code></pre></div></div>
 
-<h2 id="always-check-the-input">Always check the input</h2>
+<h3 id="always-check-the-input">Always check the input</h3>
 
 <p>Never blindly assume anything. If you want the user to input a number, <strong>check the input</strong> for being a number, check for leading zeros, etc… Users will do what they want, not what the program wants. If you have specific format or content needs, <strong>always check the input</strong></p>
 
-<h2 id="functions">Functions</h2>
+<h3 id="functions">Functions</h3>
 
-<h3 id="define-local-variables-with-local-and-one-per-line">Define local variables with <code class="language-plaintext highlighter-rouge">local</code> and one per line</h3>
+<h4 id="define-local-variables-with-local-and-one-per-line">Define local variables with <code class="language-plaintext highlighter-rouge">local</code> and one per line</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">local </span>var1 <span class="se">\</span>
       var2 <span class="se">\</span>
@@ -524,7 +524,7 @@ var1+<span class="o">=(</span> <span class="s2">"elem three"</span> <span class=
 <span class="nb">local </span>var3
 </code></pre></div></div>
 
-<h3 id="define-the-parameter-holder-vars-first">Define the parameter holder vars first</h3>
+<h4 id="define-the-parameter-holder-vars-first">Define the parameter holder vars first</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_func<span class="o">()</span> <span class="o">{</span>
     <span class="nb">local </span><span class="nv">my_param1</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">1</span>:?<span class="k">}</span><span class="s2">"</span>
@@ -535,7 +535,7 @@ var1+<span class="o">=(</span> <span class="s2">"elem three"</span> <span class=
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="make-parameters-required-or-set-default">Make parameters required or set default</h3>
+<h4 id="make-parameters-required-or-set-default">Make parameters required or set default</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_func<span class="o">()</span> <span class="o">{</span>
     <span class="c"># required</span>
@@ -546,7 +546,7 @@ var1+<span class="o">=(</span> <span class="s2">"elem three"</span> <span class=
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="if-able-pass-all-the-information-as-parameters">If able, pass all the information as parameters</h3>
+<h4 id="if-able-pass-all-the-information-as-parameters">If able, pass all the information as parameters</h4>
 
 <p>By maintaining the encapsulation, the reusability, maintainability and the debuggability (if any of those words exist) are greatly increased.</p>
 
@@ -565,7 +565,7 @@ my_func<span class="o">()</span> <span class="o">{</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="almost-no-functions-should-use-exit-use-return-instead">Almost no functions should use exit, use return instead</h3>
+<h4 id="almost-no-functions-should-use-exit-use-return-instead">Almost no functions should use exit, use return instead</h4>
 
 <p>Using exit will end any program that halls the function and will not allow no properly react on the event of a failure.</p>
 
@@ -583,7 +583,7 @@ my_func<span class="o">()</span> <span class="o">{</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="prefer-return-statements-to-implicit-return">Prefer return statements to implicit return</h3>
+<h4 id="prefer-return-statements-to-implicit-return">Prefer return statements to implicit return</h4>
 
 <p>That helps the debuggability and avoids returning unexpected values.</p>
 
@@ -603,7 +603,7 @@ my_func<span class="o">()</span> <span class="o">{</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="use-lowercase-and-underscores-for-vars-and-function-names">Use lowercase and underscores for vars and function names</h3>
+<h4 id="use-lowercase-and-underscores-for-vars-and-function-names">Use lowercase and underscores for vars and function names</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my_func<span class="o">()</span> <span class="o">{</span>
     ...
@@ -612,7 +612,7 @@ my_func<span class="o">()</span> <span class="o">{</span>
 <span class="nv">my_var</span><span class="o">=</span><span class="s2">"bla"</span>
 </code></pre></div></div>
 
-<h1 id="note-on-portability">Note on portability</h1>
+<h2 id="note-on-portability">Note on portability</h2>
 
 <p>If you can imagine a reason where you script is going to be executed on a machine where bash is not available (most common Linux distributions and GNU-based systems have bash as default shell, and can be easily installed on many others), you should use the POSIX standard.</p>
 

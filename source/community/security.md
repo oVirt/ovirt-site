@@ -33,6 +33,22 @@ The oVirt community will fix only issues related to [the most recent released ve
 * **Triage:** We will investigate and notify you if the report is accepted as a vulnerability.
 * **Fix & Disclosure:** We follow a 90-day disclosure policy, but we aim to release fixes as quickly as possible.
 
+### New issues in oVirt vs. vulnerabilities in other projects {#new-issues-in-ovirt-vs-vulnerabilities-in-other-projects}
+
+The private reporting flow and Security Manager checklist below focus on **new, not-yet-public vulnerability reports in oVirt's own code**,
+including requesting a CVE when appropriate.
+
+If someone reports that oVirt is affected by a problem **in another project** oVirt depends on:
+
+* **Already public:** You do **not** need a new oVirt-specific CVE.
+  Assess impact on oVirt, validate fixes, and communicate to the community using the **existing CVE ID** (and upstream references as needed).
+* **Not yet publicly disclosed:** Coordinate with the **maintainers of the vulnerable project** so that oVirt does not publish details
+  before the agreed disclosure time, and so announcements use the **correct CVE ID**.
+  CVE reservation and assignment are handled by the **CNA for that upstream project**, not as a separate oVirt-only CVE.
+
+The steps that follow (private advisory, embargo, **Request CVE** in GitHub) apply to **undisclosed issues in oVirt code**.
+Impact assessment, fix validation, and community disclosure still apply in all cases.
+
 ### Security advisories
 
 The security advisories are visible in the **Security** tab of the relevant repository.
@@ -59,9 +75,15 @@ The security advisories are visible in the **Security** tab of the relevant repo
        {{site.data.alerts.end}}
    * [ ] **The CI Workaround**:
      * As of early 2026, GitHub Actions often do not run by default on temporary private forks for safety.
-     * **Manual Step**: You may need to manually trigger a local build/test or create a separate private repository within the oVirt organization for extensive CI testing if the private fork's limitations hinder you.
-   * [ ] **Request CVE**:
+     * **Manual Step**: You may need to manually trigger a local build/test or create a separate private repository within
+       the oVirt organization for extensive CI testing if the private fork's limitations hinder you.
+   * [ ] **Request CVE** (for **new** vulnerabilities in oVirt code):
      * Click the "Request CVE ID" button. GitHub (acting as the CNA) will usually assign a CVE-YEAR-XXXXX identifier within 24–48 hours. Keep this draft.
+       {{site.data.alerts.important}}
+       Skip this when the issue is already covered by a CVE from another project;
+       reference that CVE in advisories and community communication instead
+       (see [New issues in oVirt vs. vulnerabilities in other projects](#new-issues-in-ovirt-vs-vulnerabilities-in-other-projects) above).
+       {{site.data.alerts.end}}
 
 3. Downstream Pre-Notification (1–2 Weeks before Release)
 

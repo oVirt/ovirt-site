@@ -181,6 +181,24 @@
   <li><strong>Fix &amp; Disclosure:</strong> We follow a 90-day disclosure policy, but we aim to release fixes as quickly as possible.</li>
 </ul>
 
+<h3 id="new-issues-in-ovirt-vs-vulnerabilities-in-other-projects">New issues in oVirt vs. vulnerabilities in other projects</h3>
+
+<p>The private reporting flow and Security Manager checklist below focus on <strong>new, not-yet-public vulnerability reports in oVirt’s own code</strong>,
+including requesting a CVE when appropriate.</p>
+
+<p>If someone reports that oVirt is affected by a problem <strong>in another project</strong> oVirt depends on:</p>
+
+<ul>
+  <li><strong>Already public:</strong> You do <strong>not</strong> need a new oVirt-specific CVE.
+Assess impact on oVirt, validate fixes, and communicate to the community using the <strong>existing CVE ID</strong> (and upstream references as needed).</li>
+  <li><strong>Not yet publicly disclosed:</strong> Coordinate with the <strong>maintainers of the vulnerable project</strong> so that oVirt does not publish details
+before the agreed disclosure time, and so announcements use the <strong>correct CVE ID</strong>.
+CVE reservation and assignment are handled by the <strong>CNA for that upstream project</strong>, not as a separate oVirt-only CVE.</li>
+</ul>
+
+<p>The steps that follow (private advisory, embargo, <strong>Request CVE</strong> in GitHub) apply to <strong>undisclosed issues in oVirt code</strong>.
+Impact assessment, fix validation, and community disclosure still apply in all cases.</p>
+
 <h3 id="security-advisories">Security advisories</h3>
 
 <p>The security advisories are visible in the <strong>Security</strong> tab of the relevant repository.</p>
@@ -229,12 +247,20 @@ Only invite the minimum number of people needed to fix the bug to maintain the e
       <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>The CI Workaround</strong>:
         <ul>
           <li>As of early 2026, GitHub Actions often do not run by default on temporary private forks for safety.</li>
-          <li><strong>Manual Step</strong>: You may need to manually trigger a local build/test or create a separate private repository within the oVirt organization for extensive CI testing if the private fork’s limitations hinder you.</li>
+          <li><strong>Manual Step</strong>: You may need to manually trigger a local build/test or create a separate private repository within
+the oVirt organization for extensive CI testing if the private fork’s limitations hinder you.</li>
         </ul>
       </li>
-      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Request CVE</strong>:
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Request CVE</strong> (for <strong>new</strong> vulnerabilities in oVirt code):
         <ul>
-          <li>Click the “Request CVE ID” button. GitHub (acting as the CNA) will usually assign a CVE-YEAR-XXXXX identifier within 24–48 hours. Keep this draft.</li>
+          <li>Click the “Request CVE ID” button. GitHub (acting as the CNA) will usually assign a CVE-YEAR-XXXXX identifier within 24–48 hours. Keep this draft.
+            <div class="alert alert-danger" role="alert">
+              <p><i class="fa fa-exclamation-circle"></i> <b>Important: </b>
+Skip this when the issue is already covered by a CVE from another project;
+reference that CVE in advisories and community communication instead
+(see <a href="#new-issues-in-ovirt-vs-vulnerabilities-in-other-projects">New issues in oVirt vs. vulnerabilities in other projects</a> above).</p>
+            </div>
+          </li>
         </ul>
       </li>
     </ul>

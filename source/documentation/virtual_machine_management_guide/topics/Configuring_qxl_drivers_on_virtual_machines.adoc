@@ -28,7 +28,7 @@ You can configure QXL drivers using either a graphical interface or the command 
 . Click the *Hardware* tab.
 . Click *Video Cards Configure*.
 . Select *qxl* and click btn:[OK].
-. Restart X-Windows by logging out of the virtual machine and logging back in.
+. Restart X-Window by logging out of the virtual machine and logging back in.
 
 
 

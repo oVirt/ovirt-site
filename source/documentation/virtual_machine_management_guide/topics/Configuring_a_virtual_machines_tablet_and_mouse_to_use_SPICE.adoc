@@ -48,4 +48,4 @@ Option "CorePointer" "true"
 EndSection
 ----
 
-. Log out and log back into the virtual machine to restart X-Windows.
+. Log out and log back into the virtual machine to restart X-Window.

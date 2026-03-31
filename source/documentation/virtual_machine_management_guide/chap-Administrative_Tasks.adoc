@@ -184,7 +184,7 @@ include::topics/Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administr
 
 SPICE is a remote display protocol designed for virtual environments, which enables you to view a virtualized desktop or server. SPICE delivers a high quality user experience, keeps CPU consumption low, and supports high quality video streaming.
 
-Using SPICE on a Linux machine significantly improves the movement of the mouse cursor on the console of the virtual machine. To use SPICE, the X-Windows system requires additional QXL drivers. The QXL drivers are provided with {enterprise-linux} 5.4 and later. Earlier versions are not supported. Installing SPICE on a virtual machine running {enterprise-linux} significantly improves the performance of the graphical user interface.
+Using SPICE on a Linux machine significantly improves the movement of the mouse cursor on the console of the virtual machine. To use SPICE, the X-Window system requires additional QXL drivers. The QXL drivers are provided with {enterprise-linux} 5.4 and later. Earlier versions are not supported. Installing SPICE on a virtual machine running {enterprise-linux} significantly improves the performance of the graphical user interface.
 
 [NOTE]
 ====

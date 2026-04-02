@@ -98,8 +98,7 @@ If a fix for the CVE is available, update the traker issue accordingly.
 
 Our project infrastructure can always benefit from extra people, hardware and network bandwidth.
 First of all, consider [hosting a public mirror](/community/get-involved/repository-mirrors.html) of oVirt repositories.
-You can also [become an infra team member](/community/becoming-an-infrastructure-team-member.html) or
-[donate GitHub runners](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) to the project to improve our capacity and redundancy.
+You can also [donate GitHub runners](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners) to the project to improve our capacity and redundancy.
 
 ## Supporters, Sponsors, and Providers
 

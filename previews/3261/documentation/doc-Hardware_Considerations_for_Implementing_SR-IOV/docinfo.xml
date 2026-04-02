@@ -1,0 +1,21 @@
+<title>Hardware Considerations for Implementing SR-IOV</title>
+<productname>Red Hat Virtualization</productname>
+<productnumber>{vernum_rhv}</productnumber>
+<subtitle>Hardware considerations for implementing SR-IOV with Red Hat Virtualization</subtitle>
+<abstract>
+    <para>This document outlines hardware considerations for implementing SR-IOV with {enterprise-linux}, and for device assignment with Red Hat Virtualization.</para>
+    <!--<para>{beta-disclaimer}</para>-->
+</abstract>
+<authorgroup id="Author_Group">
+	<author>
+		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
+		<affiliation>
+			<orgname>
+				Red Hat
+			</orgname>
+			<orgdiv>
+				Customer Content Services
+			</orgdiv>
+		</affiliation><email>rhev-docs@redhat.com</email>
+	</author>
+</authorgroup>

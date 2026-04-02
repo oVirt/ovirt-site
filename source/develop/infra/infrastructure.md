@@ -28,9 +28,6 @@ the tenets of open source and accepted professional standards of system administ
 The list of the maintainers of the Infrastructure project is maintained
 as GitHub oVirt Team: [@oVirt/Infrastructure](https://github.com/orgs/oVirt/teams/infrastructure)
 
-Read [Becoming an Infrastructure team member](/community/becoming-an-infrastructure-team-member.html) for details on joining this project.
-
-
 ### Decision process
 
 * The Infra team generally follows the principle that if it wasn't discussed on the [mailing list](https://lists.ovirt.org/hyperkitty/list/infra@ovirt.org/) it didn't really happen.

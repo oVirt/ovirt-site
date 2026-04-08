@@ -140,6 +140,13 @@ header.post-header
   float: left
   clear: none
   width: min-content
+  // Below md breakpoint, drop float so the author box stacks above #content instead of overlapping.
+  @media screen and (max-width: 1600px)
+    float: none
+    width: 100%
+    max-width: 100%
+    clear: both
+    margin-bottom: 1.5rem
 
 .navForMobileHack
   left: 102px

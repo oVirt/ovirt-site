@@ -82,6 +82,11 @@ defaults:
       layout: "developer_outdated"
   -
     scope:
+      path: 'develop/design'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
       path: 'develop/infra'
     values:
       layout: "developer_outdated"

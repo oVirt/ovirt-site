@@ -32,12 +32,11 @@ authors:
 - [Infrastructure](infra/infrastructure.html)
 - [oVirt Quality Assurance](qa/index.html)
 
-
 #### Design Documentation
 - [Feature Pages / Design Documentation](/develop/release-management/features/)
 - [Overall architecture](./architecture/architecture.html)
 - [oVirt Engine architecture](./architecture/index.html)
-
+- [oVirt UI Design study](./design/)
 
 #### Developer Process
 - [Migrating a project from Gerrit to GitHub](/develop/developer-guide/migrating_to_github.html)

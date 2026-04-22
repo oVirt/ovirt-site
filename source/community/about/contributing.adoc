@@ -1,4 +1,5 @@
 [id="contributing-to-docs-contributing"]
+[discrete]
 = Contributing to oVirt documentation
 
 == Different ways to contribute

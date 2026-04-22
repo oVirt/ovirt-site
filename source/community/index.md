@@ -74,6 +74,7 @@ oVirt needs concise, user-friendly, up-to-date installation and usage documentat
 To contribute, visit the [documentation repository](https://github.com/oVirt/ovirt-site/tree/main/source/documentation)
 and the [documentation issues tracker](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation).
 You can also report any documentation issues you find by clicking "Report an issue with this page" at the bottom of the documentation.
+See the [Contributing to oVirt documentation](about/contributing) guide for more details.
 
 ## Report Issues and New Feature Requests (RFEs)
 

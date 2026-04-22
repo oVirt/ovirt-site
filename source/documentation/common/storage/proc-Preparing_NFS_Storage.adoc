@@ -3,7 +3,8 @@
 
 = Preparing NFS Storage
 
-Set up NFS shares on your file storage or remote server to serve as storage domains on Red Hat Enterprise Virtualization Host systems. After exporting the shares on the remote storage and configuring them in the Red Hat Virtualization Manager, the shares will be automatically imported on the Red Hat Virtualization hosts.
+Set up NFS shares on your file storage or remote server to serve as storage domains on {virt-product-fullname} hosts systems.
+After exporting the shares on the remote storage and configuring them in the {virt-product-fullname} {engine-name}, the shares will be automatically imported on the {virt-product-fullname} hosts.
 
 For information on setting up, configuring, mounting and exporting NFS, see link:{URL_rhel_docs_latest}html-single/managing_file_systems/index[_Managing file systems_] for Red Hat Enterprise Linux 8.
 

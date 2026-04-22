@@ -35,7 +35,7 @@ The following options are only available when using the `engine-backup` command 
 
 *`--provision-all-databases`*:: Creates databases for all memory dumps included in the archive. When enabled, this is the default.
 
-*`--change-db-credentials`*:: Allows you to specify alternate credentials for restoring the {engine-name} database using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this option.
+*`--change-db-credentials`*:: Allows you to specify alternate credentials for restoring the {engine-name} database by using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this option.
 
 *`--restore-permissions` or `--no-restore-permissions`*:: Restores or does not restore the permissions of database users. One of these options is required when restoring a backup. When the `--provision-*` option is used in restore mode, `--restore-permissions` is applied by default.
 +

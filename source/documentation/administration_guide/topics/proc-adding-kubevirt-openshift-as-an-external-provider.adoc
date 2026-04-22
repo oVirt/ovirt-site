@@ -4,9 +4,9 @@
 
 :_content-type: PROCEDURE
 [id="proc-adding-kubevirt-openshift-as-an-external-provider_{context}"]
-= Adding KubeVirt/Openshift Virtualization as an external provider
+= Adding KubeVirt or Openshift Virtualization as an external provider
 
-To run virtual machines in a container on the {container-platform}, you add OpenShift as an external provider in Red Hat Virtualization.
+To run virtual machines in a container on the {container-platform}, you add OpenShift as an external provider in {virt-product-shortname}.
 
 NOTE: This capability is known as _OpenShift Virtualization_.
 

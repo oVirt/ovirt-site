@@ -1,0 +1,15 @@
+:_content-type: PROCEDURE
+[id="enabling_fips_el_hosts_and_ovirt_{context}"]
+= Enabling FIPS in {virt-product-shortname} hosts and the standalone Manager
+
+You can enable FIPS mode when installing a Enterprise Linux ({enterprise-linux-shortname}) host or {hypervisor-fullname} ({hypervisor-shortname}). For details, see the guide _Security hardening_ guide for your operating system.
+
+.Verification
+
+Verify that FIPS is enabled by entering the command `fips-mode-setup --check` on the host. The command should return `FIPS mode is enabled`:
+
+[source,terminal,subs="normal"]
+----
+# fips-mode-setup --check
+FIPS mode is enabled.
+----

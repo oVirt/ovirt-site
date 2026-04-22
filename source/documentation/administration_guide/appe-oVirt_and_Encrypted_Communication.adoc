@@ -2,9 +2,9 @@
 
 [appendix]
 :_content-type: ASSEMBLY
-[id="appe-Red_Hat_Enterprise_Virtualization_and_Encrypted_Communication"]
+[id="appe-oVirt_and_Encrypted_Communication"]
 // keeping old section id to prevent broken links
-[id="appe-Red_Hat_Enterprise_Virtualization_and_SSL"]
+[id="appe-oVirt_and_SSL"]
 = {virt-product-fullname} and encrypted communication
 :context: encrypted-communication
 
@@ -21,13 +21,13 @@ You can set up encrypted VNC consoles to work with a {virt-product-fullname} ({v
 
 To set up encrypted VNC consoles, you complete the following procedures:
 
-* xref:enabling-fips_in_rhv[Enable FIPS in RHV].
-// * Creating RHV hosts that have FIPS enabled, or enabling FIPS on existing hosts.
-// * Enabling FIPS using the RHV Manager, including:
+* xref:enabling-fips_in_ovirt[Enable FIPS in oVirt].
+// * Creating oVirt hosts that have FIPS enabled, or enabling FIPS on existing hosts.
+// * Enabling FIPS using the oVirt Engine, including:
 // ** Configuring the hosts to support FIPS mode.
 * xref:configuring_cluster_to_enable_vnc_encryption[Configure the cluster to enable VNC Encryption].
 * xref:running_vnc_sasl_ansible_playbook_for_each_host[Run the VNC SASL ansible playbook on each host].
-* xref:configuring_remote_viewer_trust_rhvm_ca_certificate[Configure the Remote Viewer to trust the Manager's CA certificate].
+* xref:configuring_remote_viewer_trust_ovirt_ca_certificate[Configure the Remote Viewer to trust the Manager's CA certificate].
 
 include::topics/configuring_cluster_to_enable_vnc_encryption.adoc[leveloffset=+2]
 
@@ -40,14 +40,13 @@ include::topics/troubleshooting-vnc-sasl-ansible-playbook.adoc[leveloffset=+3]
 .Additional resources
 
 * link:https://www.redhat.com/en/blog/configuring-and-applying-scap-policies-during-installation[Configuring and Applying SCAP Policies During Installation]
-* link:{URL_customer-portal}downloads/content/415/ver=4.3/rhel---7/4.3/x86_64/product-software[Installers and Images for Red Hat Virtualization Manager (v. 4.3 for x86_64)]
 
-include::topics/Configuring_remote_viewer_trust_rhvm_ca_certificate.adoc[leveloffset=+2]
+include::topics/Configuring_remote_viewer_trust_oVirt_ca_certificate.adoc[leveloffset=+2]
 
 [role="_additional-resources-configuring-remote-viewer"]
 .Additional resources
 
-* link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index#sect-Installing_Console_Components[Installing Console Components]
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#sect-Installing_Console_Components[Installing Console Components]
 * xref:Replacing_the_Manager_CA_Certificate[Replacing the {engine-name} CA Certificate]
 
 endif::rhv-doc[]

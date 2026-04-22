@@ -8,7 +8,7 @@ include::common/collateral_files/_attributes.adoc[]
 [discrete]
 = Administration Guide
 
-include::part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment.adoc[leveloffset=+1]
+include::part-Administering_and_Maintaining_the_oVirt_Environment.adoc[leveloffset=+1]
 
 include::part-Administering_the_Resources.adoc[leveloffset=+1]
 
@@ -20,9 +20,13 @@ include::appe-VDSM_and_Hooks.adoc[leveloffset=+1]
 
 include::appe-Custom_Network_Properties.adoc[leveloffset=+1]
 
-include::appe-Red_Hat_Virtualization_User_Interface_Plugins.adoc[leveloffset=+1]
+include::appe-oVirt_User_Interface_Plugins.adoc[leveloffset=+1]
 
-include::appe-Red_Hat_Virtualization_and_Encrypted_Communication.adoc[leveloffset=+1]
+include::appe-enabling_FIPS.adoc[leveloffset=+1]
+
+include::appe-oVirt_and_Encrypted_Communication.adoc[leveloffset=+1]
+
+include::appe-Proxies.adoc[leveloffset=+1]
 
 include::appe-Branding.adoc[leveloffset=+1]
 

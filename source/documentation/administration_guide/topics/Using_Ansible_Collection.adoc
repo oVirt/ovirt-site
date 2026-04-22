@@ -2,7 +2,8 @@
 [id="Using_Ansible_Collection"]
 = Using oVirt Ansible Collection to Configure {virt-product-fullname}
 
-The following procedure guides you through creating and running a playbook that uses *oVirt Ansible Collection* to configure Red Hat Virtualization. This example uses Ansible to connect to the Manager on the local machine and create a new data center.
+The following procedure guides you through creating and running a playbook that uses *oVirt Ansible Collection* to configure {virt-product-fullname}.
+This example uses Ansible to connect to the Manager on the local machine and create a new data center.
 
 .Prerequisites
 
@@ -12,7 +13,7 @@ The following procedure guides you through creating and running a playbook that 
 . Create your playbook.
 +
 ----
-- name: RHV infrastructure
+- name: oVirt infrastructure
   hosts: localhost
   connection: local
   gather_facts: false
@@ -25,7 +26,7 @@ The following procedure guides you through creating and running a playbook that 
 
   pre_tasks:
    # The use of redhat.rhv before ovirt_auth is to check if oVirt Ansible Collection is correctly loaded
-   - name: Login to RHV
+   - name: Login to oVirt
      redhat.rhv.ovirt_auth:
        hostname: "{{ engine_fqdn }}"
        username: "{{ engine_user }}"
@@ -46,7 +47,7 @@ The following procedure guides you through creating and running a playbook that 
  collections:
    - redhat.rhv
  post_tasks:
-   - name: Logout from RHV
+   - name: Logout from oVirt
      ovirt_auth:
        state: absent
        ovirt_auth: "{{ ovirt_auth }}"

@@ -1,0 +1,116 @@
+name: Deploy website
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: "Content check"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: "Check for obsolete wiki headers"
+        run: |
+          if grep -rEi "^wiki_[^ ]+: " source/; then
+            echo '/!\ Wiki headers are obsolete (see previous log entries)'
+            exit 2
+          fi
+
+      - name: "Check for obsolete feature headers"
+        run: |
+          if grep -rEi "^feature_[^ ]+: " source/; then
+            echo '/!\ Feature headers are obsolete (see previous log entries)'
+            exit 2
+          fi
+
+      - name: "Check for non-breaking space in markdowns"
+        run: |
+          if grep -P '\xa0' `find source/ -name "*.md"` ; then
+            echo '/!\ nonbreaking spaces have been found within the markdown (see previous log entries)'
+            exit 2
+          fi
+
+      # bundler just bump versions to the locally available ones
+      # which means developers would always require bleeding edge versions not available on stable servers
+      # this is too simplistic and breaks deployment
+      # instead all changes are tested via CI on the same target OS and version than the production builder
+      - name: "Check for simplistic bundler requirement bump"
+        run: |
+          if grep -E "^(RUBY VERSION|BUNDLED WITH)" Gemfile.lock; then
+            echo '/!\ please remove "RUBY VERSION" and "BUNDLED WITH" requirements in Gemfile.lock'
+            exit 2
+          fi
+
+  build:
+    name: "Build website"
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Checkout repo"
+      uses: actions/checkout@v6
+      with:
+        submodules: recursive
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v4
+
+    - name: Build container image
+      uses: docker/build-push-action@v7
+      with:
+        context: .
+        push: false
+        load: true
+        tags: ovirt-site:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Set up Jekyll cache
+      uses: actions/cache@v5
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+
+    - name: "Build website"
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site ovirt-site build
+
+    - name: "Upload generated content"
+      uses: actions/upload-artifact@v7
+      with:
+        name: ovirt-site
+        if-no-files-found: error
+        path: |
+          _site
+
+    - name: "Run htmlproofer"
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c "bundle exec ruby htmlproofer_test.rb"
+
+  deploy:
+    name: "Deploy website"
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Download generated content"
+        uses: actions/download-artifact@v8
+        with:
+          name: ovirt-site
+          path: "ovirt-site"
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY_FOR_OVIRT_ORG }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan resources.ovirt.org >> ~/.ssh/known_hosts
+
+      - name: Deploy via rsync
+        run: rsync -avz --delete ./ovirt-site/ "${{ secrets.SSH_USERNAME_FOR_OVIRT_ORG }}@resources.ovirt.org:/srv/website"

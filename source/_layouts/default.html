@@ -35,11 +35,7 @@
                   </div>
                   <div class="byline">
                     <section class="entry-meta">
-                      {% if author.twitter %}
-                        <p><span class="author vcard"><a rel="author" href="https://twitter.com/{{ author.twitter }}" title="{{ author.name }}">{{ author.name }}</a></span></p>
-                      {% else %}
                         <p><span class="author vcard">{{ author.name }}</span></p>
-                      {% endif %}
                     </section>
                   </div>
                 {% endfor %}

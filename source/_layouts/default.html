@@ -12,9 +12,12 @@
         {% include nav-breadcrumbs.html %}
         {% unless page.hide_metadata %}
           {% if page.authors %}
-            <header class="post-header col-md-4 pad-sides well well-lg">
-              <h2 class="post-title entry-title">Authors:</h2>
-              <div class="post-meta">
+            <header id="post-metadata" class="post-header col-md-4 pad-sides well well-lg">
+              <div class="button-flex">
+                <button onclick="alterMetadata()" id="control-button" class="control-button"></button>
+              </div>
+              <h2 id="post-title" class="post-title entry-title">Authors:</h2>
+              <div id="post-meta" class="post-meta">
                 {% for author_id in page.authors %}
                   {% assign author = site.data.authors[author_id] %}
                   {% unless author %}
@@ -50,6 +53,47 @@
     </main>
 
     <script src="{{ '/javascripts/lib/headings_anchors.js' | relative_url }}" type="text/javascript"></script>
+
+    <script>
+      var control_button = document.getElementById("control-button");
+      var header_class = document.getElementById("post-metadata");
+      var post_meta = document.getElementById("post-meta");
+      var post_title = document.getElementById("post-title");
+      var runtimeHide = window.localStorage && window.localStorage.getItem("collapse_meta_data") === "true";
+      if (runtimeHide) {
+        if (header_class) { header_class.className = "closed-header well well-lg"; }
+        if (post_meta) { post_meta.style.display = "none"; }
+        if (post_title) { post_title.style.display = "none"; }
+        if (control_button) { control_button.innerHTML = '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>'; }
+      } else {
+        if (control_button) { control_button.innerHTML = '<i class="fa-solid fa-x"></i>'; }
+      }
+
+      function alterMetadata() {
+        if (post_title.checkVisibility()) {
+          collapseMetadata(true);
+        } else {
+          collapseMetadata(false);
+        }
+        if (window.localStorage) {
+          window.localStorage.setItem("collapse_meta_data", !post_title.checkVisibility());
+        }
+      }
+
+      function collapseMetadata(shouldcollapse){
+        if (shouldcollapse) {
+          if (header_class) { header_class.className = "closed-header well well-lg"; }
+          if (post_meta) { post_meta.style.display = "none"; }
+          if (post_title) { post_title.style.display = "none"; }
+          if (control_button) { control_button.innerHTML = '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>'; }
+        } else {
+          if (header_class) { header_class.className = "post-header col-md-4 pad-sides well well-lg"; }
+          if (post_meta) { post_meta.style.display = "block"; }
+          if (post_title) { post_title.style.display = "block"; }
+          if (control_button) { control_button.innerHTML = '<i class="fa-solid fa-x"></i>'; }
+        }
+      }
+    </script>
 
     {%- haml footer.haml -%}
 

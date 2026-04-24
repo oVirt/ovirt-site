@@ -137,8 +137,30 @@ header.masthead .navbar-collapse.in
     overflow-y: inherit
 
 header.post-header
+  display: flex
+  flex-direction: column
   float: left
   clear: none
+  width: min-content
+
+header.post-header .button-flex
+  display: flex
+  justify-content: flex-end
+
+header.post-header .control-button
+  align-self: flex-end
+  padding: 0
+  border: none
+  background: none
+
+header.closed-header .control-button
+  padding: 0
+  border: none
+  background: none
+
+header.closed-header
+  display: flex
+  float: left
   width: min-content
 
 .navForMobileHack

@@ -1,36 +1,39 @@
 name: "Preview build"
+
 permissions:
   issues: write
   pull-requests: write
   contents: write
   pages: write
+
 on:
   pull_request:
+
 jobs:
   check:
-    name: "Content check"
+    name: Content check
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout repo"
-        uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
-      - name: "Check for obsolete wiki headers"
+      - name: Check for obsolete wiki headers
         run: |
           if grep -rEi "^wiki_[^ ]+: " source/; then
             echo '/!\ Wiki headers are obsolete (see previous log entries)'
             exit 2
           fi
 
-      - name: "Check for obsolete feature headers"
+      - name: Check for obsolete feature headers
         run: |
           if grep -rEi "^feature_[^ ]+: " source/; then
             echo '/!\ Feature headers are obsolete (see previous log entries)'
             exit 2
           fi
 
-      - name: "Check for non-breaking space in markdowns"
+      - name: Check for non-breaking space in markdowns
         run: |
           if grep -P '\xa0' `find source/ -name "*.md"` ; then
             echo '/!\ nonbreaking spaces have been found within the markdown (see previous log entries)'
@@ -41,15 +44,17 @@ jobs:
       # which means developers would always require bleeding edge versions not available on stable servers
       # this is too simplistic and breaks deployment
       # instead all changes are tested via CI on the same target OS and version than the production builder
-      - name: "Check for simplistic bundler requirement bump"
+      - name: Check for simplistic bundler requirement bump
         run: |
           if grep -E "^(RUBY VERSION|BUNDLED WITH)" Gemfile.lock; then
             echo '/!\ please remove "RUBY VERSION" and "BUNDLED WITH" requirements in Gemfile.lock'
             exit 2
           fi
+
   build:
-    name: "Build preview"
+    name: Build preview
     runs-on: ubuntu-latest
+    container: quay.io/centos/centos:stream9
     outputs:
       PR_ID: ${{steps.details.outputs.PR_ID}}
       PREVIEW_PATH: ${{steps.details.outputs.PREVIEW_PATH}}
@@ -57,10 +62,9 @@ jobs:
       PREVIEW_LINK_PATH: ${{steps.details.outputs.PREVIEW_LINK_PATH}}
       PREVIEW_LINK_BASE: ${{steps.details.outputs.PREVIEW_LINK_BASE}}
     steps:
-    - name: "Checkout repo"
-      uses: actions/checkout@v4
-      with:
-        submodules: recursive
+    - name: Checkout repo
+      uses: actions/checkout@v6
+
     - name: Extract PR details
       id: details
       run: |
@@ -74,6 +78,7 @@ jobs:
         echo "PREVIEW_LINK=${PREVIEW_LINK}" >> $GITHUB_OUTPUT
         echo "PREVIEW_LINK_PATH=${PREVIEW_LINK_PATH}" >> $GITHUB_OUTPUT
         echo "PREVIEW_LINK_BASE=${PREVIEW_LINK_BASE}" >> $GITHUB_OUTPUT
+
     - name: Comment on PR
       continue-on-error: true
       run: |
@@ -82,23 +87,25 @@ jobs:
         gh pr comment ${{steps.details.outputs.PR_ID}} -F /tmp/comment
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-    - name: Build container image
-      uses: docker/build-push-action@v6
-      with:
-        context: .
-        push: false
-        load: true
-        tags: ovirt-site:latest
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
+
+    - name: Install dependencies
+      run: |
+        dnf install -y git ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler patch zlib-devel redhat-rpm-config openssl nodejs make glibc-langpack-en
+
+    - name: Install bundler dependencies
+      env:
+        NOKOGIRI_USE_SYSTEM_LIBRARIES: true
+      run: |
+        bundle config --local path 'vendor/bundle'
+        bundle install --quiet
+
     - name: Set up Jekyll cache
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-    - name: "Change config"
+
+    - name: Change config
       run: |
         set -exuo pipefail
         sed -i -e "s#@PREVIEW_LINK_PATH@#${{steps.details.outputs.PREVIEW_LINK_PATH}}#" htmlproofer_test.rb
@@ -107,22 +114,34 @@ jobs:
         sed -i -e "s#^url: .*#url: ${{steps.details.outputs.PREVIEW_LINK_BASE}}#" _config.yml
         sed -i -e "s#site-baseurl: /#site-baseurl: ${{steps.details.outputs.PREVIEW_LINK_PATH}}#" _config.yml
         cat _config.yml
-    - name: "Build website"
-      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site ovirt-site build
-    - name: "Upload generated content"
-      uses: actions/upload-artifact@v4
+
+    - name: Build website
+      env:
+        LANG: en_US.UTF-8
+        LANGUAGE: en_US:en
+        LC_ALL: en_US.UTF-8
+      run: bundle exec jekyll build
+
+    - name: Upload generated content
+      uses: actions/upload-artifact@v7
       with:
         name: ovirt-site
         if-no-files-found: error
         path: |
           _site
-    - name: "Run htmlproofer"
-      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c "bundle exec ruby htmlproofer_test.rb"
+
+    - name: Run htmlproofer
+      env:
+        LANG: en_US.UTF-8
+        LANGUAGE: en_US:en
+        LC_ALL: en_US.UTF-8
+      run: bundle exec ruby htmlproofer_test.rb
+
   publish:
     permissions:
       contents: write
       pull-requests: write
-    name: "Publish preview"
+    name: Publish preview
     runs-on: ubuntu-latest
     needs:
       - check
@@ -131,25 +150,30 @@ jobs:
       group: ovirt-site-preview-build
       cancel-in-progress: false
     steps:
-      - name: set git defaults
+      - name: Set git defaults
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-      - name: "Checkout repo"
-        uses: actions/checkout@v4
+
+      - name: Checkout repo
+        uses: actions/checkout@v6
         with:
           ref: gh-pages
           token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: "Remove preview build directory"
+
+      - name: Remove preview build directory
         run: rm -rf "${{needs.build.outputs.PREVIEW_PATH}}"
-      - name: "Create preview build directory"
+
+      - name: Create preview build directory
         run: mkdir -p "${{needs.build.outputs.PREVIEW_PATH}}"
-      - name: "Download generated content"
-        uses: actions/download-artifact@v4
+
+      - name: Download generated content
+        uses: actions/download-artifact@v8
         with:
           name: ovirt-site
           path: "${{needs.build.outputs.PREVIEW_PATH}}"
-      - name: "Commit changes"
+
+      - name: Commit changes
         run: |
           commit=$(git log --format="%H" -n 1)
           description=$(git describe --always)
@@ -161,7 +185,8 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - name: "Send comment to PR"
+
+      - name: Send comment to PR
         continue-on-error: true
         run: |
           echo "Your preview build is ready! ✨ Check the following link in 1-2 minutes: ${{needs.build.outputs.PREVIEW_LINK}} ." >/tmp/comment

@@ -137,22 +137,6 @@ Obsolete:
 - [Libvirt logging](/develop/projects/libvirt.html)
 - [moVirt Project](/develop/projects/project-movirt.html)
 
-#### Old releases management
-- [oVirt 3.0 release management](/develop/release-management/releases/3.0/release-management.html)
-- [oVirt 3.1 release management](/develop/release-management/releases/3.1/release-management.html)
-- [oVirt 3.2 release management](/develop/release-management/releases/3.2/release-management.html)
-- [oVirt 3.3 release management](/develop/release-management/releases/3.3/release-management.html)
-- [oVirt 3.4 release management](/develop/release-management/releases/3.4/release-management.html)
-- [oVirt 3.5 release management](/develop/release-management/releases/3.5/release-management.html)
-- [oVirt 3.6 release management](/develop/release-management/releases/3.6/release-management.html)
-
-#### Old releases
-- [oVirt 3.1](/develop/release-management/releases/3.1/release.html)
-- [oVirt 3.3](/develop/release-management/releases/3.3/release-announcement.html)
-- [oVirt 3.4 features](/develop/release-management/releases/3.4/feature.html)
-- [oVirt 3.4 bugs fixed](/develop/release-management/releases/3.4/index-bugs-fixed.html)
-- [oVirt 3.4](/develop/release-management/releases/3.4/release-announcement.html)
-
 </section>
 
 </section>

@@ -175,4 +175,4 @@ Multiple uses of a LUN for different SD is prevented.
 2.  A short set in the future.
 3.  Destination host: the host running or that will run the VM.
 
-[Direct_Lun](/develop/release-management/features/) [Direct_Lun](/develop/release-management/releases/3.1/featurelist.html)
+[Direct_Lun](/develop/release-management/features/) [Direct_Lun](/develop/release-management/features/3.1-features.html)

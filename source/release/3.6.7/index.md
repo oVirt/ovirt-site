@@ -18,7 +18,7 @@ oVirt is an open source alternative to VMware vSphere, and provides an awesome K
 This release supports Hypervisor Hosts running Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
 To find out more about features which were added in previous oVirt releases,
-check out the [previous versions release notes](/develop/release-management/releases/).
+check out the [previous versions release notes](../).
 
 ## Install / Upgrade from previous versions
 
@@ -32,7 +32,7 @@ If you are upgrading from a previous version, you may have the ovirt-release35 p
 
 Once ovirt-release36 package is installed, you will have the ovirt-3.6-stable repository and any other repository needed for satisfying dependencies enabled by default.
 
-If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.6 Release Notes](/develop/release-management/releases/3.5.6/) for upgrade instructions.
+If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 or later. Please see [oVirt 3.5.6 Release Notes](../3.5.6/) for upgrade instructions.
 
 For upgrading now you just need to execute:
 

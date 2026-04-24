@@ -478,4 +478,4 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 3.  Commands monitoring and permission model, adding Tasks view to users.
 
 [TaskManager](/develop/release-management/features/)
-[TaskManager](/develop/release-management/releases/3.1/feature.html)
+[TaskManager](/develop/release-management/features/3.1-features.html)

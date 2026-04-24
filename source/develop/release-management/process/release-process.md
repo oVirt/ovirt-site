@@ -16,7 +16,7 @@ authors:
 This phase deciding if a feature is ready to be released.
 
 *   After a new 4.*y*.0 release, a new 4.*y+1.0* release is tentatively scheduled after six months.
-*   A new release management page is created (see [oVirt 4.0 Release Management](../releases/4.0/release-management.html))
+*   A new release management page is created
 *   Must have a clear schedule, like [1](http://fedoraproject.org/wiki/Releases/24/Schedule)
 
 <!-- -->

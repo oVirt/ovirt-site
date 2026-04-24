@@ -16,7 +16,7 @@ KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2 (or similar).
 
 To find out more about features which were added in previous oVirt releases,
-check out the [previous versions release notes](/develop/release-management/releases/).
+check out the [previous versions release notes](../).
 
 An updated documentation has been provided by our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/)

@@ -222,4 +222,4 @@ GlusterFS : <https://docs.gluster.org/en/latest/>
 *   Log management
 *   Reporting
 
-[Gluster Support](/develop/release-management/features/) [Gluster Support](/develop/release-management/releases/3.2/feature.html)
+[Gluster Support](/develop/release-management/features/) [Gluster Support](/develop/release-management/features/3.2-features.html)

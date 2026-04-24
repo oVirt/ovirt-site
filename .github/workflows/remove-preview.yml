@@ -1,15 +1,18 @@
 name: Remove preview
+
 permissions:
   issues: write
   pull-requests: write
   contents: write
+
 on:
   pull_request:
     types:
       - closed
+
 jobs:
   remove:
-    name: "Remove preview build"
+    name: Remove preview build
     runs-on: ubuntu-latest
     concurrency:
       group: ovirt-site-preview-build
@@ -19,11 +22,13 @@ jobs:
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
     - name: Checkout gh-pages branch
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         ref: gh-pages
         token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Extract PR details
       id: details
       run: |
@@ -37,6 +42,7 @@ jobs:
         echo "PREVIEW_LINK=${PREVIEW_LINK}" >> $GITHUB_OUTPUT
         echo "PREVIEW_LINK_PATH=${PREVIEW_LINK_PATH}" >> $GITHUB_OUTPUT
         echo "PREVIEW_LINK_BASE=${PREVIEW_LINK_BASE}" >> $GITHUB_OUTPUT
+
     - name: Comment on PR
       continue-on-error: true
       run: |
@@ -45,8 +51,10 @@ jobs:
         gh pr comment ${{steps.details.outputs.PR_ID}} -F /tmp/comment
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
     - name: Remove branch preview
       run: rm -rf ${{steps.details.outputs.PREVIEW_PATH}}
+
     - name: Commit changes
       run: |
         git add .

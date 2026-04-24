@@ -1,8 +1,7 @@
-# Duck: DO NOT change the target OS, it needs to be in sync with the production builder
-FROM registry.fedoraproject.org/fedora:33
+FROM quay.io/centos/centos:stream9
 
 # Copy and run the setup.
-RUN dnf install -y git ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler patch zlib-devel redhat-rpm-config openssl nodejs ImageMagick make glibc-langpack-en
+RUN dnf install -y git ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler patch zlib-devel redhat-rpm-config openssl nodejs make glibc-langpack-en
 
 # Please mount the site in this directory.
 RUN mkdir -p /srv/site

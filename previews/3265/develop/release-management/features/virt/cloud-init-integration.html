@@ -105,9 +105,12 @@
 
         
           
-            <header class="post-header col-md-4 pad-sides well well-lg">
-              <h2 class="post-title entry-title">Authors:</h2>
-              <div class="post-meta">
+            <header id="post-metadata" class="post-header col-md-4 pad-sides well well-lg">
+              <div class="button-flex">
+                <button onclick="alterMetadata()" id="control-button" class="control-button"></button>
+              </div>
+              <h2 id="post-title" class="post-title entry-title">Authors:</h2>
+              <div id="post-meta" class="post-meta">
                 
                   
                   
@@ -624,6 +627,47 @@
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/3265/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3265/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3265/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3265/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2026 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/cloud-init-integration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/cloud-init-integration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/3265/javascripts/lib/headings_anchors.js" type="text/javascript"></script>
+
+    <script>
+      var control_button = document.getElementById("control-button");
+      var header_class = document.getElementById("post-metadata");
+      var post_meta = document.getElementById("post-meta");
+      var post_title = document.getElementById("post-title");
+      var runtimeHide = window.localStorage && window.localStorage.getItem("collapse_meta_data") === "true";
+      if (runtimeHide) {
+        if (header_class) { header_class.className = "closed-header well well-lg"; }
+        if (post_meta) { post_meta.style.display = "none"; }
+        if (post_title) { post_title.style.display = "none"; }
+        if (control_button) { control_button.innerHTML = '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>'; }
+      } else {
+        if (control_button) { control_button.innerHTML = '<i class="fa-solid fa-x"></i>'; }
+      }
+
+      function alterMetadata() {
+        if (post_title.checkVisibility()) {
+          collapseMetadata(true);
+        } else {
+          collapseMetadata(false);
+        }
+        if (window.localStorage) {
+          window.localStorage.setItem("collapse_meta_data", !post_title.checkVisibility());
+        }
+      }
+
+      function collapseMetadata(shouldcollapse){
+        if (shouldcollapse) {
+          if (header_class) { header_class.className = "closed-header well well-lg"; }
+          if (post_meta) { post_meta.style.display = "none"; }
+          if (post_title) { post_title.style.display = "none"; }
+          if (control_button) { control_button.innerHTML = '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>'; }
+        } else {
+          if (header_class) { header_class.className = "post-header col-md-4 pad-sides well well-lg"; }
+          if (post_meta) { post_meta.style.display = "block"; }
+          if (post_title) { post_title.style.display = "block"; }
+          if (control_button) { control_button.innerHTML = '<i class="fa-solid fa-x"></i>'; }
+        }
+      }
+    </script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/3265/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/3265/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/3265/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2026 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/cloud-init-integration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/main/source/develop/release-management/features/virt/cloud-init-integration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

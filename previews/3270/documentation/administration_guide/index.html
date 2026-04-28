@@ -326,7 +326,7 @@
 <li><a href="#proc-setting_up_debug_level_logging">4.2.5. Setting debug-level logging for oVirt services</a></li>
 <li><a href="#ref_debug_level_logging">4.2.6. Main configuration files for oVirt services</a></li>
 <li><a href="#Setting_up_a_Host_Logging_Server">4.2.7. Setting Up a Host Logging Server</a></li>
-<li><a href="#Enabling_SyslogHandler_RHV_Manager_logs">4.2.8. Enabling SyslogHandler to pass oVirt Engine logs to a remote syslog server</a></li>
+<li><a href="#Enabling_SyslogHandler_oVirt_Engine_logs">4.2.8. Enabling SyslogHandler to pass oVirt Engine logs to a remote syslog server</a></li>
 </ul>
 </li>
 </ul>
@@ -367,7 +367,13 @@
 <li><a href="#Example_RHEV_UI_Plugin_Deployment">Example User Interface Plug-in Deployment</a></li>
 </ul>
 </li>
-<li><a href="#appe-Red_Hat_Enterprise_Virtualization_and_SSL">Appendix D: oVirt and encrypted communication</a>
+<li><a href="#enabling-fips_in_ovirt">Appendix D: Enabling FIPS in oVirt</a>
+<ul class="sectlevel2">
+<li><a href="#enabling_fips_she_appendix_fips">Enabling FIPS in a self-hosted engine</a></li>
+<li><a href="#enabling_fips_el_hosts_and_ovirt_appendix_fips">Enabling FIPS in oVirt hosts and the standalone Manager</a></li>
+</ul>
+</li>
+<li><a href="#appe-oVirt_and_SSL">Appendix E: oVirt and encrypted communication</a>
 <ul class="sectlevel2">
 <li><a href="#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a>
 <ul class="sectlevel3">
@@ -378,7 +384,29 @@
 <li><a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a></li>
 </ul>
 </li>
-<li><a href="#appe-Branding">Appendix E: Branding</a>
+<li><a href="#appe-Proxies">Appendix F: Proxies</a>
+<ul class="sectlevel2">
+<li><a href="#sect-SPICE_Proxy">SPICE Proxy</a>
+<ul class="sectlevel3">
+<li><a href="#SPICE_Proxy_Overview">SPICE Proxy Overview</a></li>
+<li><a href="#SPICE_Proxy_Machine_Setup">SPICE Proxy Machine Setup</a></li>
+<li><a href="#Turning_On_a_SPICE_Proxy">Turning On a SPICE Proxy</a></li>
+<li><a href="#Turning_off_a_SPICE_Proxy">Turning Off a SPICE Proxy</a></li>
+</ul>
+</li>
+<li><a href="#sect-Squid_Proxy">Squid Proxy</a>
+<ul class="sectlevel3">
+<li><a href="#Installing_and_Configuring_a_Squid_Proxy">Installing and Configuring a Squid Proxy</a></li>
+</ul>
+</li>
+<li><a href="#sect-Websocket_Proxy">Websocket Proxy</a>
+<ul class="sectlevel3">
+<li><a href="#Websocket_Proxy_Overview">Websocket Proxy Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#appe-Branding">Appendix G: Branding</a>
 <ul class="sectlevel2">
 <li><a href="#sect-Branding">Branding</a>
 <ul class="sectlevel3">
@@ -394,7 +422,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#sect-System_Accounts">Appendix F: System Accounts</a>
+<li><a href="#sect-System_Accounts">Appendix H: System Accounts</a>
 <ul class="sectlevel2">
 <li><a href="#Red_Hat_Enterprise_Virtualization_Manager_User_Accounts">oVirt Engine User Accounts</a></li>
 <li><a href="#Red_Hat_Enterprise_Virtualization_Manager_Groups">oVirt Engine Groups</a></li>
@@ -402,7 +430,7 @@
 <li><a href="#Virtualization_Host_Groups">Virtualization Host Groups</a></li>
 </ul>
 </li>
-<li><a href="#ovirt-legal-notice">Appendix G: Legal notice</a></li>
+<li><a href="#ovirt-legal-notice">Appendix I: Legal notice</a></li>
 </ul>
 </div>
 <div id="preamble">
@@ -13139,7 +13167,8 @@ If a host runs virtual machines that are highly available, power management must
 <div class="sect4">
 <h5 id="Preparing_NFS_Storage_storage_admin">Preparing NFS Storage</h5>
 <div class="paragraph">
-<p>Set up NFS shares on your file storage or remote server to serve as storage domains on Red Hat Enterprise Virtualization Host systems. After exporting the shares on the remote storage and configuring them in the Red Hat Virtualization Manager, the shares will be automatically imported on the Red Hat Virtualization hosts.</p>
+<p>Set up NFS shares on your file storage or remote server to serve as storage domains on oVirt hosts systems.
+After exporting the shares on the remote storage and configuring them in the oVirt Engine, the shares will be automatically imported on the oVirt hosts.</p>
 </div>
 <div class="paragraph">
 <p>For information on setting up, configuring, mounting and exporting NFS, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_file_systems/index"><em>Managing file systems</em></a> for Red Hat Enterprise Linux 8.</p>
@@ -17963,9 +17992,9 @@ You must also define the authentication URL of the Keystone server by defining t
 </div>
 </div>
 <div class="sect4">
-<h5 id="proc-adding-kubevirt-openshift-as-an-external-provider_external_providers">Adding KubeVirt/Openshift Virtualization as an external provider</h5>
+<h5 id="proc-adding-kubevirt-openshift-as-an-external-provider_external_providers">Adding KubeVirt or Openshift Virtualization as an external provider</h5>
 <div class="paragraph">
-<p>To run virtual machines in a container on the OKD, you add OpenShift as an external provider in Red Hat Virtualization.</p>
+<p>To run virtual machines in a container on the OKD, you add OpenShift as an external provider in oVirt.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -19780,7 +19809,7 @@ and disable global maintenance mode:</p>
 </dd>
 <dt class="hdlist1"><strong><code>--change-db-credentials</code></strong></dt>
 <dd>
-<p>Allows you to specify alternate credentials for restoring the Engine database using credentials other than those stored in the backup itself. See <code>engine-backup --help</code> for the additional parameters required by this option.</p>
+<p>Allows you to specify alternate credentials for restoring the Engine database by using credentials other than those stored in the backup itself. See <code>engine-backup --help</code> for the additional parameters required by this option.</p>
 </dd>
 <dt class="hdlist1"><strong><code>--restore-permissions</code> or <code>--no-restore-permissions</code></strong></dt>
 <dd>
@@ -24228,7 +24257,8 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 <div class="sect4">
 <h5 id="Using_Ansible_Collection">Using oVirt Ansible Collection to Configure oVirt</h5>
 <div class="paragraph">
-<p>The following procedure guides you through creating and running a playbook that uses <strong>oVirt Ansible Collection</strong> to configure Red Hat Virtualization. This example uses Ansible to connect to the Manager on the local machine and create a new data center.</p>
+<p>The following procedure guides you through creating and running a playbook that uses <strong>oVirt Ansible Collection</strong> to configure oVirt.
+This example uses Ansible to connect to the Manager on the local machine and create a new data center.</p>
 </div>
 <div class="ulist">
 <div class="title">Prerequisites</div>
@@ -24245,7 +24275,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 <p>Create your playbook.</p>
 <div class="listingblock">
 <div class="content">
-<pre>- name: RHV infrastructure
+<pre>- name: oVirt infrastructure
   hosts: localhost
   connection: local
   gather_facts: false
@@ -24258,7 +24288,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
 
   pre_tasks:
    # The use of redhat.rhv before ovirt_auth is to check if oVirt Ansible Collection is correctly loaded
-   - name: Login to RHV
+   - name: Login to oVirt
      redhat.rhv.ovirt_auth:
        hostname: "{{ engine_fqdn }}"
        username: "{{ engine_user }}"
@@ -24279,7 +24309,7 @@ To configure the environment, follow the instructions in <a href="https://cloud.
  collections:
    - redhat.rhv
  post_tasks:
-   - name: Logout from RHV
+   - name: Logout from oVirt
      ovirt_auth:
        state: absent
        ovirt_auth: "{{ ovirt_auth }}"
@@ -28067,7 +28097,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 <div class="sect4">
 <h5 id="The_oVirt_Engine_Rename_Tool">The oVirt Engine Rename Tool</h5>
 <div class="paragraph">
-<p>When the <code>engine-setup</code> command is run in a clean environment, the command generates a number of certificates and keys that use the fully qualified domain name of the Engine supplied during the setup process. If the fully qualified domain name of the Engine must be changed later on (for example, due to migration of the machine hosting the Engine to a different domain), the records of the fully qualified domain name must be updated to reflect the new name. The <code>ovirt-engine-rename</code> command automates this task.</p>
+<p>When the <code>engine-setup</code> command is run in a clean environment, the command generates several certificates and keys that use the fully qualified domain name of the Engine supplied during the setup process. If the fully qualified domain name of the Engine must be changed later on (for example, due to migration of the machine hosting the Engine to a different domain), the records of the fully qualified domain name must be updated to reflect the new name. The <code>ovirt-engine-rename</code> command automates this task.</p>
 </div>
 <div class="paragraph">
 <p>The <code>ovirt-engine-rename</code> command updates records of the fully qualified domain name of the Engine in the following locations:</p>
@@ -28148,7 +28178,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </td>
 <td class="content">
 <div class="paragraph">
-<p>While the <code>ovirt-engine-rename</code> command creates a new certificate for the web server on which the Engine runs, it does not affect the certificate for the Engine or the certificate authority. Due to this, there is some risk involved in using the <code>ovirt-engine-rename</code> command, particularly in environments that have been upgraded from Red Hat Enterprise Virtualization 3.2 and earlier. Therefore, changing the fully qualified domain name of the Engine by running <code>engine-cleanup</code> and <code>engine-setup</code> is recommended where possible.</p>
+<p>While the <code>ovirt-engine-rename</code> command creates a new certificate for the web server on which the Engine runs, it does not affect the certificate for the Engine or the certificate authority. Due to this, there is some risk involved in using the <code>ovirt-engine-rename</code> command, particularly in environments that have been upgraded from oVirt 3.2 and earlier. Therefore, changing the fully qualified domain name of the Engine by running <code>engine-cleanup</code> and <code>engine-setup</code> is recommended where possible.</p>
 </div>
 </td>
 </tr>
@@ -30090,7 +30120,7 @@ Input(type=&quot;imudp&quot; port=&quot;514&quot; ruleset=&quot;RemoteMachine&qu
 </div>
 </div>
 <div class="sect3">
-<h4 id="Enabling_SyslogHandler_RHV_Manager_logs">4.2.8. Enabling SyslogHandler to pass oVirt Engine logs to a remote syslog server</h4>
+<h4 id="Enabling_SyslogHandler_oVirt_Engine_logs">4.2.8. Enabling SyslogHandler to pass oVirt Engine logs to a remote syslog server</h4>
 <div class="paragraph">
 <p>This implementation uses the <strong>JBoss EAP SyslogHandler</strong> log manager and enables passing log records from the <code>engine.log</code> and <code>server.log</code> to a syslog server.</p>
 </div>
@@ -30818,7 +30848,7 @@ else:
 <div class="sect2">
 <h3 id="VDSM_hooks_examples">VDSM Hook Examples</h3>
 <div class="paragraph">
-<p>The example hook scripts provided in this section are strictly not supported by Red Hat. You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.</p>
+<p>You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.</p>
 </div>
 <div id="VDSM_Hooks-example-numaset" class="exampleblock">
 <div class="title">Example 32. NUMA Node Tuning</div>
@@ -31319,7 +31349,105 @@ api.ready();</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="appe-Red_Hat_Enterprise_Virtualization_and_SSL">Appendix D: oVirt and encrypted communication</h2>
+<h2 id="enabling-fips_in_ovirt">Appendix D: Enabling FIPS in oVirt</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can set up oVirt to be compliant with the Federal Information Processing Standard (FIPS), specifically  FIPS 140-2. You can enable FIPS mode selectively, on specific virtual machines, bare-metal machines, or across your entire environment, based on your organization&#8217;s FIPS compliance requirements.</p>
+</div>
+<div class="paragraph">
+<p>You can create a FIPS-enabled bare-metal machine in oVirt by either installing the operating system in FIPS mode, or by switching the system into FIPS mode after installing the operating system. However, you must switch to FIPS mode before installing and configuring oVirt to avoid introducing system conflicts.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Red Hat recommends installing EL with FIPS mode enabled as opposed to enabling FIPS mode later. Enabling FIPS mode during the installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You enable FIPS first on each bare-metal machine, and then in the Manager.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#enabling_fips_she_appendix_fips">Enabling FIPS in a self-hosted engine</a></p>
+</li>
+<li>
+<p><a href="#enabling_fips_el_hosts_and_ovirt_appendix_fips">Enabling FIPS in EL hosts and the standalone Manager</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="enabling_fips_she_appendix_fips">Enabling FIPS in a self-hosted engine</h3>
+<div class="paragraph">
+<p>You can enable FIPS in a self-hosted engine during deployment when using the command-line.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Start the self-hosted engine deployment script. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index">Installing oVirt as a self-hosted engine using the command line</a>.</p>
+</li>
+<li>
+<p>When the deployment script prompts <code>Do you want to enable FIPS?</code>, enter <code>Yes</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Verification</div>
+<p>Verify that FIPS is enabled by entering the command <code>fips-mode-setup --check</code> on the host. The command should return <code>FIPS mode is enabled</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># fips-mode-setup --check
+FIPS mode is enabled.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enabling_fips_el_hosts_and_ovirt_appendix_fips">Enabling FIPS in oVirt hosts and the standalone Manager</h3>
+<div class="paragraph">
+<p>You can enable FIPS mode when installing a Enterprise Linux (EL) host or oVirt Node (oVirt Node). For details, see the guide <em>Security hardening</em> guide for your operating system.</p>
+</div>
+<div class="paragraph">
+<div class="title">Verification</div>
+<p>Verify that FIPS is enabled by entering the command <code>fips-mode-setup --check</code> on the host. The command should return <code>FIPS mode is enabled</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># fips-mode-setup --check
+FIPS mode is enabled.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Installing_Red_Hat_Virtualization_Hosts_SHE_cli_deploy">Installing oVirt Hosts</a></p>
+</li>
+<li>
+<p><a href="https://www.redhat.com/en/blog/configuring-and-applying-scap-policies-during-installation">Configuring and Applying SCAP Policies During Installation</a></p>
+</li>
+<li>
+<p><a href="http://www.open-scap.org/security-policies/choosing-policy/">Security policies available in the SCAP Security Guide</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index">Security Hardening</a> for Red Hat Enterprise Linux 8</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appe-oVirt_and_SSL">Appendix E: oVirt and encrypted communication</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</h3>
@@ -31724,7 +31852,436 @@ pool.default.ssl.truststore.password = <em>password</em></code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="appe-Branding">Appendix E: Branding</h2>
+<h2 id="appe-Proxies">Appendix F: Proxies</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="sect-SPICE_Proxy">SPICE Proxy</h3>
+<div class="sect3">
+<h4 id="SPICE_Proxy_Overview">SPICE Proxy Overview</h4>
+<div class="paragraph">
+<p>The SPICE Proxy is a tool used to connect SPICE Clients to virtual machines when the SPICE Clients are outside the network that connects the hypervisors. Setting up a SPICE Proxy consists of installing <code>Squid</code> on a machine and configuring the firewall to allow proxy traffic. Turning a SPICE Proxy on consists of using <code>engine-config</code> on the Engine to set the key <code>SpiceProxyDefault</code> to a value consisting of the name and port of the proxy. Turning a SPICE Proxy off consists of using <code>engine-config</code> on the Engine to remove the value to which the key <code>SpiceProxyDefault</code> has been set.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The SPICE Proxy can only be used in conjunction with the standalone SPICE client, and cannot be used to connect to virtual machines using noVNC.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="SPICE_Proxy_Machine_Setup">SPICE Proxy Machine Setup</h4>
+<div class="paragraph">
+<p>This procedure explains how to set up a machine as a SPICE Proxy. A SPICE Proxy makes it possible to connect to the oVirt network from outside the network. We use <code>Squid</code> in this procedure to provide proxy services.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Install <code>Squid</code> on the Proxy machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install squid</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open <strong>/etc/squid/squid.conf</strong>. Change:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">http_access deny CONNECT !SSL_ports</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">http_access deny CONNECT !Safe_ports</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Start the squid service and enable it to run automatically after reboot:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl enable squid.service --now</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable incoming requests to the squid service in the default firewalld zone:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --permanent --add-service=squid</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Make this firewall rule persistent in the runtime configuration:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --reload</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Confirm that the squid service appears in the list of firewall services:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># firewall-cmd --list-services
+ssh dhcpv6-client squid</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You have now set up a machine as a SPICE proxy. Before connecting to the oVirt network from outside the network, activate the SPICE proxy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Turning_On_a_SPICE_Proxy">Turning On a SPICE Proxy</h4>
+<div class="paragraph">
+<p>This procedure explains how to activate (or turn on) the SPICE proxy.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>On the Engine, use the engine-config tool to set a proxy:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># <code>engine-config -s SpiceProxyDefault=someProxy</code></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the <code>ovirt-engine</code> service:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The proxy must have this form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">protocol://[host]:[port]</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only SPICE clients shipped with Enterprise Linux 6.7, Enterprise Linux 7.2, or later, support HTTPS proxies. Earlier clients only support HTTP. If HTTPS is specified for earlier clients, the client will ignore the proxy setting and attempt a direct connection to the host.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>SPICE Proxy is now activated (turned on). It is now possible to connect to the oVirt network through the SPICE proxy.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Turning_off_a_SPICE_Proxy">Turning Off a SPICE Proxy</h4>
+<div class="paragraph">
+<p>This procedure explains how to turn off (deactivate) a SPICE proxy.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the Engine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">$ ssh root@<em>[IP of Engine]</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the following command to clear the SPICE proxy:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># engine-config -s SpiceProxyDefault=&quot;&quot;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the Engine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart ovirt-engine.service</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>SPICE proxy is now deactivated (turned off). It is no longer possible to connect to the oVirt network through the SPICE proxy.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sect-Squid_Proxy">Squid Proxy</h3>
+<div class="sect3">
+<h4 id="Installing_and_Configuring_a_Squid_Proxy">Installing and Configuring a Squid Proxy</h4>
+<div class="paragraph">
+<p>This section explains how to install and configure a Squid proxy to the VM Portal. A Squid proxy server is used as a content accelerator. It caches frequently-viewed content, reducing bandwidth and improving response times.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Obtain a keypair and certificate for the HTTPS port of the Squid proxy server. You can obtain this keypair the same way that you would obtain a keypair for another SSL/TLS service. The keypair is in the form of two PEM files which contain the private key and the signed certificate. For this procedure, we assume that they are named <strong>proxy.key</strong> and <strong>proxy.cer</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The keypair and certificate can also be generated using the certificate authority of the engine. If you already have the private key and certificate for the proxy and do not want to generate it with the engine certificate authority, skip to the next step.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Choose a host name for the proxy. Then, choose the other components of the distinguished name of the certificate for the proxy.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is good practice to use the same country and same organization name used by the engine itself. Find this information by logging in to the machine where the Engine is installed and running the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">openssl x509 -in /etc/pki/ovirt-engine/ca.pem -noout -text | grep DirName</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command outputs something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">subject= /C=US/O=Example Inc./CN=<em>engine.example.com</em>.81108</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The relevant part here is <strong>/C=US/O=Example Inc.</strong>. Use this to build the complete distinguished name for the certificate for the proxy:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">/C=US/O=Example Inc./CN=<em>proxy.example.com</em></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Log in to the proxy machine and generate a certificate signing request:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># openssl req -newkey rsa:2048 -subj '/C=US/O=Example Inc./CN=<em>proxy.example.com</em>' -nodes -keyout proxy.key -out proxy.req</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You must include the quotes around the distinguished name for the certificate. The <code>-nodes</code> option ensures that the private key is not encrypted; this means that you do not need to enter the password to start the proxy server.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The command generates two files: <strong>proxy.key</strong> and <strong>proxy.req</strong>. <strong>proxy.key</strong> is the private key. Keep this file safe. <strong>proxy.req</strong> is the certificate signing request. <strong>proxy.req</strong> does not require any special protection.</p>
+</div>
+</li>
+<li>
+<p>To generate the signed certificate, copy the certificate signing request file from the proxy machine to the Engine machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp proxy.req <em>engine.example.com</em>:/etc/pki/ovirt-engine/requests/.</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in to the Engine machine and sign the certificate:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># /usr/share/ovirt-engine/bin/pki-enroll-request.sh --name=proxy --days=3650 --subject='/C=US/O=Example Inc./CN=<em>proxy.example.com</em>'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This signs the certificate and makes it valid for 10 years (3650 days). Set the certificate to expire earlier, if you prefer.</p>
+</div>
+</li>
+<li>
+<p>The generated certificate file is available in the directory <strong>/etc/pki/ovirt-engine/certs</strong> and should be named <strong>proxy.cer</strong>. On the proxy machine, copy this file from the Engine machine to your current directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp <em>engine.example.com</em>:/etc/pki/ovirt-engine/certs/proxy.cer .</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ensure both <strong>proxy.key</strong> and <strong>proxy.cer</strong> are present on the proxy machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># ls -l proxy.key proxy.cer</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install the Squid proxy server package on the proxy machine:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install squid</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Move the private key and signed certificate to a place where the proxy can access them, for example to the <strong>/etc/squid</strong> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp proxy.key proxy.cer /etc/squid/.</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Set permissions so that the <code>squid</code> user can read these files:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># chgrp squid /etc/squid/proxy.*
+# chmod 640 /etc/squid/proxy.*</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The Squid proxy must verify the certificate used by the engine. Copy the Engine certificate to the proxy machine. This example uses the file path <strong>/etc/squid</strong>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># scp engine.example.com:/etc/pki/ovirt-engine/ca.pem /etc/squid/.</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The default CA certificate is located in <strong>/etc/pki/ovirt-engine/ca.pem</strong> on the Engine machine.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Set permissions so that the <code>squid</code> user can read the certificate file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># chgrp squid /etc/squid/ca.pem
+# chmod 640 /etc/squid/ca.pem</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If SELinux is in enforcing mode, change the context of port 443 using the <code>semanage</code> tool to permit Squid to use port 443:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dnf install policycoreutils-python
+# semanage port -m -p tcp -t http_cache_port_t 443</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Replace the existing Squid configuration file with the following:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">https_port 443 key=/etc/squid/proxy.key cert=/etc/squid/proxy.cer ssl-bump defaultsite=<em>engine.example.com</em>
+cache_peer <em>engine.example.com</em> parent 443 0 no-query originserver ssl sslcafile=/etc/squid/ca.pem name=engine login=PASSTHRU
+cache_peer_access engine allow all
+ssl_bump allow all
+http_access allow all</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the Squid proxy server:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># systemctl restart squid.service</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Squid Proxy in the default configuration will terminate its connection after 15 idle minutes. To increase the amount of time before Squid Proxy terminates its idle connection, adjust the <code>read_timeout</code> option in <strong>squid.conf</strong> (for instance <strong>read_timeout 10 hours</strong>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sect-Websocket_Proxy">Websocket Proxy</h3>
+<div class="sect3">
+<h4 id="Websocket_Proxy_Overview">Websocket Proxy Overview</h4>
+<div class="paragraph">
+<p>The websocket proxy allows users to connect to virtual machines via a noVNC console.</p>
+</div>
+<div class="paragraph">
+<p>The websocket proxy can be installed and configured on the oVirt Engine machine during the initial configuration (see <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM">Configuring the oVirt Engine</a>).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appe-Branding">Appendix G: Branding</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="sect-Branding">Branding</h3>
@@ -31946,7 +32503,7 @@ Following engine backup and restore, during engine restore, the custom message b
 </div>
 </div>
 <div class="sect1">
-<h2 id="sect-System_Accounts">Appendix F: System Accounts</h2>
+<h2 id="sect-System_Accounts">Appendix H: System Accounts</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Red_Hat_Enterprise_Virtualization_Manager_User_Accounts">oVirt Engine User Accounts</h3>
@@ -32088,7 +32645,7 @@ Following engine backup and restore, during engine restore, the custom message b
 </div>
 </div>
 <div class="sect1">
-<h2 id="ovirt-legal-notice">Appendix G: Legal notice</h2>
+<h2 id="ovirt-legal-notice">Appendix I: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index">Red Hat Virtualization 4.4 Administration Guide</a>. Copyright © 2022 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>

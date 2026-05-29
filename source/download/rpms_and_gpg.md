@@ -49,24 +49,23 @@ by any mirror or website that is providing the packages. Nightly repositories wo
 For some repositories, such as repositories with stable in default configuration, yum is able to find a proper key for the repository and asks the user
 for confirmation before importing the key if the key is not already imported into the rpm database.
 
-To get the public key:
+To get the public key for oVirt 4.5:
 
-    $ gpg --recv-keys FE590CB7
-    $ gpg --list-keys --with-fingerprint FE590CB7
+    $ curl -O https://resources.ovirt.org/pub/keys/RPM-GPG-ovirt-v4
+    $ gpg --show-keys --with-fingerprint RPM-GPG-ovirt-v4
     ---
-    pub   2048R/FE590CB7 2014-03-30 [expires: 2028-04-06]
-          Key fingerprint = 31A5 D783 7FAD 7CB2 86CD  3469 AB8C 4F9D FE59 0CB7
-    uid                  oVirt <infra@ovirt.org>
-    sub   2048R/004BC303 2014-03-30 [expires: 2028-04-06]
+    pub   rsa4096 2022-11-02 [SC] [expires: 2032-10-30]
+          3C98 E81D B93D EA6D 54DE  690E 44E4 75CB 2490 1D0C
+    uid                      oVirt <infra@ovirt.org>
     ---
-    $ gpg --export --armor FE590CB7 > ovirt-infra.pub
-    # rpm --import ovirt-infra.pub
+    # rpm --import RPM-GPG-ovirt-v4
 
-Importing keys Automatically for oVirt 4.4:
+The `centos-release-ovirt45` package installs this key automatically at
+`/etc/pki/rpm-gpg/RPM-GPG-KEY-oVirt-4.5`:
 
-    dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+    dnf install -y centos-release-ovirt45
 
-**Important:** yum will prompt sysadmin to acknowledge import of key, make sure key id is FE590CB7.
+**Important:** yum will prompt sysadmin to acknowledge import of key, make sure key id is 24901D0C.
 
 ### Verifying a package
 
@@ -82,7 +81,7 @@ If you do not use yum, you can check the signature of the package using the foll
 
 | Key ID     | Key Type     | Key Fingerprint                                     | Key Description | Created    | Expires    | Revoked | Notes |
 |------------|--------------|-----------------------------------------------------|-----------------|------------|------------|---------|-------|
-| `FE590CB7` | 2048-bit RSA | `31A5 D783 7FAD 7CB2 86CD 3469 AB8C 4F9D FE59 0CB7` | oVirt           | 2014-03-30 | 2028-04-06 |         |       |
+| `FE590CB7` | 2048-bit RSA | `31A5 D783 7FAD 7CB2 86CD 3469 AB8C 4F9D FE59 0CB7` | oVirt           | 2014-03-30 | 2028-04-06 |         | Legacy (oVirt 4.4 and older, EOL) |
 |------------|--------------|-----------------------------------------------------|-----------------|------------|------------|---------|-------|
-| `24901D0C` | 4096-bit RSA | `3C98 E81D B93D EA6D 54DE 690E 44E4 75CB 2490 1D0C` | oVirt           | 2022-11-02 | 2032-10-30 |         |       |
+| `24901D0C` | 4096-bit RSA | `3C98 E81D B93D EA6D 54DE 690E 44E4 75CB 2490 1D0C` | oVirt           | 2022-11-02 | 2032-10-30 |         | Current (oVirt 4.5) |
 {: .bordered}

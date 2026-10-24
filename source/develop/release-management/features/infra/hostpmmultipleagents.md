@@ -57,6 +57,5 @@ What other packages depend on this package? Are there changes outside the develo
 
 ### Documentation / External references
 
-Example from HP for redundant power supply with separate management used to be available in Figure II at
-`http://h20566.www2.hp.com/portal/site/hpsc/public/kb/docDisplay/?docId=emr_na-c02510164&ac.admitted=1350494275400.876444892.199480143`
-But the link is not working anymore.
+An example from HP for redundant power supply with separate management is available in
+[Rack and power planning with HP Insight Control Power Management](https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c02510164).

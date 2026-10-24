@@ -62,7 +62,7 @@ hosted-engine --vm-start-paused
 hosted-engine --add-console-password
 ----
 +
-The command outputs the necessary information you need to log in to the Manger virtual machine with VNC.
+The command outputs the necessary information you need to log in to the Manager virtual machine with VNC.
 
 . Log in to the {engine-name} virtual machine with VNC. The {engine-name} virtual machine is still paused, so it appears to be frozen.
 

@@ -166,7 +166,7 @@ drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-24
 -rw-r--r--   1 root     root        80121 Nov 10  2020 usr/lib/modules/4.18.0-240.el8.x86_64/extra/3w-9xxx/3w-9xxx.ko
 ----
 
-. Copy the image to the the directory under `/boot` that contains the kernel to be used in the layer being installed, for example:
+. Copy the image to the directory under `/boot` that contains the kernel to be used in the layer being installed, for example:
 +
 ifdef::rhv-doc[]
 [options="nowrap" subs="+quotes,verbatim"]

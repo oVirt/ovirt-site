@@ -2,7 +2,7 @@
 [id="Introduction_to_users"]
 = Introduction to Users
 
-In {virt-product-fullname}, there are two types of user domains: local domain and external domain. A default local domain called the *internal* domain and a default user *admin* is created during the the {engine-name} installation process.
+In {virt-product-fullname}, there are two types of user domains: local domain and external domain. A default local domain called the *internal* domain and a default user *admin* is created during the {engine-name} installation process.
 
 You can create additional users on the *internal* domain using `ovirt-aaa-jdbc-tool`. User accounts created on local domains are known as local users. You can also attach external directory servers such as Red Hat Directory Server, Active Directory, OpenLDAP, and many other supported options to your {virt-product-fullname} environment and use them as external domains. User accounts created on external domains are known as directory users.
 

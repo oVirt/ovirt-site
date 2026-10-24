@@ -46,7 +46,7 @@ A VM lease offers two important capabilities:
 .V5 metadata (Red Hat Virtualization 4.3 and later)
 
 * Support for 4K (4096 byte) block storage.
-* Support for variable SANLOCK allignments.
+* Support for variable SANLOCK alignments.
 * Support for new properties:
 
 ** `BLOCK_SIZE` - stores the block size of the storage domain in bytes.

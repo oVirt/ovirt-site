@@ -25,7 +25,7 @@ include::snip-Host_update_limitations.adoc[]
 . Click *Next*.
 . Review the summary of the hosts and virtual machines that are affected.
 . Click *Upgrade*.
-. A cluster upgrade status screen displays with a progress bar showing the precentage of completion, and a list of steps in the upgrade process that have completed. You can click *Go to Event Log* to open the log entries for the upgrade. Closing this screen does not interrupt the upgrade process.
+. A cluster upgrade status screen displays with a progress bar showing the percentage of completion, and a list of steps in the upgrade process that have completed. You can click *Go to Event Log* to open the log entries for the upgrade. Closing this screen does not interrupt the upgrade process.
 
 You can track the progress of host updates:
 

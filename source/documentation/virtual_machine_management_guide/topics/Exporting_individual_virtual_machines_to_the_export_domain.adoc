@@ -16,7 +16,7 @@ Export a virtual machine to the export domain so that it can be imported into a 
 +
 [NOTE]
 ====
-When you create a virtual machine from a template by clicking menu:Compute[Templates] and clicking btn:[New VM], you wll see two storage allocation options in the *Storage Allocation* section in the *Resource Allocation* tab:
+When you create a virtual machine from a template by clicking menu:Compute[Templates] and clicking btn:[New VM], you will see two storage allocation options in the *Storage Allocation* section in the *Resource Allocation* tab:
 
 * If *Clone* is  selected, the virtual machine is not dependent on the template. The template does not have to exist in the destination data center.
 

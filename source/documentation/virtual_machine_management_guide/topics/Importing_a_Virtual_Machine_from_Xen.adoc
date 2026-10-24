@@ -12,7 +12,7 @@ If you are importing a Windows virtual machine from a RHEL 5 Xen host and you ar
 
 The VirtIO drivers can be installed from the `virtio-win___version__.iso` or the `RHV-toolsSetup___version__.iso`. See xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents and Drivers on Windows] for details.
 
-If you are not using VirtIO drivers, review the configuration of the virutal machine before first boot to ensure that VirtIO devices are not being used.
+If you are not using VirtIO drivers, review the configuration of the virtual machine before first boot to ensure that VirtIO devices are not being used.
 ====
 
 [NOTE]

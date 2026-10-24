@@ -272,7 +272,7 @@ a|
 |*static hugepages*
 |Predictable results
 a|
-* Requires a kernel command line in the Edit Host configuration in the Administraion Portal. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#types-operating_system-attributes-custom_kernel_cmdline[Custom kernel command line]
+* Requires a kernel command line in the Edit Host configuration in the Administration Portal. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#types-operating_system-attributes-custom_kernel_cmdline[Custom kernel command line]
 * Requires a host reboot.
 |
 |===

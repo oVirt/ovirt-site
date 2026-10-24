@@ -63,7 +63,7 @@ Enable nested virtualization in specific virtual machines:
 
 . Select a virtual machine and click btn:[Edit]
 
-. In the *Edit Vitual Machine* window, click btn:[Show Advanced Options] and select the *Host* tab.
+. In the *Edit Virtual Machine* window, click btn:[Show Advanced Options] and select the *Host* tab.
 
 . Under *Start Running On*, click *Specific Host* and select the host or hosts you configured to support nested virtualization.
 

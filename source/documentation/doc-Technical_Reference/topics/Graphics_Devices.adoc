@@ -8,7 +8,7 @@ You can select a *Video Type* in the Administration Portal:
 
 * *QXL*: Emulates a para-virtualized video card that works best with QXL guest drivers
 * *VGA*: Emulates a dummy VGA card with `Bochs` VESA extensions
-* *BOCHS*: Emulates a dummy VGA card without legacy emulation for guest machines that that run with UEFI. This is the default display video card emulator for UEFI servers.
+* *BOCHS*: Emulates a dummy VGA card without legacy emulation for guest machines that run with UEFI. This is the default display video card emulator for UEFI servers.
 
 [NOTE]
 ====

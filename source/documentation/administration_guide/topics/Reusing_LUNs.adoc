@@ -33,7 +33,7 @@ You must run this procedure on the correct LUN so that you do not inadvertently 
 kpartx -dv /dev/mapper/<LUN_ID>
 ----
 
-. Erase the fileystem or raid signatures in _<LUN_ID>_:
+. Erase the filesystem or raid signatures in _<LUN_ID>_:
 +
 [source, terminal]
 ----

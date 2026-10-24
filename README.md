@@ -32,7 +32,7 @@ After you submit a PR to the ovirt-site reposiory, automation will verify your s
 In order to do so, click on the "Checks" tab within your PR and then click on "Website Tests" link on the left bar.
 You can find "site-without-markdown" artifact at the bottom of the page.
 
-Once downladed the zip file, in order to check how the website looks like you need to extract the archive and serve the extracted directory with a web server.
+Once downloaded the zip file, in order to check how the website looks like you need to extract the archive and serve the extracted directory with a web server.
 An easy way to do it is using python: `python3 -m http.server` from the web site directory. This won't provide a full replica of what will happen on the real website
 because there are a few redirects provided via `.htaccess` that can be processed only using apache. If you can run an apache server on your system you can extract the
 zip within `/var/www/html/` and serve it with your apache installation.

@@ -11,7 +11,7 @@ When a host's network is out of sync, the only activities that you can perform o
 .Understanding How a Host Becomes out-of-sync
 A host will become out of sync if:
 
-* You make configuration changes on the host rather than using the the *Edit Logical Networks* window, for example:
+* You make configuration changes on the host rather than using the *Edit Logical Networks* window, for example:
 ** Changing the VLAN identifier on the physical host.
 
 ** Changing the *Custom MTU* on the physical host.

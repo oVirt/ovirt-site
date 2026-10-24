@@ -17,7 +17,7 @@ It is assumed that you are running `remove_stale_lun.yml` from the engine machin
 . Click the storage domain’s name. This opens the details view.
 . Click the *Data Center* tab.
 . Click *Maintenance*, then click *OK*.
-. Click *Detatch*, then click *OK*.
+. Click *Detach*, then click *OK*.
 . Click *Remove*.
 . Click *OK* to remove the storage domain from the source environment.
 . Remove the LUN from the storage server.

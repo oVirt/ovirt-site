@@ -41,3 +41,5 @@ gem 'hash_dot', '~> 2.4.2'
 
 # for checking broken links
 gem 'html-proofer'
+
+gem "webrick"

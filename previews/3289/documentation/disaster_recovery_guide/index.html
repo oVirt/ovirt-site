@@ -234,7 +234,7 @@
 </table>
 </div>
 <div class="paragraph">
-<p>Set the SPM role on a host at the primary site to have precedence. To do so, configure SPM priority as high in the primary site hosts and SPM priority as low on secondary site hosts. If you have a primary site failure that impacts network devices inside the primary site, preventing the fencing device for the SPM host from being reachable, such as power loss, the hosts in the seconday site are not able to take over the SPM role.</p>
+<p>Set the SPM role on a host at the primary site to have precedence. To do so, configure SPM priority as high in the primary site hosts and SPM priority as low on secondary site hosts. If you have a primary site failure that impacts network devices inside the primary site, preventing the fencing device for the SPM host from being reachable, such as power loss, the hosts in the secondary site are not able to take over the SPM role.</p>
 </div>
 <div class="paragraph">
 <p>In such a scenario virtual machines do a failover, but operations that require the SPM role in place cannot be executed, including adding new disks, extending existing disks, and exporting virtual machines.</p>
@@ -1179,7 +1179,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</code></pre>
 <p>Test failover while the primary site remains active and without interfering with virtual machines on the primary site&#8217;s storage domains. See <a href="#discreet_failover">Discreet Failover Test</a>.</p>
 </li>
 <li>
-<p>Test failover and failback using specific storage domains attached to the the primary site, therefore allowing the primary site to remain active. See <a href="#discreet_failover_failback">Discreet Failover and Failback Test</a>.</p>
+<p>Test failover and failback using specific storage domains attached to the primary site, therefore allowing the primary site to remain active. See <a href="#discreet_failover_failback">Discreet Failover and Failback Test</a>.</p>
 </li>
 <li>
 <p>Test failover and failback for an impending disaster where you have a grace period to failover to the secondary site, or an unplanned shutdown of the primary site. See <a href="#non_discreet_failover_failback">Full Failover and Failback test</a>.</p>

@@ -8944,7 +8944,7 @@ multicast_startup_query_interval=3125</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>You make configuration changes on the host rather than using the the <strong>Edit Logical Networks</strong> window, for example:</p>
+<p>You make configuration changes on the host rather than using the <strong>Edit Logical Networks</strong> window, for example:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -10727,7 +10727,7 @@ Do not migrate parent virtual machines to hosts that do not support nested virtu
 <p>Select a virtual machine and click <b class="button">Edit</b></p>
 </li>
 <li>
-<p>In the <strong>Edit Vitual Machine</strong> window, click <b class="button">Show Advanced Options</b> and select the <strong>Host</strong> tab.</p>
+<p>In the <strong>Edit Virtual Machine</strong> window, click <b class="button">Show Advanced Options</b> and select the <strong>Host</strong> tab.</p>
 </li>
 <li>
 <p>Under <strong>Start Running On</strong>, click <strong>Specific Host</strong> and select the host or hosts you configured to support nested virtualization.</p>
@@ -11034,7 +11034,7 @@ Pinned virtual machines are shut down during the update, unless you choose to sk
 <p>Click <strong>Upgrade</strong>.</p>
 </li>
 <li>
-<p>A cluster upgrade status screen displays with a progress bar showing the precentage of completion, and a list of steps in the upgrade process that have completed. You can click <strong>Go to Event Log</strong> to open the log entries for the upgrade. Closing this screen does not interrupt the upgrade process.</p>
+<p>A cluster upgrade status screen displays with a progress bar showing the percentage of completion, and a list of steps in the upgrade process that have completed. You can click <strong>Go to Event Log</strong> to open the log entries for the upgrade. Closing this screen does not interrupt the upgrade process.</p>
 </li>
 </ol>
 </div>
@@ -14292,7 +14292,7 @@ multipaths {
 </div>
 </li>
 <li>
-<p>Erase the fileystem or raid signatures in <em>&lt;LUN_ID&gt;</em>:</p>
+<p>Erase the filesystem or raid signatures in <em>&lt;LUN_ID&gt;</em>:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="terminal">wipefs -a /dev/mapper/&lt;LUN_ID&gt;</code></pre>
@@ -14350,7 +14350,7 @@ It is assumed that you are running <code>remove_stale_lun.yml</code> from the en
 <p>Click <strong>Maintenance</strong>, then click <strong>OK</strong>.</p>
 </li>
 <li>
-<p>Click <strong>Detatch</strong>, then click <strong>OK</strong>.</p>
+<p>Click <strong>Detach</strong>, then click <strong>OK</strong>.</p>
 </li>
 <li>
 <p>Click <strong>Remove</strong>.</p>
@@ -19427,7 +19427,7 @@ broker : 25, type : broker</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The command outputs the necessary information you need to log in to the Manger virtual machine with VNC.</p>
+<p>The command outputs the necessary information you need to log in to the Manager virtual machine with VNC.</p>
 </div>
 </li>
 <li>
@@ -24331,7 +24331,7 @@ This example uses Ansible to connect to the Manager on the local machine and cre
 <div class="sect3">
 <h4 id="Introduction_to_users">3.6.1. Introduction to Users</h4>
 <div class="paragraph">
-<p>In oVirt, there are two types of user domains: local domain and external domain. A default local domain called the <strong>internal</strong> domain and a default user <strong>admin</strong> is created during the the Engine installation process.</p>
+<p>In oVirt, there are two types of user domains: local domain and external domain. A default local domain called the <strong>internal</strong> domain and a default user <strong>admin</strong> is created during the Engine installation process.</p>
 </div>
 <div class="paragraph">
 <p>You can create additional users on the <strong>internal</strong> domain using <code>ovirt-aaa-jdbc-tool</code>. User accounts created on local domains are known as local users. You can also attach external directory servers such as Red Hat Directory Server, Active Directory, OpenLDAP, and many other supported options to your oVirt environment and use them as external domains. User accounts created on external domains are known as directory users.</p>
@@ -26415,7 +26415,7 @@ user updated successfully</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>Once the admin password is updated, the change must be manually propagated to <code>ovirt-provider-ovn</code>. Otherwise, the the admin user will become locked because the Red Hat Virtualization Manager will continue to use the old password to synchronize networks from <code>ovirt-provider-ovn</code>. To propogate the new password to <code>ovirt-provider-ovn</code>, do the following:</p>
+<p>Once the admin password is updated, the change must be manually propagated to <code>ovirt-provider-ovn</code>. Otherwise, the admin user will become locked because the Red Hat Virtualization Manager will continue to use the old password to synchronize networks from <code>ovirt-provider-ovn</code>. To propagate the new password to <code>ovirt-provider-ovn</code>, do the following:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -26555,7 +26555,7 @@ user updated successfully</pre>
 <div class="sect4">
 <h5 id="Disabling_the_Internal_Administrative_User">Disabling the Internal Administrative User</h5>
 <div class="paragraph">
-<p>You can disable users on the local domains including the <strong>admin@internal</strong> user created during <code>engine-setup</code>. Make sure you have at least one user in the envrionment with full administrative permissions before disabling the default <strong>admin</strong> user.</p>
+<p>You can disable users on the local domains including the <strong>admin@internal</strong> user created during <code>engine-setup</code>. Make sure you have at least one user in the environment with full administrative permissions before disabling the default <strong>admin</strong> user.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
@@ -27562,7 +27562,7 @@ MAIL_RETRIES=4</pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DAYS_TO_SEND_ON_STARTUP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of days of old events that will be processed and sent when the notifier starts. If the value is 0 and the service stops and starts after a while, all notifications between service stop and service start time will be lost, please set this value for 1 or a greater value if you want to get notifications on events that occured between service stop and start time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of days of old events that will be processed and sent when the notifier starts. If the value is 0 and the service stops and starts after a while, all notifications between service stop and service start time will be lost, please set this value for 1 or a greater value if you want to get notifications on events that occurred between service stop and start time.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FILTER</p></td>
@@ -28472,7 +28472,7 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>On a Windows machine, extract the <strong>.msi</strong> intaller from the <strong>.zip</strong> file and run the <strong>.msi</strong> installer.</p>
+<p>On a Windows machine, extract the <strong>.msi</strong> installer from the <strong>.zip</strong> file and run the <strong>.msi</strong> installer.</p>
 </li>
 <li>
 <p>Follow the steps of the installation wizard. Unless otherwise specified, the USB Filter Editor will be installed by default in either <strong>C:\Program Files\RedHat\USB Filter Editor</strong> or <strong>C:\Program Files(x86)\RedHat\USB Filter Editor</strong> depending on your version of Windows.</p>

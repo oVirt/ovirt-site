@@ -129,7 +129,7 @@
   <li>Content of relevant log files. For the engine, this often includes <code class="language-plaintext highlighter-rouge">/var/log/ovirt-engine/*</code>, including subdirectories and all files within</li>
   <li>Other <code class="language-plaintext highlighter-rouge">/var/log/*ovirt*</code> directories/files, as applicable (e.g. ovirt-engine-dwh for dwh-related issues)</li>
   <li>/var/log/messages and the output of ‘journalctl’</li>
-  <li>The exact time the problem happened. Sometimes you can’t know that, but in others you do - you installed something, pressed some button, and got an error. In this case, if, before you pressed this button, you also pressed many other buttons and got many other error messages (and even if you did not), there are likely other errors in the logs, some of which are irrelevant - and noone wants to spend time analyzing them.</li>
+  <li>The exact time the problem happened. Sometimes you can’t know that, but in others you do - you installed something, pressed some button, and got an error. In this case, if, before you pressed this button, you also pressed many other buttons and got many other error messages (and even if you did not), there are likely other errors in the logs, some of which are irrelevant - and no one wants to spend time analyzing them.</li>
   <li>Versions of relevant packages - e.g. the output of: <code class="language-plaintext highlighter-rouge">yum -q list installed centos-\*release\* centos-\*repos\* ovirt-release\* ovirt-engine redhat-release vdsm glusterfs</code>.</li>
 </ul>
 

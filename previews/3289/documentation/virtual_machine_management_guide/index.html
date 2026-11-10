@@ -3304,7 +3304,7 @@ on each oVirt host, modify the <code>/etc/modprobe.d/kvm.conf</code> configurati
 <p>Select <strong>Strict</strong>, <strong>Preferred</strong>, or <strong>Interleave</strong> from the <strong>Tune Mode</strong> drop-down list in each NUMA node. If the selected mode is <strong>Preferred</strong>, the <strong>NUMA Node Count</strong> must be set to <code>1</code>.</p>
 </li>
 <li>
-<p>You can also set the NUMA pinning policy automatically by selecting <strong>Resize and Pin NUMA</strong> from the CPU Pinning Polcy drop-down list under the <strong>CPU Allocation</strong> settings in the <strong>Resource Allocation</strong> tab:</p>
+<p>You can also set the NUMA pinning policy automatically by selecting <strong>Resize and Pin NUMA</strong> from the CPU Pinning Policy drop-down list under the <strong>CPU Allocation</strong> settings in the <strong>Resource Allocation</strong> tab:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -4184,7 +4184,7 @@ Support for instance types is now deprecated, and will be removed in a future re
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Requires a kernel command line in the Edit Host configuration in the Administraion Portal. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#types-operating_system-attributes-custom_kernel_cmdline">Custom kernel command line</a></p>
+<p>Requires a kernel command line in the Edit Host configuration in the Administration Portal. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index#types-operating_system-attributes-custom_kernel_cmdline">Custom kernel command line</a></p>
 </li>
 <li>
 <p>Requires a host reboot.</p>
@@ -7207,7 +7207,7 @@ Error while executing action:
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When you create a virtual machine from a template by clicking <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Templates</b></span> and clicking <b class="button">New VM</b>, you wll see two storage allocation options in the <strong>Storage Allocation</strong> section in the <strong>Resource Allocation</strong> tab:</p>
+<p>When you create a virtual machine from a template by clicking <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Templates</b></span> and clicking <b class="button">New VM</b>, you will see two storage allocation options in the <strong>Storage Allocation</strong> section in the <strong>Resource Allocation</strong> tab:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -7875,7 +7875,7 @@ Error while executing action:
 <p>The VirtIO drivers can be installed from the <code>virtio-win<em>_version</em>.iso</code> or the <code>RHV-toolsSetup<em>_version</em>.iso</code>. See <a href="#Installing_the_Guest_Agents_and_Drivers_on_Windows">Installing the Guest Agents and Drivers on Windows</a> for details.</p>
 </div>
 <div class="paragraph">
-<p>If you are not using VirtIO drivers, review the configuration of the virutal machine before first boot to ensure that VirtIO devices are not being used.</p>
+<p>If you are not using VirtIO drivers, review the configuration of the virtual machine before first boot to ensure that VirtIO devices are not being used.</p>
 </div>
 </td>
 </tr>
@@ -10562,7 +10562,7 @@ You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.
 <p>oVirt enhances <code>Sysprep</code> by exploiting virtualization technology to deploy virtual workstations based on a single template. oVirt builds a tailored auto-answer file for each virtual workstation.</p>
 </div>
 <div class="paragraph">
-<p><code>Sysprep</code> generates a complete unattended installation answer file. Default values for several Windows operating systems are available in the <strong>/usr/share/ovirt-engine/conf/sysprep/</strong> directory. You can also create a custom <code>Sysprep</code> file and reference it from the the <strong>osinfo</strong> file in the <strong>/etc/ovirt-engine/osinfo.conf.d/</strong> directory. These files act as templates for <code>Sysprep</code>. The fields in these files can be copied and edited as required. This definition will override any values entered into the <strong>Initial Run</strong> fields of the <strong>Edit Virtual Machine</strong> window.</p>
+<p><code>Sysprep</code> generates a complete unattended installation answer file. Default values for several Windows operating systems are available in the <strong>/usr/share/ovirt-engine/conf/sysprep/</strong> directory. You can also create a custom <code>Sysprep</code> file and reference it from the <strong>osinfo</strong> file in the <strong>/etc/ovirt-engine/osinfo.conf.d/</strong> directory. These files act as templates for <code>Sysprep</code>. The fields in these files can be copied and edited as required. This definition will override any values entered into the <strong>Initial Run</strong> fields of the <strong>Edit Virtual Machine</strong> window.</p>
 </div>
 <div class="paragraph">
 <p>You can create a custom <code>sysprep</code> file when creating a pool of Windows virtual machines, to accommodate various operating systems and domains. See <a href="https://ovirt.org/documentation/administration_guide/index#Creating_a_VM_Pool">Creating a Virtual Machine Pool</a> in the <em>Administration Guide</em> for details.</p>

@@ -36,4 +36,7 @@
       - edit_url = "https://github.com/#{site.data.site.github}/edit/main/#{[site['source'], page.path].join('/')}"
       %a{ :href => edit_url, :title => "Edit this page", :target => "_blank" }= "#{icon}Edit this page"
 
+  %a.back-to-top{ href: "#", "aria-label" => "Back to top" }
+    %i.fa-solid.fa-chevron-up
+
   = insert_piwik_tracker

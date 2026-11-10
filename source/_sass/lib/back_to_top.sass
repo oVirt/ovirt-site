@@ -1,0 +1,24 @@
+.back-to-top
+  position: fixed
+  bottom: 2rem
+  right: 2rem
+  width: 3rem
+  height: 3rem
+  border-radius: 50%
+  background: #333
+  color: #fff
+  display: flex
+  align-items: center
+  justify-content: center
+  text-decoration: none
+  opacity: 0
+  visibility: hidden
+  transition: opacity 0.3s, visibility 0.3s
+  z-index: 1000
+
+  &.visible
+    opacity: 0.75
+    visibility: visible
+
+  &:hover
+    opacity: 1

@@ -1,0 +1,59 @@
+span.icon>.fa {
+  cursor: default;
+}
+.admonitionblock td.icon {
+  text-align: center;
+  width: 80px;
+}
+.admonitionblock td.icon [class^="fa icon-"] {
+  font-size: 2.5em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+  cursor: default;
+}
+.admonitionblock td.icon .icon-note:before {
+  content: "\f05a";
+  color: #19407c;
+}
+.admonitionblock td.icon .icon-tip:before {
+  content: "\f0eb";
+  text-shadow: 1px 1px 2px rgba(155,155,0,.8);
+  color: #111;
+}
+.admonitionblock td.icon .icon-warning:before {
+  content: "\f071";
+  color: #bf6900;
+}
+.admonitionblock td.icon .icon-caution:before {
+  content: "\f06d";
+  color: #bf3400;
+}
+.admonitionblock td.icon .icon-important:before {
+  content: "\f06a";
+  color: #bf0000;
+}
+.conum {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+code .conum {
+  position: absolute;
+}
+.conum::before {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  background: #025081;
+  color: #fff;
+  text-align: center;
+  content: attr(data-value);
+  border-radius: 50%;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  position: relative;
+  top: -0.1rem;
+}
+.conum+b {
+  display:none;
+}

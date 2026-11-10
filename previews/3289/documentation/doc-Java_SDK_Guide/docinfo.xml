@@ -1,0 +1,19 @@
+<title>Java SDK Guide</title>
+<productname>Red Hat Virtualization</productname>
+<productnumber>{vernum_rhv}</productnumber>
+<subtitle>Using the Red Hat Virtualization Java SDK</subtitle>
+<abstract><para>This guide describes how to install and work with version 4 of the Red Hat Virtualization Java software development kit.</para>
+<!--<para>{beta-disclaimer}</para>--></abstract>
+<authorgroup id="Author_Group">
+	<author>
+		<firstname>Red Hat Virtualization</firstname><surname>Documentation Team</surname>
+		<affiliation>
+			<orgname>
+				Red Hat
+			</orgname>
+			<orgdiv>
+				Customer Content Services
+			</orgdiv>
+		</affiliation><email>rhev-docs@redhat.com</email>
+	</author>
+</authorgroup>
